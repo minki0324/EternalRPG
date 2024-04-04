@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b78a87cbdee7f4c87719c03812a243, type: 3}
+  m_Name: 00 Silver Neckless
+  m_EditorClassIdentifier: 
+  EquipmentType: 9
+  EquipmentSprite: {fileID: 21300000, guid: 54283fd8a2faa904497f961032cfd838, type: 3}
+  ItemID: 910000
+  OwnCount: 0
+  EquipmentName: "\uC740 \uC2ED\uC790 \uBAA9\uAC78\uC774"
+  RequireCost: 400
+  isCanBuy: 1
+  NecklessHP: 10
+  NecklessHPPercent: 5
+  NecklessComboPercent: 10
+  NecklessAvoidPercent: 10
+  NecklessEXPPercent: 5
+  NecklessGoldPercent: 5

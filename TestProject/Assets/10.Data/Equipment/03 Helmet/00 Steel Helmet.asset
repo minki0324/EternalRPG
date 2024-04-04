@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a0d65582d58754299e321244480e3e, type: 3}
+  m_Name: 00 Steel Helmet
+  m_EditorClassIdentifier: 
+  EquipmentType: 2
+  EquipmentSprite: {fileID: 21300000, guid: 92f69ccd8015e054a9350bde1a549be8, type: 3}
+  ItemID: 903000
+  OwnCount: 0
+  EquipmentName: "\uCCA0 \uD22C\uAD6C"
+  RequireCost: 110
+  isCanBuy: 1
+  HelmetHP: 20
+  HelmetHPPercent: 2
+  HelmetDef: 5
+  HelmetDefPercent: 4
+  HelmetAvoidPercent: 3
+  HelmetDrainResist: 0

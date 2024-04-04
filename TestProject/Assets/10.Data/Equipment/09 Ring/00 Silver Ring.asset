@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 00 Silver Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  EquipmentSprite: {fileID: 21300000, guid: a6dca9f2793b3ee4e93384c15c62f645, type: 3}
+  ItemID: 909000
+  OwnCount: 0
+  EquipmentName: "\uC740\uAC00\uB77D\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  RingATK: 3
+  RingATKPercent: 2
+  RingDef: 0
+  RingDefPercent: 0
+  RingCriticalPercent: 3
+  RingCriticalResist: 2
+  RingDrainPercent: 0
+  RingDrainResist: 0
+  RingEXPPercent: 10
+  RingGoldPercent: 0
