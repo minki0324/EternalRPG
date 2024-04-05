@@ -19,13 +19,20 @@ public class MonsterData : ScriptableObject
 
 
     [Header("확률")]
-    // 크리티컬
-    public float CriticalPercant = 5f;
-    public float CriticalResist = 5f;
-    public float CriticalDamage = 1.2f;
-    // 연타
-    public float ComboPercent = 5f;
-    public float ComboResist = 5f;
+    [Space(10)] // 크리티컬
+    public int CriticalPercant;
+    public int CriticalResist;
+    public float CriticalDamage;
+    [Space(10)] // 연타
+    public int ComboPercent;
+    public int ComboResist;
+    [Space(10)] // 회피
+    public int AvoidPercent;
+    public int AvoidResist;
+    [Space(10)] // 흡혈
+    public int DrainPercent;
+    public int DrainResist;
+    public float DrainAmount;
 
     [Header("Reword")]
     public float RewordEXP;

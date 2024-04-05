@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 00 Punch
   m_EditorClassIdentifier: 
   EquipmentType: 0
-  animator: {fileID: 9100000, guid: e9924250995d3ba40ab7179c7696db96, type: 2}
-  EquipmentSprite: {fileID: 0}
+  SpriteName: bg None Background
   ItemID: 900000
-  OwnCount: 0
   EquipmentName: 
   RequireCost: 0
+  isCanBuy: 0
+  WeaponType: 0
   WeaponATK: 0
   WeaponATKPercent: 0
   WeaponComboPercent: 0
@@ -26,3 +26,5 @@ MonoBehaviour:
   WeaponCriticalDamage: 0
   WeaponDrainPercent: 0
   WeaponDrainAmount: 0
+  WeaponSTRPercent: 0
+  WeaponDEXPercent: 0

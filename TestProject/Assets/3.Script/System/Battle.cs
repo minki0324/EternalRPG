@@ -25,6 +25,7 @@ public class Battle : MonoBehaviour
     [SerializeField] private Slider playerHPSlider;
 
     [Header("Effect")]
+    [SerializeField] private RuntimeAnimatorController[] weaponAnimators;
     [SerializeField] private RuntimeAnimatorController runtimeEffectAnimator;
     [SerializeField] private Animator effectAnimator;
     [SerializeField] private TMP_Text damageText;
@@ -34,6 +35,11 @@ public class Battle : MonoBehaviour
     private void OnEnable()
     {
         InitData();
+    }
+
+    private void OnDisable()
+    {
+        PrintLog.Instance.BattleLogClear();
     }
 
     public void InitData()
@@ -69,7 +75,7 @@ public class Battle : MonoBehaviour
         player.gameObject.transform.position = new Vector2(mon.gameObject.transform.position.x + mon.monsterData.ReturnPos.x,
                                                                                                               mon.gameObject.transform.position.y + mon.monsterData.ReturnPos.y);
         activeCanvas.gameObject.SetActive(false);
-        transform.parent.gameObject.SetActive(false);
+        activeCanvas.versusPanel.SetActive(false);
     }
 
     private IEnumerator StartBattle_Co()
@@ -81,8 +87,17 @@ public class Battle : MonoBehaviour
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                PlayerAttack(i);
-                effectAnimator.SetTrigger(GetTrigger(i));
+                if (Avoid(mon.monsterData.AvoidPercent, GameManager.Instance.AvoidResist))
+                { // 회피 성공했을 때
+                    damageText.text = $"회피 !";
+                    damageText.color = Color.cyan;
+                    Debug.Log("몬스터가 회피");
+                }
+                else
+                {
+                    PlayerAttack(i);
+                    effectAnimator.SetTrigger(GetTrigger(i));
+                }
 
                 if (mon.MonsterCurHP <= 0)
                 { // 승리
@@ -91,6 +106,7 @@ public class Battle : MonoBehaviour
                     // for문 이탈
                     break;
                 }
+
                 yield return battleDelay;
             }
             if (mon.MonsterCurHP <= 0)
@@ -102,8 +118,16 @@ public class Battle : MonoBehaviour
             comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                MonsterAttack(i);
-                playerHPText.color = new Color(1f, 0f, 0f); // 빨간색
+                if(Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
+                { // 회피 성공했을 때
+                    Debug.Log("플레이어가 회피");
+                }
+                else
+                {
+                    MonsterAttack(i);
+                    playerHPText.color = new Color(1f, 0f, 0f); // 빨간색
+                }
+                
                 if (GameManager.Instance.PlayerCurHP <= 0)
                 { // 패배
                     result.isWin = false;
@@ -127,15 +151,32 @@ public class Battle : MonoBehaviour
     private void PlayerAttack(int _comboCount)
     {
         int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
+        int drainAmount = 0;
+
+        // 크리티컬 확인
         if(isCritical)
         {
             damageText.text = $"치명타 !\n{damage:N0} !";
+            damageText.color = Color.yellow;
         }
         else
         {
             damageText.text = $"{damage:N0} !";
+            damageText.color = Color.white;
         }
         mon.MonsterCurHP = Mathf.Max(0, mon.MonsterCurHP - damage);
+
+        // 흡혈 확인
+        drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
+        if(drainAmount != 0)
+        { // 흡혈 성공 텍스트 띄워줘야함 todo
+            GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount);
+            Debug.Log($"플레이어가 흡혈 : {Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount)}");
+            playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+            playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
+        }
+
+        // 콤보 관련 텍스트 띄워주기
         if (_comboCount != 1)
         {
             PrintLog.Instance.BattleLog($"{_comboCount}연격 ! {mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
@@ -144,18 +185,48 @@ public class Battle : MonoBehaviour
         {
             PrintLog.Instance.BattleLog($"{mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
         }
+
+        // 몬스터 체력바 관리
         monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
         monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
 
-        runtimeEffectAnimator = GameManager.Instance.WeaponData.animator;
+        // 
+        runtimeEffectAnimator = GetAnimator();
         effectAnimator.runtimeAnimatorController = runtimeEffectAnimator;
         damageAnimator.SetTrigger("Damage");
     }
 
-    private void MonsterAttack(int _comboCount)
+    private RuntimeAnimatorController GetAnimator()
+    {
+        RuntimeAnimatorController con;
+        switch (GameManager.Instance.WeaponData.WeaponType)
+        {
+            case WeaponType.Punch:
+                con = weaponAnimators[0];
+                return con;
+            case WeaponType.Sword:
+                con = weaponAnimators[1];
+                return con;
+            default:
+                return null;
+        }
+    }
+
+        private void MonsterAttack(int _comboCount)
     {
         int damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
+        int drainAmount = 0;
         GameManager.Instance.PlayerCurHP = Mathf.Max(0, GameManager.Instance.PlayerCurHP - damage);
+        drainAmount = Drain(mon.monsterData.DrainPercent, GameManager.Instance.DrainResist, damage, mon.monsterData.DrainAmount);
+        if(drainAmount != 0)
+        { // 흡혈 성공 텍스트 띄워줘야함 todo
+            mon.MonsterCurHP = Mathf.Min(mon.MonsterMaxHP, mon.MonsterCurHP + drainAmount);
+            Debug.Log("몬스터가 흡혈");
+            // 몬스터 체력바 관리
+            monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
+            monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
+        }
+
         if(_comboCount != 1)
         {
             PrintLog.Instance.BattleLog($"몬스터의 {_comboCount}연격 ! 플레이어는 {damage:N0}의 피해를 입혔습니다.");
@@ -184,7 +255,7 @@ public class Battle : MonoBehaviour
             isCritical = false;
         }
 
-        damage = damage - _EnemyDef;
+        damage = Mathf.Max(0, damage - _EnemyDef);
 
         int roundedDamage = Mathf.RoundToInt(damage);
 
@@ -215,6 +286,35 @@ public class Battle : MonoBehaviour
         }
 
         return comboCount;
+    }
+
+    private int Drain(int _ObjDrainPercent, int _EnemyDrainResist, int damage, float ObjDrainAmount)
+    {
+        int adjustedDrainPercent = _ObjDrainPercent - _EnemyDrainResist;
+        float randomValue = Random.Range(0f, 100f);
+        int drain = 0;
+
+        if(adjustedDrainPercent > 100 || adjustedDrainPercent >= randomValue)
+        {
+            drain = Mathf.RoundToInt(damage * ObjDrainAmount);
+            
+        }
+        return drain;
+    }
+
+    private bool Avoid(int _ObjAvoidChance, int _EnemyAvoidResist)
+    {
+        int adjustedAvoidPercent = _ObjAvoidChance - _EnemyAvoidResist;
+        float randomValue = Random.Range(0f, 100f);
+
+        if(adjustedAvoidPercent > 100 || adjustedAvoidPercent >= randomValue)
+        { // 회피 성공
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private string GetTrigger(int comboCount)

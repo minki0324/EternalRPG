@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class EquipmentManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class EquipmentManager : MonoBehaviour
     public RingData[] RingDatas;
     public NecklessData[] NecklessDatas;
     public OtherData[] OtherDatas;
+
+    [Header("¿Â∫Ò Sprite")]
+    public SpriteAtlas spriteAtlas;
 
     [SerializeField] private GameObject itemPanel;
 
@@ -107,5 +111,11 @@ public class EquipmentManager : MonoBehaviour
             itempanel.EquipmentData = _equipmentDatas[i];
             item.transform.SetParent(parent);
         }
+    }
+
+    public Sprite GetEquipmentSprite(EquipmentBaseData _equipmentdata)
+    {
+        string spriteName = _equipmentdata.SpriteName;
+        return spriteAtlas.GetSprite(spriteName);
     }
 }

@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+public enum WeaponType
+{
+    Punch,
+    Sword
+}
 
 [CreateAssetMenu(fileName = "Weapon Data", menuName = "Scriptable Object/Weapon Data", order = 0)]
 public   class WeaponData : EquipmentBaseData
 {
     [Header("무기")]
     [Space(10)] // 기본 정보
-    public RuntimeAnimatorController animator;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public WeaponType WeaponType;
     public int WeaponATK;
     public int WeaponATKPercent;
     [Space(10)] // 확률 정보

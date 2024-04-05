@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Leather Belt
   m_EditorClassIdentifier: 
   EquipmentType: 6
+  SpriteName: 00 Leather Belt
   EquipmentSprite: {fileID: 21300000, guid: ec2dca688246fa14596c398668d2abfc, type: 3}
   ItemID: 907000
-  OwnCount: 0
   EquipmentName: "\uAC00\uC8FD \uBCA8\uD2B8"
   RequireCost: 350
   isCanBuy: 1
@@ -23,3 +23,5 @@ MonoBehaviour:
   BeltHPPercent: 10
   BeltAvoidPercent: 12
   BeltEXPPercent: 5
+  BeltLUCPercent: 0
+  BeltVITPercent: 0

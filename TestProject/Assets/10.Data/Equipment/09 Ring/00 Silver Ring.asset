@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Silver Ring
   m_EditorClassIdentifier: 
   EquipmentType: 8
+  SpriteName: 00 Silver Ring
   EquipmentSprite: {fileID: 21300000, guid: a6dca9f2793b3ee4e93384c15c62f645, type: 3}
   ItemID: 909000
-  OwnCount: 0
   EquipmentName: "\uC740\uAC00\uB77D\uC9C0"
   RequireCost: 0
   isCanBuy: 0
@@ -29,3 +29,6 @@ MonoBehaviour:
   RingDrainResist: 0
   RingEXPPercent: 10
   RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0

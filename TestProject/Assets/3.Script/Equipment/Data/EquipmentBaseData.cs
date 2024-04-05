@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 public enum Category
 {
@@ -19,10 +21,10 @@ public enum Category
 public class EquipmentBaseData : ScriptableObject
 {
     [Header("기본 정보")]
+    [JsonConverter(typeof(StringEnumConverter))]
     public Category EquipmentType;
-    public Sprite EquipmentSprite;
+    public string SpriteName; // 스프라이트 이름 추가
     public int ItemID;
-    public int OwnCount;
     public string EquipmentName;
     public int RequireCost;
     public bool isCanBuy;

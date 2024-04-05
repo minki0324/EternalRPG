@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: 01 BroadSword
   m_EditorClassIdentifier: 
   EquipmentType: 0
+  SpriteName: 01 BroadSword
   EquipmentSprite: {fileID: 21300000, guid: 8ffe0f569c2a8f64d8e483703f892531, type: 3}
   ItemID: 900001
-  OwnCount: 0
   EquipmentName: "\uBE0C\uB85C\uB4DC\uC18C\uB4DC"
   RequireCost: 50
   isCanBuy: 1
-  animator: {fileID: 9100000, guid: 11fc0ec10ec1e534989b962de591530f, type: 2}
+  WeaponType: 1
   WeaponATK: 5
   WeaponATKPercent: 5
   WeaponComboPercent: 3
   WeaponCriticalPercent: 2
-  WeaponCriticalDamage: 1.1
+  WeaponCriticalDamage: 0.1
   WeaponDrainPercent: 0
-  WeaponDrainAmount: 1.005
+  WeaponDrainAmount: 0.01
   WeaponSTRPercent: 0
   WeaponDEXPercent: 0

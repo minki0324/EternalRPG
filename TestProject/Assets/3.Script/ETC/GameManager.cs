@@ -9,11 +9,17 @@ public class GameManager : MonoBehaviour
     public int BattleSpeed = 1;
 
     [Header("기본정보")]
-    public int PlayerLevel = 1;
+    [Space(10)] // 위는 기본 스텟
+    public int PlayerATK = 5;
     public int PlayerMaxHP = 50;
     public int PlayerCurHP = 50;
     public int PlayerDef = 3;
-    public int PlayerATK = 5;
+    [Space(10)] // 공 체 방 퍼센트
+    public int PlayerATKPercent = 0;
+    public int PlayerHPPercent = 0;
+    public int PlayerDefPercent = 0;
+    [Space(10)] // 기본 정보들
+    public int PlayerLevel = 1;
     public float MoveSpeed = 2f;
     public int Gold = 0;
     public int Energy = 25;
@@ -54,6 +60,7 @@ public class GameManager : MonoBehaviour
     [Header("추가 정보")]
     public int EXPPercent = 0;
     public int GoldPercent = 0;
+    public int ItemDropRate = 0;
     public int STRPercent = 0;
     public int DEXPercent = 0;
     public int LUCPercent = 0;
@@ -93,6 +100,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Application.targetFrameRate = 60;
+        RenewAbility();
     }
 
     public void RenewAbility()
@@ -228,13 +236,14 @@ public class GameManager : MonoBehaviour
             }
         }
         PlayerATK = Mathf.RoundToInt((baseATK + sumATK) * (1 + (sumPercent / 100) + (STR / 10000)));
+        PlayerATKPercent = sumPercent;
     }
     #endregion
 
     #region 체력 갱신
     public void RenewHP()
     {
-        int baseHP = 50;
+        int baseHP = 100;
         int sumHP = 0;
         int sumPercent = 0;
         if(ArmorData != null)
@@ -286,13 +295,14 @@ public class GameManager : MonoBehaviour
             }
         }
         PlayerMaxHP = Mathf.RoundToInt((baseHP + sumHP) * (1 + (sumPercent / 100) + (VIT / 10000)));
+        PlayerHPPercent = sumPercent;
     }
     #endregion
 
     #region 방어력 갱신
     public void RenewDef()
     {
-        int baseDef = 50;
+        int baseDef = 3;
         int sumDef = 0;
         int sumPercent = 0;
         if (ArmorData != null)
@@ -342,6 +352,7 @@ public class GameManager : MonoBehaviour
             }
         }
         PlayerDef = Mathf.RoundToInt((baseDef + sumDef) * (1 + (sumPercent / 100) + (VIT / 10000)));
+        PlayerDefPercent = sumPercent;
     }
     #endregion
 
@@ -382,6 +393,15 @@ public class GameManager : MonoBehaviour
             {
                 sumCri += RingDatas[i].RingCriticalPercent;
                 sumCriResist += RingDatas[i].RingCriticalResist;
+            }
+        }
+        for(int i = 0; i < OtherDatas.Length; i++)
+        {
+            if(OtherDatas[i] != null)
+            {
+                sumCri += OtherDatas[i].OtherCriticalPercent;
+                sumCriResist += OtherDatas[i].OtherCriticalResist;
+                sumCriDamage += OtherDatas[i].OtherCriticalDamage;
             }
         }
 

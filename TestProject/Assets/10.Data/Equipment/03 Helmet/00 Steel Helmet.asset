@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Steel Helmet
   m_EditorClassIdentifier: 
   EquipmentType: 2
+  SpriteName: 00 Steel Helmet
   EquipmentSprite: {fileID: 21300000, guid: 92f69ccd8015e054a9350bde1a549be8, type: 3}
   ItemID: 903000
-  OwnCount: 0
   EquipmentName: "\uCCA0 \uD22C\uAD6C"
   RequireCost: 110
   isCanBuy: 1
@@ -25,3 +25,5 @@ MonoBehaviour:
   HelmetDefPercent: 4
   HelmetAvoidPercent: 3
   HelmetDrainResist: 0
+  HelmetSTRPercent: 0
+  HelmetVITPercent: 0

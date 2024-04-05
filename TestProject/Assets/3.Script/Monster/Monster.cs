@@ -22,9 +22,4 @@ public class Monster : MonoBehaviour
         MonsterCurHP = monsterData.MonsterCurHP;
         MonsterATK = monsterData.MonsterATK;
     }
-
-    public void ReviveMonster()
-    {
-
-    }
 }

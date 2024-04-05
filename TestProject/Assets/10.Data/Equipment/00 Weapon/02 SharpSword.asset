@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 02 SharpSword
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 02 SharpSword
+  EquipmentSprite: {fileID: 21300000, guid: f37eba692741dc14d8fa3eedd003deea, type: 3}
+  ItemID: 900002
+  EquipmentName: "\uB0A0 \uBCBC\uB9B0 \uAC80"
+  RequireCost: 190
+  isCanBuy: 1
+  WeaponType: 1
+  WeaponATK: 12
+  WeaponATKPercent: 8
+  WeaponComboPercent: 2
+  WeaponCriticalPercent: 2
+  WeaponCriticalDamage: 0.1
+  WeaponDrainPercent: 5
+  WeaponDrainAmount: 0.01
+  WeaponSTRPercent: 1
+  WeaponDEXPercent: 2

@@ -13,8 +13,8 @@ public class ItemPanel : MonoBehaviour
 
     private void Start()
     {
-        ItemIcon.sprite = EquipmentData.EquipmentSprite;
-        OwnCount.text = EquipmentData.OwnCount.ToString();
+        ItemIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(EquipmentData);
+        OwnCount.text = DataManager.Instance.GetOwnDictionary(EquipmentData)[EquipmentData.ItemID].ToString();
         ItemID = EquipmentData.ItemID;
     }
 

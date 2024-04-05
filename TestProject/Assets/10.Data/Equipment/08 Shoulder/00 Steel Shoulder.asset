@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Steel Shoulder
   m_EditorClassIdentifier: 
   EquipmentType: 7
+  SpriteName: 00 Steel Shoulder
   EquipmentSprite: {fileID: 21300000, guid: 3db8e4ec8f61ce34cae2ac760d2e3d19, type: 3}
   ItemID: 908000
-  OwnCount: 0
   EquipmentName: "\uCCA0\uC81C \uACAC\uC7A5"
   RequireCost: 250
   isCanBuy: 1
@@ -23,3 +23,5 @@ MonoBehaviour:
   ShoulderDefPercent: 0
   ShoulderCriticalResist: 3
   ShoulderDrainResist: 3
+  ShoulderDEXPercent: 0
+  ShoulderVITPercent: 0

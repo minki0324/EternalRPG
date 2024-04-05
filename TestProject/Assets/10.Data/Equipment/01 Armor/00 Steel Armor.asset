@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Steel Armor
   m_EditorClassIdentifier: 
   EquipmentType: 1
+  SpriteName: 00 Steel Armor
   EquipmentSprite: {fileID: 21300000, guid: dd60a1c6441240f4787ca754b0004f96, type: 3}
   ItemID: 901000
-  OwnCount: 0
   EquipmentName: "\uCCA0 \uAC11\uC637"
   RequireCost: 120
   isCanBuy: 1
@@ -26,3 +26,4 @@ MonoBehaviour:
   ArmorComboResist: 2
   ArmorCriticalResist: 0
   ArmorDrainResist: 0
+  ArmorVITPercent: 0

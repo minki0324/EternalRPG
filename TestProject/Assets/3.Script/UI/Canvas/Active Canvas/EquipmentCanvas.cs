@@ -55,6 +55,7 @@ public class EquipmentCanvas : MonoBehaviour
     {
         EquipmentManager.Instance.ItemListSet("무기", itemListParent);
         totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
+        InitImage();
     }
 
     private void OnDisable()
@@ -75,12 +76,38 @@ public class EquipmentCanvas : MonoBehaviour
         Slot = (CompareSlot)_slot;
     }
 
+    public void InitImage()
+    {
+        Debug.Log("장비 매니저 : " + EquipmentManager.Instance);
+        Debug.Log("게임 매니저의 스크립터블 오브젝트 : " + GameManager.Instance.WeaponData);
+        Debug.Log("스프라이트 : " + EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.WeaponData));
+
+        weaponIcon.sprite = GameManager.Instance.WeaponData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.WeaponData) : GameManager.Instance.NoneBackground;
+        armorIcon.sprite = GameManager.Instance.ArmorData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ArmorData) : GameManager.Instance.NoneBackground;
+        pantsIcon.sprite = GameManager.Instance.PantsData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.PantsData) : GameManager.Instance.NoneBackground;
+        helmetIcon.sprite = GameManager.Instance.HelmetData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.HelmetData) : GameManager.Instance.NoneBackground;
+        gloveIcon.sprite = GameManager.Instance.GloveData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.GloveData) : GameManager.Instance.NoneBackground;
+        shoesIcon.sprite = GameManager.Instance.ShoesData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ShoesData) : GameManager.Instance.NoneBackground;
+        cloakIcon.sprite = GameManager.Instance.ClockData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ClockData) : GameManager.Instance.NoneBackground;
+        beltIcon.sprite = GameManager.Instance.BeltData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.BeltData) : GameManager.Instance.NoneBackground;
+        shoulderArmorIcon.sprite = GameManager.Instance.ShoulderArmorData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ShoulderArmorData) : GameManager.Instance.NoneBackground;
+        necklessIcon.sprite = GameManager.Instance.NecklessData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.NecklessData) : GameManager.Instance.NoneBackground;
+        for (int i = 0; i < ringIcons.Length; i++)
+        {
+            ringIcons[i].sprite = GameManager.Instance.RingDatas[i] != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.RingDatas[i]) : GameManager.Instance.NoneBackground;
+        }
+        for (int i = 0; i < otherIcons.Length; i++)
+        {
+            otherIcons[i].sprite = GameManager.Instance.OtherDatas[i] != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.OtherDatas[i]) : GameManager.Instance.NoneBackground;
+        }
+    }
+
     public void PrintItemInfomation()
     {
         // 만약 정보창이 꺼져있다면 켜주기
         if (!infomationPanel.activeSelf) infomationPanel.SetActive(true);
         // 만약 보유 개수가 10개라면 구매 버튼 비활성화
-        if (CurrentItem.EquipmentData.OwnCount == 10) BuyButton.interactable = false;
+        if (DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID] == 10) BuyButton.interactable = false;
         // 만약 상점에서 구매 불가능한 아이템이라면 버튼 비활성화
         else if (!CurrentItem.EquipmentData.isCanBuy) BuyButton.interactable = false;
         // 조건을 통과했다면 활성화
@@ -92,7 +119,7 @@ public class EquipmentCanvas : MonoBehaviour
 
     public void EquipItem(bool _isEquip)
     {
-        if (CurrentItem.EquipmentData.OwnCount == 0)
+        if (DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID] == 0)
         {
             Debug.Log("보유 중인 아이템이 아닙니다.");
             return;
@@ -105,7 +132,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     { // 장비하기 눌렀을 때
                         GameManager.Instance.WeaponData = weaponData;
-                        weaponIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        weaponIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     { // 해제하기 눌렀을 때
@@ -118,7 +145,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.ArmorData = armorData;
-                        armorIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        armorIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -131,7 +158,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.PantsData = pantsData;
-                        pantsIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        pantsIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -144,7 +171,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.HelmetData = helmetData;
-                        helmetIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        helmetIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -157,7 +184,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.GloveData = gloveData;
-                        gloveIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        gloveIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -170,7 +197,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.ShoesData = shoesData;
-                        shoesIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        shoesIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -183,7 +210,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.ClockData = cloakData;
-                        cloakIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        cloakIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -196,7 +223,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.BeltData = beltData;
-                        beltIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        beltIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -209,7 +236,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.ShoulderArmorData = shoulderData;
-                        shoulderArmorIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        shoulderArmorIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -222,7 +249,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.NecklessData = necklessData;
-                        necklessIcon.sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        necklessIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -244,7 +271,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.RingDatas[(int)Slot] = ringData;
-                        ringIcons[(int)Slot].sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        ringIcons[(int)Slot].sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -268,7 +295,7 @@ public class EquipmentCanvas : MonoBehaviour
                     if (_isEquip)
                     {
                         GameManager.Instance.OtherDatas[(int)Slot] = otherData;
-                        otherIcons[(int)Slot].sprite = CurrentItem.EquipmentData.EquipmentSprite;
+                        otherIcons[(int)Slot].sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                     }
                     else
                     {
@@ -286,10 +313,19 @@ public class EquipmentCanvas : MonoBehaviour
         if (GameManager.Instance.Gold >= CurrentItem.EquipmentData.RequireCost)
         {
             GameManager.Instance.Gold -= CurrentItem.EquipmentData.RequireCost;
-            CurrentItem.EquipmentData.OwnCount++;
+            // 보유 수량 딕셔너리
+            Dictionary<int, int> ownDictionary = DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData);
+            int itemID = CurrentItem.EquipmentData.ItemID;
+
+            // 구매 했으니 밸류 값 올려주기
+            if(ownDictionary.ContainsKey(itemID))
+            {
+                ownDictionary[itemID]++;
+            }
+
             totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
-            ownCountText.text = $"보유 수량 : {CurrentItem.EquipmentData.OwnCount}";
-            CurrentItem.OwnCount.text = CurrentItem.EquipmentData.OwnCount.ToString();
+            ownCountText.text = $"보유 수량 : {ownDictionary[itemID]}";
+            CurrentItem.OwnCount.text = ownDictionary[itemID].ToString();
         }
         else
         { // todo
@@ -297,11 +333,13 @@ public class EquipmentCanvas : MonoBehaviour
         }
     }
 
+
+
     #region 데이터 텍스트 출력 메소드
     public void GetDataText()
     {
         nameText.text = CurrentItem.EquipmentData.EquipmentName;
-        if(!CurrentItem.EquipmentData.isCanBuy)
+        if (!CurrentItem.EquipmentData.isCanBuy)
         { // 구매 불가능한 아이템
             costText.text = "Drop Only.";
         }
@@ -309,7 +347,7 @@ public class EquipmentCanvas : MonoBehaviour
         { // 구매 가능한 아이템은 cost 출력
             costText.text = $"{CurrentItem.EquipmentData.RequireCost.ToString():N0}";
         }
-        ownCountText.text = $"보유 수량 : {CurrentItem.EquipmentData.OwnCount}";
+        ownCountText.text = $"보유 수량 : {DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID]}";
 
         switch (EquipmentManager.Instance.type)
         {
@@ -320,9 +358,11 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("공격력%", weaponData.WeaponATKPercent);
                     AppendPercentData("연타 확률", weaponData.WeaponComboPercent);
                     AppendPercentData("크리티컬 확률", weaponData.WeaponCriticalPercent);
-                    AppendPercentData("크리티컬 데미지", (weaponData.WeaponCriticalDamage - 1) * 100);
+                    AppendPercentData("크리티컬 데미지", weaponData.WeaponCriticalDamage * 100);
                     AppendPercentData("흡혈 확률", weaponData.WeaponDrainPercent);
-                    AppendPercentData("흡혈", weaponData.WeaponDrainAmount);
+                    AppendPercentData("흡혈", weaponData.WeaponDrainAmount * 100);
+                    AppendAddData("추가 STR%", weaponData.WeaponSTRPercent);
+                    AppendAddData("추가 DEX%", weaponData.WeaponDEXPercent);
                 }
                 break;
             case Category.Armor:
@@ -335,6 +375,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("연타 저항", armorData.ArmorComboResist);
                     AppendPercentData("크리티컬 저항", armorData.ArmorCriticalResist);
                     AppendPercentData("흡혈 저항", armorData.ArmorDrainResist);
+                    AppendAddData("추가 STR%", armorData.ArmorVITPercent);
                 }
                 break;
             case Category.Helmet:
@@ -346,6 +387,8 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", helmetData.HelmetDefPercent);
                     AppendPercentData("회피 확률", helmetData.HelmetAvoidPercent);
                     AppendPercentData("흡혈 저항", helmetData.HelmetDrainResist);
+                    AppendAddData("추가 STR%", helmetData.HelmetSTRPercent);
+                    AppendAddData("추가 VIT%", helmetData.HelmetVITPercent);
                 }
                 break;
             case Category.Pants:
@@ -357,6 +400,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", pantsData.PantsDefPercent);
                     AppendPercentData("연타 저항", pantsData.PantsComboResist);
                     AppendPercentData("크리티컬 저항", pantsData.PantsCriticalResist);
+                    AppendAddData("추가 STR%", pantsData.PantsVITPercent);
                 }
                 break;
             case Category.Glove:
@@ -368,7 +412,9 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("체력%", gloveData.GloveHPPercent);
                     AppendPercentData("연타 확률", gloveData.GloveComboPercent);
                     AppendPercentData("크리티컬 확률", gloveData.GloveCriticalPercent);
-                    AppendPercentData("크리티컬 데미지", (gloveData.GloveCriticalDamage - 1) * 100);
+                    AppendPercentData("크리티컬 데미지", gloveData.GloveCriticalDamage * 100);
+                    AppendAddData("추가 STR%", gloveData.GloveSTRPercent);
+                    AppendAddData("추가 DEX%", gloveData.GloveDEXPercent);
                 }
                 break;
             case Category.Shoes:
@@ -380,6 +426,8 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", shoesData.ShoesDefPercent);
                     AppendPercentData("회피 확률", shoesData.ShoesAvoidPercent);
                     AppendPercentData("회피 저항", shoesData.ShoesAvoidResist);
+                    AppendAddData("추가 DEX%", shoesData.ShoesDEXPercent);
+                    AppendAddData("추가 VIT%", shoesData.ShoesVITPercent);
                 }
                 break;
             case Category.Belt:
@@ -389,6 +437,8 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("체력%", beltData.BeltHPPercent);
                     AppendPercentData("회피 확률", beltData.BeltAvoidPercent);
                     AppendAddData("추가 경험치%", beltData.BeltEXPPercent);
+                    AppendAddData("추가 LUC%", beltData.BeltLUCPercent);
+                    AppendAddData("추가 VIT%", beltData.BeltVITPercent);
                 }
                 break;
             case Category.ShoulderArmor:
@@ -398,6 +448,8 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", shoulderData.ShoulderDefPercent);
                     AppendPercentData("크리티컬 저항", shoulderData.ShoulderCriticalResist);
                     AppendPercentData("흡혈 저항", shoulderData.ShoulderDrainResist);
+                    AppendAddData("추가 DEX%", shoulderData.ShoulderDEXPercent);
+                    AppendAddData("추가 VIT%", shoulderData.ShoulderVITPercent);
                 }
                 break;
             case Category.Ring:
@@ -413,6 +465,9 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("흡혈 저항", ringData.RingDrainResist);
                     AppendAddData("추가 경험치%", ringData.RingEXPPercent);
                     AppendAddData("추가 골드%", ringData.RingGoldPercent);
+                    AppendAddData("추가 STR%", ringData.RingSTRPercent);
+                    AppendAddData("추가 LUC%", ringData.RingLUCPercent);
+                    AppendAddData("추가 DEF%", ringData.RingDefPercent);
                 }
                 break;
             case Category.Neckless:
@@ -424,6 +479,8 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent);
                     AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent);
                     AppendAddData("추가 골드%", necklessData.NecklessGoldPercent);
+                    AppendAddData("추가 DEX%", necklessData.NecklessDEXPercent);
+                    AppendAddData("추가 LUC%", necklessData.NecklessLUCPercent);
                 }
                 break;
             case Category.Clock:
@@ -435,13 +492,36 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", cloakData.CloakDefPercent);
                     AppendPercentData("회피 확률", cloakData.CloakAvoidPercent);
                     AppendPercentData("연타 저항", cloakData.CloakComboResist);
+                    AppendAddData("추가 DEX%", cloakData.CloakDEXPercent);
+                    AppendAddData("추가 LUC%", cloakData.CloakLUCPercent);
+                    AppendAddData("추가 VIT%", cloakData.CloakVITPercent);
                 }
                 break;
             case Category.Other:
                 if (CurrentItem.EquipmentData is OtherData otherData)
                 {
+                    AppendBasicData("공격력", otherData.OtherATK);
+                    AppendBasicData("공격력%", otherData.OtherATKPercent);
+                    AppendBasicData("체력", otherData.OtherHP);
+                    AppendBasicData("체력%", otherData.OtherHPPercent);
+                    AppendBasicData("방어력", otherData.OtherDef);
+                    AppendBasicData("방어력%", otherData.OtherDefPercent);
+                    AppendPercentData("크리티컬 확률", otherData.OtherCriticalPercent);
+                    AppendPercentData("크리티컬 저항", otherData.OtherCriticalResist);
+                    AppendPercentData("크리티컬 데미지", otherData.OtherCriticalDamage * 100);
+                    AppendPercentData("연타 확률", otherData.OtherComboPercent);
+                    AppendPercentData("연타 저항", otherData.OtherComboResist);
+                    AppendPercentData("회피 확률", otherData.OtherAvoidPercent);
+                    AppendPercentData("회피 저항", otherData.OtherAvoidResist);
+                    AppendPercentData("흡혈 확률", otherData.OtherDrainPercent);
+                    AppendPercentData("흡혈 저항", otherData.OtherDrainResist);
+                    AppendPercentData("흡혈", otherData.OtherDrainAmount);
                     AppendAddData("추가 경험치%", otherData.OtherEXPPercent);
                     AppendAddData("추가 골드%", otherData.OtherGoldPercent);
+                    AppendAddData("추가 STR%", otherData.OtherSTRPercent);
+                    AppendAddData("추가 DEX%", otherData.OtherDEXPercent);
+                    AppendAddData("추가 LUC%", otherData.OtherLUCPercent);
+                    AppendAddData("추가 VIT%", otherData.OtherVITPercent);
                 }
                 break;
         }
@@ -773,7 +853,7 @@ public class EquipmentCanvas : MonoBehaviour
                 }
                 break;
             case Category.Other:
-                if(CurrentItem.EquipmentData is OtherData otherData)
+                if (CurrentItem.EquipmentData is OtherData otherData)
                 {
                     CompareOtherAttribute(Slot, otherData);
                 }
@@ -795,7 +875,7 @@ public class EquipmentCanvas : MonoBehaviour
         float compareValue = dataValue - equipValue;
         if (isPercentage)
         {
-            compareValue = (compareValue - 1) * 100;
+            compareValue = compareValue * 100;
         }
         ComparePercentData(labelText, compareValue);
     }

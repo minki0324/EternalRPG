@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 00 Leather Glove
   m_EditorClassIdentifier: 
   EquipmentType: 4
+  SpriteName: 00 Leather Glove
   EquipmentSprite: {fileID: 21300000, guid: a03f1aad4a4ca564c9dadb9885b4dd6a, type: 3}
   ItemID: 904000
-  OwnCount: 0
   EquipmentName: "\uAC00\uC8FD \uC7A5\uAC11"
   RequireCost: 200
   isCanBuy: 1
@@ -26,3 +26,5 @@ MonoBehaviour:
   GloveComboPercent: 10
   GloveCriticalPercent: 5
   GloveCriticalDamage: 0.2
+  GloveSTRPercent: 0
+  GloveDEXPercent: 0
