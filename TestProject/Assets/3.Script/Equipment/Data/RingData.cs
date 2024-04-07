@@ -20,4 +20,5 @@ public class RingData : EquipmentBaseData
     public int RingSTRPercent;
     public int RingLUCPercent;
     public int RingDEXPercent;
+    public int RingItemDropRate;
 }

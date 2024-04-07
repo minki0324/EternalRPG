@@ -30,4 +30,6 @@ public class OtherData : EquipmentBaseData
     public int OtherDEXPercent;
     public int OtherLUCPercent;
     public int OtherVITPercent;
+    public int OtherBonusAP;
+    public int OtherItemDropRate;
 }

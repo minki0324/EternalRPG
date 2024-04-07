@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class Battle : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Battle : MonoBehaviour
     [SerializeField] private TMP_Text monsterLevelText;
     [SerializeField] private TMP_Text oddsText;
     [SerializeField] private Image monsterImage;
+    [SerializeField] private GameObject dropItemObject;
+    [SerializeField] private Transform dropItemTransform;
     [Space(10)]
     [SerializeField] private TMP_Text playerHPText;
     [SerializeField] private Slider playerHPSlider;
@@ -30,7 +33,10 @@ public class Battle : MonoBehaviour
     [SerializeField] private Animator effectAnimator;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private Animator damageAnimator;
+    [SerializeField] private TMP_Text monsterDamageText;
     private bool isCritical = false;
+
+    public float tempWinRate = 0;
 
     private void OnEnable()
     {
@@ -44,15 +50,20 @@ public class Battle : MonoBehaviour
 
     public void InitData()
     {
+        // ============================ 몬스터 데이터 입력
         result.mon = mon;
         monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
         monsterNameText.text = mon.monsterData.MonsterName;
         monsterLevelText.text = $"레벨 {mon.monsterData.MonsterLevel:N0} - {mon.monsterData.MonsterType}";
         monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
         monsterImage.sprite = mon.monsterData.MonsterSprite;
-        // todo 승산 텍스트 구현해야됨
 
-        // ============================ 몬스터 데이터 입력
+        // 드롭 아이템 출력
+        ItemDropRate(mon);
+
+        // 승산 텍스트 출력
+        CalculrateWinRate(mon);
+
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
@@ -60,7 +71,7 @@ public class Battle : MonoBehaviour
 
     public void BattleButton()
     {
-        if(GameManager.Instance.PlayerCurHP == 0)
+        if (GameManager.Instance.PlayerCurHP == 0)
         { // todo 피통 0으로 전투 불가 메세지 출력
             return;
         }
@@ -74,6 +85,10 @@ public class Battle : MonoBehaviour
         // 전투 후에는 몬스터에 저장된 위치만큼 물러나서 시작
         player.gameObject.transform.position = new Vector2(mon.gameObject.transform.position.x + mon.monsterData.ReturnPos.x,
                                                                                                               mon.gameObject.transform.position.y + mon.monsterData.ReturnPos.y);
+        for (int i = 0; i < dropItemTransform.childCount; i++)
+        {
+            Destroy(dropItemTransform.GetChild(i).gameObject);
+        }
         activeCanvas.gameObject.SetActive(false);
         activeCanvas.versusPanel.SetActive(false);
     }
@@ -81,71 +96,86 @@ public class Battle : MonoBehaviour
     private IEnumerator StartBattle_Co()
     {
         Time.timeScale = GameManager.Instance.BattleSpeed;
-        
+
         while (true)
         {
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                if (Avoid(mon.monsterData.AvoidPercent, GameManager.Instance.AvoidResist))
-                { // 회피 성공했을 때
-                    damageText.text = $"회피 !";
-                    damageText.color = Color.cyan;
-                    Debug.Log("몬스터가 회피");
-                }
-                else
-                {
-                    PlayerAttack(i);
-                    effectAnimator.SetTrigger(GetTrigger(i));
-                }
+                PlayerTurn(i);
 
                 if (mon.MonsterCurHP <= 0)
                 { // 승리
                     result.isWin = true;
                     GameManager.Instance.Energy -= mon.monsterData.RequireEnergy;
-                    // for문 이탈
+                    // 연타 도중 몬스터가 죽었다면 for문 이탈
                     break;
                 }
-
                 yield return battleDelay;
+                playerHPText.color = Color.white;
             }
             if (mon.MonsterCurHP <= 0)
             {
                 break; // 몬스터의 체력이 0 이하이면 while 루프를 빠져나옴
             }
 
-            comboCount = 1;
             comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                if(Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
-                { // 회피 성공했을 때
-                    Debug.Log("플레이어가 회피");
-                }
-                else
-                {
-                    MonsterAttack(i);
-                    playerHPText.color = new Color(1f, 0f, 0f); // 빨간색
-                }
-                
-                if (GameManager.Instance.PlayerCurHP <= 0)
-                { // 패배
-                    result.isWin = false;
-                    GameManager.Instance.Energy -= mon.monsterData.RequireEnergy * 2;
-                    //for문 이탈
-                    break;
-                }
+                monsterTurn(i);
+
                 yield return battleDelay;
                 playerHPText.color = new Color(1f, 1f, 1f); // 흰색
+                monsterDamageText.gameObject.SetActive(false);
             }
             if (GameManager.Instance.PlayerCurHP <= 0)
             {
                 break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
             }
         }
+        for(int i = 0; i < dropItemTransform.childCount; i++)
+        {
+            Destroy(dropItemTransform.GetChild(i).gameObject);
+        }
+
         result.gameObject.SetActive(true);
         ignoreRay.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    private void PlayerTurn(int comboCount)
+    {
+        if (Avoid(mon.monsterData.AvoidPercent, GameManager.Instance.AvoidResist))
+        { // 회피 성공했을 때
+            damageText.text = $"회피 !";
+            damageText.color = Color.cyan;
+            Debug.Log("몬스터가 회피");
+        }
+        else
+        {
+            PlayerAttack(comboCount);
+            effectAnimator.SetTrigger(GetTrigger(comboCount));
+        }
+    }
+
+    private void monsterTurn(int comboCount)
+    {
+        if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
+        { // 회피 성공했을 때
+            Debug.Log("플레이어가 회피");
+        }
+        else
+        {
+            MonsterAttack(comboCount);
+            playerHPText.color = new Color(1f, 0f, 0f); // 빨간색
+        }
+
+        if (GameManager.Instance.PlayerCurHP <= 0)
+        { // 패배
+            result.isWin = false;
+            GameManager.Instance.Energy -= mon.monsterData.RequireEnergy * 2;
+            //for문 이탈
+        }
     }
 
     private void PlayerAttack(int _comboCount)
@@ -154,7 +184,7 @@ public class Battle : MonoBehaviour
         int drainAmount = 0;
 
         // 크리티컬 확인
-        if(isCritical)
+        if (isCritical)
         {
             damageText.text = $"치명타 !\n{damage:N0} !";
             damageText.color = Color.yellow;
@@ -168,11 +198,11 @@ public class Battle : MonoBehaviour
 
         // 흡혈 확인
         drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
-        if(drainAmount != 0)
+        if (drainAmount != 0)
         { // 흡혈 성공 텍스트 띄워줘야함 todo
             GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount);
-            Debug.Log($"플레이어가 흡혈 : {Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount)}");
             playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+            playerHPText.color = Color.green;
             playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         }
 
@@ -190,7 +220,7 @@ public class Battle : MonoBehaviour
         monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
         monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
 
-        // 
+        // 데미지 이펙트 
         runtimeEffectAnimator = GetAnimator();
         effectAnimator.runtimeAnimatorController = runtimeEffectAnimator;
         damageAnimator.SetTrigger("Damage");
@@ -212,13 +242,16 @@ public class Battle : MonoBehaviour
         }
     }
 
-        private void MonsterAttack(int _comboCount)
+    private void MonsterAttack(int _comboCount)
     {
         int damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
+        monsterDamageText.gameObject.SetActive(true);
+        monsterDamageText.text = $"-{damage:N0}";
+        monsterDamageText.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         int drainAmount = 0;
         GameManager.Instance.PlayerCurHP = Mathf.Max(0, GameManager.Instance.PlayerCurHP - damage);
         drainAmount = Drain(mon.monsterData.DrainPercent, GameManager.Instance.DrainResist, damage, mon.monsterData.DrainAmount);
-        if(drainAmount != 0)
+        if (drainAmount != 0)
         { // 흡혈 성공 텍스트 띄워줘야함 todo
             mon.MonsterCurHP = Mathf.Min(mon.MonsterMaxHP, mon.MonsterCurHP + drainAmount);
             Debug.Log("몬스터가 흡혈");
@@ -227,7 +260,7 @@ public class Battle : MonoBehaviour
             monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
         }
 
-        if(_comboCount != 1)
+        if (_comboCount != 1)
         {
             PrintLog.Instance.BattleLog($"몬스터의 {_comboCount}연격 ! 플레이어는 {damage:N0}의 피해를 입혔습니다.");
         }
@@ -237,6 +270,7 @@ public class Battle : MonoBehaviour
         }
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
+
     }
 
     private int DamageCalculate(float _Objdamage, float _ObjCriPercent, float _ObjCriDamage, float _EnemyCriResist, int _EnemyDef)
@@ -284,7 +318,6 @@ public class Battle : MonoBehaviour
             // 콤보 카운트를 1 증가.
             comboCount++;
         }
-
         return comboCount;
     }
 
@@ -294,10 +327,10 @@ public class Battle : MonoBehaviour
         float randomValue = Random.Range(0f, 100f);
         int drain = 0;
 
-        if(adjustedDrainPercent > 100 || adjustedDrainPercent >= randomValue)
+        if (adjustedDrainPercent > 100 || adjustedDrainPercent >= randomValue)
         {
             drain = Mathf.RoundToInt(damage * ObjDrainAmount);
-            
+
         }
         return drain;
     }
@@ -307,7 +340,7 @@ public class Battle : MonoBehaviour
         int adjustedAvoidPercent = _ObjAvoidChance - _EnemyAvoidResist;
         float randomValue = Random.Range(0f, 100f);
 
-        if(adjustedAvoidPercent > 100 || adjustedAvoidPercent >= randomValue)
+        if (adjustedAvoidPercent > 100 || adjustedAvoidPercent >= randomValue)
         { // 회피 성공
             return true;
         }
@@ -322,11 +355,91 @@ public class Battle : MonoBehaviour
         switch (comboCount)
         {
             case 1: return "Single";
-            case 2:  return "Double";
+            case 2: return "Double";
             case 3: return "Tripple";
             case 4: return "Four";
             case 5: return "Five";
             default: return "Six";
+        }
+    }
+
+    private void CalculrateWinRate(Monster mon)
+    {
+        string winRateString = string.Empty;
+        float PlayerWinPercent = 0f;
+        int playerPower = GameManager.Instance.Power;
+        int monsterPower = mon.MonsterPower;
+
+        if(playerPower >= monsterPower*2)
+        { // 전투력 2배 이상이기 때문에 승리
+            PlayerWinPercent = 100f;
+        }
+        else if(monsterPower >= playerPower*2)
+        { // 몬스터 전투력이 2배 이상이기 때문에 패배
+            PlayerWinPercent = 0f;
+        }
+        else
+        {
+            float tempPower = (float)playerPower - (float)monsterPower;
+            if(tempPower >= 0)
+            { // 플레이어가 더 강하거나 같은 경우
+                PlayerWinPercent = 100 - (((float)monsterPower - ((float)playerPower / 2)) / ((float)playerPower / 200) / 2);
+            }
+            else
+            { // 몬스터가 더 강한 경우
+                PlayerWinPercent = 50 - (((float)monsterPower - (float)playerPower) / (((float)playerPower * 2) / 100));
+            }
+        }
+
+        if (PlayerWinPercent <= 0)
+        {
+            oddsText.text = "불가능에 가까운 상대입니다.";
+            oddsText.color = Color.red;
+        }
+        else if (20 > PlayerWinPercent && PlayerWinPercent > 0)
+        {
+            oddsText.text = "상대하기 어려운 상대입니다.";
+            oddsText.color = Color.magenta;
+        }
+        else if (40 > PlayerWinPercent && PlayerWinPercent > 20)
+        {
+            oddsText.text = "제압해볼 수 있는 상대입니다.";
+            oddsText.color = Color.gray;
+        }
+        else if (60 > PlayerWinPercent && PlayerWinPercent > 40)
+        {
+            oddsText.text = "나와 비슷한 상대입니다.";
+            oddsText.color = Color.blue;
+        }
+        else if (80 > PlayerWinPercent && PlayerWinPercent > 60)
+        {
+            oddsText.text = "비교적 손쉬운 상대입니다.";
+            oddsText.color = Color.cyan;
+        }
+        else
+        {
+            oddsText.text = "압도할 수 있는 상대입니다.";
+            oddsText.color = Color.green;
+        }
+    }
+
+    private void ItemDropRate(Monster mon)
+    {
+        for (int i = 0; i < mon.monsterData.RewardItem.Length; i++)
+        {
+            // 오브젝트 생성
+            GameObject item = Instantiate(dropItemObject);
+            item.transform.SetParent(dropItemTransform);
+
+            // 오브젝트의 이미지 설정
+            DropItem drop = item.GetComponent<DropItem>();
+            drop.DropItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
+
+            // 아이템 드랍율 표기
+            Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
+            int ownCount = owndictionary.Values.Sum() == 0 ? 1 : owndictionary.Values.Sum();
+            int dropRate = (mon.monsterData.RewardItem[i].DropRate + GameManager.Instance.ItemDropRate) / ownCount;
+            drop.DropRateText.text = $"{dropRate:F2}%";
         }
     }
 }

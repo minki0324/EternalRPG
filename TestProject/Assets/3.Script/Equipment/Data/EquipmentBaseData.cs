@@ -28,4 +28,5 @@ public class EquipmentBaseData : ScriptableObject
     public string EquipmentName;
     public int RequireCost;
     public bool isCanBuy;
+    public int DropRate;
 }

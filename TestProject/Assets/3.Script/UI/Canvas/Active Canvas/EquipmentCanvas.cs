@@ -78,10 +78,6 @@ public class EquipmentCanvas : MonoBehaviour
 
     public void InitImage()
     {
-        Debug.Log("장비 매니저 : " + EquipmentManager.Instance);
-        Debug.Log("게임 매니저의 스크립터블 오브젝트 : " + GameManager.Instance.WeaponData);
-        Debug.Log("스프라이트 : " + EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.WeaponData));
-
         weaponIcon.sprite = GameManager.Instance.WeaponData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.WeaponData) : GameManager.Instance.NoneBackground;
         armorIcon.sprite = GameManager.Instance.ArmorData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ArmorData) : GameManager.Instance.NoneBackground;
         pantsIcon.sprite = GameManager.Instance.PantsData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.PantsData) : GameManager.Instance.NoneBackground;
@@ -428,6 +424,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("회피 저항", shoesData.ShoesAvoidResist);
                     AppendAddData("추가 DEX%", shoesData.ShoesDEXPercent);
                     AppendAddData("추가 VIT%", shoesData.ShoesVITPercent);
+                    AppendAddData("이동속도 증가", shoesData.ShoesMoveSpeed);
                 }
                 break;
             case Category.Belt:
@@ -464,6 +461,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("흡혈 확률", ringData.RingDrainPercent);
                     AppendPercentData("흡혈 저항", ringData.RingDrainResist);
                     AppendAddData("추가 경험치%", ringData.RingEXPPercent);
+                    AppendAddData("아이템 드롭률%", ringData.RingItemDropRate);
                     AppendAddData("추가 골드%", ringData.RingGoldPercent);
                     AppendAddData("추가 STR%", ringData.RingSTRPercent);
                     AppendAddData("추가 LUC%", ringData.RingLUCPercent);
@@ -478,6 +476,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("연타 확률", necklessData.NecklessComboPercent);
                     AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent);
                     AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent);
+                    AppendAddData("아이템 드롭률%", necklessData.NecklessEXPPercent);
                     AppendAddData("추가 골드%", necklessData.NecklessGoldPercent);
                     AppendAddData("추가 DEX%", necklessData.NecklessDEXPercent);
                     AppendAddData("추가 LUC%", necklessData.NecklessLUCPercent);
@@ -517,11 +516,13 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("흡혈 저항", otherData.OtherDrainResist);
                     AppendPercentData("흡혈", otherData.OtherDrainAmount);
                     AppendAddData("추가 경험치%", otherData.OtherEXPPercent);
+                    AppendAddData("아이템 드롭률%", otherData.OtherEXPPercent);
                     AppendAddData("추가 골드%", otherData.OtherGoldPercent);
                     AppendAddData("추가 STR%", otherData.OtherSTRPercent);
                     AppendAddData("추가 DEX%", otherData.OtherDEXPercent);
                     AppendAddData("추가 LUC%", otherData.OtherLUCPercent);
                     AppendAddData("추가 VIT%", otherData.OtherVITPercent);
+                    AppendAddData("레벨업 능력치", otherData.OtherVITPercent);
                 }
                 break;
         }
@@ -730,6 +731,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("회피 저항", GameManager.Instance.ShoesData.ShoesAvoidResist, shoesData.ShoesAvoidResist, false);
                         CompareAddAttribute("추가 DEX%", GameManager.Instance.ShoesData.ShoesDEXPercent, shoesData.ShoesDEXPercent);
                         CompareAddAttribute("추가 VIT%", GameManager.Instance.ShoesData.ShoesVITPercent, shoesData.ShoesVITPercent);
+                        CompareAddAttribute("이동속도", GameManager.Instance.ShoesData.ShoesMoveSpeed, shoesData.ShoesMoveSpeed);
                     }
                     else
                     {
@@ -741,6 +743,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("회피 저항", 0, shoesData.ShoesAvoidResist, false);
                         CompareAddAttribute("추가 DEX%", 0, shoesData.ShoesDEXPercent);
                         CompareAddAttribute("추가 VIT%", 0, shoesData.ShoesVITPercent);
+                        CompareAddAttribute("이동속도", 0, shoesData.ShoesMoveSpeed);
                     }
                 }
                 break;
@@ -806,6 +809,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("연타 확률", GameManager.Instance.NecklessData.NecklessComboPercent, necklessData.NecklessComboPercent, false);
                         CompareAttribute("회피 확률", GameManager.Instance.NecklessData.NecklessAvoidPercent, necklessData.NecklessAvoidPercent, false);
                         CompareAddAttribute("추가 경험치%", GameManager.Instance.NecklessData.NecklessEXPPercent, necklessData.NecklessEXPPercent);
+                        CompareAddAttribute("아이템 드롭률%", GameManager.Instance.NecklessData.NecklessItemDropRate, necklessData.NecklessItemDropRate);
                         CompareAddAttribute("추가 골드%", GameManager.Instance.NecklessData.NecklessGoldPercent, necklessData.NecklessGoldPercent);
                         CompareAddAttribute("추가 DEX%", GameManager.Instance.NecklessData.NecklessDEXPercent, necklessData.NecklessDEXPercent);
                         CompareAddAttribute("추가 LUC%", GameManager.Instance.NecklessData.NecklessLUCPercent, necklessData.NecklessLUCPercent);
@@ -817,6 +821,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("연타 확률", 0, necklessData.NecklessComboPercent, false);
                         CompareAttribute("회피 확률", 0, necklessData.NecklessAvoidPercent, false);
                         CompareAddAttribute("추가 경험치%", 0, necklessData.NecklessEXPPercent);
+                        CompareAddAttribute("아이템 드롭률%", 0, necklessData.NecklessItemDropRate);
                         CompareAddAttribute("추가 골드%", 0, necklessData.NecklessGoldPercent);
                         CompareAddAttribute("추가 DEX%", 0, necklessData.NecklessDEXPercent);
                         CompareAddAttribute("추가 LUC%", 0, necklessData.NecklessLUCPercent);
@@ -907,11 +912,13 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("회피 확률", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidPercent, otherData.OtherDefPercent, false);
             CompareAttribute("회피 저항", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidResist, otherData.OtherDefPercent, false);
             CompareAddAttribute("추가 경험치%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherEXPPercent);
+            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.OtherDatas[(int)slot].OtherItemDropRate, otherData.OtherItemDropRate);
             CompareAddAttribute("추가 골드%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherGoldPercent);
             CompareAddAttribute("추가 STR%", GameManager.Instance.OtherDatas[(int)slot].OtherSTRPercent, otherData.OtherSTRPercent);
             CompareAddAttribute("추가 DEX%", GameManager.Instance.OtherDatas[(int)slot].OtherDEXPercent, otherData.OtherDEXPercent);
             CompareAddAttribute("추가 LUC%", GameManager.Instance.OtherDatas[(int)slot].OtherLUCPercent, otherData.OtherLUCPercent);
             CompareAddAttribute("추가 VIT%", GameManager.Instance.OtherDatas[(int)slot].OtherVITPercent, otherData.OtherVITPercent);
+            CompareAddAttribute("레벨업 능력치", GameManager.Instance.OtherDatas[(int)slot].OtherBonusAP, otherData.OtherBonusAP);
         }
         else
         {
@@ -934,11 +941,13 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("회피 확률", 0, otherData.OtherDefPercent, false);
             CompareAttribute("회피 저항", 0, otherData.OtherDefPercent, false);
             CompareAddAttribute("추가 경험치%", 0, otherData.OtherEXPPercent);
+            CompareAddAttribute("아이템 드롭률%", 0, otherData.OtherItemDropRate);
             CompareAddAttribute("추가 골드%", 0, otherData.OtherGoldPercent);
             CompareAddAttribute("추가 STR%", 0, otherData.OtherSTRPercent);
             CompareAddAttribute("추가 DEX%", 0, otherData.OtherDEXPercent);
             CompareAddAttribute("추가 LUC%", 0, otherData.OtherLUCPercent);
             CompareAddAttribute("추가 VIT%", 0, otherData.OtherVITPercent);
+            CompareAddAttribute("레벨업 능력치", 0, otherData.OtherBonusAP);
         }
     }
 
@@ -955,6 +964,7 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("흡혈 확률", GameManager.Instance.RingDatas[(int)slot].RingDrainPercent, ringData.RingDrainPercent, false);
             CompareAttribute("흡혈 저항", GameManager.Instance.RingDatas[(int)slot].RingDrainResist, ringData.RingDrainResist, false);
             CompareAddAttribute("추가 경험치%", GameManager.Instance.RingDatas[(int)slot].RingEXPPercent, ringData.RingEXPPercent);
+            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.RingDatas[(int)slot].RingItemDropRate, ringData.RingItemDropRate);
             CompareAddAttribute("추가 골드%", GameManager.Instance.RingDatas[(int)slot].RingGoldPercent, ringData.RingGoldPercent);
             CompareAddAttribute("추가 STR%", GameManager.Instance.RingDatas[(int)slot].RingSTRPercent, ringData.RingSTRPercent);
             CompareAddAttribute("추가 LUC%", GameManager.Instance.RingDatas[(int)slot].RingLUCPercent, ringData.RingLUCPercent);
@@ -971,6 +981,7 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("흡혈 확률", 0, ringData.RingDrainPercent, false);
             CompareAttribute("흡혈 저항", 0, ringData.RingDrainResist, false);
             CompareAddAttribute("추가 경험치%", 0, ringData.RingEXPPercent);
+            CompareAddAttribute("아이템 드롭률%", 0, ringData.RingItemDropRate);
             CompareAddAttribute("추가 골드%", 0, ringData.RingGoldPercent);
             CompareAddAttribute("추가 STR%", 0, ringData.RingSTRPercent);
             CompareAddAttribute("추가 LUC%", 0, ringData.RingLUCPercent);

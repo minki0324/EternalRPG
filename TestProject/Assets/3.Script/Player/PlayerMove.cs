@@ -93,7 +93,7 @@ public class PlayerMove : MonoBehaviour
         while (Vector2.Distance(transform.position, targetPos) > 0.1f)
         {
             // 현재 위치와 목표 위치를 향해 이동
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * GameManager.Instance.MoveSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f);
             movePoint.position = targetPos;
 
             yield return null;

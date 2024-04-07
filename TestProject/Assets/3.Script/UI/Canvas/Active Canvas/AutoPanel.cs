@@ -14,11 +14,41 @@ public class AutoPanel : MonoBehaviour
     {
         AutoNum = Mathf.Min(20, AutoNum + 1);
         AutoNumText.text = AutoNum.ToString();
+        switch (stat)
+        {
+            case Stat.STR:
+                GameManager.Instance.AutoSTR = AutoNum;
+                break;
+            case Stat.DEX:
+                GameManager.Instance.AutoDEX = AutoNum;
+                break;
+            case Stat.LUC:
+                GameManager.Instance.AutoLUC = AutoNum;
+                break;
+            case Stat.VIT:
+                GameManager.Instance.AutoVIT = AutoNum;
+                break;
+        }
     }
 
-    public void DecreaseButton()
+        public void DecreaseButton()
     {
         AutoNum = Mathf.Max(0, AutoNum - 1);
         AutoNumText.text = AutoNum.ToString();
+        switch (stat)
+        {
+            case Stat.STR:
+                GameManager.Instance.AutoSTR = AutoNum;
+                break;
+            case Stat.DEX:
+                GameManager.Instance.AutoDEX = AutoNum;
+                break;
+            case Stat.LUC:
+                GameManager.Instance.AutoLUC = AutoNum;
+                break;
+            case Stat.VIT:
+                GameManager.Instance.AutoVIT = AutoNum;
+                break;
+        }
     }
 }

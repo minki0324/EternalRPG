@@ -20,26 +20,32 @@ public class GameManager : MonoBehaviour
     public int PlayerDefPercent = 0;
     [Space(10)] // 기본 정보들
     public int PlayerLevel = 1;
-    public float MoveSpeed = 2f;
+    public int MoveSpeed = 20;
     public int Gold = 0;
     public int Energy = 25;
     public int CurrentEXP = 0;
     public int RequireEXP = 50;
     public int CurrentAP = 0;
     public int BonusAP = 0;
+    public int Power = 0;
+    public int PlayCount = 0;
 
     [Header("스텟")]
     public int STR = 5; // 힘을 올리면 공격력이 0.01%씩 상승
     public int APSTR = 0;
+    public int AutoSTR = 0;
     [Space(10)]
     public int DEX = 5; // 덱스를 올리면 명중, 회피 확률이 0.01%씩 상승
     public int APDEX = 0;
+    public int AutoDEX = 0;
     [Space(10)]
     public int LUC = 5; // 럭을 올리면 골드 획득량, 아이템 드랍율 0.001%, 콤보 어택 확률이 0.01%씩 상승
     public int APLUC = 0;
+    public int AutoLUC = 0;
     [Space(10)]
     public int VIT = 5; // 체력을 올리면 체력이 0.1%, 방어력이 0.1%씩 상승
     public int APVIT = 0;
+    public int AutoVIT = 0;
 
     [Header("확률")]
     [Space(10)] // 크리티컬
@@ -116,6 +122,7 @@ public class GameManager : MonoBehaviour
         RenewAvoid();
         RenewDrain();
         RenewReward();
+        RenewPlayerPower();
     }
 
     #region 스텟 갱신
@@ -581,6 +588,39 @@ public class GameManager : MonoBehaviour
         }
         EXPPercent = sumEXP * (1 + LUC / 100000);
         GoldPercent = sumGold * (1 + LUC / 100000);
+    }
+    #endregion
+
+    #region 전투력 갱신
+    public void RenewPlayerPower()
+    {
+        /*
+         전투력 공식
+        전투력 1당 수치들
+        1. 공격력 / 20
+        2. 체력 / 200
+        3. 방어력 / 20
+        4. 콤보 확률 / 3, 콤보 저항 / 2
+        5. 크리 확률 / 2, 크리 저항 / 2, 크리 데미지 * 10
+        6. 회피 확률, 회피 저항
+        7. 흡혈 확률 / 3, 흡혈 저항 / 2, 흡혈 * 5
+         */
+        int power = 0;
+        power += Mathf.RoundToInt(PlayerATK / 20);
+        power += Mathf.RoundToInt(PlayerMaxHP / 200);
+        power += Mathf.RoundToInt(PlayerDef / 20);
+        power += Mathf.RoundToInt(ComboPercent / 3);
+        power += Mathf.RoundToInt(ComboResist / 2);
+        power += Mathf.RoundToInt(CriticalPercant / 2);
+        power += Mathf.RoundToInt(CriticalResist / 2);
+        power += Mathf.RoundToInt(CriticalDamage*10);
+        power += Mathf.RoundToInt(AvoidPercent);
+        power += Mathf.RoundToInt(AvoidResist);
+        power += Mathf.RoundToInt(DrainPercent / 3);
+        power += Mathf.RoundToInt(DrainResist / 2);
+        power += Mathf.RoundToInt(DrainAmount*5);
+
+        Power = power;
     }
     #endregion
 }

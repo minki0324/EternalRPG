@@ -15,4 +15,5 @@ public class ShoesData : EquipmentBaseData
     [Space(10)] // 추가 정보
     public int ShoesDEXPercent;
     public int ShoesVITPercent;
+    public int ShoesMoveSpeed;
 }

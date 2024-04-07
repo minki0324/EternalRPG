@@ -60,6 +60,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 68b35d2059b8c46e0a98e53628e9b3af, type: 3}
   - {fileID: 21300000, guid: a08230b007bfc96499c9c5739cba6c8d, type: 3}
   - {fileID: 21300000, guid: 05af17b0d24b90d40a8834615a185a9e, type: 3}
+  - {fileID: 21300000, guid: 8f256ed0b467f534a809b79b5b55b739, type: 3}
   - {fileID: 21300000, guid: 8ab20d018976348b196e3d1370b667f6, type: 3}
   - {fileID: 21300000, guid: 27d7d32160319f44f8a0246e3d48c227, type: 3}
   - {fileID: 21300000, guid: 5cd57d41bde4cfc44ab0311d5039105f, type: 3}
@@ -102,6 +103,7 @@ SpriteAtlas:
   - {fileID: -1842154276, guid: 227ae306d8a277444954d74044a067dd, type: 3}
   - {fileID: 21300000, guid: 8826ce46a04bc264dbf06ca1fe543096, type: 3}
   - {fileID: 21300000, guid: 8ffe0f569c2a8f64d8e483703f892531, type: 3}
+  - {fileID: 21300000, guid: 2ec8157697636482abade791a079b6a1, type: 3}
   - {fileID: 21300000, guid: 8c0a089615f0f4542a4a47bbc5eac568, type: 3}
   - {fileID: 21300000, guid: dd60a1c6441240f4787ca754b0004f96, type: 3}
   - {fileID: 21300000, guid: ef9d6517f66824743b6a375fa1556669, type: 3}
@@ -124,6 +126,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2a71e209ea35007458fc31622acc49ac, type: 3}
   - {fileID: 21300000, guid: f37eba692741dc14d8fa3eedd003deea, type: 3}
   - {fileID: 21300000, guid: 8c291789626564f05ab21623737d19dd, type: 3}
+  - {fileID: -868637029, guid: f6f95df97b76d71449efa1bcb4194ac6, type: 3}
   - {fileID: 21300000, guid: 2efcbc0a69f07ec47ba5e60ca6c21a92, type: 3}
   - {fileID: 21300000, guid: 5649518a0104c4fdda2a3d3d0d10ad55, type: 3}
   - {fileID: -1851247618, guid: 1e93d7aabd047b64fa3dc57b19fe965a, type: 3}
@@ -168,6 +171,7 @@ SpriteAtlas:
   - btn_rectangle_01_n_bluegray
   - 01 BroadSword
   - 01 Silver Bar
+  - Logo
   - bg Frame
   - 00 Steel Helmet
   - icon_coins 1
@@ -210,6 +214,7 @@ SpriteAtlas:
   - Slash_Angled_04_Normal_SpriteSheet 1_3
   - 01 Gold Ring
   - 01 BroadSword
+  - function_icon_clear
   - bg None Background
   - 00 Steel Armor
   - 01 Gold Ring
@@ -232,6 +237,7 @@ SpriteAtlas:
   - 01 Silver Bar
   - 02 SharpSword
   - btn_rectangle_01_n_purple
+  - 73eb87b7865cc9c4d169d91f1ce157ae_0
   - btn_rectangle_01_n_green
   - slider_edgetype_00_fill
   - Slash_Angled_04_Green_SpriteSheet 1_4

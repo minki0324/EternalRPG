@@ -15,4 +15,5 @@ public class NecklessData : EquipmentBaseData
     public int NecklessGoldPercent;
     public int NecklessDEXPercent;
     public int NecklessLUCPercent;
+    public int NecklessItemDropRate;
 }

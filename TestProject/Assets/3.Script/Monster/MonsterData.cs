@@ -35,6 +35,7 @@ public class MonsterData : ScriptableObject
     public float DrainAmount;
 
     [Header("Reword")]
-    public float RewordEXP;
-    public float RewordGold;
+    public int RewordEXP;
+    public int RewordGold;
+    public EquipmentBaseData[] RewardItem;
 }

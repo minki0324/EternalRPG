@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using Unity.Mathematics;
 
 public class BattleResult : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text totalGoldText;
     public GameObject DataPanel = null;
+    [SerializeField] private GameObject dropResultItem;
+    [SerializeField] private Transform dropResultItemParent;
 
     private void OnEnable()
     {
@@ -30,7 +34,7 @@ public class BattleResult : MonoBehaviour
         if (isWin)
         {
             resultPanelTitle.Result = true;
-            StartCoroutine(AccountBattle_Co());
+            AccountBattle_Co();
         }
         else if (!isWin)
         {
@@ -44,26 +48,31 @@ public class BattleResult : MonoBehaviour
         }
     }
 
-    private IEnumerator AccountBattle_Co()
+    private void AccountBattle_Co()
     { // 전투 결산
         // 경험치
-        GameManager.Instance.CurrentEXP += (int)mon.monsterData.RewordEXP;
+        GameManager.Instance.CurrentEXP += mon.monsterData.RewordEXP;
         int levelup = 0;
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
-            GameManager.Instance.RequireEXP = (int)(GameManager.Instance.RequireEXP * 1.25);
+            GameManager.Instance.RequireEXP = Mathf.RoundToInt(GameManager.Instance.RequireEXP * 1.02f);
             GameManager.Instance.PlayerLevel++;
             GameManager.Instance.CurrentAP += 5;
             levelup++;
-            yield return null;
         }
+
+        // 스텟 자동 분배
+        APDistribute();
+
         // 골드
-        int gold = Mathf.RoundToInt(Random.Range(mon.monsterData.RewordGold * 0.95f, mon.monsterData.RewordGold * 1.05f));
+        int gold = Mathf.RoundToInt(UnityEngine.Random.Range(mon.monsterData.RewordGold * 0.95f, mon.monsterData.RewordGold * 1.05f));
         GameManager.Instance.Gold += gold;
 
-        // todo 아이템
+        // 아이템
+        PrintDropItem(mon);
 
+        // 결산 내용 프린트
         expText.text = $"{mon.monsterData.RewordEXP:N0}";
         levelText.text = $"{levelup} UP";
         APText.text = $"+ {levelup * 5}";
@@ -95,5 +104,56 @@ public class BattleResult : MonoBehaviour
         resultPanelTitle.TitleText.gameObject.SetActive(false);
         DataPanel.SetActive(false);
         PrintLog.Instance.BattleLogClear();
+    }
+
+    private void PrintDropItem(Monster mon)
+    {
+        for (int i = 0; i < mon.monsterData.RewardItem.Length; i++)
+        {
+            Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
+            int ownCount = owndictionary.Values.Sum() == 0 ? 1 : owndictionary.Values.Sum();
+            int dropRate = (mon.monsterData.RewardItem[i].DropRate + GameManager.Instance.ItemDropRate) / ownCount;
+            int randomValue = UnityEngine.Random.Range(0, 100);
+
+            if (dropRate >= 100 || dropRate > randomValue)
+            { // 드랍율이 100% 이상이거나 랜덤값 보다 높다면 드랍
+                if (owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID))
+                {
+                    owndictionary[mon.monsterData.RewardItem[i].ItemID]++;
+                }
+                GameObject dropItem = Instantiate(dropResultItem);
+                dropItem.transform.SetParent(dropResultItemParent);
+                dropItem.GetComponent<DropItem>().DropItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
+            }
+        }
+    }
+
+    private void APDistribute()
+    {
+        int sumAutoAP = GameManager.Instance.AutoSTR + GameManager.Instance.AutoDEX + GameManager.Instance.AutoLUC + GameManager.Instance.AutoVIT;
+        
+        if(sumAutoAP > 0 && GameManager.Instance.CurrentAP >=  sumAutoAP)
+        {
+            // 각각의 자동 능력치에 대해 나눠주는 비율을 계산하여 적용합니다.
+            float strRatio = (float)GameManager.Instance.AutoSTR / sumAutoAP;
+            float dexRatio = (float)GameManager.Instance.AutoDEX / sumAutoAP;
+            float lucRatio = (float)GameManager.Instance.AutoLUC / sumAutoAP;
+            float vitRatio = (float)GameManager.Instance.AutoVIT / sumAutoAP;
+
+            // 각 능력치에 비율을 적용하여 분배합니다.
+            int distributedSTR = (int)(GameManager.Instance.CurrentAP * strRatio);
+            int distributedDEX = (int)(GameManager.Instance.CurrentAP * dexRatio);
+            int distributedLUC = (int)(GameManager.Instance.CurrentAP * lucRatio);
+            int distributedVIT = (int)(GameManager.Instance.CurrentAP * vitRatio);
+
+            // 각 능력치를 적용합니다.
+            GameManager.Instance.APSTR += distributedSTR;
+            GameManager.Instance.APDEX += distributedDEX;
+            GameManager.Instance.APLUC += distributedLUC;
+            GameManager.Instance.APVIT += distributedVIT;
+
+            // 남은 능력치를 갱신합니다.
+            GameManager.Instance.CurrentAP -= distributedSTR + distributedDEX + distributedLUC + distributedVIT;
+        }
     }
 }

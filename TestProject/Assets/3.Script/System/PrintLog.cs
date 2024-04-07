@@ -17,7 +17,6 @@ public class PrintLog : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
         }
         else
         {
