@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private ActiveCanvas activeCanvas;
     [SerializeField] private Battle battle;
     [SerializeField] private Transform movePoint;
+    [SerializeField] private Rigidbody2D rigidbody2D;
     public Animator playerAnimator;
     public bool isFight;
     private Vector2 targetPos = Vector2.zero;
@@ -90,10 +91,12 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // 반대로 회전 (x축 플립)
         }
 
+        Vector3 forPos = (Vector3)targetPos - transform.position;
+
         while (Vector2.Distance(transform.position, targetPos) > 0.1f)
         {
             // 현재 위치와 목표 위치를 향해 이동
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f);
+            rigidbody2D.MovePosition(transform.position + (forPos.normalized * Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f));
             movePoint.position = targetPos;
 
             yield return null;

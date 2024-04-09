@@ -69,6 +69,7 @@ public class EquipmentCanvas : MonoBehaviour
     {
         categoryName.text = _type;
         EquipmentManager.Instance.ItemListSet(_type, itemListParent);
+        infomationPanel.SetActive(false);
     }
 
     public void SlotSetting(int _slot)
@@ -256,9 +257,9 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Ring:
                 if (CurrentItem.EquipmentData is RingData ringData)
                 {
-                    for(int i = 0; i < GameManager.Instance.RingDatas.Length; i++)
+                    for (int i = 0; i < GameManager.Instance.RingDatas.Length; i++)
                     {
-                        if(GameManager.Instance.RingDatas[i] == ringData)
+                        if (GameManager.Instance.RingDatas[i] == ringData)
                         { // 중복 착용 todo
                             Debug.Log("중복 착용 로그 띄우기");
                             return;
@@ -275,14 +276,14 @@ public class EquipmentCanvas : MonoBehaviour
                         ringIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
                     }
                 }
-                    
+
                 break;
             case Category.Other:
                 if (CurrentItem.EquipmentData is OtherData otherData)
                 {
-                    for(int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
+                    for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
                     {
-                        if(GameManager.Instance.OtherDatas[i] == otherData)
+                        if (GameManager.Instance.OtherDatas[i] == otherData)
                         { // 중복 착용 todo
                             Debug.Log("중복 착용 로그 띄우기");
                             return;
@@ -314,7 +315,7 @@ public class EquipmentCanvas : MonoBehaviour
             int itemID = CurrentItem.EquipmentData.ItemID;
 
             // 구매 했으니 밸류 값 올려주기
-            if(ownDictionary.ContainsKey(itemID))
+            if (ownDictionary.ContainsKey(itemID))
             {
                 ownDictionary[itemID]++;
             }
@@ -322,6 +323,9 @@ public class EquipmentCanvas : MonoBehaviour
             totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
             ownCountText.text = $"보유 수량 : {ownDictionary[itemID]}";
             CurrentItem.OwnCount.text = ownDictionary[itemID].ToString();
+
+            // 스텟 갱신 해줘야됨
+            GameManager.Instance.RenewAbility();
         }
         else
         { // todo
@@ -345,184 +349,198 @@ public class EquipmentCanvas : MonoBehaviour
         }
         ownCountText.text = $"보유 수량 : {DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID]}";
 
+
+        int ownCount = 0;
         switch (EquipmentManager.Instance.type)
         {
             case Category.Weapon:
                 if (CurrentItem.EquipmentData is WeaponData weaponData)
                 {
-                    AppendBasicData("공격력", weaponData.WeaponATK);
-                    AppendBasicData("공격력%", weaponData.WeaponATKPercent);
-                    AppendPercentData("연타 확률", weaponData.WeaponComboPercent);
-                    AppendPercentData("크리티컬 확률", weaponData.WeaponCriticalPercent);
-                    AppendPercentData("크리티컬 데미지", weaponData.WeaponCriticalDamage * 100);
-                    AppendPercentData("흡혈 확률", weaponData.WeaponDrainPercent);
-                    AppendPercentData("흡혈", weaponData.WeaponDrainAmount * 100);
-                    AppendAddData("추가 STR%", weaponData.WeaponSTRPercent);
-                    AppendAddData("추가 DEX%", weaponData.WeaponDEXPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(weaponData) - 1);
+                    AppendBasicData("공격력", weaponData.WeaponATK, ownCount);
+                    AppendBasicData("공격력%", weaponData.WeaponATKPercent, ownCount);
+                    AppendPercentData("연타 확률", weaponData.WeaponComboPercent, ownCount);
+                    AppendPercentData("크리티컬 확률", weaponData.WeaponCriticalPercent, ownCount);
+                    AppendPercentData("크리티컬 데미지", weaponData.WeaponCriticalDamage * 100, ownCount);
+                    AppendPercentData("흡혈 확률", weaponData.WeaponDrainPercent, ownCount);
+                    AppendPercentData("흡혈", weaponData.WeaponDrainAmount * 100, ownCount);
+                    AppendAddData("추가 STR%", weaponData.WeaponSTRPercent, ownCount);
+                    AppendAddData("추가 DEX%", weaponData.WeaponDEXPercent, ownCount);
                 }
                 break;
             case Category.Armor:
                 if (CurrentItem.EquipmentData is ArmorData armorData)
                 {
-                    AppendBasicData("체력", armorData.ArmorHP);
-                    AppendBasicData("체력%", armorData.ArmorHPPercent);
-                    AppendBasicData("방어력", armorData.ArmorDef);
-                    AppendBasicData("방어력%", armorData.ArmorDefPercent);
-                    AppendPercentData("연타 저항", armorData.ArmorComboResist);
-                    AppendPercentData("크리티컬 저항", armorData.ArmorCriticalResist);
-                    AppendPercentData("흡혈 저항", armorData.ArmorDrainResist);
-                    AppendAddData("추가 STR%", armorData.ArmorVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(armorData) - 1);
+                    AppendBasicData("체력", armorData.ArmorHP, ownCount);
+                    AppendBasicData("체력%", armorData.ArmorHPPercent, ownCount);
+                    AppendBasicData("방어력", armorData.ArmorDef, ownCount);
+                    AppendBasicData("방어력%", armorData.ArmorDefPercent, ownCount);
+                    AppendPercentData("연타 저항", armorData.ArmorComboResist, ownCount);
+                    AppendPercentData("크리티컬 저항", armorData.ArmorCriticalResist, ownCount);
+                    AppendPercentData("흡혈 저항", armorData.ArmorDrainResist, ownCount);
+                    AppendAddData("추가 STR%", armorData.ArmorVITPercent, ownCount);
                 }
                 break;
             case Category.Helmet:
                 if (CurrentItem.EquipmentData is HelmetData helmetData)
                 {
-                    AppendBasicData("체력", helmetData.HelmetHP);
-                    AppendBasicData("체력%", helmetData.HelmetHPPercent);
-                    AppendBasicData("방어력", helmetData.HelmetDef);
-                    AppendBasicData("방어력%", helmetData.HelmetDefPercent);
-                    AppendPercentData("회피 확률", helmetData.HelmetAvoidPercent);
-                    AppendPercentData("흡혈 저항", helmetData.HelmetDrainResist);
-                    AppendAddData("추가 STR%", helmetData.HelmetSTRPercent);
-                    AppendAddData("추가 VIT%", helmetData.HelmetVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(helmetData) - 1);
+                    AppendBasicData("체력", helmetData.HelmetHP, ownCount);
+                    AppendBasicData("체력%", helmetData.HelmetHPPercent, ownCount);
+                    AppendBasicData("방어력", helmetData.HelmetDef, ownCount);
+                    AppendBasicData("방어력%", helmetData.HelmetDefPercent, ownCount);
+                    AppendPercentData("회피 확률", helmetData.HelmetAvoidPercent, ownCount);
+                    AppendPercentData("흡혈 저항", helmetData.HelmetDrainResist, ownCount);
+                    AppendAddData("추가 STR%", helmetData.HelmetSTRPercent, ownCount);
+                    AppendAddData("추가 VIT%", helmetData.HelmetVITPercent, ownCount);
                 }
                 break;
             case Category.Pants:
                 if (CurrentItem.EquipmentData is PantsData pantsData)
                 {
-                    AppendBasicData("체력", pantsData.PantsHP);
-                    AppendBasicData("체력%", pantsData.PantsHPPercent);
-                    AppendBasicData("방어력", pantsData.PantsDef);
-                    AppendBasicData("방어력%", pantsData.PantsDefPercent);
-                    AppendPercentData("연타 저항", pantsData.PantsComboResist);
-                    AppendPercentData("크리티컬 저항", pantsData.PantsCriticalResist);
-                    AppendAddData("추가 STR%", pantsData.PantsVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(pantsData) - 1);
+                    AppendBasicData("체력", pantsData.PantsHP, ownCount);
+                    AppendBasicData("체력%", pantsData.PantsHPPercent, ownCount);
+                    AppendBasicData("방어력", pantsData.PantsDef, ownCount);
+                    AppendBasicData("방어력%", pantsData.PantsDefPercent, ownCount);
+                    AppendPercentData("연타 저항", pantsData.PantsComboResist, ownCount);
+                    AppendPercentData("크리티컬 저항", pantsData.PantsCriticalResist, ownCount);
+                    AppendAddData("추가 STR%", pantsData.PantsVITPercent, ownCount);
                 }
                 break;
             case Category.Glove:
                 if (CurrentItem.EquipmentData is GloveData gloveData)
                 {
-                    AppendBasicData("공격력", gloveData.GloveATK);
-                    AppendBasicData("공격력%", gloveData.GloveATKPercent);
-                    AppendBasicData("체력", gloveData.GloveHP);
-                    AppendBasicData("체력%", gloveData.GloveHPPercent);
-                    AppendPercentData("연타 확률", gloveData.GloveComboPercent);
-                    AppendPercentData("크리티컬 확률", gloveData.GloveCriticalPercent);
-                    AppendPercentData("크리티컬 데미지", gloveData.GloveCriticalDamage * 100);
-                    AppendAddData("추가 STR%", gloveData.GloveSTRPercent);
-                    AppendAddData("추가 DEX%", gloveData.GloveDEXPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(gloveData) - 1);
+                    AppendBasicData("공격력", gloveData.GloveATK, ownCount);
+                    AppendBasicData("공격력%", gloveData.GloveATKPercent, ownCount);
+                    AppendBasicData("체력", gloveData.GloveHP, ownCount);
+                    AppendBasicData("체력%", gloveData.GloveHPPercent, ownCount);
+                    AppendPercentData("연타 확률", gloveData.GloveComboPercent, ownCount);
+                    AppendPercentData("크리티컬 확률", gloveData.GloveCriticalPercent, ownCount);
+                    AppendPercentData("크리티컬 데미지", gloveData.GloveCriticalDamage * 100, ownCount);
+                    AppendAddData("추가 STR%", gloveData.GloveSTRPercent, ownCount);
+                    AppendAddData("추가 DEX%", gloveData.GloveDEXPercent, ownCount);
                 }
                 break;
             case Category.Shoes:
                 if (CurrentItem.EquipmentData is ShoesData shoesData)
                 {
-                    AppendBasicData("체력", shoesData.ShoesHP);
-                    AppendBasicData("체력%", shoesData.ShoesHPPercent);
-                    AppendBasicData("방어력", shoesData.ShoesDef);
-                    AppendBasicData("방어력%", shoesData.ShoesDefPercent);
-                    AppendPercentData("회피 확률", shoesData.ShoesAvoidPercent);
-                    AppendPercentData("회피 저항", shoesData.ShoesAvoidResist);
-                    AppendAddData("추가 DEX%", shoesData.ShoesDEXPercent);
-                    AppendAddData("추가 VIT%", shoesData.ShoesVITPercent);
-                    AppendAddData("이동속도 증가", shoesData.ShoesMoveSpeed);
+                    ownCount = Mathf.Max(0, GetOwnCount(shoesData) - 1);
+                    AppendBasicData("체력", shoesData.ShoesHP, ownCount);
+                    AppendBasicData("체력%", shoesData.ShoesHPPercent, ownCount);
+                    AppendBasicData("방어력", shoesData.ShoesDef, ownCount);
+                    AppendBasicData("방어력%", shoesData.ShoesDefPercent, ownCount);
+                    AppendPercentData("회피 확률", shoesData.ShoesAvoidPercent, ownCount);
+                    AppendPercentData("회피 저항", shoesData.ShoesAvoidResist, ownCount);
+                    AppendAddData("추가 DEX%", shoesData.ShoesDEXPercent, ownCount);
+                    AppendAddData("추가 VIT%", shoesData.ShoesVITPercent, ownCount);
+                    AppendAddData("이동속도 증가", shoesData.ShoesMoveSpeed, ownCount);
                 }
                 break;
             case Category.Belt:
                 if (CurrentItem.EquipmentData is BeltData beltData)
                 {
-                    AppendBasicData("체력", beltData.BeltHP);
-                    AppendBasicData("체력%", beltData.BeltHPPercent);
-                    AppendPercentData("회피 확률", beltData.BeltAvoidPercent);
-                    AppendAddData("추가 경험치%", beltData.BeltEXPPercent);
-                    AppendAddData("추가 LUC%", beltData.BeltLUCPercent);
-                    AppendAddData("추가 VIT%", beltData.BeltVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(beltData) - 1);
+                    AppendBasicData("체력", beltData.BeltHP, ownCount);
+                    AppendBasicData("체력%", beltData.BeltHPPercent, ownCount);
+                    AppendPercentData("회피 확률", beltData.BeltAvoidPercent, ownCount);
+                    AppendAddData("추가 경험치%", beltData.BeltEXPPercent, ownCount);
+                    AppendAddData("추가 LUC%", beltData.BeltLUCPercent, ownCount);
+                    AppendAddData("추가 VIT%", beltData.BeltVITPercent, ownCount);
                 }
                 break;
             case Category.ShoulderArmor:
                 if (CurrentItem.EquipmentData is ShoulderData shoulderData)
                 {
-                    AppendBasicData("방어력", shoulderData.ShoulderDef);
-                    AppendBasicData("방어력%", shoulderData.ShoulderDefPercent);
-                    AppendPercentData("크리티컬 저항", shoulderData.ShoulderCriticalResist);
-                    AppendPercentData("흡혈 저항", shoulderData.ShoulderDrainResist);
-                    AppendAddData("추가 DEX%", shoulderData.ShoulderDEXPercent);
-                    AppendAddData("추가 VIT%", shoulderData.ShoulderVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(shoulderData) - 1);
+                    AppendBasicData("방어력", shoulderData.ShoulderDef, ownCount);
+                    AppendBasicData("방어력%", shoulderData.ShoulderDefPercent, ownCount);
+                    AppendPercentData("크리티컬 저항", shoulderData.ShoulderCriticalResist, ownCount);
+                    AppendPercentData("흡혈 저항", shoulderData.ShoulderDrainResist, ownCount);
+                    AppendAddData("추가 DEX%", shoulderData.ShoulderDEXPercent, ownCount);
+                    AppendAddData("추가 VIT%", shoulderData.ShoulderVITPercent, ownCount);
                 }
                 break;
             case Category.Ring:
                 if (CurrentItem.EquipmentData is RingData ringData)
                 {
-                    AppendBasicData("공격력", ringData.RingATK);
-                    AppendBasicData("공격력%", ringData.RingATKPercent);
-                    AppendBasicData("방어력", ringData.RingDef);
-                    AppendBasicData("방어력%", ringData.RingDefPercent);
-                    AppendPercentData("크리티컬 확률", ringData.RingCriticalPercent);
-                    AppendPercentData("크리티컬 저항", ringData.RingCriticalResist);
-                    AppendPercentData("흡혈 확률", ringData.RingDrainPercent);
-                    AppendPercentData("흡혈 저항", ringData.RingDrainResist);
-                    AppendAddData("추가 경험치%", ringData.RingEXPPercent);
-                    AppendAddData("아이템 드롭률%", ringData.RingItemDropRate);
-                    AppendAddData("추가 골드%", ringData.RingGoldPercent);
-                    AppendAddData("추가 STR%", ringData.RingSTRPercent);
-                    AppendAddData("추가 LUC%", ringData.RingLUCPercent);
-                    AppendAddData("추가 DEF%", ringData.RingDefPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(ringData) - 1);
+                    AppendBasicData("공격력", ringData.RingATK, ownCount);
+                    AppendBasicData("공격력%", ringData.RingATKPercent, ownCount);
+                    AppendBasicData("방어력", ringData.RingDef, ownCount);
+                    AppendBasicData("방어력%", ringData.RingDefPercent, ownCount);
+                    AppendPercentData("크리티컬 확률", ringData.RingCriticalPercent, ownCount);
+                    AppendPercentData("크리티컬 저항", ringData.RingCriticalResist, ownCount);
+                    AppendPercentData("흡혈 확률", ringData.RingDrainPercent, ownCount);
+                    AppendPercentData("흡혈 저항", ringData.RingDrainResist, ownCount);
+                    AppendAddData("추가 경험치%", ringData.RingEXPPercent, ownCount);
+                    AppendAddData("아이템 드롭률%", ringData.RingItemDropRate, ownCount);
+                    AppendAddData("추가 골드%", ringData.RingGoldPercent, ownCount);
+                    AppendAddData("추가 STR%", ringData.RingSTRPercent, ownCount);
+                    AppendAddData("추가 LUC%", ringData.RingLUCPercent, ownCount);
+                    AppendAddData("추가 DEF%", ringData.RingDefPercent, ownCount);
                 }
                 break;
             case Category.Neckless:
                 if (CurrentItem.EquipmentData is NecklessData necklessData)
                 {
-                    AppendBasicData("체력", necklessData.NecklessHP);
-                    AppendBasicData("체력%", necklessData.NecklessHPPercent);
-                    AppendPercentData("연타 확률", necklessData.NecklessComboPercent);
-                    AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent);
-                    AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent);
-                    AppendAddData("아이템 드롭률%", necklessData.NecklessEXPPercent);
-                    AppendAddData("추가 골드%", necklessData.NecklessGoldPercent);
-                    AppendAddData("추가 DEX%", necklessData.NecklessDEXPercent);
-                    AppendAddData("추가 LUC%", necklessData.NecklessLUCPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(necklessData) - 1);
+                    AppendBasicData("체력", necklessData.NecklessHP, ownCount);
+                    AppendBasicData("체력%", necklessData.NecklessHPPercent, ownCount);
+                    AppendPercentData("연타 확률", necklessData.NecklessComboPercent, ownCount);
+                    AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent, ownCount);
+                    AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent, ownCount);
+                    AppendAddData("아이템 드롭률%", necklessData.NecklessEXPPercent, ownCount);
+                    AppendAddData("추가 골드%", necklessData.NecklessGoldPercent, ownCount);
+                    AppendAddData("추가 DEX%", necklessData.NecklessDEXPercent, ownCount);
+                    AppendAddData("추가 LUC%", necklessData.NecklessLUCPercent, ownCount);
                 }
                 break;
             case Category.Clock:
                 if (CurrentItem.EquipmentData is CloakData cloakData)
                 {
-                    AppendBasicData("체력", cloakData.CloakHP);
-                    AppendBasicData("체력%", cloakData.CloakHPPercent);
-                    AppendBasicData("방어력", cloakData.CloakDef);
-                    AppendBasicData("방어력%", cloakData.CloakDefPercent);
-                    AppendPercentData("회피 확률", cloakData.CloakAvoidPercent);
-                    AppendPercentData("연타 저항", cloakData.CloakComboResist);
-                    AppendAddData("추가 DEX%", cloakData.CloakDEXPercent);
-                    AppendAddData("추가 LUC%", cloakData.CloakLUCPercent);
-                    AppendAddData("추가 VIT%", cloakData.CloakVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(cloakData));
+                    AppendBasicData("체력", cloakData.CloakHP, ownCount);
+                    AppendBasicData("체력%", cloakData.CloakHPPercent, ownCount);
+                    AppendBasicData("방어력", cloakData.CloakDef, ownCount);
+                    AppendBasicData("방어력%", cloakData.CloakDefPercent, ownCount);
+                    AppendPercentData("회피 확률", cloakData.CloakAvoidPercent, ownCount);
+                    AppendPercentData("연타 저항", cloakData.CloakComboResist, ownCount);
+                    AppendAddData("추가 DEX%", cloakData.CloakDEXPercent, ownCount);
+                    AppendAddData("추가 LUC%", cloakData.CloakLUCPercent, ownCount);
+                    AppendAddData("추가 VIT%", cloakData.CloakVITPercent, ownCount);
                 }
                 break;
             case Category.Other:
                 if (CurrentItem.EquipmentData is OtherData otherData)
                 {
-                    AppendBasicData("공격력", otherData.OtherATK);
-                    AppendBasicData("공격력%", otherData.OtherATKPercent);
-                    AppendBasicData("체력", otherData.OtherHP);
-                    AppendBasicData("체력%", otherData.OtherHPPercent);
-                    AppendBasicData("방어력", otherData.OtherDef);
-                    AppendBasicData("방어력%", otherData.OtherDefPercent);
-                    AppendPercentData("크리티컬 확률", otherData.OtherCriticalPercent);
-                    AppendPercentData("크리티컬 저항", otherData.OtherCriticalResist);
-                    AppendPercentData("크리티컬 데미지", otherData.OtherCriticalDamage * 100);
-                    AppendPercentData("연타 확률", otherData.OtherComboPercent);
-                    AppendPercentData("연타 저항", otherData.OtherComboResist);
-                    AppendPercentData("회피 확률", otherData.OtherAvoidPercent);
-                    AppendPercentData("회피 저항", otherData.OtherAvoidResist);
-                    AppendPercentData("흡혈 확률", otherData.OtherDrainPercent);
-                    AppendPercentData("흡혈 저항", otherData.OtherDrainResist);
-                    AppendPercentData("흡혈", otherData.OtherDrainAmount);
-                    AppendAddData("추가 경험치%", otherData.OtherEXPPercent);
-                    AppendAddData("아이템 드롭률%", otherData.OtherEXPPercent);
-                    AppendAddData("추가 골드%", otherData.OtherGoldPercent);
-                    AppendAddData("추가 STR%", otherData.OtherSTRPercent);
-                    AppendAddData("추가 DEX%", otherData.OtherDEXPercent);
-                    AppendAddData("추가 LUC%", otherData.OtherLUCPercent);
-                    AppendAddData("추가 VIT%", otherData.OtherVITPercent);
-                    AppendAddData("레벨업 능력치", otherData.OtherVITPercent);
+                    ownCount = Mathf.Max(0, GetOwnCount(otherData));
+                    AppendBasicData("공격력", otherData.OtherATK, ownCount);
+                    AppendBasicData("공격력%", otherData.OtherATKPercent, ownCount);
+                    AppendBasicData("체력", otherData.OtherHP, ownCount);
+                    AppendBasicData("체력%", otherData.OtherHPPercent, ownCount);
+                    AppendBasicData("방어력", otherData.OtherDef, ownCount);
+                    AppendBasicData("방어력%", otherData.OtherDefPercent, ownCount);
+                    AppendPercentData("크리티컬 확률", otherData.OtherCriticalPercent, ownCount);
+                    AppendPercentData("크리티컬 저항", otherData.OtherCriticalResist, ownCount);
+                    AppendPercentData("크리티컬 데미지", otherData.OtherCriticalDamage * 100, ownCount);
+                    AppendPercentData("연타 확률", otherData.OtherComboPercent, ownCount);
+                    AppendPercentData("연타 저항", otherData.OtherComboResist, ownCount);
+                    AppendPercentData("회피 확률", otherData.OtherAvoidPercent, ownCount);
+                    AppendPercentData("회피 저항", otherData.OtherAvoidResist, ownCount);
+                    AppendPercentData("흡혈 확률", otherData.OtherDrainPercent, ownCount);
+                    AppendPercentData("흡혈 저항", otherData.OtherDrainResist, ownCount);
+                    AppendPercentData("흡혈", otherData.OtherDrainAmount, ownCount);
+                    AppendAddData("추가 경험치%", otherData.OtherEXPPercent, ownCount);
+                    AppendAddData("아이템 드롭률%", otherData.OtherEXPPercent, ownCount);
+                    AppendAddData("추가 골드%", otherData.OtherGoldPercent, ownCount);
+                    AppendAddData("추가 STR%", otherData.OtherSTRPercent, ownCount);
+                    AppendAddData("추가 DEX%", otherData.OtherDEXPercent, ownCount);
+                    AppendAddData("추가 LUC%", otherData.OtherLUCPercent, ownCount);
+                    AppendAddData("추가 VIT%", otherData.OtherVITPercent, ownCount);
+                    AppendAddData("레벨업 능력치", otherData.OtherVITPercent, ownCount);
                 }
                 break;
         }
@@ -539,35 +557,72 @@ public class EquipmentCanvas : MonoBehaviour
     #endregion
 
     #region 데이터 텍스트 출력 관련
-    private void AppendBasicData(string labelText, int value)
+    private void AppendBasicData(string labelText, int value, int ownCount)
     {
         if (value != 0)
         {
-            basicDataList.Add($"{labelText} : {value:N0}");
+            if (ownCount == 0 || ownCount == 1)
+            {
+                basicDataList.Add($"{labelText} : {value:N0}");
+            }
+            else
+            {
+                string startColorTag = "<color=#00FFFF>";
+                string endColorTag = "</color>";
+                basicDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}");
+            }
         }
     }
 
-    private void AppendPercentData(string labelText, int value)
+    private void AppendPercentData(string labelText, int value, int ownCount)
     {
         if (value != 0)
         {
-            percentDataList.Add($"{labelText} : {value:N0}%");
+            if (ownCount == 0 || ownCount == 1)
+            {
+                percentDataList.Add($"{labelText} : {value:N0}%");
+            }
+            else
+            {
+                string startColorTag = "<color=#00FFFF>";
+                string endColorTag = "</color>";
+                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}%");
+            }
+
         }
     }
 
-    private void AppendPercentData(string labelText, float value)
+    private void AppendPercentData(string labelText, float value, int ownCount)
     {
         if (value != 0)
         {
-            percentDataList.Add($"{labelText} : {value:N0}%");
+            if (ownCount == 0 || ownCount == 1)
+            {
+                percentDataList.Add($"{labelText} : {value:N0}%");
+            }
+            else
+            {
+                string startColorTag = "<color=#00FFFF>";
+                string endColorTag = "</color>";
+                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}%");
+            }
         }
     }
 
-    private void AppendAddData(string labelText, float value)
+    private void AppendAddData(string labelText, float value, int ownCount)
     {
         if (value != 0)
         {
-            addDataList.Add($"{labelText} : {value:N0}");
+            if (ownCount == 0 || ownCount == 1)
+            {
+                addDataList.Add($"{labelText} : {value:N0}");
+            }
+            else
+            {
+                string startColorTag = "<color=#00FFFF>";
+                string endColorTag = "</color>";
+                addDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}");
+            }
         }
     }
     #endregion
@@ -579,217 +634,236 @@ public class EquipmentCanvas : MonoBehaviour
         compareBasicDataText.text = string.Empty;
         compareAddDataText.text = string.Empty;
 
+        int ownCount = 0;
+        int targetOwnCount = 0;
+
         switch (EquipmentManager.Instance.type)
         {
             case Category.Weapon:
                 if (CurrentItem.EquipmentData is WeaponData weaponData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(weaponData) - 1);
                     if (GameManager.Instance.WeaponData != null)
                     {
-                        CompareAttribute("공격력", GameManager.Instance.WeaponData.WeaponATK, weaponData.WeaponATK);
-                        CompareAttribute("공격력%", GameManager.Instance.WeaponData.WeaponATKPercent, weaponData.WeaponATKPercent);
-                        CompareAttribute("연타 확률", GameManager.Instance.WeaponData.WeaponComboPercent, weaponData.WeaponComboPercent, false);
-                        CompareAttribute("크리티컬 확률", GameManager.Instance.WeaponData.WeaponCriticalPercent, weaponData.WeaponCriticalPercent, false);
-                        CompareAttribute("크리티컬 데미지", GameManager.Instance.WeaponData.WeaponCriticalDamage, weaponData.WeaponCriticalDamage, true);
-                        CompareAttribute("흡혈 확률", GameManager.Instance.WeaponData.WeaponDrainPercent, weaponData.WeaponDrainPercent, false);
-                        CompareAttribute("흡혈", GameManager.Instance.WeaponData.WeaponDrainAmount, weaponData.WeaponDrainAmount, true);
-                        CompareAddAttribute("추가 STR%", GameManager.Instance.WeaponData.WeaponSTRPercent, weaponData.WeaponSTRPercent);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.WeaponData.WeaponDEXPercent, weaponData.WeaponDEXPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.WeaponData) - 1;
+                        CompareAttribute("공격력", GameManager.Instance.WeaponData.WeaponATK, weaponData.WeaponATK, ownCount, targetOwnCount);
+                        CompareAttribute("공격력%", GameManager.Instance.WeaponData.WeaponATKPercent, weaponData.WeaponATKPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", GameManager.Instance.WeaponData.WeaponComboPercent, weaponData.WeaponComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 확률", GameManager.Instance.WeaponData.WeaponCriticalPercent, weaponData.WeaponCriticalPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 데미지", GameManager.Instance.WeaponData.WeaponCriticalDamage, weaponData.WeaponCriticalDamage, ownCount, targetOwnCount, true);
+                        CompareAttribute("흡혈 확률", GameManager.Instance.WeaponData.WeaponDrainPercent, weaponData.WeaponDrainPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈", GameManager.Instance.WeaponData.WeaponDrainAmount, weaponData.WeaponDrainAmount, ownCount, targetOwnCount, true);
+                        CompareAddAttribute("추가 STR%", GameManager.Instance.WeaponData.WeaponSTRPercent, weaponData.WeaponSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.WeaponData.WeaponDEXPercent, weaponData.WeaponDEXPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("공격력", 0, weaponData.WeaponATK);
-                        CompareAttribute("공격력%", 0, weaponData.WeaponATKPercent);
-                        CompareAttribute("연타 확률", 0, weaponData.WeaponComboPercent, false);
-                        CompareAttribute("크리티컬 확률", 0, weaponData.WeaponCriticalPercent, false);
-                        CompareAttribute("크리티컬 데미지", 0, weaponData.WeaponCriticalDamage, true);
-                        CompareAttribute("흡혈 확률", 0, weaponData.WeaponDrainPercent, false);
-                        CompareAttribute("흡혈", 0, weaponData.WeaponDrainAmount, true);
-                        CompareAddAttribute("추가 STR%", 0, weaponData.WeaponSTRPercent);
-                        CompareAddAttribute("추가 DEX%", 0, weaponData.WeaponDEXPercent);
+                        CompareAttribute("공격력", 0, weaponData.WeaponATK, ownCount, targetOwnCount);
+                        CompareAttribute("공격력%", 0, weaponData.WeaponATKPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", 0, weaponData.WeaponComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 확률", 0, weaponData.WeaponCriticalPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 데미지", 0, weaponData.WeaponCriticalDamage, ownCount, targetOwnCount, true);
+                        CompareAttribute("흡혈 확률", 0, weaponData.WeaponDrainPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈", 0, weaponData.WeaponDrainAmount, ownCount, targetOwnCount, true);
+                        CompareAddAttribute("추가 STR%", 0, weaponData.WeaponSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", 0, weaponData.WeaponDEXPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Armor:
                 if (CurrentItem.EquipmentData is ArmorData armorData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(armorData) - 1);
                     if (GameManager.Instance.ArmorData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.ArmorData.ArmorHP, armorData.ArmorHP);
-                        CompareAttribute("체력%", GameManager.Instance.ArmorData.ArmorHPPercent, armorData.ArmorHPPercent);
-                        CompareAttribute("방어력", GameManager.Instance.ArmorData.ArmorDef, armorData.ArmorDef);
-                        CompareAttribute("방어력%", GameManager.Instance.ArmorData.ArmorDefPercent, armorData.ArmorDefPercent);
-                        CompareAttribute("연타 저항", GameManager.Instance.ArmorData.ArmorComboResist, armorData.ArmorComboResist, false);
-                        CompareAttribute("크리티컬 저항", GameManager.Instance.ArmorData.ArmorCriticalResist, armorData.ArmorCriticalResist, false);
-                        CompareAttribute("흡혈 저항", GameManager.Instance.ArmorData.ArmorDrainResist, armorData.ArmorDrainResist, false);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ArmorData.ArmorVITPercent, armorData.ArmorVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.ArmorData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.ArmorData.ArmorHP, armorData.ArmorHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.ArmorData.ArmorHPPercent, armorData.ArmorHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.ArmorData.ArmorDef, armorData.ArmorDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.ArmorData.ArmorDefPercent, armorData.ArmorDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 저항", GameManager.Instance.ArmorData.ArmorComboResist, armorData.ArmorComboResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 저항", GameManager.Instance.ArmorData.ArmorCriticalResist, armorData.ArmorCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", GameManager.Instance.ArmorData.ArmorDrainResist, armorData.ArmorDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ArmorData.ArmorVITPercent, armorData.ArmorVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, armorData.ArmorHP);
-                        CompareAttribute("체력%", 0, armorData.ArmorHPPercent);
-                        CompareAttribute("방어력", 0, armorData.ArmorDef);
-                        CompareAttribute("방어력%", 0, armorData.ArmorDefPercent);
-                        CompareAttribute("연타 저항", 0, armorData.ArmorComboResist, false);
-                        CompareAttribute("크리티컬 저항", 0, armorData.ArmorCriticalResist, false);
-                        CompareAttribute("흡혈 저항", 0, armorData.ArmorDrainResist, false);
-                        CompareAddAttribute("추가 VIT%", 0, armorData.ArmorVITPercent);
+                        CompareAttribute("체력", 0, armorData.ArmorHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, armorData.ArmorHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", 0, armorData.ArmorDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, armorData.ArmorDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 저항", 0, armorData.ArmorComboResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 저항", 0, armorData.ArmorCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", 0, armorData.ArmorDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 VIT%", 0, armorData.ArmorVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Helmet:
                 if (CurrentItem.EquipmentData is HelmetData helmetData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(helmetData) - 1);
                     if (GameManager.Instance.HelmetData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.HelmetData.HelmetHP, helmetData.HelmetHP);
-                        CompareAttribute("체력%", GameManager.Instance.HelmetData.HelmetHPPercent, helmetData.HelmetHPPercent);
-                        CompareAttribute("방어력", GameManager.Instance.HelmetData.HelmetDef, helmetData.HelmetDef);
-                        CompareAttribute("방어력%", GameManager.Instance.HelmetData.HelmetDefPercent, helmetData.HelmetDefPercent);
-                        CompareAttribute("회피 확률", GameManager.Instance.HelmetData.HelmetAvoidPercent, helmetData.HelmetAvoidPercent, false);
-                        CompareAttribute("흡혈 저항", GameManager.Instance.HelmetData.HelmetDrainResist, helmetData.HelmetDrainResist, false);
-                        CompareAddAttribute("추가 STR%", GameManager.Instance.HelmetData.HelmetSTRPercent, helmetData.HelmetSTRPercent);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.HelmetData.HelmetVITPercent, helmetData.HelmetVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.HelmetData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.HelmetData.HelmetHP, helmetData.HelmetHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.HelmetData.HelmetHPPercent, helmetData.HelmetHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.HelmetData.HelmetDef, helmetData.HelmetDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.HelmetData.HelmetDefPercent, helmetData.HelmetDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", GameManager.Instance.HelmetData.HelmetAvoidPercent, helmetData.HelmetAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", GameManager.Instance.HelmetData.HelmetDrainResist, helmetData.HelmetDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 STR%", GameManager.Instance.HelmetData.HelmetSTRPercent, helmetData.HelmetSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.HelmetData.HelmetVITPercent, helmetData.HelmetVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, helmetData.HelmetHP);
-                        CompareAttribute("체력%", 0, helmetData.HelmetHPPercent);
-                        CompareAttribute("방어력", 0, helmetData.HelmetDef);
-                        CompareAttribute("방어력%", 0, helmetData.HelmetDefPercent);
-                        CompareAttribute("회피 확률", 0, helmetData.HelmetAvoidPercent, false);
-                        CompareAttribute("흡혈 저항", 0, helmetData.HelmetDrainResist, false);
-                        CompareAddAttribute("추가 STR%", 0, helmetData.HelmetSTRPercent);
-                        CompareAddAttribute("추가 VIT%", 0, helmetData.HelmetVITPercent);
+                        CompareAttribute("체력", 0, helmetData.HelmetHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, helmetData.HelmetHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", 0, helmetData.HelmetDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, helmetData.HelmetDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", 0, helmetData.HelmetAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", 0, helmetData.HelmetDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 STR%", 0, helmetData.HelmetSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", 0, helmetData.HelmetVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Pants:
                 if (CurrentItem.EquipmentData is PantsData pantsData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(pantsData) - 1);
                     if (GameManager.Instance.PantsData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.PantsData.PantsHP, pantsData.PantsHP);
-                        CompareAttribute("체력%", GameManager.Instance.PantsData.PantsHPPercent, pantsData.PantsHPPercent);
-                        CompareAttribute("방어력", GameManager.Instance.PantsData.PantsDef, pantsData.PantsDef);
-                        CompareAttribute("방어력%", GameManager.Instance.PantsData.PantsDefPercent, pantsData.PantsDefPercent);
-                        CompareAttribute("연타 저항", GameManager.Instance.PantsData.PantsComboResist, pantsData.PantsComboResist, false);
-                        CompareAttribute("크리티컬 저항", GameManager.Instance.PantsData.PantsCriticalResist, pantsData.PantsCriticalResist, false);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.PantsData.PantsVITPercent, pantsData.PantsVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.PantsData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.PantsData.PantsHP, pantsData.PantsHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.PantsData.PantsHPPercent, pantsData.PantsHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.PantsData.PantsDef, pantsData.PantsDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.PantsData.PantsDefPercent, pantsData.PantsDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 저항", GameManager.Instance.PantsData.PantsComboResist, pantsData.PantsComboResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 저항", GameManager.Instance.PantsData.PantsCriticalResist, pantsData.PantsCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.PantsData.PantsVITPercent, pantsData.PantsVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, pantsData.PantsHP);
-                        CompareAttribute("체력%", 0, pantsData.PantsHPPercent);
-                        CompareAttribute("방어력", 0, pantsData.PantsDef);
-                        CompareAttribute("방어력%", 0, pantsData.PantsDefPercent);
-                        CompareAttribute("연타 저항", 0, pantsData.PantsComboResist, false);
-                        CompareAttribute("크리티컬 저항", 0, pantsData.PantsCriticalResist, false);
-                        CompareAddAttribute("추가 VIT%", 0, pantsData.PantsVITPercent);
+                        CompareAttribute("체력", 0, pantsData.PantsHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, pantsData.PantsHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", 0, pantsData.PantsDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, pantsData.PantsDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 저항", 0, pantsData.PantsComboResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 저항", 0, pantsData.PantsCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 VIT%", 0, pantsData.PantsVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Glove:
                 if (CurrentItem.EquipmentData is GloveData gloveData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(gloveData) - 1);
                     if (GameManager.Instance.GloveData != null)
                     {
-                        CompareAttribute("공격력", GameManager.Instance.GloveData.GloveATK, gloveData.GloveATK);
-                        CompareAttribute("공격력%", GameManager.Instance.GloveData.GloveATKPercent, gloveData.GloveATKPercent);
-                        CompareAttribute("체력", GameManager.Instance.GloveData.GloveHP, gloveData.GloveHP);
-                        CompareAttribute("체력%", GameManager.Instance.GloveData.GloveHPPercent, gloveData.GloveHPPercent);
-                        CompareAttribute("연타 확률", GameManager.Instance.GloveData.GloveComboPercent, gloveData.GloveComboPercent, false);
-                        CompareAttribute("크리티컬 확률", GameManager.Instance.GloveData.GloveCriticalPercent, gloveData.GloveCriticalPercent, false);
-                        CompareAttribute("크리티컬 데미지", GameManager.Instance.GloveData.GloveCriticalDamage, gloveData.GloveCriticalDamage, true);
-                        CompareAddAttribute("추가 STR%", GameManager.Instance.GloveData.GloveSTRPercent, gloveData.GloveSTRPercent);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.GloveData.GloveDEXPercent, gloveData.GloveDEXPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.GloveData) - 1;
+                        CompareAttribute("공격력", GameManager.Instance.GloveData.GloveATK, gloveData.GloveATK, ownCount, targetOwnCount);
+                        CompareAttribute("공격력%", GameManager.Instance.GloveData.GloveATKPercent, gloveData.GloveATKPercent, ownCount, targetOwnCount);
+                        CompareAttribute("체력", GameManager.Instance.GloveData.GloveHP, gloveData.GloveHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.GloveData.GloveHPPercent, gloveData.GloveHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", GameManager.Instance.GloveData.GloveComboPercent, gloveData.GloveComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 확률", GameManager.Instance.GloveData.GloveCriticalPercent, gloveData.GloveCriticalPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 데미지", GameManager.Instance.GloveData.GloveCriticalDamage, gloveData.GloveCriticalDamage, ownCount, targetOwnCount, true);
+                        CompareAddAttribute("추가 STR%", GameManager.Instance.GloveData.GloveSTRPercent, gloveData.GloveSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.GloveData.GloveDEXPercent, gloveData.GloveDEXPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("공격력", 0, gloveData.GloveATK);
-                        CompareAttribute("공격력%", 0, gloveData.GloveATKPercent);
-                        CompareAttribute("체력", 0, gloveData.GloveHP);
-                        CompareAttribute("체력%", 0, gloveData.GloveHPPercent);
-                        CompareAttribute("연타 확률", 0, gloveData.GloveComboPercent, false);
-                        CompareAttribute("크리티컬 확률", 0, gloveData.GloveCriticalPercent, false);
-                        CompareAttribute("크리티컬 데미지", 0, gloveData.GloveCriticalDamage, true);
-                        CompareAddAttribute("추가 STR%", 0, gloveData.GloveSTRPercent);
-                        CompareAddAttribute("추가 DEX%", 0, gloveData.GloveDEXPercent);
+                        CompareAttribute("공격력", 0, gloveData.GloveATK, ownCount, targetOwnCount);
+                        CompareAttribute("공격력%", 0, gloveData.GloveATKPercent, ownCount, targetOwnCount);
+                        CompareAttribute("체력", 0, gloveData.GloveHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, gloveData.GloveHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", 0, gloveData.GloveComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 확률", 0, gloveData.GloveCriticalPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("크리티컬 데미지", 0, gloveData.GloveCriticalDamage, ownCount, targetOwnCount, true);
+                        CompareAddAttribute("추가 STR%", 0, gloveData.GloveSTRPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", 0, gloveData.GloveDEXPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Shoes:
                 if (CurrentItem.EquipmentData is ShoesData shoesData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(shoesData) - 1);
                     if (GameManager.Instance.ShoesData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.ShoesData.ShoesHP, shoesData.ShoesHP);
-                        CompareAttribute("체력%", GameManager.Instance.ShoesData.ShoesHPPercent, shoesData.ShoesHPPercent);
-                        CompareAttribute("방어력", GameManager.Instance.ShoesData.ShoesDef, shoesData.ShoesDef);
-                        CompareAttribute("방어력%", GameManager.Instance.ShoesData.ShoesDefPercent, shoesData.ShoesDefPercent);
-                        CompareAttribute("회피 확률", GameManager.Instance.ShoesData.ShoesAvoidPercent, shoesData.ShoesAvoidPercent, false);
-                        CompareAttribute("회피 저항", GameManager.Instance.ShoesData.ShoesAvoidResist, shoesData.ShoesAvoidResist, false);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ShoesData.ShoesDEXPercent, shoesData.ShoesDEXPercent);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ShoesData.ShoesVITPercent, shoesData.ShoesVITPercent);
-                        CompareAddAttribute("이동속도", GameManager.Instance.ShoesData.ShoesMoveSpeed, shoesData.ShoesMoveSpeed);
+                        ownCount = GetOwnCount(GameManager.Instance.ShoesData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.ShoesData.ShoesHP, shoesData.ShoesHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.ShoesData.ShoesHPPercent, shoesData.ShoesHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.ShoesData.ShoesDef, shoesData.ShoesDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.ShoesData.ShoesDefPercent, shoesData.ShoesDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", GameManager.Instance.ShoesData.ShoesAvoidPercent, shoesData.ShoesAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 저항", GameManager.Instance.ShoesData.ShoesAvoidResist, shoesData.ShoesAvoidResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ShoesData.ShoesDEXPercent, shoesData.ShoesDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ShoesData.ShoesVITPercent, shoesData.ShoesVITPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("이동속도", GameManager.Instance.ShoesData.ShoesMoveSpeed, shoesData.ShoesMoveSpeed, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, shoesData.ShoesHP);
-                        CompareAttribute("체력%", 0, shoesData.ShoesHPPercent);
-                        CompareAttribute("방어력", 0, shoesData.ShoesDef);
-                        CompareAttribute("방어력%", 0, shoesData.ShoesDefPercent);
-                        CompareAttribute("회피 확률", 0, shoesData.ShoesAvoidPercent, false);
-                        CompareAttribute("회피 저항", 0, shoesData.ShoesAvoidResist, false);
-                        CompareAddAttribute("추가 DEX%", 0, shoesData.ShoesDEXPercent);
-                        CompareAddAttribute("추가 VIT%", 0, shoesData.ShoesVITPercent);
-                        CompareAddAttribute("이동속도", 0, shoesData.ShoesMoveSpeed);
+                        CompareAttribute("체력", 0, shoesData.ShoesHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, shoesData.ShoesHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", 0, shoesData.ShoesDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, shoesData.ShoesDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", 0, shoesData.ShoesAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 저항", 0, shoesData.ShoesAvoidResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", 0, shoesData.ShoesDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", 0, shoesData.ShoesVITPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("이동속도", 0, shoesData.ShoesMoveSpeed, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Belt:
                 if (CurrentItem.EquipmentData is BeltData beltData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(beltData) - 1);
                     if (GameManager.Instance.BeltData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.BeltData.BeltHP, beltData.BeltHP);
-                        CompareAttribute("체력%", GameManager.Instance.BeltData.BeltHPPercent, beltData.BeltHPPercent);
-                        CompareAttribute("회피 확률", GameManager.Instance.BeltData.BeltAvoidPercent, beltData.BeltAvoidPercent, false);
-                        CompareAddAttribute("추가 경험치%", GameManager.Instance.BeltData.BeltEXPPercent, beltData.BeltEXPPercent);
-                        CompareAddAttribute("추가 LUC%", GameManager.Instance.BeltData.BeltLUCPercent, beltData.BeltLUCPercent);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.BeltData.BeltVITPercent, beltData.BeltVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.BeltData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.BeltData.BeltHP, beltData.BeltHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.BeltData.BeltHPPercent, beltData.BeltHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", GameManager.Instance.BeltData.BeltAvoidPercent, beltData.BeltAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 경험치%", GameManager.Instance.BeltData.BeltEXPPercent, beltData.BeltEXPPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", GameManager.Instance.BeltData.BeltLUCPercent, beltData.BeltLUCPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.BeltData.BeltVITPercent, beltData.BeltVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, beltData.BeltHP);
-                        CompareAttribute("체력%", 0, beltData.BeltHPPercent);
-                        CompareAttribute("회피 확률", 0, beltData.BeltAvoidPercent, false);
-                        CompareAddAttribute("추가 경험치%", 0, beltData.BeltEXPPercent);
-                        CompareAddAttribute("추가 LUC%", 0, beltData.BeltLUCPercent);
-                        CompareAddAttribute("추가 VIT%", 0, beltData.BeltVITPercent);
+                        CompareAttribute("체력", 0, beltData.BeltHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, beltData.BeltHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", 0, beltData.BeltAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 경험치%", 0, beltData.BeltEXPPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", 0, beltData.BeltLUCPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", 0, beltData.BeltVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.ShoulderArmor:
                 if (CurrentItem.EquipmentData is ShoulderData shoulderData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(shoulderData) - 1);
                     if (GameManager.Instance.ShoulderArmorData != null)
                     {
-                        CompareAttribute("방어력", GameManager.Instance.ShoulderArmorData.ShoulderDef, shoulderData.ShoulderDef);
-                        CompareAttribute("방어력%", GameManager.Instance.ShoulderArmorData.ShoulderDefPercent, shoulderData.ShoulderDefPercent);
-                        CompareAttribute("크리티컬 저항", GameManager.Instance.ShoulderArmorData.ShoulderCriticalResist, shoulderData.ShoulderCriticalResist, false);
-                        CompareAttribute("흡혈 저항", GameManager.Instance.ShoulderArmorData.ShoulderDrainResist, shoulderData.ShoulderDrainResist, false);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ShoulderArmorData.ShoulderDEXPercent, shoulderData.ShoulderDEXPercent);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ShoulderArmorData.ShoulderVITPercent, shoulderData.ShoulderVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.ShoulderArmorData) - 1;
+                        CompareAttribute("방어력", GameManager.Instance.ShoulderArmorData.ShoulderDef, shoulderData.ShoulderDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.ShoulderArmorData.ShoulderDefPercent, shoulderData.ShoulderDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("크리티컬 저항", GameManager.Instance.ShoulderArmorData.ShoulderCriticalResist, shoulderData.ShoulderCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", GameManager.Instance.ShoulderArmorData.ShoulderDrainResist, shoulderData.ShoulderDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ShoulderArmorData.ShoulderDEXPercent, shoulderData.ShoulderDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ShoulderArmorData.ShoulderVITPercent, shoulderData.ShoulderVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("방어력", 0, shoulderData.ShoulderDef);
-                        CompareAttribute("방어력%", 0, shoulderData.ShoulderDefPercent);
-                        CompareAttribute("크리티컬 저항", 0, shoulderData.ShoulderCriticalResist, false);
-                        CompareAttribute("흡혈 저항", 0, shoulderData.ShoulderDrainResist, false);
-                        CompareAddAttribute("추가 DEX%", 0, shoulderData.ShoulderDEXPercent);
-                        CompareAddAttribute("추가 VIT%", 0, shoulderData.ShoulderVITPercent);
+                        CompareAttribute("방어력", 0, shoulderData.ShoulderDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, shoulderData.ShoulderDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("크리티컬 저항", 0, shoulderData.ShoulderCriticalResist, ownCount, targetOwnCount, false);
+                        CompareAttribute("흡혈 저항", 0, shoulderData.ShoulderDrainResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", 0, shoulderData.ShoulderDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", 0, shoulderData.ShoulderVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
@@ -802,58 +876,62 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Neckless:
                 if (CurrentItem.EquipmentData is NecklessData necklessData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(necklessData) - 1);
                     if (GameManager.Instance.NecklessData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.NecklessData.NecklessHP, necklessData.NecklessHP);
-                        CompareAttribute("체력%", GameManager.Instance.NecklessData.NecklessHPPercent, necklessData.NecklessHPPercent);
-                        CompareAttribute("연타 확률", GameManager.Instance.NecklessData.NecklessComboPercent, necklessData.NecklessComboPercent, false);
-                        CompareAttribute("회피 확률", GameManager.Instance.NecklessData.NecklessAvoidPercent, necklessData.NecklessAvoidPercent, false);
-                        CompareAddAttribute("추가 경험치%", GameManager.Instance.NecklessData.NecklessEXPPercent, necklessData.NecklessEXPPercent);
-                        CompareAddAttribute("아이템 드롭률%", GameManager.Instance.NecklessData.NecklessItemDropRate, necklessData.NecklessItemDropRate);
-                        CompareAddAttribute("추가 골드%", GameManager.Instance.NecklessData.NecklessGoldPercent, necklessData.NecklessGoldPercent);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.NecklessData.NecklessDEXPercent, necklessData.NecklessDEXPercent);
-                        CompareAddAttribute("추가 LUC%", GameManager.Instance.NecklessData.NecklessLUCPercent, necklessData.NecklessLUCPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.NecklessData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.NecklessData.NecklessHP, necklessData.NecklessHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.NecklessData.NecklessHPPercent, necklessData.NecklessHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", GameManager.Instance.NecklessData.NecklessComboPercent, necklessData.NecklessComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 확률", GameManager.Instance.NecklessData.NecklessAvoidPercent, necklessData.NecklessAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 경험치%", GameManager.Instance.NecklessData.NecklessEXPPercent, necklessData.NecklessEXPPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("아이템 드롭률%", GameManager.Instance.NecklessData.NecklessItemDropRate, necklessData.NecklessItemDropRate, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 골드%", GameManager.Instance.NecklessData.NecklessGoldPercent, necklessData.NecklessGoldPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.NecklessData.NecklessDEXPercent, necklessData.NecklessDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", GameManager.Instance.NecklessData.NecklessLUCPercent, necklessData.NecklessLUCPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, necklessData.NecklessHP);
-                        CompareAttribute("체력%", 0, necklessData.NecklessHPPercent);
-                        CompareAttribute("연타 확률", 0, necklessData.NecklessComboPercent, false);
-                        CompareAttribute("회피 확률", 0, necklessData.NecklessAvoidPercent, false);
-                        CompareAddAttribute("추가 경험치%", 0, necklessData.NecklessEXPPercent);
-                        CompareAddAttribute("아이템 드롭률%", 0, necklessData.NecklessItemDropRate);
-                        CompareAddAttribute("추가 골드%", 0, necklessData.NecklessGoldPercent);
-                        CompareAddAttribute("추가 DEX%", 0, necklessData.NecklessDEXPercent);
-                        CompareAddAttribute("추가 LUC%", 0, necklessData.NecklessLUCPercent);
+                        CompareAttribute("체력", 0, necklessData.NecklessHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, necklessData.NecklessHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("연타 확률", 0, necklessData.NecklessComboPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 확률", 0, necklessData.NecklessAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 경험치%", 0, necklessData.NecklessEXPPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("아이템 드롭률%", 0, necklessData.NecklessItemDropRate, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 골드%", 0, necklessData.NecklessGoldPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 DEX%", 0, necklessData.NecklessDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", 0, necklessData.NecklessLUCPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
             case Category.Clock:
                 if (CurrentItem.EquipmentData is CloakData cloakData)
                 {
+                    targetOwnCount = Mathf.Max(0, GetOwnCount(cloakData) - 1);
                     if (GameManager.Instance.ClockData != null)
                     {
-                        CompareAttribute("체력", GameManager.Instance.ClockData.CloakHP, cloakData.CloakHP);
-                        CompareAttribute("체력%", GameManager.Instance.ClockData.CloakHPPercent, cloakData.CloakHPPercent);
-                        CompareAttribute("방어력", GameManager.Instance.ClockData.CloakDef, cloakData.CloakDef);
-                        CompareAttribute("방어력%", GameManager.Instance.ClockData.CloakDefPercent, cloakData.CloakDefPercent);
-                        CompareAttribute("회피 확률", GameManager.Instance.ClockData.CloakAvoidPercent, cloakData.CloakAvoidPercent, false);
-                        CompareAttribute("연타 저항", GameManager.Instance.ClockData.CloakComboResist, cloakData.CloakComboResist, false);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ClockData.CloakDEXPercent, cloakData.CloakDEXPercent);
-                        CompareAddAttribute("추가 LUC%", GameManager.Instance.ClockData.CloakLUCPercent, cloakData.CloakLUCPercent);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ClockData.CloakVITPercent, cloakData.CloakVITPercent);
+                        ownCount = GetOwnCount(GameManager.Instance.ClockData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.ClockData.CloakHP, cloakData.CloakHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.ClockData.CloakHPPercent, cloakData.CloakHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.ClockData.CloakDef, cloakData.CloakDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.ClockData.CloakDefPercent, cloakData.CloakDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", GameManager.Instance.ClockData.CloakAvoidPercent, cloakData.CloakAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("연타 저항", GameManager.Instance.ClockData.CloakComboResist, cloakData.CloakComboResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ClockData.CloakDEXPercent, cloakData.CloakDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", GameManager.Instance.ClockData.CloakLUCPercent, cloakData.CloakLUCPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ClockData.CloakVITPercent, cloakData.CloakVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {
-                        CompareAttribute("체력", 0, cloakData.CloakHP);
-                        CompareAttribute("체력%", 0, cloakData.CloakHPPercent);
-                        CompareAttribute("방어력", 0, cloakData.CloakDef);
-                        CompareAttribute("방어력%", 0, cloakData.CloakDefPercent);
-                        CompareAttribute("회피 확률", 0, cloakData.CloakAvoidPercent, false);
-                        CompareAttribute("연타 저항", 0, cloakData.CloakComboResist, false);
-                        CompareAddAttribute("추가 DEX%", 0, cloakData.CloakDEXPercent);
-                        CompareAddAttribute("추가 LUC%", 0, cloakData.CloakLUCPercent);
-                        CompareAddAttribute("추가 VIT%", 0, cloakData.CloakVITPercent);
+                        CompareAttribute("체력", 0, cloakData.CloakHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", 0, cloakData.CloakHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", 0, cloakData.CloakDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", 0, cloakData.CloakDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", 0, cloakData.CloakAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("연타 저항", 0, cloakData.CloakComboResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", 0, cloakData.CloakDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", 0, cloakData.CloakLUCPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", 0, cloakData.CloakVITPercent, ownCount, targetOwnCount);
                     }
                 }
                 break;
@@ -869,123 +947,131 @@ public class EquipmentCanvas : MonoBehaviour
 
     #region 비교 텍스트 출력 관련
 
-    private void CompareAttribute(string labelText, int equipValue, int dataValue)
+    private void CompareAttribute(string labelText, int equipValue, int dataValue, int equipOwnCount, int targetOwnCount)
     {
-        int compareValue = dataValue - equipValue;
+        int compareValue = (dataValue + GetOwnCountValue(targetOwnCount, dataValue)) - (equipValue + GetOwnCountValue(equipOwnCount, equipValue));
         CompareBasicData(labelText, compareValue);
     }
 
-    private void CompareAttribute(string labelText, float equipValue, float dataValue, bool isPercentage = false)
+    private void CompareAttribute(string labelText, float equipValue, float dataValue, int equipOwnCount, int targetOwnCount, bool isPercentage = false)
     {
-        float compareValue = dataValue - equipValue;
+        float compareValue = 0f;
         if (isPercentage)
         {
-            compareValue = compareValue * 100;
+            compareValue = ((dataValue + (float)(GetOwnCountValue(targetOwnCount, dataValue))) - (equipValue + (float)GetOwnCountValue(equipOwnCount, equipValue))) * 100;
+        }
+        else
+        {
+            compareValue = (dataValue + (float)GetOwnCountValue(targetOwnCount, dataValue)) - (equipValue + (float)GetOwnCountValue(equipOwnCount, equipValue));
         }
         ComparePercentData(labelText, compareValue);
     }
 
-    private void CompareAddAttribute(string labelText, int equipValue, int dataValue)
+    private void CompareAddAttribute(string labelText, int equipValue, int dataValue, int equipOwnCount, int targetOwnCount)
     {
-        int compareValue = dataValue - equipValue;
+        int compareValue = (dataValue + GetOwnCountValue(targetOwnCount, dataValue)) - (equipValue + GetOwnCountValue(equipOwnCount, equipValue));
         CompareAddData(labelText, compareValue);
     }
 
     private void CompareOtherAttribute(CompareSlot slot, OtherData otherData)
     {
+        int targetOwnCount = Mathf.Max(0, GetOwnCount(otherData) - 1);
         if (GameManager.Instance.OtherDatas[(int)slot] != null)
         {
-            CompareAttribute("공격력", GameManager.Instance.OtherDatas[(int)slot].OtherATK, otherData.OtherATK);
-            CompareAttribute("공격력%", GameManager.Instance.OtherDatas[(int)slot].OtherATKPercent, otherData.OtherATKPercent);
-            CompareAttribute("체력", GameManager.Instance.OtherDatas[(int)slot].OtherHP, otherData.OtherHP);
-            CompareAttribute("체력%", GameManager.Instance.OtherDatas[(int)slot].OtherHPPercent, otherData.OtherHPPercent);
-            CompareAttribute("방어력", GameManager.Instance.OtherDatas[(int)slot].OtherDef, otherData.OtherDef);
-            CompareAttribute("방어력%", GameManager.Instance.OtherDatas[(int)slot].OtherDefPercent, otherData.OtherDefPercent);
-            CompareAttribute("크리티컬 확률", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalPercent, otherData.OtherDefPercent, false);
-            CompareAttribute("크리티컬 저항", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalResist, otherData.OtherDefPercent, false);
-            CompareAttribute("크리티컬 데미지", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalDamage, otherData.OtherDefPercent, true);
-            CompareAttribute("흡혈 확률", GameManager.Instance.OtherDatas[(int)slot].OtherDrainPercent, otherData.OtherDefPercent, false);
-            CompareAttribute("흡혈 저항", GameManager.Instance.OtherDatas[(int)slot].OtherDrainResist, otherData.OtherDefPercent, false);
-            CompareAttribute("흡혈", GameManager.Instance.OtherDatas[(int)slot].OtherDrainAmount, otherData.OtherDefPercent, true);
-            CompareAttribute("연타 확률", GameManager.Instance.OtherDatas[(int)slot].OtherComboPercent, otherData.OtherDefPercent, false);
-            CompareAttribute("연타 저항", GameManager.Instance.OtherDatas[(int)slot].OtherComboResist, otherData.OtherDefPercent, false);
-            CompareAttribute("회피 확률", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidPercent, otherData.OtherDefPercent, false);
-            CompareAttribute("회피 저항", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidResist, otherData.OtherDefPercent, false);
-            CompareAddAttribute("추가 경험치%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherEXPPercent);
-            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.OtherDatas[(int)slot].OtherItemDropRate, otherData.OtherItemDropRate);
-            CompareAddAttribute("추가 골드%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherGoldPercent);
-            CompareAddAttribute("추가 STR%", GameManager.Instance.OtherDatas[(int)slot].OtherSTRPercent, otherData.OtherSTRPercent);
-            CompareAddAttribute("추가 DEX%", GameManager.Instance.OtherDatas[(int)slot].OtherDEXPercent, otherData.OtherDEXPercent);
-            CompareAddAttribute("추가 LUC%", GameManager.Instance.OtherDatas[(int)slot].OtherLUCPercent, otherData.OtherLUCPercent);
-            CompareAddAttribute("추가 VIT%", GameManager.Instance.OtherDatas[(int)slot].OtherVITPercent, otherData.OtherVITPercent);
-            CompareAddAttribute("레벨업 능력치", GameManager.Instance.OtherDatas[(int)slot].OtherBonusAP, otherData.OtherBonusAP);
+            int ownCount = GetOwnCount(GameManager.Instance.OtherDatas[(int)slot]) - 1;
+            CompareAttribute("공격력", GameManager.Instance.OtherDatas[(int)slot].OtherATK, otherData.OtherATK, ownCount, targetOwnCount);
+            CompareAttribute("공격력%", GameManager.Instance.OtherDatas[(int)slot].OtherATKPercent, otherData.OtherATKPercent, ownCount, targetOwnCount);
+            CompareAttribute("체력", GameManager.Instance.OtherDatas[(int)slot].OtherHP, otherData.OtherHP, ownCount, targetOwnCount);
+            CompareAttribute("체력%", GameManager.Instance.OtherDatas[(int)slot].OtherHPPercent, otherData.OtherHPPercent, ownCount, targetOwnCount);
+            CompareAttribute("방어력", GameManager.Instance.OtherDatas[(int)slot].OtherDef, otherData.OtherDef, ownCount, targetOwnCount);
+            CompareAttribute("방어력%", GameManager.Instance.OtherDatas[(int)slot].OtherDefPercent, otherData.OtherDefPercent, ownCount, targetOwnCount);
+            CompareAttribute("크리티컬 확률", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 데미지", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalDamage, otherData.OtherDefPercent, ownCount, targetOwnCount, true);
+            CompareAttribute("흡혈 확률", GameManager.Instance.OtherDatas[(int)slot].OtherDrainPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", GameManager.Instance.OtherDatas[(int)slot].OtherDrainResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈", GameManager.Instance.OtherDatas[(int)slot].OtherDrainAmount, otherData.OtherDefPercent, ownCount, targetOwnCount, true);
+            CompareAttribute("연타 확률", GameManager.Instance.OtherDatas[(int)slot].OtherComboPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("연타 저항", GameManager.Instance.OtherDatas[(int)slot].OtherComboResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("회피 확률", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("회피 저항", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAddAttribute("추가 경험치%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherEXPPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.OtherDatas[(int)slot].OtherItemDropRate, otherData.OtherItemDropRate, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 골드%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherGoldPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 STR%", GameManager.Instance.OtherDatas[(int)slot].OtherSTRPercent, otherData.OtherSTRPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 DEX%", GameManager.Instance.OtherDatas[(int)slot].OtherDEXPercent, otherData.OtherDEXPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 LUC%", GameManager.Instance.OtherDatas[(int)slot].OtherLUCPercent, otherData.OtherLUCPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 VIT%", GameManager.Instance.OtherDatas[(int)slot].OtherVITPercent, otherData.OtherVITPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("레벨업 능력치", GameManager.Instance.OtherDatas[(int)slot].OtherBonusAP, otherData.OtherBonusAP, ownCount, targetOwnCount);
         }
         else
         {
             // 기본 정보
-            CompareAttribute("공격력", 0, otherData.OtherATK);
-            CompareAttribute("공격력%", 0, otherData.OtherATKPercent);
-            CompareAttribute("체력", 0, otherData.OtherHP);
-            CompareAttribute("체력%", 0, otherData.OtherHPPercent);
-            CompareAttribute("방어력", 0, otherData.OtherDef);
-            CompareAttribute("방어력%", 0, otherData.OtherDefPercent);
+            CompareAttribute("공격력", 0, otherData.OtherATK, 0, targetOwnCount);
+            CompareAttribute("공격력%", 0, otherData.OtherATKPercent, 0, targetOwnCount);
+            CompareAttribute("체력", 0, otherData.OtherHP, 0, targetOwnCount);
+            CompareAttribute("체력%", 0, otherData.OtherHPPercent, 0, targetOwnCount);
+            CompareAttribute("방어력", 0, otherData.OtherDef, 0, targetOwnCount);
+            CompareAttribute("방어력%", 0, otherData.OtherDefPercent, 0, targetOwnCount);
             // 확률
-            CompareAttribute("크리티컬 확률", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("크리티컬 저항", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("크리티컬 데미지", 0, otherData.OtherDefPercent, true);
-            CompareAttribute("흡혈 확률", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("흡혈 저항", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("흡혈", 0, otherData.OtherDefPercent, true);
-            CompareAttribute("연타 확률", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("연타 저항", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("회피 확률", 0, otherData.OtherDefPercent, false);
-            CompareAttribute("회피 저항", 0, otherData.OtherDefPercent, false);
-            CompareAddAttribute("추가 경험치%", 0, otherData.OtherEXPPercent);
-            CompareAddAttribute("아이템 드롭률%", 0, otherData.OtherItemDropRate);
-            CompareAddAttribute("추가 골드%", 0, otherData.OtherGoldPercent);
-            CompareAddAttribute("추가 STR%", 0, otherData.OtherSTRPercent);
-            CompareAddAttribute("추가 DEX%", 0, otherData.OtherDEXPercent);
-            CompareAddAttribute("추가 LUC%", 0, otherData.OtherLUCPercent);
-            CompareAddAttribute("추가 VIT%", 0, otherData.OtherVITPercent);
-            CompareAddAttribute("레벨업 능력치", 0, otherData.OtherBonusAP);
+            CompareAttribute("크리티컬 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 데미지", 0, otherData.OtherDefPercent, 0, targetOwnCount, true);
+            CompareAttribute("흡혈 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("흡혈", 0, otherData.OtherDefPercent, 0, targetOwnCount, true);
+            CompareAttribute("연타 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("연타 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("회피 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("회피 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAddAttribute("추가 경험치%", 0, otherData.OtherEXPPercent, 0, targetOwnCount);
+            CompareAddAttribute("아이템 드롭률%", 0, otherData.OtherItemDropRate, 0, targetOwnCount);
+            CompareAddAttribute("추가 골드%", 0, otherData.OtherGoldPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 STR%", 0, otherData.OtherSTRPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 DEX%", 0, otherData.OtherDEXPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 LUC%", 0, otherData.OtherLUCPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 VIT%", 0, otherData.OtherVITPercent, 0, targetOwnCount);
+            CompareAddAttribute("레벨업 능력치", 0, otherData.OtherBonusAP, 0, targetOwnCount);
         }
     }
 
     private void CompareRingAttribute(CompareSlot slot, RingData ringData)
     {
+        int targetOwnCount = Mathf.Max(0, GetOwnCount(ringData) - 1);
         if (GameManager.Instance.RingDatas[(int)slot] != null)
         {
-            CompareAttribute("공격력", GameManager.Instance.RingDatas[(int)slot].RingATK, ringData.RingATK);
-            CompareAttribute("공격력%", GameManager.Instance.RingDatas[(int)slot].RingATKPercent, ringData.RingATKPercent);
-            CompareAttribute("방어력", GameManager.Instance.RingDatas[(int)slot].RingDef, ringData.RingDef);
-            CompareAttribute("방어력%", GameManager.Instance.RingDatas[(int)slot].RingDefPercent, ringData.RingDefPercent);
-            CompareAttribute("크리티컬 확률", GameManager.Instance.RingDatas[(int)slot].RingCriticalPercent, ringData.RingCriticalPercent, false);
-            CompareAttribute("크리티컬 저항", GameManager.Instance.RingDatas[(int)slot].RingCriticalResist, ringData.RingCriticalResist, false);
-            CompareAttribute("흡혈 확률", GameManager.Instance.RingDatas[(int)slot].RingDrainPercent, ringData.RingDrainPercent, false);
-            CompareAttribute("흡혈 저항", GameManager.Instance.RingDatas[(int)slot].RingDrainResist, ringData.RingDrainResist, false);
-            CompareAddAttribute("추가 경험치%", GameManager.Instance.RingDatas[(int)slot].RingEXPPercent, ringData.RingEXPPercent);
-            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.RingDatas[(int)slot].RingItemDropRate, ringData.RingItemDropRate);
-            CompareAddAttribute("추가 골드%", GameManager.Instance.RingDatas[(int)slot].RingGoldPercent, ringData.RingGoldPercent);
-            CompareAddAttribute("추가 STR%", GameManager.Instance.RingDatas[(int)slot].RingSTRPercent, ringData.RingSTRPercent);
-            CompareAddAttribute("추가 LUC%", GameManager.Instance.RingDatas[(int)slot].RingLUCPercent, ringData.RingLUCPercent);
-            CompareAddAttribute("추가 DEX%", GameManager.Instance.RingDatas[(int)slot].RingDEXPercent, ringData.RingDEXPercent);
+            int ownCount = GetOwnCount(GameManager.Instance.RingDatas[(int)slot]) - 1;
+            CompareAttribute("공격력", GameManager.Instance.RingDatas[(int)slot].RingATK, ringData.RingATK, ownCount, targetOwnCount);
+            CompareAttribute("공격력%", GameManager.Instance.RingDatas[(int)slot].RingATKPercent, ringData.RingATKPercent, ownCount, targetOwnCount);
+            CompareAttribute("방어력", GameManager.Instance.RingDatas[(int)slot].RingDef, ringData.RingDef, ownCount, targetOwnCount);
+            CompareAttribute("방어력%", GameManager.Instance.RingDatas[(int)slot].RingDefPercent, ringData.RingDefPercent, ownCount, targetOwnCount);
+            CompareAttribute("크리티컬 확률", GameManager.Instance.RingDatas[(int)slot].RingCriticalPercent, ringData.RingCriticalPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", GameManager.Instance.RingDatas[(int)slot].RingCriticalResist, ringData.RingCriticalResist, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈 확률", GameManager.Instance.RingDatas[(int)slot].RingDrainPercent, ringData.RingDrainPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", GameManager.Instance.RingDatas[(int)slot].RingDrainResist, ringData.RingDrainResist, ownCount, targetOwnCount, false);
+            CompareAddAttribute("추가 경험치%", GameManager.Instance.RingDatas[(int)slot].RingEXPPercent, ringData.RingEXPPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("아이템 드롭률%", GameManager.Instance.RingDatas[(int)slot].RingItemDropRate, ringData.RingItemDropRate, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 골드%", GameManager.Instance.RingDatas[(int)slot].RingGoldPercent, ringData.RingGoldPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 STR%", GameManager.Instance.RingDatas[(int)slot].RingSTRPercent, ringData.RingSTRPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 LUC%", GameManager.Instance.RingDatas[(int)slot].RingLUCPercent, ringData.RingLUCPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 DEX%", GameManager.Instance.RingDatas[(int)slot].RingDEXPercent, ringData.RingDEXPercent, ownCount, targetOwnCount);
         }
         else
         {
-            CompareAttribute("공격력", 0, ringData.RingATK);
-            CompareAttribute("공격력%", 0, ringData.RingATKPercent);
-            CompareAttribute("방어력", 0, ringData.RingDef);
-            CompareAttribute("방어력%", 0, ringData.RingDefPercent);
-            CompareAttribute("크리티컬 확률", 0, ringData.RingCriticalPercent, false);
-            CompareAttribute("크리티컬 저항", 0, ringData.RingCriticalResist, false);
-            CompareAttribute("흡혈 확률", 0, ringData.RingDrainPercent, false);
-            CompareAttribute("흡혈 저항", 0, ringData.RingDrainResist, false);
-            CompareAddAttribute("추가 경험치%", 0, ringData.RingEXPPercent);
-            CompareAddAttribute("아이템 드롭률%", 0, ringData.RingItemDropRate);
-            CompareAddAttribute("추가 골드%", 0, ringData.RingGoldPercent);
-            CompareAddAttribute("추가 STR%", 0, ringData.RingSTRPercent);
-            CompareAddAttribute("추가 LUC%", 0, ringData.RingLUCPercent);
-            CompareAddAttribute("추가 DEX%", 0, ringData.RingDEXPercent);
+            CompareAttribute("공격력", 0, ringData.RingATK, 0, targetOwnCount);
+            CompareAttribute("공격력%", 0, ringData.RingATKPercent, 0, targetOwnCount);
+            CompareAttribute("방어력", 0, ringData.RingDef, 0, targetOwnCount);
+            CompareAttribute("방어력%", 0, ringData.RingDefPercent, 0, targetOwnCount);
+            CompareAttribute("크리티컬 확률", 0, ringData.RingCriticalPercent, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", 0, ringData.RingCriticalResist, 0, targetOwnCount, false);
+            CompareAttribute("흡혈 확률", 0, ringData.RingDrainPercent, 0, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", 0, ringData.RingDrainResist, 0, targetOwnCount, false);
+            CompareAddAttribute("추가 경험치%", 0, ringData.RingEXPPercent, 0, targetOwnCount);
+            CompareAddAttribute("아이템 드롭률%", 0, ringData.RingItemDropRate, 0, targetOwnCount);
+            CompareAddAttribute("추가 골드%", 0, ringData.RingGoldPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 STR%", 0, ringData.RingSTRPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 LUC%", 0, ringData.RingLUCPercent, 0, targetOwnCount);
+            CompareAddAttribute("추가 DEX%", 0, ringData.RingDEXPercent, 0, targetOwnCount);
         }
     }
 
@@ -1029,4 +1115,26 @@ public class EquipmentCanvas : MonoBehaviour
         }
     }
     #endregion
+
+    private int GetOwnCount(EquipmentBaseData equipmentBaseData)
+    {
+        // 보유 아이템 개수 가져오기
+        Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(equipmentBaseData);
+        int ownCount = owndictionary.ContainsKey(equipmentBaseData.ItemID) ? owndictionary[equipmentBaseData.ItemID] : 0;
+
+        return ownCount;
+    }
+    private int GetOwnCountValue(int ownCount, int baseValue)
+    {
+        int ownCountValue = Mathf.RoundToInt((float)(baseValue * ((float)ownCount / 9)));
+
+        return ownCountValue;
+    }
+
+    private float GetOwnCountValue(int ownCount, float baseValue)
+    {
+        float ownCountValue = ((float)(baseValue * ((float)ownCount / 9)));
+
+        return ownCountValue;
+    }
 }

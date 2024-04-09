@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Monster : MonoBehaviour
     public int MonsterCurHP = 0;
     public int MonsterATK = 0;
     public int MonsterPower = 0;
+    public SpriteRenderer[] sprites;
+    public ReviveMonster reviveMonster;
 
     private void Awake()
     {

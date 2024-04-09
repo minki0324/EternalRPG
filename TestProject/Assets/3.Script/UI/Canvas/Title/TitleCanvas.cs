@@ -12,9 +12,11 @@ public class TitleCanvas : MonoBehaviour
         infomationText.text = $"레벨 : {GameManager.Instance.PlayerLevel:N0}\n" +
                                           $"전투력 : {GameManager.Instance.Power:N0}\n" +
                                           $"골드 : {GameManager.Instance.Gold:N0}\n" +
-                                          $"남은 에너지 : {GameManager.Instance.Energy}\n" +
+                                          $"남은 에너지 : {GameManager.Instance.CurrentEnergy}\n" +
                                           $"캐릭터 위치 : \n" +
                                           $"플레이 회수 : {GameManager.Instance.PlayCount:N0}";
+
+        
     }
 
     public void StartButton()
@@ -47,12 +49,17 @@ public class TitleCanvas : MonoBehaviour
         // 상태 초기화
         GameManager.Instance.PlayerLevel = 1;
         GameManager.Instance.Gold = 0;
-        GameManager.Instance.Energy = 25;
+        GameManager.Instance.CurrentEnergy = 25;
+        GameManager.Instance.BonusEnergy = 0;
         GameManager.Instance.PlayCount = 0;
         GameManager.Instance.APSTR = 0;
         GameManager.Instance.APDEX = 0;
         GameManager.Instance.APVIT = 0;
         GameManager.Instance.APLUC = 0;
+        GameManager.Instance.isAPBook = false;
+        GameManager.Instance.isClover = false;
+        GameManager.Instance.isFood = false;
+        GameManager.Instance.isGoldPack = false;
 
         // 정보 갱신
         GameManager.Instance.RenewAbility();

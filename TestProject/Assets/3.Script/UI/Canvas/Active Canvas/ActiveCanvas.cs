@@ -8,8 +8,4 @@ public class ActiveCanvas : MonoBehaviour
     public GameObject versusPanel;
     public GameObject resultPanel;
 
-    public void BattleSpeed(int _rate)
-    {
-        GameManager.Instance.BattleSpeed = _rate;
-    }
 }

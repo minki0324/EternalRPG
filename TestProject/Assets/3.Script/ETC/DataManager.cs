@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Android;
 using Newtonsoft.Json;
 using System;
 
@@ -55,7 +56,9 @@ public class PlayerData
     public int BattleSpeed;
     public int CurrentLevel;
     public int TotalGold;
+    public int Gem;
     public int CurrentEnergy;
+    public int BonusEnergy;
     public int CurrentEXP;
     public int RequireEXP;
     public int CurrentAP;
@@ -72,6 +75,16 @@ public class PlayerData
     public PlayerData()
     {
 
+    }
+}
+
+public class EliteMonster
+{
+    public Dictionary<int, bool> EliteMonsterDic;
+
+    public EliteMonster(Dictionary<int, bool> eliteMonsterDic)
+    {
+        EliteMonsterDic = eliteMonsterDic;
     }
 }
 
@@ -93,10 +106,14 @@ public class DataManager : MonoBehaviour
     public Dictionary<int, int> RingOwnCount;
     public Dictionary<int, int> OtherOwnCount;
 
+    [Header("엘리트 몬스터 잡았는지")]
+    public Dictionary<int, bool> EliteMonsterDic;
+
     [Header("Json")]
     private string ownCountPath;
     private string equipmentPath;
     private string playerDataPath;
+    private string eliteMonsterPath;
 
     private void Awake()
     {
@@ -113,6 +130,8 @@ public class DataManager : MonoBehaviour
         ownCountPath = Application.persistentDataPath + "/EquipmentOwnCount.json";
         equipmentPath = Application.persistentDataPath + "/EquipmentSet.json";
         playerDataPath = Application.persistentDataPath + "/PlayerData.json";
+        eliteMonsterPath = Application.persistentDataPath + "/EliteMonsterDic.json";
+        EliteMonsterDic = new Dictionary<int, bool>();
     }
 
     private void Start()
@@ -120,6 +139,7 @@ public class DataManager : MonoBehaviour
         LoadPlayerData();
         LoadEquipSet();
         LoadOwnCount();
+        LoadEliteMonsterDic();
         EquipmentSet();
         GameManager.Instance.RenewAbility();
     }
@@ -130,9 +150,56 @@ public class DataManager : MonoBehaviour
         SaveOwnCount();
         SaveEquipSet();
         SavePlayerData();
+        SaveEliteMonsterDic();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            EquipmentSet();
+            SaveOwnCount();
+            SaveEquipSet();
+            SavePlayerData();
+            SaveEliteMonsterDic();
+        }
     }
 
     #region Json 세이브&로드
+    public void SaveEliteMonsterDic()
+    {
+        EliteMonster eliteMonsterDic = new EliteMonster(EliteMonsterDic);
+
+        try
+        {
+            string json = JsonConvert.SerializeObject(eliteMonsterDic, Formatting.Indented);
+            File.WriteAllText(eliteMonsterPath, json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    private void LoadEliteMonsterDic()
+    {
+        EliteMonster eliteMonsterDic;
+        try
+        {
+            string json = File.ReadAllText(eliteMonsterPath);
+            eliteMonsterDic = JsonConvert.DeserializeObject<EliteMonster>(json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            eliteMonsterDic = new EliteMonster(EliteMonsterDic);
+        }
+        if (eliteMonsterDic != null)
+        {
+            EliteMonsterDic = eliteMonsterDic.EliteMonsterDic;
+        }
+    }
+
     private void SaveOwnCount()
     { // 보유 데이터 JSON으로 저장
         EquipmentOwnCount ownCount = new EquipmentOwnCount();
@@ -150,9 +217,15 @@ public class DataManager : MonoBehaviour
         ownCount.NecklessOwnCount = NecklessOwnCount;
         ownCount.RingOwnCount = RingOwnCount;
         ownCount.OtherOwnCount = OtherOwnCount;
-
-        string json = JsonConvert.SerializeObject(ownCount, Formatting.Indented);
-        File.WriteAllText(ownCountPath, json);
+        try
+        {
+            string json = JsonConvert.SerializeObject(ownCount, Formatting.Indented);
+            File.WriteAllText(ownCountPath, json);
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     private void LoadOwnCount()
@@ -160,8 +233,16 @@ public class DataManager : MonoBehaviour
         if (File.Exists(ownCountPath))
         {
             EquipmentOwnCount ownCount;
-            string json = File.ReadAllText(ownCountPath);
-            ownCount = JsonConvert.DeserializeObject<EquipmentOwnCount>(json);
+            try
+            {
+                string json = File.ReadAllText(ownCountPath);
+                ownCount = JsonConvert.DeserializeObject<EquipmentOwnCount>(json);
+            }
+            catch(Exception e)
+            {
+                Debug.Log(e.Message);
+                ownCount = null;
+            }
 
             WeaponOwnCount = ownCount.WeaponOwnCount;
             ArmorOwnCount = ownCount.ArmorOwnCount;
@@ -214,8 +295,15 @@ public class DataManager : MonoBehaviour
             equipmentSet.EquipOther[i] = GameManager.Instance.OtherDatas[i] != null ? GameManager.Instance.OtherDatas[i] : null;
         }
 
-        string json = JsonConvert.SerializeObject(equipmentSet, Formatting.Indented);
-        File.WriteAllText(equipmentPath, json);
+        try
+        {
+            string json = JsonConvert.SerializeObject(equipmentSet, Formatting.Indented);
+            File.WriteAllText(equipmentPath, json);
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     public void LoadEquipSet()
@@ -223,8 +311,16 @@ public class DataManager : MonoBehaviour
         if (File.Exists(equipmentPath))
         {
             EquipmentSet equipmentSet;
-            string json = File.ReadAllText(equipmentPath);
-            equipmentSet = JsonConvert.DeserializeObject<EquipmentSet>(json);
+            try
+            {
+                string json = File.ReadAllText(equipmentPath);
+                equipmentSet = JsonConvert.DeserializeObject<EquipmentSet>(json);
+            }
+            catch(Exception e)
+            {
+                Debug.Log(e.Message);
+                equipmentSet = null;
+            }
 
             GameManager.Instance.WeaponData = equipmentSet.EquipWeapon != null ? equipmentSet.EquipWeapon : null;
             GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
@@ -253,7 +349,9 @@ public class DataManager : MonoBehaviour
         playerData.BattleSpeed = GameManager.Instance.BattleSpeed;
         playerData.CurrentLevel = GameManager.Instance.PlayerLevel;
         playerData.TotalGold = GameManager.Instance.Gold;
-        playerData.CurrentEnergy = GameManager.Instance.Energy;
+        playerData.Gem = GameManager.Instance.Gem;
+        playerData.CurrentEnergy = GameManager.Instance.CurrentEnergy;
+        playerData.BonusEnergy = GameManager.Instance.BonusEnergy;
         playerData.CurrentEXP = GameManager.Instance.CurrentEXP;
         playerData.RequireEXP = GameManager.Instance.RequireEXP;
         playerData.CurrentAP = GameManager.Instance.CurrentAP;
@@ -267,21 +365,39 @@ public class DataManager : MonoBehaviour
         playerData.AutoLUC = GameManager.Instance.AutoLUC;
         playerData.AutoVIT = GameManager.Instance.AutoVIT;
 
-        string json = JsonConvert.SerializeObject(playerData, Formatting.Indented);
-        File.WriteAllText(playerDataPath, json);
+        try
+        {
+            string json = JsonConvert.SerializeObject(playerData, Formatting.Indented);
+            File.WriteAllText(playerDataPath, json);
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     public void LoadPlayerData()
     {
         if(File.Exists(playerDataPath))
         {
-            string json = File.ReadAllText(playerDataPath);
-            PlayerData playerData = JsonConvert.DeserializeObject<PlayerData>(json);
+            PlayerData playerData;
+            try
+            {
+                string json = File.ReadAllText(playerDataPath);
+                 playerData = JsonConvert.DeserializeObject<PlayerData>(json);
+            }
+            catch(Exception e)
+            {
+                Debug.Log(e.Message);
+                playerData = null;
+            }
 
             GameManager.Instance.BattleSpeed = playerData.BattleSpeed;
             GameManager.Instance.PlayerLevel = playerData.CurrentLevel;
             GameManager.Instance.Gold = playerData.TotalGold;
-            GameManager.Instance.Energy = playerData.CurrentEnergy;
+            GameManager.Instance.Gem = playerData.Gem;
+            GameManager.Instance.CurrentEnergy = playerData.CurrentEnergy;
+            GameManager.Instance.BonusEnergy = playerData.BonusEnergy;
             GameManager.Instance.CurrentEXP = playerData.CurrentEXP;
             GameManager.Instance.RequireEXP = playerData.RequireEXP;
             GameManager.Instance.CurrentAP = playerData.CurrentAP;
@@ -330,7 +446,6 @@ public class DataManager : MonoBehaviour
         }
     }
     #endregion
-
 
 
     public Dictionary<int, int> GetOwnDictionary(EquipmentBaseData _equipmentBaseData)

@@ -7,6 +7,7 @@ public class MonsterData : ScriptableObject
 {
     [Header("기본 데이터")]
     public string MonsterName;
+    public int MonsterID;
     public string MonsterType;
     public int MonsterLevel;
     public int MonsterMaxHP;
@@ -16,7 +17,7 @@ public class MonsterData : ScriptableObject
     public Sprite MonsterSprite;
     public Vector2 ReturnPos;
     public int RequireEnergy;
-
+    public bool isElite;
 
     [Header("확률")]
     [Space(10)] // 크리티컬
@@ -37,5 +38,6 @@ public class MonsterData : ScriptableObject
     [Header("Reword")]
     public int RewordEXP;
     public int RewordGold;
+    public int RewordEnergy;
     public EquipmentBaseData[] RewardItem;
 }

@@ -10,7 +10,26 @@ public class AutoPanel : MonoBehaviour
     [SerializeField] private TMP_Text AutoNumText;
     public int AutoNum;
 
-    public void IncreaseButton()
+    private void OnEnable()
+    {
+        switch (stat)
+        {
+            case Stat.STR:
+                AutoNumText.text = GameManager.Instance.AutoSTR.ToString();
+                break;
+            case Stat.DEX:
+                AutoNumText.text = GameManager.Instance.AutoDEX.ToString();
+                break;
+            case Stat.LUC:
+                AutoNumText.text = GameManager.Instance.AutoLUC.ToString();
+                break;
+            case Stat.VIT:
+                AutoNumText.text = GameManager.Instance.AutoVIT.ToString();
+                break;
+        }
+    }
+
+        public void IncreaseButton()
     {
         AutoNum = Mathf.Min(20, AutoNum + 1);
         AutoNumText.text = AutoNum.ToString();

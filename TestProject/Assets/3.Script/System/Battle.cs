@@ -105,11 +105,8 @@ public class Battle : MonoBehaviour
                 PlayerTurn(i);
 
                 if (mon.MonsterCurHP <= 0)
-                { // 승리
-                    result.isWin = true;
-                    GameManager.Instance.Energy -= mon.monsterData.RequireEnergy;
-                    // 연타 도중 몬스터가 죽었다면 for문 이탈
-                    break;
+                {
+                    break; // 몬스터의 체력이 0 이하이면 for 루프를 빠져나옴
                 }
                 yield return battleDelay;
                 playerHPText.color = Color.white;
@@ -123,6 +120,11 @@ public class Battle : MonoBehaviour
             for (int i = 1; i < comboCount + 1; i++)
             {
                 monsterTurn(i);
+
+                if (GameManager.Instance.PlayerCurHP <= 0)
+                {
+                    break; // 플레이어의 체력이 0이하라면 for 루프를 빠져나옴
+                }
 
                 yield return battleDelay;
                 playerHPText.color = new Color(1f, 1f, 1f); // 흰색
@@ -138,6 +140,8 @@ public class Battle : MonoBehaviour
             Destroy(dropItemTransform.GetChild(i).gameObject);
         }
 
+        playerHPText.color = Color.white;
+        monsterHPText.color = Color.white;
         result.gameObject.SetActive(true);
         ignoreRay.SetActive(false);
         Time.timeScale = 1f;
@@ -149,12 +153,18 @@ public class Battle : MonoBehaviour
         { // 회피 성공했을 때
             damageText.text = $"회피 !";
             damageText.color = Color.cyan;
-            Debug.Log("몬스터가 회피");
+            PrintLog.Instance.BattleLog($"몬스터의 회피 !");
         }
         else
         {
             PlayerAttack(comboCount);
             effectAnimator.SetTrigger(GetTrigger(comboCount));
+        }
+
+        if (mon.MonsterCurHP <= 0)
+        { // 승리
+            result.isWin = true;
+            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy;
         }
     }
 
@@ -162,7 +172,7 @@ public class Battle : MonoBehaviour
     {
         if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
         { // 회피 성공했을 때
-            Debug.Log("플레이어가 회피");
+            PrintLog.Instance.BattleLog($"플레이어의 회피 !");
         }
         else
         {
@@ -173,8 +183,7 @@ public class Battle : MonoBehaviour
         if (GameManager.Instance.PlayerCurHP <= 0)
         { // 패배
             result.isWin = false;
-            GameManager.Instance.Energy -= mon.monsterData.RequireEnergy * 2;
-            //for문 이탈
+            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy * 2;
         }
     }
 
@@ -199,7 +208,8 @@ public class Battle : MonoBehaviour
         // 흡혈 확인
         drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
         if (drainAmount != 0)
-        { // 흡혈 성공 텍스트 띄워줘야함 todo
+        {
+            PrintLog.Instance.BattleLog($"플레이어의 흡혈 {drainAmount:N0}만큼 체력을 회복합니다.");
             GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount);
             playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
             playerHPText.color = Color.green;
@@ -254,7 +264,7 @@ public class Battle : MonoBehaviour
         if (drainAmount != 0)
         { // 흡혈 성공 텍스트 띄워줘야함 todo
             mon.MonsterCurHP = Mathf.Min(mon.MonsterMaxHP, mon.MonsterCurHP + drainAmount);
-            Debug.Log("몬스터가 흡혈");
+            PrintLog.Instance.BattleLog($"몬스터의 흡혈 {drainAmount:N0}만큼 몬스터의 체력이 회복됩니다.");
             // 몬스터 체력바 관리
             monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
             monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
@@ -438,7 +448,9 @@ public class Battle : MonoBehaviour
             // 아이템 드랍율 표기
             Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
             int ownCount = owndictionary.Values.Sum() == 0 ? 1 : owndictionary.Values.Sum();
-            int dropRate = (mon.monsterData.RewardItem[i].DropRate + GameManager.Instance.ItemDropRate) / ownCount;
+            float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
+            float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
+            float dropRate = (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount);
             drop.DropRateText.text = $"{dropRate:F2}%";
         }
     }

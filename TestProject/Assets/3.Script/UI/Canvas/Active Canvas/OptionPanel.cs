@@ -12,4 +12,9 @@ public class OptionPanel : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    public void BattleSpeed(int _rate)
+    {
+        GameManager.Instance.BattleSpeed = _rate;
+    }
 }

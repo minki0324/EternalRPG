@@ -246,8 +246,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ActiveCanvas, Assembly-CSharp
+      - m_Target: {fileID: 1089178029}
+        m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
         m_MethodName: BattleSpeed
         m_Mode: 3
         m_Arguments:
@@ -1024,8 +1024,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ActiveCanvas, Assembly-CSharp
+      - m_Target: {fileID: 1089178029}
+        m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
         m_MethodName: BattleSpeed
         m_Mode: 3
         m_Arguments:
@@ -3899,7 +3899,9 @@ MonoBehaviour:
   PlayerLevel: 1
   MoveSpeed: 20
   Gold: 0
-  Energy: 25
+  Gem: 0
+  CurrentEnergy: 25
+  BonusEnergy: 0
   CurrentEXP: 0
   RequireEXP: 50
   CurrentAP: 0
@@ -3908,12 +3910,16 @@ MonoBehaviour:
   PlayCount: 0
   STR: 5
   APSTR: 0
+  AutoSTR: 0
   DEX: 5
   APDEX: 0
+  AutoDEX: 0
   LUC: 5
   APLUC: 0
+  AutoLUC: 0
   VIT: 5
   APVIT: 0
+  AutoVIT: 0
   CriticalPercant: 5
   CriticalResist: 5
   CriticalDamage: 1.2
@@ -3950,6 +3956,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isAPBook: 0
+  isGoldPack: 0
+  isFood: 0
+  isClover: 0
   QuickSlot:
   - "\uD035\uC2AC\uB86F 1"
   - "\uD035\uC2AC\uB86F 2"
@@ -4124,8 +4134,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ActiveCanvas, Assembly-CSharp
+      - m_Target: {fileID: 1089178029}
+        m_TargetAssemblyTypeName: OptionPanel, Assembly-CSharp
         m_MethodName: BattleSpeed
         m_Mode: 3
         m_Arguments:

@@ -58,12 +58,14 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 68b35d2059b8c46e0a98e53628e9b3af, type: 3}
+  - {fileID: 21300000, guid: a9c751a077dd342a89004f4b58aa6f71, type: 3}
   - {fileID: 21300000, guid: a08230b007bfc96499c9c5739cba6c8d, type: 3}
   - {fileID: 21300000, guid: 05af17b0d24b90d40a8834615a185a9e, type: 3}
   - {fileID: 21300000, guid: 8f256ed0b467f534a809b79b5b55b739, type: 3}
   - {fileID: 21300000, guid: 8ab20d018976348b196e3d1370b667f6, type: 3}
   - {fileID: 21300000, guid: 27d7d32160319f44f8a0246e3d48c227, type: 3}
   - {fileID: 21300000, guid: 5cd57d41bde4cfc44ab0311d5039105f, type: 3}
+  - {fileID: 21300000, guid: 5d22ba719322dc045bfde637decfd563, type: 3}
   - {fileID: 21300000, guid: cf6a0ec11fde941d18c8e0157fdeb7c7, type: 3}
   - {fileID: 21300000, guid: 9ab52b224de5c8d44909026f2287007d, type: 3}
   - {fileID: 648713356, guid: e1421a9213f6d8749b53dfa357507d61, type: 3}
@@ -80,6 +82,7 @@ SpriteAtlas:
   - {fileID: 428777763, guid: e1421a9213f6d8749b53dfa357507d61, type: 3}
   - {fileID: 21300000, guid: a6dca9f2793b3ee4e93384c15c62f645, type: 3}
   - {fileID: 21300000, guid: 0a0f21933467fa24999e139e482fa5a4, type: 3}
+  - {fileID: 21300000, guid: 6c6eb993a21bd44c48cc8eff14549457, type: 3}
   - {fileID: 21300000, guid: 63cc9a93320ed794a9412ea1fabbf11f, type: 3}
   - {fileID: -2068372836, guid: 7e0ed6f3fc146724cba8ea62af290b51, type: 3}
   - {fileID: 1908270111, guid: 7e0ed6f3fc146724cba8ea62af290b51, type: 3}
@@ -124,8 +127,10 @@ SpriteAtlas:
   - {fileID: -986927187, guid: 95eb36f8ba2a1564690f3c45e39222b1, type: 3}
   - {fileID: 21300000, guid: dbfcacf848548af4fac2dce9951ba3fb, type: 3}
   - {fileID: 21300000, guid: 2a71e209ea35007458fc31622acc49ac, type: 3}
+  - {fileID: 21300000, guid: aea836296c13940c2b0a18e6770aaf6d, type: 3}
   - {fileID: 21300000, guid: f37eba692741dc14d8fa3eedd003deea, type: 3}
   - {fileID: 21300000, guid: 8c291789626564f05ab21623737d19dd, type: 3}
+  - {fileID: 21300000, guid: 16251c994c59d4480967baf341a074e6, type: 3}
   - {fileID: -868637029, guid: f6f95df97b76d71449efa1bcb4194ac6, type: 3}
   - {fileID: 21300000, guid: 2efcbc0a69f07ec47ba5e60ca6c21a92, type: 3}
   - {fileID: 21300000, guid: 5649518a0104c4fdda2a3d3d0d10ad55, type: 3}
@@ -145,6 +150,7 @@ SpriteAtlas:
   - {fileID: -1344014577, guid: 28c0b9ea82f56ed4e86af39cbe45d112, type: 3}
   - {fileID: -2018027479, guid: 28c0b9ea82f56ed4e86af39cbe45d112, type: 3}
   - {fileID: 21300000, guid: f314520ba4ec145438e020b546635f95, type: 3}
+  - {fileID: 21300000, guid: 56b4cb0b8fe56914cb40cb4d816c9015, type: 3}
   - {fileID: 21300000, guid: cb3b033b32d3e45cb9d2c9e41ca8ae94, type: 3}
   - {fileID: 21300000, guid: 86d792fb4ee98ea44a93259326c31b71, type: 3}
   - {fileID: 21300000, guid: 457456fb09db5fe48815891fc242890f, type: 3}
@@ -162,19 +168,23 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6ed9432d8d2f26149a7696bc3b50dfbf, type: 3}
   - {fileID: 21300000, guid: 4b740c2db694941dabf916fbfcf27ed4, type: 3}
   - {fileID: 21300000, guid: 97faf44d45d66d24599f4e6d0fa1ee9d, type: 3}
+  - {fileID: 21300000, guid: eb48fd9d6edda4fd4b6b42ac346507d6, type: 3}
   - {fileID: 21300000, guid: a03f1aad4a4ca564c9dadb9885b4dd6a, type: 3}
   - {fileID: 21300000, guid: 92f69ccd8015e054a9350bde1a549be8, type: 3}
+  - {fileID: 21300000, guid: 3ee39b0ef0253439ab638986c78c61d4, type: 3}
   - {fileID: 21300000, guid: c5ddb31f49108c0499828376679ed311, type: 3}
   - {fileID: 21300000, guid: ed53d6afdc5679845929a4fc945989fa, type: 3}
   - {fileID: 21300000, guid: 056546bf5c218412cb322719482a7500, type: 3}
   m_PackedSpriteNamesToIndex:
   - btn_rectangle_01_n_bluegray
+  - icon_potion_red
   - 01 BroadSword
   - 01 Silver Bar
   - Logo
   - bg Frame
   - 00 Steel Helmet
   - icon_coins 1
+  - 06 Red Elite Plant
   - frame_iconframe_circle_01_s
   - function_icon_bag_1
   - Water_Splash_13_BW_SpriteSheet 1_11
@@ -191,6 +201,7 @@ SpriteAtlas:
   - Water_Splash_13_BW_SpriteSheet 1_9
   - 00 Silver Ring
   - 00 Leather Cloak
+  - icon_scroll
   - 00 Leather Pants
   - Slash_Angled_04_Unique_SpriteSheet 1_0
   - Slash_Angled_04_Unique_SpriteSheet 1_1
@@ -220,7 +231,7 @@ SpriteAtlas:
   - 01 Gold Ring
   - 00 Leather Shoes
   - btn_rectangle_01_n_yellow
-  - RookiePlant00
+  - 00 Blue Plant
   - bg Battle Result
   - 00 Leather Belt
   - 02 SharpSword
@@ -235,8 +246,10 @@ SpriteAtlas:
   - Slash_Angled_04_Blue_SpriteSheet 1_2
   - frame_stageframe_02_Demo_s2 1
   - 01 Silver Bar
+  - icon_coins_pouch
   - 02 SharpSword
   - btn_rectangle_01_n_purple
+  - icon_food_meat
   - 73eb87b7865cc9c4d169d91f1ce157ae_0
   - btn_rectangle_01_n_green
   - slider_edgetype_00_fill
@@ -256,6 +269,7 @@ SpriteAtlas:
   - Slash_Angled_04_Purple_SpriteSheet 1_5
   - Slash_Angled_04_Purple_SpriteSheet 1_4
   - 00 Leather Pants
+  - icon_book_1 1
   - icon_star
   - bg Move Point
   - 00 Exp Book
@@ -273,8 +287,10 @@ SpriteAtlas:
   - 00 Leather Belt
   - function_icon_helmet_2
   - frame_itemframe_01_White1 1
+  - icon_color_gem_02
   - 00 Leather Glove
   - 00 Steel Helmet
+  - icon_clover
   - 00 Leather Glove
   - function_icon_question 1
   - frame_itemframe_02_s
