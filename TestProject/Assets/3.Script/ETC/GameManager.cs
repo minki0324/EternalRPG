@@ -606,28 +606,28 @@ public class GameManager : MonoBehaviour
         /*
          전투력 공식
         전투력 1당 수치들
-        1. 공격력 / 20
+        1. 공격력 / 50
         2. 체력 / 200
-        3. 방어력 / 20
+        3. 방어력 / 10
         4. 콤보 확률 / 3, 콤보 저항 / 2
         5. 크리 확률 / 2, 크리 저항 / 2, 크리 데미지 * 10
         6. 회피 확률, 회피 저항
         7. 흡혈 확률 / 3, 흡혈 저항 / 2, 흡혈 * 5
          */
         int power = 0;
-        power += Mathf.RoundToInt(PlayerATK / 20);
-        power += Mathf.RoundToInt(PlayerMaxHP / 200);
-        power += Mathf.RoundToInt(PlayerDef / 20);
-        power += Mathf.RoundToInt(ComboPercent / 3);
-        power += Mathf.RoundToInt(ComboResist / 2);
-        power += Mathf.RoundToInt(CriticalPercant / 2);
-        power += Mathf.RoundToInt(CriticalResist / 2);
-        power += Mathf.RoundToInt(CriticalDamage*10);
-        power += Mathf.RoundToInt(AvoidPercent);
-        power += Mathf.RoundToInt(AvoidResist);
-        power += Mathf.RoundToInt(DrainPercent / 3);
-        power += Mathf.RoundToInt(DrainResist / 2);
-        power += Mathf.RoundToInt(DrainAmount*5);
+        power += Mathf.RoundToInt((float)PlayerATK / 50f);
+        power += Mathf.RoundToInt((float)PlayerMaxHP / 200f);
+        power += Mathf.RoundToInt((float)PlayerDef / 10f);
+        power += Mathf.RoundToInt((float)ComboPercent / 3f);
+        power += Mathf.RoundToInt((float)ComboResist / 2f);
+        power += Mathf.RoundToInt((float)CriticalPercant / 2f);
+        power += Mathf.RoundToInt((float)CriticalResist / 2f);
+        power += Mathf.RoundToInt((float)CriticalDamage *10f);
+        power += Mathf.RoundToInt((float)AvoidPercent);
+        power += Mathf.RoundToInt((float)AvoidResist);
+        power += Mathf.RoundToInt((float)DrainPercent / 3f);
+        power += Mathf.RoundToInt((float)DrainResist / 2f);
+        power += Mathf.RoundToInt((float)DrainAmount *5f);
 
         Power = power;
     }

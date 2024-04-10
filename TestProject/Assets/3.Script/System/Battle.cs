@@ -64,6 +64,7 @@ public class Battle : MonoBehaviour
         // 승산 텍스트 출력
         CalculrateWinRate(mon);
 
+        
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
@@ -143,8 +144,10 @@ public class Battle : MonoBehaviour
         playerHPText.color = Color.white;
         monsterHPText.color = Color.white;
         result.gameObject.SetActive(true);
-        ignoreRay.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
         Time.timeScale = 1f;
+        ignoreRay.SetActive(false);
     }
 
     private void PlayerTurn(int comboCount)
@@ -164,7 +167,14 @@ public class Battle : MonoBehaviour
         if (mon.MonsterCurHP <= 0)
         { // 승리
             result.isWin = true;
-            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy;
+            if(mon.monsterData.isElite)
+            { // 엘리트 몬스터는 에너지 1만 차감
+                GameManager.Instance.CurrentEnergy--;
+            }
+            else
+            {
+                GameManager.Instance.CurrentEnergy = Mathf.Max(0, GameManager.Instance.CurrentEnergy - mon.monsterData.RequireEnergy);
+            }
         }
     }
 
@@ -419,7 +429,7 @@ public class Battle : MonoBehaviour
         else if (60 > PlayerWinPercent && PlayerWinPercent > 40)
         {
             oddsText.text = "나와 비슷한 상대입니다.";
-            oddsText.color = Color.blue;
+            oddsText.color = Color.white;
         }
         else if (80 > PlayerWinPercent && PlayerWinPercent > 60)
         {

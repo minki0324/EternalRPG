@@ -214,11 +214,10 @@ public class BattleResult : MonoBehaviour
             { // 만약 엘리트 몬스터 딕셔너리에 해당 키가 없다면 (처음 잡았다면)
                 if (mon.monsterData.isElite)
                 { // 엘리트 몬스터라면
-                    GameManager.Instance.BonusEnergy += mon.monsterData.RewordEnergy;
-                    GameManager.Instance.CurrentEnergy += mon.monsterData.RewordEnergy;
                     DataManager.Instance.EliteMonsterDic.Add(mon.monsterData.MonsterID, true);
                 }
-
+                GameManager.Instance.BonusEnergy += mon.monsterData.RewordEnergy;
+                GameManager.Instance.CurrentEnergy += mon.monsterData.RewordEnergy;
             }
         }
         else
