@@ -10,6 +10,14 @@ public class HUDCanvas : MonoBehaviour
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text gemText;
+    [SerializeField] private ScreenTransitionSimpleSoft loading;
+    [SerializeField] private GameObject activeCanvas;
+    [SerializeField] private GameObject transitionObj;
+
+    private void Start()
+    {
+        StartCoroutine(StartGame());
+    }
 
     private void LateUpdate()
     {
@@ -20,5 +28,20 @@ public class HUDCanvas : MonoBehaviour
 
     }
 
-    
+    private IEnumerator StartGame()
+    {
+        activeCanvas.SetActive(true);
+        transitionObj.SetActive(true);
+        loading.SetTransitioning(true);
+        StartCoroutine(loading.StartLoadingDark());
+
+        // Loading.isLoading이 false가 될 때까지 대기
+        while (loading.isLoading)
+        {
+            yield return null;
+        }
+
+        transitionObj.SetActive(false);
+        activeCanvas.SetActive(false);
+    }
 }

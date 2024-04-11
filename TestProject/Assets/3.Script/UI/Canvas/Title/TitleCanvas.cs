@@ -7,6 +7,8 @@ using TMPro;
 public class TitleCanvas : MonoBehaviour
 {
     [SerializeField] private TMP_Text infomationText;
+    [SerializeField] private ScreenTransitionSimpleSoft loading;
+    [SerializeField] private GameObject transitionObj;
     public void TitleStartButton()
     {
         infomationText.text = $"레벨 : {GameManager.Instance.PlayerLevel:N0}\n" +
@@ -21,6 +23,20 @@ public class TitleCanvas : MonoBehaviour
 
     public void StartButton()
     {
+        StartCoroutine(StartButton_Co());
+    }
+
+    private IEnumerator StartButton_Co()
+    {
+        transitionObj.SetActive(true);
+        StartCoroutine(loading.StartLoadingLight());
+
+        // Loading.isLoading이 false가 될 때까지 대기
+        while (loading.isLoading)
+        {
+            yield return null;
+        }
+
         SceneManager.LoadScene(1);
     }
 

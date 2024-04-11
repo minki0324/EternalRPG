@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     public int BattleSpeed = 1;
+    public int QuickSlotIndex = 0;
 
     [Header("기본정보")]
     [Space(10)] // 위는 기본 스텟
@@ -128,9 +129,9 @@ public class GameManager : MonoBehaviour
         RenewCombo();
         RenewAvoid();
         RenewDrain();
+        RenewOther();
         RenewReward();
         RenewPlayerPower();
-        
     }
 
     #region 스텟 갱신
@@ -597,6 +598,19 @@ public class GameManager : MonoBehaviour
         }
         EXPPercent = Mathf.RoundToInt((float)(sumEXP * (1 + LUC / 100000.0)));
         GoldPercent = Mathf.RoundToInt((float)(sumGold * (1 + LUC / 100000.0)));
+    }
+    #endregion
+
+    #region 기타 갱신
+    private void RenewOther()
+    {
+        float sumMoveSpeed = 0;
+        if(ShoesData != null)
+        {
+            sumMoveSpeed += ShoesData.ShoesMoveSpeed;
+        }
+
+        MoveSpeed = 20 + Mathf.RoundToInt(sumMoveSpeed);
     }
     #endregion
 

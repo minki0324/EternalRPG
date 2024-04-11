@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidbody2D;
     public Animator playerAnimator;
     public bool isFight;
+    public bool isWayMove = false;
     private Vector2 targetPos = Vector2.zero;
     private Player player;
     private Coroutine moveCoroutine;
@@ -40,6 +41,17 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if(isWayMove)
+        { // 웨이포인트를 찍었다면
+            if(moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+            playerAnimator.SetBool("Idle", true);
+            playerAnimator.SetBool("Run", false);
+            moveCoroutine = null;
+            return;
+        }
         if (isFight)
         { // 싸움이 시작됐다면 스탑
             if (moveCoroutine != null)

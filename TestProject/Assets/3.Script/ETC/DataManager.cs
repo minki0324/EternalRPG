@@ -8,8 +8,20 @@ using Newtonsoft.Json;
 using System;
 
 [System.Serializable]
+public class QuickSlotData
+{
+    public string[] Quickslot;
+
+    public QuickSlotData(string[] quickslot)
+    {
+        Quickslot = quickslot;
+    }
+}
+
+[System.Serializable]
 public class EquipmentSet
 {
+    public int QuickSlotIndex;
     public WeaponData EquipWeapon;
     public ArmorData EquipArmor;
     public PantsData EquipPants;
@@ -57,6 +69,7 @@ public class PlayerData
     public int CurrentLevel;
     public int TotalGold;
     public int Gem;
+    public int CurrentHP;
     public int CurrentEnergy;
     public int BonusEnergy;
     public int CurrentEXP;
@@ -71,6 +84,7 @@ public class PlayerData
     public int AutoDEX;
     public int AutoLUC;
     public int AutoVIT;
+    public int QuickSlotIndex;
 
     public PlayerData()
     {
@@ -114,6 +128,10 @@ public class DataManager : MonoBehaviour
     private string equipmentPath;
     private string playerDataPath;
     private string eliteMonsterPath;
+    private string quickSlotEquipmentPath;
+
+    [Header("Quick Slot List")]
+    public List<EquipmentSet> QuickSlots = new List<EquipmentSet>();
 
     private void Awake()
     {
@@ -131,16 +149,19 @@ public class DataManager : MonoBehaviour
         equipmentPath = Application.persistentDataPath + "/EquipmentSet.json";
         playerDataPath = Application.persistentDataPath + "/PlayerData.json";
         eliteMonsterPath = Application.persistentDataPath + "/EliteMonsterDic.json";
+        quickSlotEquipmentPath = Application.persistentDataPath + "/quickSlotEquipment.json";
         EliteMonsterDic = new Dictionary<int, bool>();
+        QuickSlots = new List<EquipmentSet>();
     }
 
     private void Start()
     {
         LoadPlayerData();
-        LoadEquipSet();
         LoadOwnCount();
         LoadEliteMonsterDic();
+        LoadEquipSet(GameManager.Instance.QuickSlotIndex);
         EquipmentSet();
+        LoadQuickSlotEquipment();
         GameManager.Instance.RenewAbility();
     }
 
@@ -148,9 +169,9 @@ public class DataManager : MonoBehaviour
     {
         EquipmentSet();
         SaveOwnCount();
-        SaveEquipSet();
         SavePlayerData();
         SaveEliteMonsterDic();
+        SaveQuickSlotEquipment();
     }
 
     private void OnApplicationPause(bool pause)
@@ -159,14 +180,36 @@ public class DataManager : MonoBehaviour
         {
             EquipmentSet();
             SaveOwnCount();
-            SaveEquipSet();
             SavePlayerData();
             SaveEliteMonsterDic();
+            SaveQuickSlotEquipment();
         }
     }
 
     #region Json 세이브&로드
-    public void SaveEliteMonsterDic()
+    private  void SaveQuickSlotEquipment()
+    {
+        QuickSlotData quickSlotData = new QuickSlotData(GameManager.Instance.QuickSlot);
+
+        string json = JsonUtility.ToJson(quickSlotData);
+        File.WriteAllText(quickSlotEquipmentPath, json);
+    }
+
+    private void LoadQuickSlotEquipment()
+    {
+        try
+        {
+            string json = File.ReadAllText(quickSlotEquipmentPath);
+            QuickSlotData quickSlotData = JsonUtility.FromJson<QuickSlotData>(json);
+            GameManager.Instance.QuickSlot = quickSlotData.Quickslot;
+        }
+        catch
+        {
+
+        }
+    }
+
+    private void SaveEliteMonsterDic()
     {
         EliteMonster eliteMonsterDic = new EliteMonster(EliteMonsterDic);
 
@@ -274,10 +317,11 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void SaveEquipSet()
+    public void SaveEquipSet(int _slotIndex)
     {
         EquipmentSet equipmentSet = new EquipmentSet();
-
+        
+        equipmentSet.QuickSlotIndex = _slotIndex;
         equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : null;
         equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
         equipmentSet.EquipHelmet = GameManager.Instance.HelmetData != null ? GameManager.Instance.HelmetData : null;
@@ -297,7 +341,26 @@ public class DataManager : MonoBehaviour
 
         try
         {
-            string json = JsonConvert.SerializeObject(equipmentSet, Formatting.Indented);
+            // QuickSlots 리스트에서 기존에 저장된 장비 세트를 찾음
+            bool found = false;
+            for (int i = 0; i < QuickSlots.Count; i++)
+            {
+                if (QuickSlots[i].QuickSlotIndex == _slotIndex)
+                {
+                    // 기존에 저장된 장비 세트가 있으면 해당 인덱스의 장비 세트를 수정
+                    QuickSlots[i] = equipmentSet;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                // 기존에 저장된 장비 세트가 없으면 새로 추가
+                QuickSlots.Add(equipmentSet);
+            }
+
+            GameManager.Instance.QuickSlotIndex = _slotIndex;
+            string json = JsonConvert.SerializeObject(QuickSlots, Formatting.Indented);
             File.WriteAllText(equipmentPath, json);
         }
         catch(Exception e)
@@ -306,15 +369,26 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void LoadEquipSet()
+    public void LoadEquipSet(int _slotIndex)
     {
         if (File.Exists(equipmentPath))
         {
-            EquipmentSet equipmentSet;
+            EquipmentSet equipmentSet = null;
+            GameManager.Instance.QuickSlotIndex = _slotIndex;
             try
             {
                 string json = File.ReadAllText(equipmentPath);
-                equipmentSet = JsonConvert.DeserializeObject<EquipmentSet>(json);
+                QuickSlots = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
+
+                // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
+                for(int i = 0; i < QuickSlots.Count; i++)
+                {
+                    if(QuickSlots[i].QuickSlotIndex == _slotIndex)
+                    { // 저장 되어있는 인덱스 
+                        equipmentSet = QuickSlots[i];
+                        break;
+                    }
+                }
             }
             catch(Exception e)
             {
@@ -322,7 +396,15 @@ public class DataManager : MonoBehaviour
                 equipmentSet = null;
             }
 
-            GameManager.Instance.WeaponData = equipmentSet.EquipWeapon != null ? equipmentSet.EquipWeapon : null;
+            // equipmentSet이 null인 경우 새로운 장비 세트를 생성합니다.
+            if (equipmentSet == null)
+            {
+                equipmentSet = new EquipmentSet();
+            }
+
+
+            GameManager.Instance.WeaponData = equipmentSet.EquipWeapon == GameManager.Instance.Punch ? GameManager.Instance.Punch : equipmentSet.EquipWeapon;
+            
             GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
             GameManager.Instance.HelmetData = equipmentSet.EquipHelmet != null ? equipmentSet.EquipHelmet : null;
             GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
@@ -339,8 +421,17 @@ public class DataManager : MonoBehaviour
             {
                 GameManager.Instance.OtherDatas[i] = equipmentSet.EquipOther[i] != null ? equipmentSet.EquipOther[i] : null;
             }
+
+            EquipmentCanvas canvas = FindObjectOfType<EquipmentCanvas>();
+            if(canvas != null)
+            {
+                canvas.InitImage();
+            }
+            GameManager.Instance.RenewAbility();
         }
     }
+
+  
 
     public void SavePlayerData()
     {
@@ -350,6 +441,7 @@ public class DataManager : MonoBehaviour
         playerData.CurrentLevel = GameManager.Instance.PlayerLevel;
         playerData.TotalGold = GameManager.Instance.Gold;
         playerData.Gem = GameManager.Instance.Gem;
+        playerData.CurrentHP = GameManager.Instance.PlayerCurHP;
         playerData.CurrentEnergy = GameManager.Instance.CurrentEnergy;
         playerData.BonusEnergy = GameManager.Instance.BonusEnergy;
         playerData.CurrentEXP = GameManager.Instance.CurrentEXP;
@@ -364,6 +456,7 @@ public class DataManager : MonoBehaviour
         playerData.AutoDEX = GameManager.Instance.AutoDEX;
         playerData.AutoLUC = GameManager.Instance.AutoLUC;
         playerData.AutoVIT = GameManager.Instance.AutoVIT;
+        playerData.QuickSlotIndex = GameManager.Instance.QuickSlotIndex;
 
         try
         {
@@ -396,6 +489,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.PlayerLevel = playerData.CurrentLevel;
             GameManager.Instance.Gold = playerData.TotalGold;
             GameManager.Instance.Gem = playerData.Gem;
+            GameManager.Instance.PlayerCurHP = playerData.CurrentHP;
             GameManager.Instance.CurrentEnergy = playerData.CurrentEnergy;
             GameManager.Instance.BonusEnergy = playerData.BonusEnergy;
             GameManager.Instance.CurrentEXP = playerData.CurrentEXP;
@@ -410,6 +504,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.AutoDEX = playerData.AutoDEX;
             GameManager.Instance.AutoLUC = playerData.AutoLUC;
             GameManager.Instance.AutoVIT = playerData.AutoVIT;
+            GameManager.Instance.QuickSlotIndex = playerData.QuickSlotIndex;
         }
     }
     #endregion

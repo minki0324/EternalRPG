@@ -164,6 +164,22 @@ SpriteAtlas:
   - {fileID: -1755257290, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: 310307055, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: 833271748, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
+  - {fileID: -1587256817, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 692658545, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1892125015, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 910332227, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -421902687, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -831514767, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1323179943, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -594377036, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1661342735, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 1388518042, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 862618289, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1702973655, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 122706823, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: 1410451526, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1451338758, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
+  - {fileID: -1285170182, guid: 520547cc60aa9394fa51717bf7e26821, type: 3}
   - {fileID: 21300000, guid: 3db8e4ec8f61ce34cae2ac760d2e3d19, type: 3}
   - {fileID: 21300000, guid: 6ed9432d8d2f26149a7696bc3b50dfbf, type: 3}
   - {fileID: 21300000, guid: 4b740c2db694941dabf916fbfcf27ed4, type: 3}
@@ -283,6 +299,22 @@ SpriteAtlas:
   - Slash_Angled_04_BW_SpriteSheet 1_1
   - Slash_Angled_04_BW_SpriteSheet 1_2
   - Slash_Angled_04_BW_SpriteSheet 1_3
+  - Flame_Circle_BW_loop_SpriteSheet_4
+  - Flame_Circle_BW_loop_SpriteSheet_5
+  - Flame_Circle_BW_loop_SpriteSheet_6
+  - Flame_Circle_BW_loop_SpriteSheet_7
+  - Flame_Circle_BW_loop_SpriteSheet_0
+  - Flame_Circle_BW_loop_SpriteSheet_1
+  - Flame_Circle_BW_loop_SpriteSheet_2
+  - Flame_Circle_BW_loop_SpriteSheet_3
+  - Flame_Circle_BW_loop_SpriteSheet_8
+  - Flame_Circle_BW_loop_SpriteSheet_9
+  - Flame_Circle_BW_loop_SpriteSheet_15
+  - Flame_Circle_BW_loop_SpriteSheet_14
+  - Flame_Circle_BW_loop_SpriteSheet_13
+  - Flame_Circle_BW_loop_SpriteSheet_12
+  - Flame_Circle_BW_loop_SpriteSheet_11
+  - Flame_Circle_BW_loop_SpriteSheet_10
   - 00 Steel Shoulder
   - 00 Leather Belt
   - function_icon_helmet_2
