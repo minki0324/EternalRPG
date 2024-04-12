@@ -562,4 +562,35 @@ public class DataManager : MonoBehaviour
             default: return null;
         }
     }
+
+    public EquipmentSet GetQuickSlotData(int _slotIndex)
+    {
+        EquipmentSet equipmentSet = null;
+        List<EquipmentSet> equipmentList = new List<EquipmentSet>();
+        try
+        {
+            string json = File.ReadAllText(equipmentPath);
+            equipmentList = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
+
+            // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
+            for (int i = 0; i < equipmentList.Count; i++)
+            {
+                if (equipmentList[i].QuickSlotIndex == _slotIndex)
+                { // 저장 되어있는 인덱스 
+                    equipmentSet = equipmentList[i];
+                    break;
+                }
+            }
+            // equipmentSet이 null인 경우 새로운 장비 세트를 생성합니다.
+            if (equipmentSet == null)
+            {
+                equipmentSet = new EquipmentSet();
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        return equipmentSet;
+    }
 }

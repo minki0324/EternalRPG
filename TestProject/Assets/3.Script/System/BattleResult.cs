@@ -54,6 +54,7 @@ public class BattleResult : MonoBehaviour
     { // 전투 결산
         // 경험치
         int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent/ 100))));
+        EXP = Mathf.RoundToInt(Random.Range(EXP * 0.95f, EXP * 1.05f));
         GameManager.Instance.CurrentEXP += EXP;
         int levelup = 0;
         float requireEXP = 0f;
@@ -61,8 +62,8 @@ public class BattleResult : MonoBehaviour
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
             // 곱연산 계산 
-            requireEXP = Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.005f)) == GameManager.Instance.RequireEXP
-                                                                                    ? GameManager.Instance.RequireEXP + 1  : Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.005f));
+            requireEXP = Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f)) == GameManager.Instance.RequireEXP ?
+                                                        GameManager.Instance.RequireEXP + 1  : Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f));
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = Mathf.RoundToInt(requireEXP);
             GameManager.Instance.PlayerLevel++;

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 02 Flask Bean
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD50C\uB77C\uC2A4\uD06C \uD398\uC5B4\uB9AC"
+  MonsterID: 2
+  MonsterType: "\uD398\uC5B4\uB9AC"
+  MonsterLevel: 15
+  MonsterMaxHP: 120
+  MonsterCurHP: 120
+  MonsterDef: 9
+  MonsterATK: 13
+  MonsterSprite: {fileID: 21300000, guid: 48ad8ced4d7c0694d903952f4b69bc5f, type: 3}
+  ReturnPos: {x: -1.5, y: 0}
+  RequireEnergy: 1
+  isElite: 0
+  CriticalPercant: 8
+  CriticalResist: 9
+  CriticalDamage: 1.2
+  ComboPercent: 8
+  ComboResist: 9
+  AvoidPercent: 7
+  AvoidResist: 8
+  DrainPercent: 8
+  DrainResist: 7
+  DrainAmount: 1.2
+  RewordEXP: 1200
+  RewordGold: 70
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
+  - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}

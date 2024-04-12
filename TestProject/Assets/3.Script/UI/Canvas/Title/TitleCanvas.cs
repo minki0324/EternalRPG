@@ -67,6 +67,8 @@ public class TitleCanvas : MonoBehaviour
         GameManager.Instance.Gold = 0;
         GameManager.Instance.CurrentEnergy = 25;
         GameManager.Instance.BonusEnergy = 0;
+        GameManager.Instance.CurrentEXP = 0;
+        GameManager.Instance.RequireEXP = 50;
         GameManager.Instance.PlayCount = 0;
         GameManager.Instance.APSTR = 0;
         GameManager.Instance.APDEX = 0;
@@ -79,6 +81,7 @@ public class TitleCanvas : MonoBehaviour
 
         // 정보 갱신
         GameManager.Instance.RenewAbility();
+        GameManager.Instance.PlayerCurHP = GameManager.Instance.PlayerMaxHP;
         TitleStartButton();
     }
 }

@@ -15,9 +15,10 @@ MonoBehaviour:
   EquipmentType: 0
   SpriteName: bg None Background
   ItemID: 900000
-  EquipmentName: 
+  EquipmentName: "\uBBF8\uC7A5\uCC29"
   RequireCost: 0
   isCanBuy: 0
+  DropRate: 0
   WeaponType: 0
   WeaponATK: 0
   WeaponATKPercent: 0

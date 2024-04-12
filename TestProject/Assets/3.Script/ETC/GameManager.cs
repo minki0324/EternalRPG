@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public int PlayerDefPercent = 0;
     [Space(10)] // ±âº» Á¤º¸µé
     public int PlayerLevel = 1;
-    public int MoveSpeed = 20;
+    public int MoveSpeed = 30;
     public int Gold = 0;
     public int Gem = 0;
     public int CurrentEnergy = 25;
@@ -610,7 +610,7 @@ public class GameManager : MonoBehaviour
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
         }
 
-        MoveSpeed = 20 + Mathf.RoundToInt(sumMoveSpeed);
+        MoveSpeed = 30 + Mathf.RoundToInt(sumMoveSpeed);
     }
     #endregion
 
@@ -629,8 +629,8 @@ public class GameManager : MonoBehaviour
         7. ÈíÇ÷ È®·ü / 3, ÈíÇ÷ ÀúÇ× / 2, ÈíÇ÷ * 5
          */
         int power = 0;
-        power += Mathf.RoundToInt((float)PlayerATK / 50f);
-        power += Mathf.RoundToInt((float)PlayerMaxHP / 200f);
+        power += Mathf.RoundToInt((float)PlayerATK / 30f);
+        power += Mathf.RoundToInt((float)PlayerMaxHP / 10f);
         power += Mathf.RoundToInt((float)PlayerDef / 10f);
         power += Mathf.RoundToInt((float)ComboPercent / 3f);
         power += Mathf.RoundToInt((float)ComboResist / 2f);

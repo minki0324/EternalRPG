@@ -7,18 +7,18 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private ActiveCanvas activeCanvas;
     [SerializeField] private Battle battle;
-    [SerializeField] private Transform movePoint;
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    public Transform movePoint;
+    [SerializeField] private Rigidbody2D rigidbody2D_;
+    public Collider2D boundary;
     public Animator playerAnimator;
     public bool isFight;
     public bool isWayMove = false;
     private Vector2 targetPos = Vector2.zero;
-    private Player player;
     private Coroutine moveCoroutine;
 
     private void Awake()
     {
-        TryGetComponent(out player);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,7 +108,13 @@ public class PlayerMove : MonoBehaviour
         while (Vector2.Distance(transform.position, targetPos) > 0.1f)
         {
             // 현재 위치와 목표 위치를 향해 이동
-            rigidbody2D.MovePosition(transform.position + (forPos.normalized * Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f));
+            Vector3 newPosition = transform.position + (forPos.normalized * Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f);
+
+            // 바운더리 영역 내에서만 이동하도록 제한
+            if (boundary.bounds.Contains(newPosition))
+            {
+                rigidbody2D_.MovePosition(newPosition);
+            }
             movePoint.position = targetPos;
 
             yield return null;

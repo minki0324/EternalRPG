@@ -15,6 +15,7 @@ public class WayPoint : MonoBehaviour
     private Transform player = null;
     private PlayerMove playerMove;
     private float delay = 0.2f;
+    [SerializeField] private bool isUP = false;
 
     private Coroutine moveCoroutine;
 
@@ -35,20 +36,25 @@ public class WayPoint : MonoBehaviour
             if(playerMove == null)
             { // 찾지 않았을 때만 찾아주기
                 playerMove = collision.GetComponent<PlayerMove>();
+                playerMove.movePoint.gameObject.SetActive(false);
             }
-            // 레이어 변경
-            collision.gameObject.layer = LayerMask.NameToLayer(toLayer);
-            group.sortingLayerName = toLayer;
+
+            if (isUP)
+            {
+                // 레이어 변경
+                collision.gameObject.layer = LayerMask.NameToLayer(toLayer);
+                group.sortingLayerName = toLayer;
+            }
 
             ignoreRayCanvas.SetActive(true);
             player = collision.GetComponent<Transform>();
             playerMove.isWayMove = true;
             // 이동 코루틴 실행
-            moveCoroutine = StartCoroutine(WayMove());
+            moveCoroutine = StartCoroutine(WayMove(collision));
         }
     }
 
-    private IEnumerator WayMove()
+    private IEnumerator WayMove(Collider2D collision)
     {
         yield return delay;
 
@@ -89,5 +95,12 @@ public class WayPoint : MonoBehaviour
         ignoreRayCanvas.SetActive(false);
         moveCoroutine = null;
         playerMove.isWayMove = false;
+
+        if(!isUP)
+        {
+            // 레이어 변경
+            collision.gameObject.layer = LayerMask.NameToLayer(toLayer);
+            group.sortingLayerName = toLayer;
+        }
     }
 }

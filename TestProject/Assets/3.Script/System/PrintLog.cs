@@ -12,6 +12,15 @@ public class PrintLog : MonoBehaviour
     [SerializeField] private GameObject[] battleLogObj;
     [SerializeField] private TMP_Text[] battleLogs;
 
+    [SerializeField] private GameObject staticLogPanel;
+    [SerializeField] private Image staticFrameImage;
+    [SerializeField] private Image staticFrameBackground;
+    [SerializeField] private TMP_Text staticLog;
+
+    private Coroutine frameCoroutine;
+    private Coroutine backgroundCoroutine;
+    private Coroutine logCoroutine;
+
     private void Awake()
     {
         if(Instance == null)
@@ -57,6 +66,56 @@ public class PrintLog : MonoBehaviour
         {
             battleLogs[i].text = string.Empty;
             battleLogObj[i].SetActive(false);
+        }
+    }
+
+    public void StaticLog(string _log)
+    {
+        staticLog.text = _log;
+
+        if(frameCoroutine != null || backgroundCoroutine != null || logCoroutine != null)
+        {
+            StopAllCoroutines();
+
+        }
+        frameCoroutine = StartCoroutine(fade_out(staticFrameImage));
+        backgroundCoroutine = StartCoroutine(fade_out(staticFrameBackground));
+        logCoroutine = StartCoroutine(fade_out());
+    }
+
+    public IEnumerator fade_out(Image image)
+    {
+        float startAlpha = 1f;
+        float endAlpha = 0f;
+        float fadeDuration = 1.5f;
+
+        float t = 0f;
+
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime / fadeDuration;
+            Color newColor = image.color;
+            newColor.a = Mathf.Lerp(startAlpha, endAlpha, t);
+            image.color = newColor;
+            yield return null; // 다음 프레임까지 대기
+        }
+    }
+
+    public IEnumerator fade_out()
+    {
+        float startAlpha = 1f;
+        float endAlpha = 0f;
+        float fadeDuration = 1.5f;
+
+        float t = 0f;
+
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime / fadeDuration;
+            Color newColor = staticLog.color;
+            newColor.a = Mathf.Lerp(startAlpha, endAlpha, t);
+            staticLog.color = newColor;
+            yield return null; // 다음 프레임까지 대기
         }
     }
 }
