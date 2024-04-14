@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -207,10 +208,10 @@ public class GameManager : MonoBehaviour
                 sumVITPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherVITPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        STR = (baseSTR + APSTR) * (1 + sumSTRPercent);
-        DEX = (baseDEX + APDEX) * (1 + sumDEXPercent);
-        LUC = (baseLUC + APLUC) * (1 + sumLUCPercent);
-        VIT = (baseVIT + APVIT) * (1 + sumVITPercent);
+        STR = Mathf.RoundToInt((baseSTR + APSTR) * (1 + (float)(sumSTRPercent / 100f)));
+        DEX = Mathf.RoundToInt((baseDEX + APDEX) * (1 + (float)(sumDEXPercent / 100f)));
+        LUC = Mathf.RoundToInt((baseLUC + APLUC) * (1 + (float)(sumLUCPercent / 100f)));
+        VIT = Mathf.RoundToInt((baseVIT + APVIT) * (1 + (float)(sumVITPercent / 100f)));
         STRPercent = sumSTRPercent;
         DEXPercent = sumDEXPercent;
         LUCPercent = sumLUCPercent;
@@ -252,7 +253,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherATKPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK) * (1 + (sumPercent / 100.0) + (STR / 10000.0))));
+        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 5f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0))));
         PlayerATKPercent = sumPercent;
     }
     #endregion
@@ -311,7 +312,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherHPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
+        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP + (VIT / 2f)) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
         PlayerHPPercent = sumPercent;
     }
     #endregion
@@ -368,7 +369,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherDefPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
+        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef + (VIT / 10f)) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
         PlayerDefPercent = sumPercent;
     }
     #endregion

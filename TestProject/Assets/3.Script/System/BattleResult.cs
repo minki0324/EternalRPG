@@ -20,6 +20,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text APText;
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text totalGoldText;
+    [SerializeField] private TMP_Text energyText;
     public GameObject DataPanel = null;
     [SerializeField] private GameObject gemPanel;
     [SerializeField] private GameObject dropResultItem;
@@ -40,12 +41,20 @@ public class BattleResult : MonoBehaviour
         else if (!isWin)
         {
             resultPanelTitle.Result = false;
-            expText.text = "0";
+            expText.text = ": 0";
             // todo 레벨업 시스템 넣어야됨
-            levelText.text = "0";
-            APText.text = "0";
-            goldText.text = "0";
-            totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
+            levelText.text = ": 0";
+            APText.text = ": 0";
+            goldText.text = ": 0";
+            totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
+            if(mon.monsterData.isElite)
+            {
+                energyText.text = $": {mon.monsterData.RewordEnergy}";
+            }
+            else
+            {
+                energyText.text = $": {mon.monsterData.RewordEnergy*2}";
+            }
         }
         AfterBattleMonster(mon, isWin);
     }
@@ -90,11 +99,19 @@ public class BattleResult : MonoBehaviour
         GameManager.Instance.RenewAbility();
 
         // 결산 내용 프린트
-        expText.text = $"{EXP:N0}";
-        levelText.text = $"{levelup:N0} UP";
-        APText.text = $"+ {levelup * 5}";
-        goldText.text = $"{totalGold:N0}";
-        totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
+        expText.text = $": {EXP:N0}";
+        levelText.text = $": {levelup:N0} UP";
+        APText.text = $": +{levelup * 5}";
+        goldText.text = $": {totalGold:N0}";
+        totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
+        if(mon.monsterData.isElite)
+        { // 엘리트 몬스터라면 리워드 에너지 출력
+            energyText.text = $": +{mon.monsterData.RewordEnergy}";
+        }
+        else
+        { // 일반 몹이라면 소모 에너지만 출력
+            energyText.text = $": {mon.monsterData.RequireEnergy}";
+        }
         DataPanel.SetActive(true);
     }
 
@@ -206,7 +223,6 @@ public class BattleResult : MonoBehaviour
                 mon.sprites[i].color = spriteColor;
             }
 
-            bool isFirst = false;
             if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
             { // 잡아봤던 엘리트 몬스터임
                 return;

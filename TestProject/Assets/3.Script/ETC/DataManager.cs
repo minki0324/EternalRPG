@@ -172,6 +172,7 @@ public class DataManager : MonoBehaviour
         SavePlayerData();
         SaveEliteMonsterDic();
         SaveQuickSlotEquipment();
+        SaveEquipSet(GameManager.Instance.QuickSlotIndex);
     }
 
     private void OnApplicationPause(bool pause)
@@ -183,6 +184,7 @@ public class DataManager : MonoBehaviour
             SavePlayerData();
             SaveEliteMonsterDic();
             SaveQuickSlotEquipment();
+            SaveEquipSet(GameManager.Instance.QuickSlotIndex);
         }
     }
 
@@ -322,7 +324,7 @@ public class DataManager : MonoBehaviour
         EquipmentSet equipmentSet = new EquipmentSet();
         
         equipmentSet.QuickSlotIndex = _slotIndex;
-        equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : null;
+        equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : GameManager.Instance.Punch;
         equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
         equipmentSet.EquipHelmet = GameManager.Instance.HelmetData != null ? GameManager.Instance.HelmetData : null;
         equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
@@ -592,5 +594,40 @@ public class DataManager : MonoBehaviour
             Debug.Log(e.Message);
         }
         return equipmentSet;
+    }
+
+    public void OwnCountReset()
+    {
+        WeaponOwnCount.Clear();
+        ArmorOwnCount.Clear();
+        HelmetOwnCount.Clear();
+        PantsOwnCount.Clear();
+        GloveOwnCount.Clear();
+        ShoesOwnCount.Clear();
+        ShoulderArmorOwnCount.Clear();
+        BeltOwnCount.Clear();
+        NecklessOwnCount.Clear();
+        CloakOwnCount.Clear();
+        RingOwnCount.Clear();
+        OtherOwnCount.Clear();
+        SaveOwnCount();
+    }
+
+    public void QuickSlotReset()
+    {
+        // 기존의 JSON 파일 삭제
+        if (File.Exists(quickSlotEquipmentPath))
+        {
+            File.Delete(quickSlotEquipmentPath);
+            Debug.Log("기존의 퀵 슬롯 JSON 파일이 삭제되었습니다.");
+        }
+        else
+        {
+            Debug.Log("기존의 퀵 슬롯 JSON 파일이 존재하지 않습니다.");
+        }
+
+        // 여기에 퀵 슬롯을 초기화하는 로직을 추가하세요
+        GameManager.Instance.QuickSlotIndex = 0;
+        GameManager.Instance.QuickSlot = new string[5] { "퀵슬롯 1", "퀵슬롯 2", "퀵슬롯 3", "퀵슬롯 4", "퀵슬롯 5" };
     }
 }

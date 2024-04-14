@@ -57,6 +57,7 @@ public class Battle : MonoBehaviour
         monsterLevelText.text = $"레벨 {mon.monsterData.MonsterLevel:N0} - {mon.monsterData.MonsterType}";
         monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
         monsterImage.sprite = mon.monsterData.MonsterSprite;
+        monsterImage.SetNativeSize();
 
         // 드롭 아이템 출력
         ItemDropRate(mon);
@@ -193,7 +194,14 @@ public class Battle : MonoBehaviour
         if (GameManager.Instance.PlayerCurHP <= 0)
         { // 패배
             result.isWin = false;
-            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy * 2;
+            if(mon.monsterData.isElite)
+            {
+                GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy;
+            }
+            else
+            {
+                GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy * 2;
+            }
         }
     }
 
@@ -249,6 +257,8 @@ public class Battle : MonoBehaviour
     private RuntimeAnimatorController GetAnimator()
     {
         RuntimeAnimatorController con;
+        Debug.Log("데이터가 널임 ? : " + GameManager.Instance.WeaponData);
+        Debug.Log(GameManager.Instance.WeaponData.EquipmentName);
         switch (GameManager.Instance.WeaponData.WeaponType)
         {
             case WeaponType.Punch:

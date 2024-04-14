@@ -61,8 +61,13 @@ public class TitleCanvas : MonoBehaviour
         {
             GameManager.Instance.RingDatas[i] = null;
         }
+        DataManager.Instance.OwnCountReset();
+
+        // 퀵 슬롯 초기화
+        DataManager.Instance.QuickSlotReset();
 
         // 상태 초기화
+        GameManager.Instance.BattleSpeed = 1;
         GameManager.Instance.PlayerLevel = 1;
         GameManager.Instance.Gold = 0;
         GameManager.Instance.CurrentEnergy = 25;
@@ -74,6 +79,10 @@ public class TitleCanvas : MonoBehaviour
         GameManager.Instance.APDEX = 0;
         GameManager.Instance.APVIT = 0;
         GameManager.Instance.APLUC = 0;
+        GameManager.Instance.AutoSTR = 0;
+        GameManager.Instance.AutoDEX = 0;
+        GameManager.Instance.AutoLUC = 0;
+        GameManager.Instance.AutoVIT = 0;
         GameManager.Instance.isAPBook = false;
         GameManager.Instance.isClover = false;
         GameManager.Instance.isFood = false;

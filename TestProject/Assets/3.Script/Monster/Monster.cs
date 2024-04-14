@@ -42,7 +42,7 @@ public class Monster : MonoBehaviour
         7. ÈíÇ÷ È®·ü / 3, ÈíÇ÷ ÀúÇ× / 2, ÈíÇ÷ * 5
          */
         int power = 0;
-        power += Mathf.RoundToInt((float)MonsterATK / 30f);
+        power += Mathf.RoundToInt((float)MonsterATK / 10f);
         power += Mathf.RoundToInt((float)MonsterMaxHP / 10f);
         power += Mathf.RoundToInt((float)monsterData.MonsterDef / 2f);
         power += Mathf.RoundToInt((float)monsterData.ComboPercent / 3f);
@@ -56,6 +56,6 @@ public class Monster : MonoBehaviour
         power += Mathf.RoundToInt((float)monsterData.DrainResist / 2f);
         power += Mathf.RoundToInt((float)monsterData.DrainAmount * 5f);
 
-        MonsterPower = power;
+        MonsterPower = Mathf.RoundToInt(power/5f);
     }
 }
