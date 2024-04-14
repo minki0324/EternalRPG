@@ -74,7 +74,8 @@ public class Battle : MonoBehaviour
     public void BattleButton()
     {
         if (GameManager.Instance.PlayerCurHP == 0)
-        { // todo 피통 0으로 전투 불가 메세지 출력
+        {
+            PrintLog.Instance.StaticLog("체력이 없어 싸울 수 없다.");
             return;
         }
         ignoreRay.SetActive(true);

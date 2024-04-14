@@ -662,4 +662,26 @@ public class GameManager : MonoBehaviour
 
         return additionalPercent;
     }
+
+    public void ResetRound()
+    {
+        isAPBook = false;
+        isClover = false;
+        isFood = false;
+        isGoldPack = false;
+
+        PlayerLevel = 1;
+        RequireEXP = 50;
+        CurrentEXP = 0;
+        APDEX = 0;
+        APLUC = 0;
+        APSTR = 0;
+        APVIT = 0;
+        Gold = 0;
+        CurrentAP = 0;
+        PlayCount++;
+        CurrentEnergy = 25 + BonusEnergy;
+
+        RenewAbility();
+    }
 }

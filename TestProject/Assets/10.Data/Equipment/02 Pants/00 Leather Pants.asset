@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 3
   SpriteName: 00 Leather Pants
-  EquipmentSprite: {fileID: 21300000, guid: f314520ba4ec145438e020b546635f95, type: 3}
   ItemID: 902000
   EquipmentName: "\uAC00\uC8FD \uAC01\uBC18"
-  RequireCost: 150
+  RequireCost: 490
   isCanBuy: 1
+  DropRate: 38
   PantsHP: 10
   PantsHPPercent: 10
   PantsDef: 5

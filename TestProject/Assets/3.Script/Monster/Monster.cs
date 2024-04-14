@@ -56,6 +56,6 @@ public class Monster : MonoBehaviour
         power += Mathf.RoundToInt((float)monsterData.DrainResist / 2f);
         power += Mathf.RoundToInt((float)monsterData.DrainAmount * 5f);
 
-        MonsterPower = Mathf.RoundToInt(power/5f);
+        MonsterPower = Mathf.RoundToInt(power/1.9f);
     }
 }

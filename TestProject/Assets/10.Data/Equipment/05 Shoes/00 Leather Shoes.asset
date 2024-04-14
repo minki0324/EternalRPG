@@ -16,8 +16,9 @@ MonoBehaviour:
   SpriteName: 00 Leather Shoes
   ItemID: 905000
   EquipmentName: "\uAC00\uC8FD \uBD80\uCE20"
-  RequireCost: 160
+  RequireCost: 850
   isCanBuy: 1
+  DropRate: 47
   ShoesHP: 30
   ShoesHPPercent: 5
   ShoesDef: 10

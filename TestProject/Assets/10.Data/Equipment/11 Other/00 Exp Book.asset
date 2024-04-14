@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 11
   SpriteName: 00 Exp Book
-  EquipmentSprite: {fileID: 21300000, guid: dcaaad35ea773b346bf696316487c718, type: 3}
   ItemID: 911000
   EquipmentName: "\uACBD\uD5D8\uC758 \uCC45"
   RequireCost: 0
   isCanBuy: 0
+  DropRate: 25
   OtherATK: 0
   OtherATKPercent: 0
   OtherHP: 0
@@ -41,3 +41,5 @@ MonoBehaviour:
   OtherDEXPercent: 0
   OtherLUCPercent: 0
   OtherVITPercent: 0
+  OtherBonusAP: 0
+  OtherItemDropRate: 0

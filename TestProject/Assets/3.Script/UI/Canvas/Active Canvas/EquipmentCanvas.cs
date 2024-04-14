@@ -404,7 +404,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("연타 저항", armorData.ArmorComboResist, ownCount);
                     AppendPercentData("크리티컬 저항", armorData.ArmorCriticalResist, ownCount);
                     AppendPercentData("흡혈 저항", armorData.ArmorDrainResist, ownCount);
-                    AppendAddData("추가 STR%", armorData.ArmorVITPercent, ownCount);
+                    AppendAddData("추가 VIT%", armorData.ArmorVITPercent, ownCount);
                 }
                 break;
             case Category.Helmet:
@@ -431,7 +431,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("방어력%", pantsData.PantsDefPercent, ownCount);
                     AppendPercentData("연타 저항", pantsData.PantsComboResist, ownCount);
                     AppendPercentData("크리티컬 저항", pantsData.PantsCriticalResist, ownCount);
-                    AppendAddData("추가 STR%", pantsData.PantsVITPercent, ownCount);
+                    AppendAddData("추가 VIT%", pantsData.PantsVITPercent, ownCount);
                 }
                 break;
             case Category.Glove:
@@ -517,7 +517,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("연타 확률", necklessData.NecklessComboPercent, ownCount);
                     AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent, ownCount);
                     AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent, ownCount);
-                    AppendAddData("아이템 드롭률%", necklessData.NecklessEXPPercent, ownCount);
+                    AppendAddData("아이템 드롭률%", necklessData.NecklessItemDropRate, ownCount);
                     AppendAddData("추가 골드%", necklessData.NecklessGoldPercent, ownCount);
                     AppendAddData("추가 DEX%", necklessData.NecklessDEXPercent, ownCount);
                     AppendAddData("추가 LUC%", necklessData.NecklessLUCPercent, ownCount);
@@ -559,13 +559,13 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendPercentData("흡혈 저항", otherData.OtherDrainResist, ownCount);
                     AppendPercentData("흡혈", otherData.OtherDrainAmount, ownCount);
                     AppendAddData("추가 경험치%", otherData.OtherEXPPercent, ownCount);
-                    AppendAddData("아이템 드롭률%", otherData.OtherEXPPercent, ownCount);
+                    AppendAddData("아이템 드롭률%", otherData.OtherItemDropRate, ownCount);
                     AppendAddData("추가 골드%", otherData.OtherGoldPercent, ownCount);
                     AppendAddData("추가 STR%", otherData.OtherSTRPercent, ownCount);
                     AppendAddData("추가 DEX%", otherData.OtherDEXPercent, ownCount);
                     AppendAddData("추가 LUC%", otherData.OtherLUCPercent, ownCount);
                     AppendAddData("추가 VIT%", otherData.OtherVITPercent, ownCount);
-                    AppendAddData("레벨업 능력치", otherData.OtherVITPercent, ownCount);
+                    AppendAddData("레벨업 능력치", otherData.OtherBonusAP, ownCount);
                 }
                 break;
         }

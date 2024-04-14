@@ -87,7 +87,7 @@ public class PrintLog : MonoBehaviour
     {
         float startAlpha = 1f;
         float endAlpha = 0f;
-        float fadeDuration = 1.5f;
+        float fadeDuration = 3f;
 
         float t = 0f;
 
@@ -105,7 +105,7 @@ public class PrintLog : MonoBehaviour
     {
         float startAlpha = 1f;
         float endAlpha = 0f;
-        float fadeDuration = 1.5f;
+        float fadeDuration = 3f;
 
         float t = 0f;
 

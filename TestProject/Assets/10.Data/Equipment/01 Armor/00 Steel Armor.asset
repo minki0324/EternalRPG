@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 1
   SpriteName: 00 Steel Armor
-  EquipmentSprite: {fileID: 21300000, guid: dd60a1c6441240f4787ca754b0004f96, type: 3}
   ItemID: 901000
   EquipmentName: "\uCCA0 \uAC11\uC637"
-  RequireCost: 120
+  RequireCost: 260
   isCanBuy: 1
+  DropRate: 37
   ArmorHP: 30
   ArmorHPPercent: 5
   ArmorDef: 3

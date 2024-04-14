@@ -25,6 +25,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private GameObject gemPanel;
     [SerializeField] private GameObject dropResultItem;
     [SerializeField] private Transform dropResultItemParent;
+    [SerializeField] private ScreenTransitionSimpleSoft loading;
 
     private void OnEnable()
     {
@@ -47,13 +48,13 @@ public class BattleResult : MonoBehaviour
             APText.text = ": 0";
             goldText.text = ": 0";
             totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
-            if(mon.monsterData.isElite)
+            if (mon.monsterData.isElite)
             {
                 energyText.text = $": {mon.monsterData.RewordEnergy}";
             }
             else
             {
-                energyText.text = $": {mon.monsterData.RewordEnergy*2}";
+                energyText.text = $": {mon.monsterData.RewordEnergy * 2}";
             }
         }
         AfterBattleMonster(mon, isWin);
@@ -62,7 +63,7 @@ public class BattleResult : MonoBehaviour
     private void AccountBattle_Co()
     { // 전투 결산
         // 경험치
-        int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent/ 100))));
+        int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent / 100))));
         EXP = Mathf.RoundToInt(Random.Range(EXP * 0.95f, EXP * 1.05f));
         GameManager.Instance.CurrentEXP += EXP;
         int levelup = 0;
@@ -72,7 +73,7 @@ public class BattleResult : MonoBehaviour
         {
             // 곱연산 계산 
             requireEXP = Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f)) == GameManager.Instance.RequireEXP ?
-                                                        GameManager.Instance.RequireEXP + 1  : Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f));
+                                                        GameManager.Instance.RequireEXP + 1 : Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f));
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = Mathf.RoundToInt(requireEXP);
             GameManager.Instance.PlayerLevel++;
@@ -104,7 +105,7 @@ public class BattleResult : MonoBehaviour
         APText.text = $": +{levelup * 5}";
         goldText.text = $": {totalGold:N0}";
         totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
-        if(mon.monsterData.isElite)
+        if (mon.monsterData.isElite)
         { // 엘리트 몬스터라면 리워드 에너지 출력
             energyText.text = $": +{mon.monsterData.RewordEnergy}";
         }
@@ -146,7 +147,7 @@ public class BattleResult : MonoBehaviour
                 mon.isDead = false;
             }
 
-            for(int i = 0; i < dropResultItemParent.childCount; i++)
+            for (int i = 0; i < dropResultItemParent.childCount; i++)
             { // 드랍 장비 초기화
                 Destroy(dropResultItemParent.GetChild(i).gameObject);
             }
@@ -185,8 +186,8 @@ public class BattleResult : MonoBehaviour
     private void APDistribute()
     {
         int sumAutoAP = GameManager.Instance.AutoSTR + GameManager.Instance.AutoDEX + GameManager.Instance.AutoLUC + GameManager.Instance.AutoVIT;
-        
-        if(sumAutoAP > 0 && GameManager.Instance.CurrentAP >=  sumAutoAP)
+
+        if (sumAutoAP > 0 && GameManager.Instance.CurrentAP >= sumAutoAP)
         {
             // 각각의 자동 능력치에 대해 나눠주는 비율을 계산하여 적용합니다.
             float strRatio = (float)GameManager.Instance.AutoSTR / sumAutoAP;
@@ -245,33 +246,29 @@ public class BattleResult : MonoBehaviour
 
     public void LackOfEnergy()
     {
-        if(GameManager.Instance.CurrentEnergy <= 0)
+        if (GameManager.Instance.CurrentEnergy <= 0)
         {
-            GameManager.Instance.isAPBook = false;
-            GameManager.Instance.isClover = false;
-            GameManager.Instance.isFood = false;
-            GameManager.Instance.isGoldPack = false;
-
-            GameManager.Instance.PlayCount++;
-            GameManager.Instance.APDEX = 0;
-            GameManager.Instance.APLUC = 0;
-            GameManager.Instance.APSTR = 0;
-            GameManager.Instance.APVIT = 0;
-            GameManager.Instance.Gold = 0;
-            GameManager.Instance.PlayerLevel = 1;
-            GameManager.Instance.CurrentEXP = 0;
-            GameManager.Instance.RequireEXP = 50;
-            GameManager.Instance.CurrentEnergy = 25 + GameManager.Instance.BonusEnergy;
-            GameManager.Instance.RenewAbility();
-
-            SceneManager.LoadScene(0);
+            StartCoroutine(LackOfEnergy_Co());
         }
+    }
+
+    private IEnumerator LackOfEnergy_Co()
+    {
+        GameManager.Instance.ResetRound();
+        StartCoroutine(loading.StartLoadingLight());
+
+        while (loading.isLoading)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(0);
     }
 
     private void GemCalculate()
     {
         int randomValue = Random.Range(0, 2000);
-        if(randomValue == 77)
+        if (randomValue == 77)
         {
             gemPanel.SetActive(true);
             GameManager.Instance.Gem++;

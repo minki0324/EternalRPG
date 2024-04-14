@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 11
   SpriteName: 01 Silver Bar
-  EquipmentSprite: {fileID: 21300000, guid: 2a71e209ea35007458fc31622acc49ac, type: 3}
   ItemID: 911001
   EquipmentName: "\uC740\uAD34"
   RequireCost: 0
   isCanBuy: 0
+  DropRate: 25
   OtherATK: 0
   OtherATKPercent: 0
   OtherHP: 0
@@ -41,3 +41,5 @@ MonoBehaviour:
   OtherDEXPercent: 0
   OtherLUCPercent: 0
   OtherVITPercent: 0
+  OtherBonusAP: 0
+  OtherItemDropRate: 0

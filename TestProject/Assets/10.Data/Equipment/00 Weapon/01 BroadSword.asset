@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 0
   SpriteName: 01 BroadSword
-  EquipmentSprite: {fileID: 21300000, guid: 8ffe0f569c2a8f64d8e483703f892531, type: 3}
   ItemID: 900001
   EquipmentName: "\uBE0C\uB85C\uB4DC\uC18C\uB4DC"
   RequireCost: 50
   isCanBuy: 1
+  DropRate: 48
   WeaponType: 1
   WeaponATK: 5
   WeaponATKPercent: 5

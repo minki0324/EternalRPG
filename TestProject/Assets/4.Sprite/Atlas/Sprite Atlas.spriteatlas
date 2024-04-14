@@ -59,6 +59,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 68b35d2059b8c46e0a98e53628e9b3af, type: 3}
+  - {fileID: 21300000, guid: 392b855008211134180d871d74bfdbe8, type: 3}
   - {fileID: 21300000, guid: a9c751a077dd342a89004f4b58aa6f71, type: 3}
   - {fileID: 21300000, guid: a08230b007bfc96499c9c5739cba6c8d, type: 3}
   - {fileID: 21300000, guid: 05af17b0d24b90d40a8834615a185a9e, type: 3}
@@ -151,6 +152,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6c6eb993a21bd44c48cc8eff14549457, type: 3}
   - {fileID: 21300000, guid: 63cc9a93320ed794a9412ea1fabbf11f, type: 3}
   - {fileID: 21300000, guid: 754a3e9390a93c447a81341223fe0526, type: 3}
+  - {fileID: 21300000, guid: 378f7dd3a5552ea41848a901b81eda47, type: 3}
   - {fileID: -2068372836, guid: 7e0ed6f3fc146724cba8ea62af290b51, type: 3}
   - {fileID: 1908270111, guid: 7e0ed6f3fc146724cba8ea62af290b51, type: 3}
   - {fileID: 225747290, guid: 7e0ed6f3fc146724cba8ea62af290b51, type: 3}
@@ -161,6 +163,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 600e29f3a8719114ea3c5c6a8ebae136, type: 3}
   - {fileID: 21300000, guid: 5a83be747fe3d4e1e8187dd1adabc8f5, type: 3}
   - {fileID: 21300000, guid: ae1788943277b4eea8c8373be2f1a9bd, type: 3}
+  - {fileID: 21300000, guid: 460be2154a5ec074f830b84341827a32, type: 3}
   - {fileID: 21300000, guid: dcaaad35ea773b346bf696316487c718, type: 3}
   - {fileID: 21300076, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300008, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
@@ -223,6 +226,7 @@ SpriteAtlas:
   - {fileID: 21300058, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300116, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300078, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
+  - {fileID: 21300000, guid: e1392745b28b8d6489f299b5c603f6c5, type: 3}
   - {fileID: 21300000, guid: 66c03fa5b19379644bc8338a76a92566, type: 3}
   - {fileID: 21300000, guid: 2ecf54c5e218e4647ada23d1fbb3f2d0, type: 3}
   - {fileID: 21300000, guid: 74428fd53ea9a48f9b6d8ab4ef5e06a2, type: 3}
@@ -233,6 +237,7 @@ SpriteAtlas:
   - {fileID: -16664611, guid: 227ae306d8a277444954d74044a067dd, type: 3}
   - {fileID: -1734340255, guid: 227ae306d8a277444954d74044a067dd, type: 3}
   - {fileID: -1842154276, guid: 227ae306d8a277444954d74044a067dd, type: 3}
+  - {fileID: 21300000, guid: 585b8e163715d5c4793511fefc839c7f, type: 3}
   - {fileID: 21300000, guid: 8826ce46a04bc264dbf06ca1fe543096, type: 3}
   - {fileID: 21300000, guid: 8ffe0f569c2a8f64d8e483703f892531, type: 3}
   - {fileID: 21300000, guid: 2ec8157697636482abade791a079b6a1, type: 3}
@@ -294,6 +299,7 @@ SpriteAtlas:
   - {fileID: 21300046, guid: a07735877a3bd644094331b137b71878, type: 3}
   - {fileID: 21300040, guid: a07735877a3bd644094331b137b71878, type: 3}
   - {fileID: 21300042, guid: a07735877a3bd644094331b137b71878, type: 3}
+  - {fileID: 21300000, guid: 2f6f64973624d9340bdb82f8c422816f, type: 3}
   - {fileID: 21300000, guid: 7ffc83d749d18444e8d15512b0b09e6e, type: 3}
   - {fileID: 21300000, guid: 2448f5684ba27485e98c9e49e5d35e81, type: 3}
   - {fileID: 21300000, guid: ec2dca688246fa14596c398668d2abfc, type: 3}
@@ -344,6 +350,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 56b4cb0b8fe56914cb40cb4d816c9015, type: 3}
   - {fileID: 21300000, guid: 53fa1d2b605c09b42ac37ea5ad4ef80a, type: 3}
   - {fileID: 21300000, guid: cb3b033b32d3e45cb9d2c9e41ca8ae94, type: 3}
+  - {fileID: 21300000, guid: c099876bc82599141855f7b4b60acc68, type: 3}
   - {fileID: 21300012, guid: dda6bbdb704d84847b38f9eced72bf59, type: 3}
   - {fileID: 21300014, guid: dda6bbdb704d84847b38f9eced72bf59, type: 3}
   - {fileID: 21300040, guid: dda6bbdb704d84847b38f9eced72bf59, type: 3}
@@ -369,6 +376,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 86d792fb4ee98ea44a93259326c31b71, type: 3}
   - {fileID: 21300000, guid: 457456fb09db5fe48815891fc242890f, type: 3}
   - {fileID: 21300000, guid: 3042e6fb495ee644b98e6c33129c8a5e, type: 3}
+  - {fileID: 21300000, guid: c8fedafb0d7561346a045b79f553c0db, type: 3}
   - {fileID: 21300174, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
   - {fileID: 21300126, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
   - {fileID: 21300122, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
@@ -427,6 +435,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6ed9432d8d2f26149a7696bc3b50dfbf, type: 3}
   - {fileID: 21300000, guid: 4b740c2db694941dabf916fbfcf27ed4, type: 3}
   - {fileID: 21300000, guid: 97faf44d45d66d24599f4e6d0fa1ee9d, type: 3}
+  - {fileID: 21300000, guid: 12be8f7de939827499fbe6257128c74a, type: 3}
   - {fileID: 21300000, guid: eb48fd9d6edda4fd4b6b42ac346507d6, type: 3}
   - {fileID: 21300000, guid: a03f1aad4a4ca564c9dadb9885b4dd6a, type: 3}
   - {fileID: 21300000, guid: 92f69ccd8015e054a9350bde1a549be8, type: 3}
@@ -480,6 +489,7 @@ SpriteAtlas:
   - {fileID: 21300116, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   - {fileID: 21300060, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   - {fileID: 21300000, guid: 3ee39b0ef0253439ab638986c78c61d4, type: 3}
+  - {fileID: 21300000, guid: b91e502eac1686143833d8117982b550, type: 3}
   - {fileID: 21300006, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300044, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300002, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
@@ -523,11 +533,13 @@ SpriteAtlas:
   - {fileID: 21300014, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300042, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300038, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
+  - {fileID: 21300000, guid: 901db1beb971d1f4aa5ab62867514ef8, type: 3}
   - {fileID: 21300000, guid: c5ddb31f49108c0499828376679ed311, type: 3}
   - {fileID: 21300000, guid: ed53d6afdc5679845929a4fc945989fa, type: 3}
   - {fileID: 21300000, guid: 056546bf5c218412cb322719482a7500, type: 3}
   m_PackedSpriteNamesToIndex:
   - btn_rectangle_01_n_bluegray
+  - 01 Iron Armor
   - icon_potion_red
   - 01 BroadSword
   - 01 Silver Bar
@@ -620,6 +632,7 @@ SpriteAtlas:
   - icon_scroll
   - 00 Leather Pants
   - 10_Stone_Plant
+  - 01 Iron Belt
   - Slash_Angled_04_Unique_SpriteSheet 1_0
   - Slash_Angled_04_Unique_SpriteSheet 1_1
   - Slash_Angled_04_Unique_SpriteSheet 1_2
@@ -630,6 +643,7 @@ SpriteAtlas:
   - 09 Blue Elite Wisp
   - frame_iconframe_circle_01_n_White3
   - icon_lightning_yellow
+  - 01 Iron Shoulder
   - 00 Exp Book
   - TX Tileset Wall_38
   - TX Tileset Wall_4
@@ -692,6 +706,7 @@ SpriteAtlas:
   - TX Tileset Wall_29
   - TX Tileset Wall_58
   - TX Tileset Wall_39
+  - 04 LUC Cube
   - 00 Steel Shoulder
   - 00 Steel Armor
   - slider_edgetype_00_frame_back
@@ -702,6 +717,7 @@ SpriteAtlas:
   - Slash_Angled_04_Normal_SpriteSheet 1_1
   - Slash_Angled_04_Normal_SpriteSheet 1_2
   - Slash_Angled_04_Normal_SpriteSheet 1_3
+  - 03 DEX Cube
   - 01 Gold Ring
   - 01 BroadSword
   - function_icon_clear
@@ -763,6 +779,7 @@ SpriteAtlas:
   - TX Tileset Stone Ground_23
   - TX Tileset Stone Ground_20
   - TX Tileset Stone Ground_21
+  - 05 VIT Cube
   - 00 Blue Plant
   - bg Battle Result
   - 00 Leather Belt
@@ -813,6 +830,7 @@ SpriteAtlas:
   - icon_book_1 1
   - 07 Red Elite Cube
   - icon_star
+  - 01 Iron Shoes
   - TX Stairs L R
   - TX Stairs L M
   - TX Stairs Broken R L
@@ -838,6 +856,7 @@ SpriteAtlas:
   - bg Move Point
   - 00 Exp Book
   - 03 Blue Cube
+  - 01 Iron Helmet
   - TX Flower
   - TX Tree T2 Lower
   - TX Tree T1 Lower
@@ -896,6 +915,7 @@ SpriteAtlas:
   - 00 Leather Belt
   - function_icon_helmet_2
   - frame_itemframe_01_White1 1
+  - 01 Iron Glove
   - icon_color_gem_02
   - 00 Leather Glove
   - 00 Steel Helmet
@@ -949,6 +969,7 @@ SpriteAtlas:
   - TX Props Stone Lantern
   - TX Props Rune Pillar Broken
   - icon_clover
+  - 02 STR Cube
   - TX Shadow Crate Small
   - TX Shadow Road Sign W
   - TX Shadow Cube
@@ -992,6 +1013,7 @@ SpriteAtlas:
   - TX Shadow Rune Pillar Broken
   - TX Shadow Road Sign E
   - TX Shadow Stone Coffin Hori
+  - 01 Iron Pants
   - 00 Leather Glove
   - function_icon_question 1
   - frame_itemframe_02_s

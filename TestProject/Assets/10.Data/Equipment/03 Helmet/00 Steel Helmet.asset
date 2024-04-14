@@ -16,9 +16,9 @@ MonoBehaviour:
   SpriteName: 00 Steel Helmet
   ItemID: 903000
   EquipmentName: "\uCCA0 \uD22C\uAD6C"
-  RequireCost: 110
+  RequireCost: 260
   isCanBuy: 1
-  DropRate: 80
+  DropRate: 40
   HelmetHP: 20
   HelmetHPPercent: 2
   HelmetDef: 5

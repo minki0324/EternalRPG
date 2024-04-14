@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 0
   SpriteName: 02 SharpSword
-  EquipmentSprite: {fileID: 21300000, guid: f37eba692741dc14d8fa3eedd003deea, type: 3}
   ItemID: 900002
   EquipmentName: "\uB0A0 \uBCBC\uB9B0 \uAC80"
-  RequireCost: 190
+  RequireCost: 680
   isCanBuy: 1
+  DropRate: 43
   WeaponType: 1
   WeaponATK: 12
   WeaponATKPercent: 8

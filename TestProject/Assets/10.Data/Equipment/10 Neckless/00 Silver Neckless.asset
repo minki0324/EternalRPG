@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 9
   SpriteName: 00 Silver Neckless
-  EquipmentSprite: {fileID: 21300000, guid: 54283fd8a2faa904497f961032cfd838, type: 3}
   ItemID: 910000
   EquipmentName: "\uC740 \uC2ED\uC790 \uBAA9\uAC78\uC774"
-  RequireCost: 400
+  RequireCost: 1500
   isCanBuy: 1
+  DropRate: 35
   NecklessHP: 10
   NecklessHPPercent: 5
   NecklessComboPercent: 10
@@ -27,3 +27,4 @@ MonoBehaviour:
   NecklessGoldPercent: 5
   NecklessDEXPercent: 0
   NecklessLUCPercent: 0
+  NecklessItemDropRate: 0

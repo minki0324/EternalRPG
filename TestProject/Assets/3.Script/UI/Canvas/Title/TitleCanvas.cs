@@ -9,6 +9,7 @@ public class TitleCanvas : MonoBehaviour
     [SerializeField] private TMP_Text infomationText;
     [SerializeField] private ScreenTransitionSimpleSoft loading;
     [SerializeField] private GameObject transitionObj;
+    [SerializeField] private GameObject warningPanel;
     public void TitleStartButton()
     {
         infomationText.text = $"레벨 : {GameManager.Instance.PlayerLevel:N0}\n" +
@@ -17,19 +18,33 @@ public class TitleCanvas : MonoBehaviour
                                           $"남은 에너지 : {GameManager.Instance.CurrentEnergy}\n" +
                                           $"캐릭터 위치 : \n" +
                                           $"플레이 회수 : {GameManager.Instance.PlayCount:N0}";
-
-        
     }
 
-    public void StartButton()
+    public void StartButton(bool _isReStart)
     {
-        StartCoroutine(StartButton_Co());
+        if(_isReStart)
+        { // 새 게임 눌렀을 때 경고문 띄우기
+            warningPanel.SetActive(true);
+        }
+        else
+        { // 원래 하던 거 이어하기
+            StartCoroutine(StartButton_Co(_isReStart));
+        }
     }
 
-    private IEnumerator StartButton_Co()
+    public void ReStartButton(bool _isRestart)
+    {
+        StartCoroutine(StartButton_Co(_isRestart));
+        warningPanel.SetActive(false);
+    }
+
+    private IEnumerator StartButton_Co(bool _isReStart)
     {
         transitionObj.SetActive(true);
         StartCoroutine(loading.StartLoadingLight());
+
+        // 새 게임 버튼일 경우
+        if (_isReStart) GameManager.Instance.ResetRound();
 
         // Loading.isLoading이 false가 될 때까지 대기
         while (loading.isLoading)
@@ -75,6 +90,8 @@ public class TitleCanvas : MonoBehaviour
         GameManager.Instance.CurrentEXP = 0;
         GameManager.Instance.RequireEXP = 50;
         GameManager.Instance.PlayCount = 0;
+        GameManager.Instance.CurrentAP = 0;
+        GameManager.Instance.BonusAP = 0;
         GameManager.Instance.APSTR = 0;
         GameManager.Instance.APDEX = 0;
         GameManager.Instance.APVIT = 0;
