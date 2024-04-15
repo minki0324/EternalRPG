@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 13 Grass Fairy
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD480\uC758 \uC694\uC815"
+  MonsterID: 13
+  MonsterType: "\uC694\uC815"
+  MonsterLevel: 680
+  MonsterMaxHP: 8200
+  MonsterCurHP: 8200
+  MonsterDef: 383
+  MonsterATK: 630
+  MonsterSprite: {fileID: 21300000, guid: 974ff7d37a4082c41be5cf5530c5c2b7, type: 3}
+  ReturnPos: {x: -1.5, y: 0}
+  RequireEnergy: 1
+  isElite: 0
+  CriticalPercant: 51
+  CriticalResist: 54
+  CriticalDamage: 1.62
+  ComboPercent: 45
+  ComboResist: 43
+  AvoidPercent: 51
+  AvoidResist: 48
+  DrainPercent: 48
+  DrainResist: 43
+  DrainAmount: 1.62
+  RewordEXP: 120000
+  RewordGold: 1150
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 435b47ea38bbe8440a279afa2c1eee11, type: 2}

@@ -8,6 +8,7 @@ using System.Linq;
 public class BattleResult : MonoBehaviour
 {
     [SerializeField] private ActiveCanvas activeCanvas;
+    [SerializeField] private GameObject battlePanel;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Player player;
     [SerializeField] private ResultPanelTitle resultPanelTitle;
@@ -43,7 +44,6 @@ public class BattleResult : MonoBehaviour
         {
             resultPanelTitle.Result = false;
             expText.text = ": 0";
-            // todo 레벨업 시스템 넣어야됨
             levelText.text = ": 0";
             APText.text = ": 0";
             goldText.text = ": 0";
@@ -122,6 +122,7 @@ public class BattleResult : MonoBehaviour
         {
             // 에너지 없어서 라운드 종료될 때 초기화
             gameObject.SetActive(false);
+            battlePanel.SetActive(false);
             activeCanvas.gameObject.SetActive(true);
             inventoryPanel.SetActive(true);
         }

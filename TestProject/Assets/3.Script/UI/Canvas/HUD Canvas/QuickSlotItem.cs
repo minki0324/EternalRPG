@@ -84,6 +84,9 @@ public class QuickSlotItem : MonoBehaviour
                 costGold = Mathf.RoundToInt(GameManager.Instance.Gold / 10);
                 costText.text = $"{costGold:N0} Gold";
                 PrintLog.Instance.StaticLog("체력 회복 완료!");
+
+                activeCanvas.SetActive(false);
+                quickSlotItemPanel.SetActive(false);
                 break;
             case QuickItem.Book:
                 if(GameManager.Instance.Gem >= 7 && !GameManager.Instance.isAPBook)
@@ -91,6 +94,8 @@ public class QuickSlotItem : MonoBehaviour
                     GameManager.Instance.isAPBook = true;
                     GameManager.Instance.Gem -= 7;
                     PrintLog.Instance.StaticLog("능력의 책 구매 완료!");
+                    activeCanvas.SetActive(false);
+                    quickSlotItemPanel.SetActive(false);
                 }
                 else if(GameManager.Instance.Gem < 7)
                 {
@@ -107,6 +112,8 @@ public class QuickSlotItem : MonoBehaviour
                     GameManager.Instance.isGoldPack = true;
                     GameManager.Instance.Gem -= 2;
                     PrintLog.Instance.StaticLog("골드 보따리 구매 완료!");
+                    activeCanvas.SetActive(false);
+                    quickSlotItemPanel.SetActive(false);
                 }
                 else if (GameManager.Instance.Gem < 2)
                 {
@@ -123,6 +130,8 @@ public class QuickSlotItem : MonoBehaviour
                     GameManager.Instance.isFood = true;
                     GameManager.Instance.Gem -= 4;
                     PrintLog.Instance.StaticLog("맛있는 고기 구매 완료!");
+                    activeCanvas.SetActive(false);
+                    quickSlotItemPanel.SetActive(false);
                 }
                 else if (GameManager.Instance.Gem < 4)
                 {
@@ -139,6 +148,8 @@ public class QuickSlotItem : MonoBehaviour
                     GameManager.Instance.isClover = true;
                     GameManager.Instance.Gem -= 5;
                     PrintLog.Instance.StaticLog("행운의 클로버 구매 완료!");
+                    activeCanvas.SetActive(false);
+                    quickSlotItemPanel.SetActive(false);
                 }
                 else if (GameManager.Instance.Gem < 5)
                 {

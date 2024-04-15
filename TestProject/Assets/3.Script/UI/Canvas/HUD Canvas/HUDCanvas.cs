@@ -10,6 +10,8 @@ public class HUDCanvas : MonoBehaviour
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text gemText;
+    [SerializeField] private TMP_Text HPText;
+    [SerializeField] private Slider HPSlider;
     [SerializeField] private ScreenTransitionSimpleSoft loading;
     [SerializeField] private GameObject activeCanvas;
     [SerializeField] private GameObject transitionObj;
@@ -25,6 +27,8 @@ public class HUDCanvas : MonoBehaviour
         goldText.text = $"{GameManager.Instance.Gold:N0}";
         energyText.text = $"{GameManager.Instance.CurrentEnergy:N0}";
         gemText.text = $"{GameManager.Instance.Gem:N0}";
+        HPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
+        HPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
     }
 
     private IEnumerator StartGame()

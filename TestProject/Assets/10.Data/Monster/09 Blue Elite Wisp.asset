@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uBE14\uB8E8 \uC704\uC2A4\uD504"
   MonsterID: 9
-  MonsterType: "\uC815\uB839"
+  MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 580
-  MonsterMaxHP: 5990
-  MonsterCurHP: 5990
-  MonsterDef: 105
-  MonsterATK: 290
+  MonsterMaxHP: 9860
+  MonsterCurHP: 9860
+  MonsterDef: 489
+  MonsterATK: 780
   MonsterSprite: {fileID: 21300000, guid: 600e29f3a8719114ea3c5c6a8ebae136, type: 3}
   ReturnPos: {x: 1.5, y: -1.5}
   RequireEnergy: 5
   isElite: 1
-  CriticalPercant: 13
-  CriticalResist: 17
-  CriticalDamage: 1.4
-  ComboPercent: 18
-  ComboResist: 17
-  AvoidPercent: 16
-  AvoidResist: 18
-  DrainPercent: 14
-  DrainResist: 19
-  DrainAmount: 1.4
+  CriticalPercant: 41
+  CriticalResist: 39
+  CriticalDamage: 1.5
+  ComboPercent: 44
+  ComboResist: 43
+  AvoidPercent: 39
+  AvoidResist: 48
+  DrainPercent: 42
+  DrainResist: 46
+  DrainAmount: 1.5
   RewordEXP: 106800
   RewordGold: 1200
   RewordEnergy: 5

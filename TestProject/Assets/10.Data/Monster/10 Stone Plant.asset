@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
   m_Name: 10 Stone Plant
   m_EditorClassIdentifier: 
-  MonsterName: "\uB3CC \uB098\uBB34"
+  MonsterName: "\uC2A4\uD1A4 \uD50C\uB79C\uD2B8"
   MonsterID: 10
   MonsterType: "\uB098\uBB34"
   MonsterLevel: 670
   MonsterMaxHP: 7800
   MonsterCurHP: 7800
-  MonsterDef: 125
-  MonsterATK: 360
+  MonsterDef: 352
+  MonsterATK: 560
   MonsterSprite: {fileID: 21300000, guid: 754a3e9390a93c447a81341223fe0526, type: 3}
   ReturnPos: {x: 1.5, y: 0}
   RequireEnergy: 1
   isElite: 0
-  CriticalPercant: 26
-  CriticalResist: 28
-  CriticalDamage: 1.55
-  ComboPercent: 31
-  ComboResist: 29
-  AvoidPercent: 33
-  AvoidResist: 36
-  DrainPercent: 34
-  DrainResist: 36
-  DrainAmount: 1.55
+  CriticalPercant: 45
+  CriticalResist: 54
+  CriticalDamage: 1.6
+  ComboPercent: 44
+  ComboResist: 42
+  AvoidPercent: 49
+  AvoidResist: 48
+  DrainPercent: 47
+  DrainResist: 43
+  DrainAmount: 1.6
   RewordEXP: 98000
   RewordGold: 980
   RewordEnergy: 0

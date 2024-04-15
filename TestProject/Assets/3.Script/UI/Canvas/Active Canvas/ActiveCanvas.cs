@@ -7,5 +7,4 @@ public class ActiveCanvas : MonoBehaviour
     [Header("Panel")]
     public GameObject versusPanel;
     public GameObject resultPanel;
-
 }

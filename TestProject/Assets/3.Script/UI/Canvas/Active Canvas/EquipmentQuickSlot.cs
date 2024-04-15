@@ -90,6 +90,8 @@ public class EquipmentQuickSlot : MonoBehaviour
         // 저장한 이름은 초기화
         modifyText[_index].text = string.Empty;
         input[_index].text = string.Empty;
+
+        PrintLog.Instance.StaticLog($"{_index}번째 슬롯 : [{GameManager.Instance.QuickSlot[_index]}] 변경 완료");
     }
 
     public void AskQuickSlotPanel(int _index)
@@ -172,11 +174,13 @@ public class EquipmentQuickSlot : MonoBehaviour
     public void ChangeEquipmentQuickSlot()
     {
         DataManager.Instance.LoadEquipSet(GameManager.Instance.QuickSlotIndex);
+        PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
     }
 
     public void SaveEquipmentQuickSlot(int _index)
     {
         DataManager.Instance.SaveEquipSet(_index);
+        PrintLog.Instance.StaticLog($"{_index}번째 슬롯 : [{GameManager.Instance.QuickSlot[_index]}] 저장 완료");
     }
 
     public void OCButton()
@@ -204,8 +208,8 @@ public class EquipmentQuickSlot : MonoBehaviour
         float duration = 0.5f;
         float elapsedTime = 0f;
 
-        Vector3 startPos = _isOpen ? new Vector3(0, 150, 0) : new Vector3(-200, 150, 0);
-        Vector3 endPos = _isOpen ? new Vector3(-200, 150, 0) : new Vector3(0, 150, 0);
+        Vector3 startPos = _isOpen ? new Vector3(0, 180, 0) : new Vector3(-220, 180, 0);
+        Vector3 endPos = _isOpen ? new Vector3(-220, 180, 0) : new Vector3(0, 180, 0);
 
         for (int i = 0; i < HUDButton.Length; i++)
         {

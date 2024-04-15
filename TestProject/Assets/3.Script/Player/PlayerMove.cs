@@ -16,11 +16,6 @@ public class PlayerMove : MonoBehaviour
     private Vector2 targetPos = Vector2.zero;
     private Coroutine moveCoroutine;
 
-    private void Awake()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Monster")
@@ -32,21 +27,19 @@ public class PlayerMove : MonoBehaviour
                 movePoint.gameObject.SetActive(false);
                 battle.mon = mon;
             }
-            else
-            { // 죽어있는 몹
-
-            }
         }
     }
 
     void Update()
     {
-        if(isWayMove)
-        { // 웨이포인트를 찍었다면
+        if(isWayMove || activeCanvas.gameObject.activeSelf)
+        { // 웨이포인트를 찍었다면 // 액티브 캔버스가 켜져있다면 이동 멈춤
             if(moveCoroutine != null)
             {
                 StopCoroutine(moveCoroutine);
             }
+            movePoint.gameObject.SetActive(false);
+
             playerAnimator.SetBool("Idle", true);
             playerAnimator.SetBool("Run", false);
             moveCoroutine = null;
@@ -58,9 +51,12 @@ public class PlayerMove : MonoBehaviour
             {
                 StopCoroutine(moveCoroutine);
             }
+            movePoint.gameObject.SetActive(false);
+
             // 애니메이션 Idle상태로 멈추기
             playerAnimator.SetBool("Idle", true);
             playerAnimator.SetBool("Run", false);
+            moveCoroutine = null;
 
             // 액티브 캔버스 키고 결투 패널 켜주기
             activeCanvas.gameObject.SetActive(true);

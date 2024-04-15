@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uB808\uB4DC \uD50C\uB79C\uD2B8"
   MonsterID: 6
-  MonsterType: "\uB098\uBB34"
+  MonsterType: "\uB098\uBB34 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 25
   MonsterMaxHP: 350
   MonsterCurHP: 350
-  MonsterDef: 8
+  MonsterDef: 16
   MonsterATK: 30
   MonsterSprite: {fileID: 21300000, guid: 5d22ba719322dc045bfde637decfd563, type: 3}
   ReturnPos: {x: 0, y: -2}

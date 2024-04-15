@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 15 Dark Fairy
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5B4\uB460\uC758 \uC694\uC815"
+  MonsterID: 15
+  MonsterType: "\uC694\uC815"
+  MonsterLevel: 1080
+  MonsterMaxHP: 16800
+  MonsterCurHP: 16800
+  MonsterDef: 630
+  MonsterATK: 1350
+  MonsterSprite: {fileID: 21300000, guid: ff3a58c85e36974448861d1cc6f421ce, type: 3}
+  ReturnPos: {x: 1.5, y: 0}
+  RequireEnergy: 1
+  isElite: 0
+  CriticalPercant: 72
+  CriticalResist: 71
+  CriticalDamage: 1.68
+  ComboPercent: 64
+  ComboResist: 68
+  AvoidPercent: 72
+  AvoidResist: 77
+  DrainPercent: 81
+  DrainResist: 69
+  DrainAmount: 1.68
+  RewordEXP: 345000
+  RewordGold: 3800
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}

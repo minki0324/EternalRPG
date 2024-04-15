@@ -36,8 +36,8 @@ public class WayPoint : MonoBehaviour
             if(playerMove == null)
             { // 찾지 않았을 때만 찾아주기
                 playerMove = collision.GetComponent<PlayerMove>();
-                playerMove.movePoint.gameObject.SetActive(false);
             }
+            playerMove.movePoint.gameObject.SetActive(false);
 
             if (isUP)
             {

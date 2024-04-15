@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 17 Elite Broken Robot
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5D8\uB9AC\uD2B8 \uBD80\uC11C\uC9C4 \uB85C\uBD07"
+  MonsterID: 17
+  MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 280000
+  MonsterMaxHP: 119685000
+  MonsterCurHP: 119685000
+  MonsterDef: 687000
+  MonsterATK: 1120000
+  MonsterSprite: {fileID: 21300000, guid: 37722882a5dc29b4f959787d2d7ef9a8, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 9
+  isElite: 1
+  CriticalPercant: 395
+  CriticalResist: 385
+  CriticalDamage: 2.6
+  ComboPercent: 420
+  ComboResist: 415
+  AvoidPercent: 385
+  AvoidResist: 410
+  DrainPercent: 390
+  DrainResist: 380
+  DrainAmount: 2.6
+  RewordEXP: 1700000000
+  RewordGold: 6000000
+  RewordEnergy: 9
+  RewardItem: []
