@@ -23,6 +23,17 @@ public class EquipmentCanvas : MonoBehaviour
     List<string> percentDataList = new List<string>();
     List<string> addDataList = new List<string>();
 
+    [SerializeField] private TMP_Dropdown categoryDropDown;
+    private string otherType = "전체";
+
+    [Header("장착하기 창")]
+    [SerializeField] private TMP_Text buttonText;
+    [SerializeField] private TMP_Text equipNameText;
+    [SerializeField] private TMP_Text equipdesText;
+    [SerializeField] private Image equipImage;
+    [SerializeField] private GameObject equipmentQaPanel;
+    private bool isEquip = false;
+
     [Header("아이템 정보")]
     public ItemPanel CurrentItem;
     [SerializeField] private GameObject infomationPanel;
@@ -68,8 +79,39 @@ public class EquipmentCanvas : MonoBehaviour
     public void CategoryButton(string _type)
     {
         categoryName.text = _type;
-        EquipmentManager.Instance.ItemListSet(_type, itemListParent);
         infomationPanel.SetActive(false);
+        if(_type == "보조")
+        {
+            int selectDropDown = categoryDropDown.value;
+            switch(categoryDropDown.options[selectDropDown].text)
+            {
+                case "전체":
+                    otherType = "All";
+                    break;
+                case "경험치":
+                    otherType = "EXP";
+                    break;
+                case "골드 획득량":
+                    otherType = "Gold";
+                    break;
+                case "보너스 능력치":
+                    otherType = "BonusAP";
+                    break;
+                case "아이템 드롭률":
+                    otherType = "DropRate";
+                    break;
+                case "스텟":
+                    otherType = "Offence";
+                    break;
+            }
+            categoryDropDown.gameObject.SetActive(true);
+            EquipmentManager.Instance.ItemListSet(_type, itemListParent, otherType);
+        }
+        else
+        {
+            categoryDropDown.gameObject.SetActive(false);
+            EquipmentManager.Instance.ItemListSet(_type, itemListParent);
+        }
     }
 
     public void SlotSetting(int _slot)
@@ -114,19 +156,14 @@ public class EquipmentCanvas : MonoBehaviour
         GetCompareText();
     }
 
-    public void EquipItem(bool _isEquip)
+    #region 장비 장착
+    public void EquipItemCal()
     {
-        if (DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID] == 0)
-        {
-            PrintLog.Instance.StaticLog("보유 중인 아이템이 아닙니다.");
-            return;
-        }
-
         switch (CurrentItem.EquipmentData.EquipmentType)
         {
             case Category.Weapon:
                 if (CurrentItem.EquipmentData is WeaponData weaponData)
-                    if (_isEquip)
+                    if (isEquip)
                     { // 장비하기 눌렀을 때
                         GameManager.Instance.WeaponData = weaponData;
                         weaponIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -138,10 +175,11 @@ public class EquipmentCanvas : MonoBehaviour
                         weaponIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("무기", itemListParent);
                 break;
             case Category.Armor:
                 if (CurrentItem.EquipmentData is ArmorData armorData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.ArmorData = armorData;
                         armorIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -153,10 +191,11 @@ public class EquipmentCanvas : MonoBehaviour
                         armorIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("갑옷", itemListParent);
                 break;
             case Category.Pants:
                 if (CurrentItem.EquipmentData is PantsData pantsData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.PantsData = pantsData;
                         pantsIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -168,10 +207,11 @@ public class EquipmentCanvas : MonoBehaviour
                         pantsIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("각반", itemListParent);
                 break;
             case Category.Helmet:
                 if (CurrentItem.EquipmentData is HelmetData helmetData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.HelmetData = helmetData;
                         helmetIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -183,10 +223,11 @@ public class EquipmentCanvas : MonoBehaviour
                         helmetIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("헬멧", itemListParent);
                 break;
             case Category.Glove:
                 if (CurrentItem.EquipmentData is GloveData gloveData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.GloveData = gloveData;
                         gloveIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -198,10 +239,11 @@ public class EquipmentCanvas : MonoBehaviour
                         gloveIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("장갑", itemListParent);
                 break;
             case Category.Shoes:
                 if (CurrentItem.EquipmentData is ShoesData shoesData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.ShoesData = shoesData;
                         shoesIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -213,10 +255,11 @@ public class EquipmentCanvas : MonoBehaviour
                         shoesIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("신발", itemListParent);
                 break;
             case Category.Clock:
                 if (CurrentItem.EquipmentData is CloakData cloakData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.ClockData = cloakData;
                         cloakIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -228,10 +271,11 @@ public class EquipmentCanvas : MonoBehaviour
                         cloakIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("망토", itemListParent);
                 break;
             case Category.Belt:
                 if (CurrentItem.EquipmentData is BeltData beltData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.BeltData = beltData;
                         beltIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -243,10 +287,11 @@ public class EquipmentCanvas : MonoBehaviour
                         beltIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("벨트", itemListParent);
                 break;
             case Category.ShoulderArmor:
                 if (CurrentItem.EquipmentData is ShoulderData shoulderData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.ShoulderArmorData = shoulderData;
                         shoulderArmorIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -258,10 +303,11 @@ public class EquipmentCanvas : MonoBehaviour
                         shoulderArmorIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("견장", itemListParent);
                 break;
             case Category.Neckless:
                 if (CurrentItem.EquipmentData is NecklessData necklessData)
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.NecklessData = necklessData;
                         necklessIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -273,6 +319,7 @@ public class EquipmentCanvas : MonoBehaviour
                         necklessIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                EquipmentManager.Instance.ItemListSet("목걸이", itemListParent);
                 break;
             case Category.Ring:
                 if (CurrentItem.EquipmentData is RingData ringData)
@@ -285,7 +332,7 @@ public class EquipmentCanvas : MonoBehaviour
                             return;
                         }
                     }
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.RingDatas[(int)Slot] = ringData;
                         ringIcons[(int)Slot].sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -298,7 +345,7 @@ public class EquipmentCanvas : MonoBehaviour
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
                 }
-
+                EquipmentManager.Instance.ItemListSet("반지", itemListParent);
                 break;
             case Category.Other:
                 if (CurrentItem.EquipmentData is OtherData otherData)
@@ -311,7 +358,7 @@ public class EquipmentCanvas : MonoBehaviour
                             return;
                         }
                     }
-                    if (_isEquip)
+                    if (isEquip)
                     {
                         GameManager.Instance.OtherDatas[(int)Slot] = otherData;
                         otherIcons[(int)Slot].sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
@@ -324,18 +371,50 @@ public class EquipmentCanvas : MonoBehaviour
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
                 }
+                EquipmentManager.Instance.ItemListSet("보조", itemListParent, otherType);
                 break;
         }
         GameManager.Instance.RenewAbility();
     }
+    #endregion
+
+    public void EquipItem(bool _isEquip)
+    {
+        if (DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData)[CurrentItem.EquipmentData.ItemID] == 0)
+        {
+            PrintLog.Instance.StaticLog("보유 중인 아이템이 아닙니다.");
+            return;
+        }
+        equipmentQaPanel.SetActive(true);
+
+        isEquip = _isEquip;
+
+        string equipment = isEquip ? "장착하기" : "해제하기";
+        buttonText.text = equipment;
+        equipNameText.text = CurrentItem.EquipmentData.EquipmentName;
+        equipdesText.text = CurrentItem.EquipmentData.EquipmentDes;
+        equipImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
+    }
 
     public void BuyItemButton()
     {
+        Dictionary<int, int> ownDictionary = DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData);
+        int ownCount = 0;
+        if (ownDictionary.ContainsKey(CurrentItem.EquipmentData.ItemID))
+        {
+            ownCount = ownDictionary[CurrentItem.EquipmentData.ItemID];
+        }
+
+        if(ownCount == 10)
+        { // 보유개수 10개 꽉찼음
+            PrintLog.Instance.StaticLog("더 이상 구매할 수 없습니다.");
+            return;
+        }
+
         if (GameManager.Instance.Gold >= CurrentItem.EquipmentData.RequireCost)
         {
             GameManager.Instance.Gold -= CurrentItem.EquipmentData.RequireCost;
             // 보유 수량 딕셔너리
-            Dictionary<int, int> ownDictionary = DataManager.Instance.GetOwnDictionary(CurrentItem.EquipmentData);
             int itemID = CurrentItem.EquipmentData.ItemID;
 
             // 구매 했으니 밸류 값 올려주기
@@ -358,8 +437,6 @@ public class EquipmentCanvas : MonoBehaviour
         }
     }
 
-
-
     #region 데이터 텍스트 출력 메소드
     public void GetDataText()
     {
@@ -381,7 +458,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Weapon:
                 if (CurrentItem.EquipmentData is WeaponData weaponData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(weaponData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(weaponData));
                     AppendBasicData("공격력", weaponData.WeaponATK, ownCount);
                     AppendBasicData("공격력%", weaponData.WeaponATKPercent, ownCount);
                     AppendPercentData("연타 확률", weaponData.WeaponComboPercent, ownCount);
@@ -396,7 +473,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Armor:
                 if (CurrentItem.EquipmentData is ArmorData armorData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(armorData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(armorData));
                     AppendBasicData("체력", armorData.ArmorHP, ownCount);
                     AppendBasicData("체력%", armorData.ArmorHPPercent, ownCount);
                     AppendBasicData("방어력", armorData.ArmorDef, ownCount);
@@ -410,7 +487,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Helmet:
                 if (CurrentItem.EquipmentData is HelmetData helmetData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(helmetData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(helmetData));
                     AppendBasicData("체력", helmetData.HelmetHP, ownCount);
                     AppendBasicData("체력%", helmetData.HelmetHPPercent, ownCount);
                     AppendBasicData("방어력", helmetData.HelmetDef, ownCount);
@@ -424,7 +501,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Pants:
                 if (CurrentItem.EquipmentData is PantsData pantsData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(pantsData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(pantsData));
                     AppendBasicData("체력", pantsData.PantsHP, ownCount);
                     AppendBasicData("체력%", pantsData.PantsHPPercent, ownCount);
                     AppendBasicData("방어력", pantsData.PantsDef, ownCount);
@@ -437,7 +514,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Glove:
                 if (CurrentItem.EquipmentData is GloveData gloveData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(gloveData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(gloveData));
                     AppendBasicData("공격력", gloveData.GloveATK, ownCount);
                     AppendBasicData("공격력%", gloveData.GloveATKPercent, ownCount);
                     AppendBasicData("체력", gloveData.GloveHP, ownCount);
@@ -452,7 +529,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Shoes:
                 if (CurrentItem.EquipmentData is ShoesData shoesData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(shoesData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(shoesData));
                     AppendBasicData("체력", shoesData.ShoesHP, ownCount);
                     AppendBasicData("체력%", shoesData.ShoesHPPercent, ownCount);
                     AppendBasicData("방어력", shoesData.ShoesDef, ownCount);
@@ -467,7 +544,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Belt:
                 if (CurrentItem.EquipmentData is BeltData beltData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(beltData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(beltData));
                     AppendBasicData("체력", beltData.BeltHP, ownCount);
                     AppendBasicData("체력%", beltData.BeltHPPercent, ownCount);
                     AppendPercentData("회피 확률", beltData.BeltAvoidPercent, ownCount);
@@ -479,7 +556,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.ShoulderArmor:
                 if (CurrentItem.EquipmentData is ShoulderData shoulderData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(shoulderData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(shoulderData));
                     AppendBasicData("방어력", shoulderData.ShoulderDef, ownCount);
                     AppendBasicData("방어력%", shoulderData.ShoulderDefPercent, ownCount);
                     AppendPercentData("크리티컬 저항", shoulderData.ShoulderCriticalResist, ownCount);
@@ -491,7 +568,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Ring:
                 if (CurrentItem.EquipmentData is RingData ringData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(ringData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(ringData));
                     AppendBasicData("공격력", ringData.RingATK, ownCount);
                     AppendBasicData("공격력%", ringData.RingATKPercent, ownCount);
                     AppendBasicData("방어력", ringData.RingDef, ownCount);
@@ -511,7 +588,7 @@ public class EquipmentCanvas : MonoBehaviour
             case Category.Neckless:
                 if (CurrentItem.EquipmentData is NecklessData necklessData)
                 {
-                    ownCount = Mathf.Max(0, GetOwnCount(necklessData) - 1);
+                    ownCount = Mathf.Max(0, GetOwnCount(necklessData));
                     AppendBasicData("체력", necklessData.NecklessHP, ownCount);
                     AppendBasicData("체력%", necklessData.NecklessHPPercent, ownCount);
                     AppendPercentData("연타 확률", necklessData.NecklessComboPercent, ownCount);
@@ -594,7 +671,7 @@ public class EquipmentCanvas : MonoBehaviour
             {
                 string startColorTag = "<color=#00FFFF>";
                 string endColorTag = "</color>";
-                basicDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}");
+                basicDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount-1, value):N0}{endColorTag}");
             }
         }
     }
@@ -611,7 +688,7 @@ public class EquipmentCanvas : MonoBehaviour
             {
                 string startColorTag = "<color=#00FFFF>";
                 string endColorTag = "</color>";
-                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}%");
+                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount-1, value):N0}{endColorTag}%");
             }
 
         }
@@ -629,7 +706,7 @@ public class EquipmentCanvas : MonoBehaviour
             {
                 string startColorTag = "<color=#00FFFF>";
                 string endColorTag = "</color>";
-                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}%");
+                percentDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount-1, value):N0}{endColorTag}%");
             }
         }
     }
@@ -646,7 +723,7 @@ public class EquipmentCanvas : MonoBehaviour
             {
                 string startColorTag = "<color=#00FFFF>";
                 string endColorTag = "</color>";
-                addDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount, value):N0}{endColorTag}");
+                addDataList.Add($"{labelText} : {value:N0} + {startColorTag}{GetOwnCountValue(ownCount-1, value):N0}{endColorTag}");
             }
         }
     }
@@ -1010,19 +1087,19 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("체력%", GameManager.Instance.OtherDatas[(int)slot].OtherHPPercent, otherData.OtherHPPercent, ownCount, targetOwnCount);
             CompareAttribute("방어력", GameManager.Instance.OtherDatas[(int)slot].OtherDef, otherData.OtherDef, ownCount, targetOwnCount);
             CompareAttribute("방어력%", GameManager.Instance.OtherDatas[(int)slot].OtherDefPercent, otherData.OtherDefPercent, ownCount, targetOwnCount);
-            CompareAttribute("크리티컬 확률", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("크리티컬 저항", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("크리티컬 데미지", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalDamage, otherData.OtherDefPercent, ownCount, targetOwnCount, true);
-            CompareAttribute("흡혈 확률", GameManager.Instance.OtherDatas[(int)slot].OtherDrainPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("흡혈 저항", GameManager.Instance.OtherDatas[(int)slot].OtherDrainResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("흡혈", GameManager.Instance.OtherDatas[(int)slot].OtherDrainAmount, otherData.OtherDefPercent, ownCount, targetOwnCount, true);
-            CompareAttribute("연타 확률", GameManager.Instance.OtherDatas[(int)slot].OtherComboPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("연타 저항", GameManager.Instance.OtherDatas[(int)slot].OtherComboResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("회피 확률", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidPercent, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
-            CompareAttribute("회피 저항", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidResist, otherData.OtherDefPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 확률", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalPercent, otherData.OtherCriticalPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalResist, otherData.OtherCriticalResist, ownCount, targetOwnCount, false);
+            CompareAttribute("크리티컬 데미지", GameManager.Instance.OtherDatas[(int)slot].OtherCriticalDamage, otherData.OtherCriticalDamage, ownCount, targetOwnCount, true);
+            CompareAttribute("흡혈 확률", GameManager.Instance.OtherDatas[(int)slot].OtherDrainPercent, otherData.OtherDrainPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", GameManager.Instance.OtherDatas[(int)slot].OtherDrainResist, otherData.OtherDrainResist, ownCount, targetOwnCount, false);
+            CompareAttribute("흡혈", GameManager.Instance.OtherDatas[(int)slot].OtherDrainAmount, otherData.OtherDrainAmount, ownCount, targetOwnCount, true);
+            CompareAttribute("연타 확률", GameManager.Instance.OtherDatas[(int)slot].OtherComboPercent, otherData.OtherComboPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("연타 저항", GameManager.Instance.OtherDatas[(int)slot].OtherComboResist, otherData.OtherComboResist, ownCount, targetOwnCount, false);
+            CompareAttribute("회피 확률", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidPercent, otherData.OtherAvoidPercent, ownCount, targetOwnCount, false);
+            CompareAttribute("회피 저항", GameManager.Instance.OtherDatas[(int)slot].OtherAvoidResist, otherData.OtherAvoidResist, ownCount, targetOwnCount, false);
             CompareAddAttribute("추가 경험치%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherEXPPercent, ownCount, targetOwnCount);
             CompareAddAttribute("아이템 드롭률%", GameManager.Instance.OtherDatas[(int)slot].OtherItemDropRate, otherData.OtherItemDropRate, ownCount, targetOwnCount);
-            CompareAddAttribute("추가 골드%", GameManager.Instance.OtherDatas[(int)slot].OtherEXPPercent, otherData.OtherGoldPercent, ownCount, targetOwnCount);
+            CompareAddAttribute("추가 골드%", GameManager.Instance.OtherDatas[(int)slot].OtherGoldPercent, otherData.OtherGoldPercent, ownCount, targetOwnCount);
             CompareAddAttribute("추가 STR%", GameManager.Instance.OtherDatas[(int)slot].OtherSTRPercent, otherData.OtherSTRPercent, ownCount, targetOwnCount);
             CompareAddAttribute("추가 DEX%", GameManager.Instance.OtherDatas[(int)slot].OtherDEXPercent, otherData.OtherDEXPercent, ownCount, targetOwnCount);
             CompareAddAttribute("추가 LUC%", GameManager.Instance.OtherDatas[(int)slot].OtherLUCPercent, otherData.OtherLUCPercent, ownCount, targetOwnCount);
@@ -1110,16 +1187,6 @@ public class EquipmentCanvas : MonoBehaviour
         }
     }
 
-    private void ComparePercentData(string labelText, int value)
-    {
-        if (value != 0)
-        {
-            string colorCode = value > 0 ? "#00FF00" : "#FF0000";
-            string sign = value > 0 ? "+" : ""; // 양수일 때 '+' 기호 추가
-            comparePercentDataText.text += $"{labelText} : <color={colorCode}>{sign}{value:N0}%</color>\n";
-        }
-    }
-
     private void ComparePercentData(string labelText, float value)
     {
         if (value != 0)
@@ -1152,7 +1219,8 @@ public class EquipmentCanvas : MonoBehaviour
     private int GetOwnCountValue(int ownCount, int baseValue)
     {
         int ownCountValue = Mathf.RoundToInt((float)(baseValue * ((float)ownCount / 9)));
-
+        Debug.Log("1인가 ? : " + (float)ownCount / 9);
+        Debug.Log("그럼 이건 ? : " + Mathf.RoundToInt((float)(baseValue * ((float)ownCount / 9))));
         return ownCountValue;
     }
 

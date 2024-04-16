@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 25
+  type: 1
   OtherATK: 0
   OtherATKPercent: 0
   OtherHP: 0

@@ -6,6 +6,7 @@ using TMPro;
 
 public class HUDCanvas : MonoBehaviour
 {
+    public TMP_Text mapText;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text goldText;
     [SerializeField] private TMP_Text energyText;

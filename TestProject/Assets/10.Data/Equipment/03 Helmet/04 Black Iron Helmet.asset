@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a0d65582d58754299e321244480e3e, type: 3}
+  m_Name: 04 Black Iron Helmet
+  m_EditorClassIdentifier: 
+  EquipmentType: 2
+  SpriteName: 04 Black Iron Helmet
+  ItemID: 903004
+  EquipmentName: "\uD751\uCCA0 \uD22C\uAD6C"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 18
+  HelmetHP: 1400
+  HelmetHPPercent: 28
+  HelmetDef: 69
+  HelmetDefPercent: 27
+  HelmetAvoidPercent: 22
+  HelmetDrainResist: 21
+  HelmetSTRPercent: 12
+  HelmetVITPercent: 15

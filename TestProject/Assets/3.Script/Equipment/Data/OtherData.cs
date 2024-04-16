@@ -1,8 +1,19 @@
 using UnityEngine;
 
+public enum OtherType
+{
+    All,
+    EXP,
+    Gold,
+    BonusAP,
+    DropRate,
+    Offence
+}
+
 [CreateAssetMenu(fileName = "Other Data", menuName = "Scriptable Object/Other Data", order = 0)]
 public class OtherData : EquipmentBaseData
 {
+    public OtherType type;
     [Header("기타")]
     [Space(10)] // 기본 정보
     public int OtherATK;

@@ -8,6 +8,7 @@ public class MapBound : MonoBehaviour
     [SerializeField] private CamareMove cameraMove;
     public Collider2D Boundary;
     [SerializeField] private ScreenTransitionSimpleSoft loading;
+    [SerializeField] private HUDCanvas canvas;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +26,7 @@ public class MapBound : MonoBehaviour
         }
         collision.GetComponent<PlayerMove>().boundary = Boundary;
         cameraMove.Boundary = Boundary;
+        canvas.mapText.text = MapName;
         PrintLog.Instance.StaticLog(MapName);
     }
 }

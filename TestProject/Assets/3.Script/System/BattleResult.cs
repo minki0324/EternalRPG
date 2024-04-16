@@ -165,7 +165,10 @@ public class BattleResult : MonoBehaviour
         for (int i = 0; i < mon.monsterData.RewardItem.Length; i++)
         {
             Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
-            int ownCount = owndictionary.Values.Sum() == 0 ? 1 : owndictionary.Values.Sum();
+            int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
+
+            if (ownCount == 10) continue; // 보유 개수가 10개면 더 이상 드랍 x
+
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
             float dropRate = (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount);

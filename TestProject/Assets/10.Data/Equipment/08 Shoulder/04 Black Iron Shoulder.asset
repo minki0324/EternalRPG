@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933393279ba6a5b4196d73e7be7dbb9c, type: 3}
+  m_Name: 04 Black Iron Shoulder
+  m_EditorClassIdentifier: 
+  EquipmentType: 7
+  SpriteName: 04 Black Iron Shoulder
+  ItemID: 908004
+  EquipmentName: "\uD751\uCCA0 \uACAC\uC7A5"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 15
+  ShoulderDef: 160
+  ShoulderDefPercent: 10
+  ShoulderCriticalResist: 18
+  ShoulderDrainResist: 21
+  ShoulderDEXPercent: 14
+  ShoulderVITPercent: 15

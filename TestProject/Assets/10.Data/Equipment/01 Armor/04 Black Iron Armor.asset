@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b00c9c5167abf0458341bd3d70df3ab, type: 3}
+  m_Name: 04 Black Iron Armor
+  m_EditorClassIdentifier: 
+  EquipmentType: 1
+  SpriteName: 04 Black Iron Armor
+  ItemID: 901004
+  EquipmentName: "\uD751\uCCA0 \uAC11\uC637"
+  RequireCost: 1600000
+  isCanBuy: 1
+  DropRate: 16
+  ArmorHP: 1600
+  ArmorHPPercent: 33
+  ArmorDef: 85
+  ArmorDefPercent: 29
+  ArmorComboResist: 22
+  ArmorCriticalResist: 20
+  ArmorDrainResist: 19
+  ArmorVITPercent: 15

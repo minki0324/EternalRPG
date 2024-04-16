@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
   m_Name: 18 Blue Guard Robot
   m_EditorClassIdentifier: 
-  MonsterName: "\uC5B4\uB460\uC758 \uC694\uC815"
-  MonsterID: 15
+  MonsterName: "\uD0C4\uAD11 \uC218\uBE44 \uB85C\uBD07"
+  MonsterID: 18
   MonsterType: "\uC694\uC815"
   MonsterLevel: 1550
   MonsterMaxHP: 24500
@@ -37,4 +37,5 @@ MonoBehaviour:
   RewordEXP: 460000
   RewordGold: 4500
   RewordEnergy: 0
-  RewardItem: []
+  RewardItem:
+  - {fileID: 11400000, guid: 95488f390445dfb4b96393516833378d, type: 2}

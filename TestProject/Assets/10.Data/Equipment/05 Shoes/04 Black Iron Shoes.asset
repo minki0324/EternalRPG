@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a848837bdff7be345a9b4ad86ce73c8b, type: 3}
+  m_Name: 04 Black Iron Shoes
+  m_EditorClassIdentifier: 
+  EquipmentType: 5
+  SpriteName: 04 Black Iron Shoes
+  ItemID: 905004
+  EquipmentName: "\uD751\uCCA0 \uBD80\uCE20"
+  RequireCost: 3800
+  isCanBuy: 0
+  DropRate: 20
+  ShoesHP: 2200
+  ShoesHPPercent: 14
+  ShoesDef: 50
+  ShoesDefPercent: 14
+  ShoesAvoidPercent: 23
+  ShoesAvoidResist: 21
+  ShoesDEXPercent: 16
+  ShoesVITPercent: 15
+  ShoesMoveSpeed: 13

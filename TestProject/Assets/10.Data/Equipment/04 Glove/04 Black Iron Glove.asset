@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643343ac5989ade408641921f3f8744a, type: 3}
+  m_Name: 04 Black Iron Glove
+  m_EditorClassIdentifier: 
+  EquipmentType: 4
+  SpriteName: 04 Black Iron Glove
+  ItemID: 904004
+  EquipmentName: "\uD751\uCCA0 \uC7A5\uAC11"
+  RequireCost: 2300000
+  isCanBuy: 1
+  DropRate: 16
+  GloveATK: 680
+  GloveATKPercent: 25
+  GloveHP: 1200
+  GloveHPPercent: 13
+  GloveComboPercent: 25
+  GloveCriticalPercent: 24
+  GloveCriticalDamage: 0.4
+  GloveSTRPercent: 15
+  GloveDEXPercent: 13

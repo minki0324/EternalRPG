@@ -9,6 +9,8 @@ public class ItemPanel : MonoBehaviour
     public EquipmentBaseData EquipmentData;
     public Image ItemIcon;
     public TMP_Text OwnCount;
+    public GameObject EquipCheckIcon;
+    public GameObject SelectIcon;
     public int ItemID;
 
     private void Start()

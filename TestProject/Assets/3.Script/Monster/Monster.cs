@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Monster : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Monster : MonoBehaviour
     public int MonsterPower = 0;
     public SpriteRenderer[] sprites;
     public ReviveMonster reviveMonster;
+    [SerializeField] private TMP_Text levelTxt;
 
     private void Awake()
     {
@@ -25,6 +27,15 @@ public class Monster : MonoBehaviour
         MonsterMaxHP = monsterData.MonsterMaxHP;
         MonsterCurHP = monsterData.MonsterCurHP;
         MonsterATK = monsterData.MonsterATK;
+        if(monsterData.isElite)
+        {
+            levelTxt.text = $"Lv. {monsterData.MonsterLevel}\n엘리트 몬스터" ;
+
+        }
+        else
+        {
+            levelTxt.text = $"Lv. {monsterData.MonsterLevel}";
+        }
         RenewMonsterPower();
     }
 

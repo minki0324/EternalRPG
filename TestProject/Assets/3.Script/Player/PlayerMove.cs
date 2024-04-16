@@ -99,10 +99,11 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // 반대로 회전 (x축 플립)
         }
 
-        Vector3 forPos = (Vector3)targetPos - transform.position;
 
         while (Vector2.Distance(transform.position, targetPos) > 0.1f)
         {
+            Vector3 forPos = (Vector3)targetPos - transform.position;
+
             // 현재 위치와 목표 위치를 향해 이동
             Vector3 newPosition = transform.position + (forPos.normalized * Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f);
 

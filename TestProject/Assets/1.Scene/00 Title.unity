@@ -1807,26 +1807,46 @@ MonoBehaviour:
   ArmorDatas:
   - {fileID: 11400000, guid: a6ecede742ed6c2498ae6cceb69a5711, type: 2}
   - {fileID: 11400000, guid: 57fea10479057fd469d4e5c5bb1e21d1, type: 2}
+  - {fileID: 11400000, guid: 93648ed61e2f9c042b923acde1d4dbf1, type: 2}
+  - {fileID: 11400000, guid: a0af34a582891f14db83a8a33333f7e7, type: 2}
+  - {fileID: 11400000, guid: c429760211bf78c40be8bed2b0d0a925, type: 2}
   PantsDatas:
   - {fileID: 11400000, guid: 5bb4926c75269f1458fa49ab6501b21a, type: 2}
   - {fileID: 11400000, guid: a5c85c93a0d44f541ac8b6d45b4fa1f9, type: 2}
+  - {fileID: 11400000, guid: 60959f91ce0da254ab730d692561ba44, type: 2}
+  - {fileID: 11400000, guid: ed2d370a8c9b15e45a0917614ab6cc19, type: 2}
+  - {fileID: 11400000, guid: 5942ee9bbae822e40923973a1fef2af8, type: 2}
   HelmetDatas:
   - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
   - {fileID: 11400000, guid: af92d8f6f1cfd4847bdb12ad91e32a1a, type: 2}
+  - {fileID: 11400000, guid: 0ad24a334b925b6438ed8a12952df758, type: 2}
+  - {fileID: 11400000, guid: bdf95737924cbd94cabe3a2f7d5de8ab, type: 2}
+  - {fileID: 11400000, guid: d6842dcb782f90a4c9fdcec155de7c31, type: 2}
   GloveDatas:
   - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
   - {fileID: 11400000, guid: cd0214332276f034281ce8e8e5e6caf3, type: 2}
+  - {fileID: 11400000, guid: 5f7bbd16e64d7244aa25c3c2ca54e2ab, type: 2}
+  - {fileID: 11400000, guid: b8691dfea60847d4790eff41b36d1bd0, type: 2}
+  - {fileID: 11400000, guid: 205900dcc6c50f040b446cc5d944827a, type: 2}
   ShoesDatas:
   - {fileID: 11400000, guid: f3282830efae7dd4abe2c4c826453b14, type: 2}
   - {fileID: 11400000, guid: f431763bea868d14aad0e6dfeb3186f7, type: 2}
+  - {fileID: 11400000, guid: 9529f9444c8e2e048b2c42b31be21607, type: 2}
+  - {fileID: 11400000, guid: e2b27621b1933a8408486c1df3e8f508, type: 2}
+  - {fileID: 11400000, guid: 731e47de09f5c454fafe6b3abb634c9f, type: 2}
   ClockDatas:
   - {fileID: 11400000, guid: 5c2c9330f95eb79428f342347190384c, type: 2}
   BeltDatas:
   - {fileID: 11400000, guid: fd2c1711fa7596c48bf4482288762762, type: 2}
   - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}
+  - {fileID: 11400000, guid: 9233fda4bddd23a459ddbd2f93eec0da, type: 2}
+  - {fileID: 11400000, guid: cc78d152b4e1d9448a9e9f4723dbd842, type: 2}
   ShoulderArmorDatas:
   - {fileID: 11400000, guid: a25dce7ff48caf242ae06e94d776f9cf, type: 2}
   - {fileID: 11400000, guid: 435b47ea38bbe8440a279afa2c1eee11, type: 2}
+  - {fileID: 11400000, guid: 0c167e292d55c634bbb3d655a5af701d, type: 2}
+  - {fileID: 11400000, guid: 126025904f5ffa443906182e33cef500, type: 2}
+  - {fileID: 11400000, guid: 4a08bece8c7b7fb45a3e17899e831b04, type: 2}
   RingDatas:
   - {fileID: 11400000, guid: 385b90c1455ee5948a089d98299adea1, type: 2}
   - {fileID: 11400000, guid: f0c48849d90086747a2c0d8e68db00dc, type: 2}
@@ -1839,6 +1859,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 761ce6ccd491f6b40a0df03543aaae4b, type: 2}
   - {fileID: 11400000, guid: f3e24b08441cd4246b862fe5231c256e, type: 2}
   - {fileID: 11400000, guid: 5b248a2b0e7e66a46836ed1b33096708, type: 2}
+  - {fileID: 11400000, guid: 95488f390445dfb4b96393516833378d, type: 2}
+  - {fileID: 11400000, guid: 263964c8db9715c49adc753a4043cc02, type: 2}
+  - {fileID: 11400000, guid: cae6db179a02c274f96aab882800f9d8, type: 2}
+  - {fileID: 11400000, guid: e81d927747837334bafae1c6910b3278, type: 2}
+  - {fileID: 11400000, guid: ff8d7834f29fba5408141717eb0aab7f, type: 2}
+  - {fileID: 11400000, guid: ab4db9e492bb7704780900657878cff7, type: 2}
+  - {fileID: 11400000, guid: 73c81c8d26fc41c47b3a44c461e575cf, type: 2}
   spriteAtlas: {fileID: 4343727234628468602, guid: fbdee9b518f32ab40aad88761470e10f, type: 2}
   itemPanel: {fileID: 722111849703108609, guid: 73173509e2ed23e4ebdf91b1f4c420b4, type: 3}
 --- !u!4 &744861141

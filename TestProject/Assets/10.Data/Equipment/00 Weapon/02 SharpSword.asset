@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 680
   isCanBuy: 1
   DropRate: 43
+  EquipmentDes: "\uAD49\uC7A5\uD788 \uC798 \uBCBC\uB824\uC9C4 \uAC80\uC774\uB2E4.\n"
   WeaponType: 1
   WeaponATK: 12
   WeaponATKPercent: 8

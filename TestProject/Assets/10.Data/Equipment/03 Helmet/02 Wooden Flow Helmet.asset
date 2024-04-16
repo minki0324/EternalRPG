@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a0d65582d58754299e321244480e3e, type: 3}
+  m_Name: 02 Wooden Flow Helmet
+  m_EditorClassIdentifier: 
+  EquipmentType: 2
+  SpriteName: 02 Wooden Flow Helmet
+  ItemID: 903002
+  EquipmentName: "\uC6B0\uB4E0 \uD50C\uB85C\uC6B0 \uBAA8\uC790"
+  RequireCost: 44000
+  isCanBuy: 1
+  DropRate: 20
+  HelmetHP: 290
+  HelmetHPPercent: 12
+  HelmetDef: 18
+  HelmetDefPercent: 9
+  HelmetAvoidPercent: 8
+  HelmetDrainResist: 7
+  HelmetSTRPercent: 5
+  HelmetVITPercent: 6

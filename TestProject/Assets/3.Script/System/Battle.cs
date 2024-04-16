@@ -23,6 +23,7 @@ public class Battle : MonoBehaviour
     [SerializeField] private Image monsterImage;
     [SerializeField] private GameObject dropItemObject;
     [SerializeField] private Transform dropItemTransform;
+    [SerializeField] private TMP_Text energyText;
     [Space(10)]
     [SerializeField] private TMP_Text playerHPText;
     [SerializeField] private Slider playerHPSlider;
@@ -37,6 +38,7 @@ public class Battle : MonoBehaviour
     private bool isCritical = false;
 
     public float tempWinRate = 0;
+    private Coroutine battleCoroutine;
 
     private void OnEnable()
     {
@@ -65,7 +67,7 @@ public class Battle : MonoBehaviour
         // 승산 텍스트 출력
         CalculrateWinRate(mon);
 
-        
+        energyText.text = $"{mon.monsterData.RequireEnergy}";
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
@@ -79,7 +81,7 @@ public class Battle : MonoBehaviour
             return;
         }
         ignoreRay.SetActive(true);
-        StartCoroutine(StartBattle_Co());
+        battleCoroutine = StartCoroutine(StartBattle_Co());
     }
 
     public void BackButton()
@@ -94,6 +96,63 @@ public class Battle : MonoBehaviour
         }
         activeCanvas.gameObject.SetActive(false);
         activeCanvas.versusPanel.SetActive(false);
+    }
+
+    public void SkipBattle()
+    {
+        if(battleCoroutine != null)
+        {
+            StopCoroutine(battleCoroutine);
+            battleCoroutine = null;
+        }
+
+        while (true)
+        {
+            int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
+            for (int i = 1; i < comboCount + 1; i++)
+            {
+                PlayerTurn(i);
+
+                if (mon.MonsterCurHP <= 0)
+                {
+                    break; // 몬스터의 체력이 0 이하이면 for 루프를 빠져나옴
+                }
+                playerHPText.color = Color.white;
+            }
+            if (mon.MonsterCurHP <= 0)
+            {
+                break; // 몬스터의 체력이 0 이하이면 while 루프를 빠져나옴
+            }
+
+            comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
+            for (int i = 1; i < comboCount + 1; i++)
+            {
+                monsterTurn(i);
+
+                if (GameManager.Instance.PlayerCurHP <= 0)
+                {
+                    break; // 플레이어의 체력이 0이하라면 for 루프를 빠져나옴
+                }
+
+                playerHPText.color = new Color(1f, 1f, 1f); // 흰색
+                monsterDamageText.gameObject.SetActive(false);
+            }
+            if (GameManager.Instance.PlayerCurHP <= 0)
+            {
+                break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
+            }
+        }
+        for (int i = 0; i < dropItemTransform.childCount; i++)
+        {
+            Destroy(dropItemTransform.GetChild(i).gameObject);
+        }
+
+        playerHPText.color = Color.white;
+        monsterHPText.color = Color.white;
+        result.gameObject.SetActive(true);
+
+        Time.timeScale = 1f;
+        ignoreRay.SetActive(false);
     }
 
     private IEnumerator StartBattle_Co()
@@ -146,6 +205,7 @@ public class Battle : MonoBehaviour
         playerHPText.color = Color.white;
         monsterHPText.color = Color.white;
         result.gameObject.SetActive(true);
+        battleCoroutine = null;
 
         yield return new WaitForSeconds(1f);
         Time.timeScale = 1f;
@@ -258,8 +318,6 @@ public class Battle : MonoBehaviour
     private RuntimeAnimatorController GetAnimator()
     {
         RuntimeAnimatorController con;
-        Debug.Log("데이터가 널임 ? : " + GameManager.Instance.WeaponData);
-        Debug.Log(GameManager.Instance.WeaponData.EquipmentName);
         switch (GameManager.Instance.WeaponData.WeaponType)
         {
             case WeaponType.Punch:
@@ -468,10 +526,10 @@ public class Battle : MonoBehaviour
 
             // 아이템 드랍율 표기
             Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
-            int ownCount = owndictionary.Values.Sum() == 0 ? 1 : owndictionary.Values.Sum();
+            int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount);
+            float dropRate = ownCount != 10 ? (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount) : 0;
             drop.DropRateText.text = $"{dropRate:F2}%";
         }
     }
