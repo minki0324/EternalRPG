@@ -15,10 +15,12 @@ MonoBehaviour:
   EquipmentType: 4
   SpriteName: 03 Eco Leather Glove
   ItemID: 904003
-  EquipmentName: "\uC5D0\uCF54 \uB808\uB354 \uC7A5\uAC11"
+  EquipmentName: "\uC5D0\uCF54 \uB808\uB354 \uD314\uCC0C"
   RequireCost: 0
   isCanBuy: 0
   DropRate: 18
+  EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uAC00\uC8FD
+    \uC0AC\uC774\uC0AC\uC774 \uCCA0\uC744 \uB367\uB304 \uD314\uCC0C\uC774\uB2E4."
   GloveATK: 280
   GloveATKPercent: 20
   GloveHP: 850

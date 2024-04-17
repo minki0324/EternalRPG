@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 15
+  EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC740 \uAC15\uCCA0 \uAC01\uBC18\uC774\uB2E4."
   PantsHP: 1450
   PantsHPPercent: 32
   PantsDef: 67

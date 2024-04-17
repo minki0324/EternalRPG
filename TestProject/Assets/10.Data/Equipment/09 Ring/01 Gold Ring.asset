@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 1300
   isCanBuy: 1
   DropRate: 33
+  EquipmentDes: "\uC587\uC740 \uAE08\uBC18\uC9C0\uC774\uB2E4."
   RingATK: 0
   RingATKPercent: 0
   RingDef: 5

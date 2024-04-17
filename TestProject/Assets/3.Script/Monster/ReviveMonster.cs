@@ -90,6 +90,7 @@ public class ReviveMonster : MonoBehaviour
             }
 
             reviveButton.interactable = false;
+            GameManager.Instance.DeadMonsterList.Remove(mon.monsterData.MonsterID);
         }
     }
 }

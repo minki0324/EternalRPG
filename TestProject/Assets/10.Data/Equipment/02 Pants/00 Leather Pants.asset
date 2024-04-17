@@ -19,6 +19,8 @@ MonoBehaviour:
   RequireCost: 490
   isCanBuy: 1
   DropRate: 38
+  EquipmentDes: "\uC587\uC740 \uAC15\uCCA0\uD310\uC744 \uB367\uB304 \uAC00\uC8FD
+    \uAC01\uBC18\uC774\uB2E4."
   PantsHP: 10
   PantsHPPercent: 10
   PantsDef: 5

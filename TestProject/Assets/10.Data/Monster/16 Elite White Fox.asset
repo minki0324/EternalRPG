@@ -24,6 +24,7 @@ MonoBehaviour:
   ReturnPos: {x: 0, y: -2}
   RequireEnergy: 5
   isElite: 1
+  EliteID: 3
   CriticalPercant: 95
   CriticalResist: 92
   CriticalDamage: 1.75
@@ -39,3 +40,4 @@ MonoBehaviour:
   RewordEnergy: 5
   RewardItem:
   - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}
+  RewardRune: {fileID: 11400000, guid: 4f67b09c18d02c74ab53de7ae61162ab, type: 2}

@@ -15,10 +15,11 @@ MonoBehaviour:
   EquipmentType: 4
   SpriteName: 00 Leather Glove
   ItemID: 904000
-  EquipmentName: "\uAC00\uC8FD \uC7A5\uAC11"
+  EquipmentName: "\uAC00\uC8FD \uD314\uCC0C"
   RequireCost: 580
   isCanBuy: 1
   DropRate: 38
+  EquipmentDes: "\uAC00\uC8FD\uC73C\uB85C \uB41C \uD314\uCC0C\uC774\uB2E4."
   GloveATK: 5
   GloveATKPercent: 4
   GloveHP: 10

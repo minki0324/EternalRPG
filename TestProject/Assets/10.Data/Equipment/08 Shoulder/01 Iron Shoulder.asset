@@ -15,10 +15,12 @@ MonoBehaviour:
   EquipmentType: 7
   SpriteName: 01 Iron Shoulder
   ItemID: 908001
-  EquipmentName: "\uCCA0\uC81C \uACAC\uC7A5"
+  EquipmentName: "\uAC15\uCCA0 \uACAC\uC7A5"
   RequireCost: 4500
   isCanBuy: 1
   DropRate: 17
+  EquipmentDes: "\uB0A0\uCE74\uB85C\uC6B4 \uB0A0 \uB514\uD14C\uC77C\uC758 \uAC15\uCCA0
+    \uACAC\uC7A5\uC774\uB2E4."
   ShoulderDef: 35
   ShoulderDefPercent: 2
   ShoulderCriticalResist: 4

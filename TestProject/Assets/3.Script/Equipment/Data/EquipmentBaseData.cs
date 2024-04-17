@@ -15,7 +15,8 @@ public enum Category
     Ring,
     Neckless,
     Clock,
-    Other
+    Other,
+    Rune
 }
 
 public class EquipmentBaseData : ScriptableObject

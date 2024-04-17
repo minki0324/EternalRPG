@@ -19,6 +19,8 @@ MonoBehaviour:
   RequireCost: 3800
   isCanBuy: 1
   DropRate: 26
+  EquipmentDes: "\uBFD4 \uC7A5\uC2DD\uC774 \uB9E4\uB825\uC801\uC778 \uAC15\uCCA0
+    \uBD80\uCE20\uC774\uB2E4."
   ShoesHP: 210
   ShoesHPPercent: 2
   ShoesDef: 15

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
@@ -11,6 +12,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private GameObject battlePanel;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Player player;
+    [SerializeField] private ScreenTransitionSimpleSoft loading;
     [SerializeField] private ResultPanelTitle resultPanelTitle;
     public Monster mon;
     public bool isWin = false;
@@ -24,9 +26,20 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text energyText;
     public GameObject DataPanel = null;
     [SerializeField] private GameObject gemPanel;
+
+    [Header("아이템")]
     [SerializeField] private GameObject dropResultItem;
     [SerializeField] private Transform dropResultItemParent;
-    [SerializeField] private ScreenTransitionSimpleSoft loading;
+
+    [Header("룬")]
+    [SerializeField] private GameObject runeDropObj;
+    [SerializeField] private Transform runeDropParent;
+    [SerializeField] private GameObject runeDropEffectPanel;
+    [SerializeField] private Animator effectAnimator;
+    [SerializeField] private GameObject runeUIPanel;
+    [SerializeField] private Image runeImage;
+    [SerializeField] private TMP_Text runeNameTxt;
+    [SerializeField] private TMP_Text runeDesTxt;
 
     private void OnEnable()
     {
@@ -39,6 +52,7 @@ public class BattleResult : MonoBehaviour
         {
             resultPanelTitle.Result = true;
             AccountBattle_Co();
+            GameManager.Instance.DeadMonsterList.Add(mon.monsterData.MonsterID);
         }
         else if (!isWin)
         {
@@ -69,6 +83,7 @@ public class BattleResult : MonoBehaviour
         int levelup = 0;
         float requireEXP = 0f;
         int quickSlotBook = GameManager.Instance.isAPBook ? 1 : 0;
+        int totalAP = 5 + quickSlotBook + GameManager.Instance.BonusAP;
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
             // 곱연산 계산 
@@ -77,7 +92,7 @@ public class BattleResult : MonoBehaviour
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = Mathf.RoundToInt(requireEXP);
             GameManager.Instance.PlayerLevel++;
-            GameManager.Instance.CurrentAP += 5 + quickSlotBook + GameManager.Instance.BonusAP;
+            GameManager.Instance.CurrentAP += totalAP;
             levelup++;
         }
 
@@ -93,6 +108,9 @@ public class BattleResult : MonoBehaviour
         // 아이템
         PrintDropItem(mon);
 
+        // 룬
+        if(mon.monsterData.isElite) StartCoroutine(PrintRuneDrop(mon));
+
         // 젬
         GemCalculate();
 
@@ -102,7 +120,7 @@ public class BattleResult : MonoBehaviour
         // 결산 내용 프린트
         expText.text = $": {EXP:N0}";
         levelText.text = $": {levelup:N0} UP";
-        APText.text = $": +{levelup * 5}";
+        APText.text = $": +{totalAP * levelup}";
         goldText.text = $": {totalGold:N0}";
         totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
         if (mon.monsterData.isElite)
@@ -111,7 +129,7 @@ public class BattleResult : MonoBehaviour
         }
         else
         { // 일반 몹이라면 소모 에너지만 출력
-            energyText.text = $": {mon.monsterData.RequireEnergy}";
+            energyText.text = $": -{mon.monsterData.RequireEnergy}";
         }
         DataPanel.SetActive(true);
     }
@@ -171,8 +189,8 @@ public class BattleResult : MonoBehaviour
 
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount);
-            int randomValue = UnityEngine.Random.Range(0, 100);
+            float dropRate = (float)(addDropRate / (1 + ownCount));
+            float randomValue = UnityEngine.Random.Range(0f, 100f);
 
             if (dropRate >= 100 || dropRate > randomValue)
             { // 드랍율이 100% 이상이거나 랜덤값 보다 높다면 드랍
@@ -183,6 +201,31 @@ public class BattleResult : MonoBehaviour
                 GameObject dropItem = Instantiate(dropResultItem);
                 dropItem.transform.SetParent(dropResultItemParent);
                 dropItem.GetComponent<DropItem>().DropItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
+            }
+        }
+    }
+
+    private IEnumerator PrintRuneDrop(Monster mon)
+    {
+        float randomValue = Random.Range(0f, 100f);
+        float runeDropRate = GameManager.Instance.RuneHashSet.Contains("평범한 룬") ? 1.5f : 1f;
+
+        if (!GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))
+        {
+            if (runeDropRate >= randomValue)
+            {
+                runeDropEffectPanel.SetActive(true);
+                effectAnimator.SetTrigger("Impact");
+
+                // 애니메이션이 실행 중인 동안 대기
+                yield return new WaitForSeconds(1.5f);
+
+                runeUIPanel.SetActive(true);
+
+                GameManager.Instance.RuneHashSet.Add(mon.monsterData.RewardRune.EquipmentName);
+                runeNameTxt.text = mon.monsterData.RewardRune.EquipmentName;
+                runeImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardRune);
+                runeDesTxt.text = mon.monsterData.RewardRune.EquipmentDes;
             }
         }
     }

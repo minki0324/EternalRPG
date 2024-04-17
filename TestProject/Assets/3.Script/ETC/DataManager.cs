@@ -85,6 +85,15 @@ public class PlayerData
     public int AutoLUC;
     public int AutoVIT;
     public int QuickSlotIndex;
+    public bool GemBonusAP;
+    public bool GemGold;
+    public bool GemFood;
+    public bool GemClover;
+    public List<int> DeadMonsterList;
+    public float posX;
+    public float posY;
+    public float posZ;
+    public HashSet<string> RuneHashSet;
 
     public PlayerData()
     {
@@ -132,6 +141,9 @@ public class DataManager : MonoBehaviour
 
     [Header("Quick Slot List")]
     public List<EquipmentSet> QuickSlots = new List<EquipmentSet>();
+
+    [Header("몬스터 목록")]
+    public MonsterData[] Monsters;
 
     private void Awake()
     {
@@ -189,7 +201,9 @@ public class DataManager : MonoBehaviour
     }
 
     #region Json 세이브&로드
-    private  void SaveQuickSlotEquipment()
+    #region 장비 퀵슬롯
+
+    private void SaveQuickSlotEquipment()
     {
         QuickSlotData quickSlotData = new QuickSlotData(GameManager.Instance.QuickSlot);
 
@@ -210,7 +224,8 @@ public class DataManager : MonoBehaviour
 
         }
     }
-
+    #endregion
+    #region 엘리트 몬스터 잡았는지 여부
     private void SaveEliteMonsterDic()
     {
         EliteMonster eliteMonsterDic = new EliteMonster(EliteMonsterDic);
@@ -244,7 +259,8 @@ public class DataManager : MonoBehaviour
             EliteMonsterDic = eliteMonsterDic.EliteMonsterDic;
         }
     }
-
+    #endregion
+    #region 장비 보유개수
     private void SaveOwnCount()
     { // 보유 데이터 JSON으로 저장
         EquipmentOwnCount ownCount = new EquipmentOwnCount();
@@ -318,7 +334,8 @@ public class DataManager : MonoBehaviour
             OtherOwnCount = new Dictionary<int, int>();
         }
     }
-
+    #endregion
+    #region 장착중인 장비
     public void SaveEquipSet(int _slotIndex)
     {
         EquipmentSet equipmentSet = new EquipmentSet();
@@ -432,9 +449,8 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.RenewAbility();
         }
     }
-
-  
-
+    #endregion
+    #region 플레이어 데이터
     public void SavePlayerData()
     {
         PlayerData playerData = new PlayerData();
@@ -459,6 +475,15 @@ public class DataManager : MonoBehaviour
         playerData.AutoLUC = GameManager.Instance.AutoLUC;
         playerData.AutoVIT = GameManager.Instance.AutoVIT;
         playerData.QuickSlotIndex = GameManager.Instance.QuickSlotIndex;
+        playerData.GemBonusAP = GameManager.Instance.isAPBook;
+        playerData.GemClover = GameManager.Instance.isClover;
+        playerData.GemFood = GameManager.Instance.isFood;
+        playerData.GemGold = GameManager.Instance.isGoldPack;
+        playerData.DeadMonsterList = GameManager.Instance.DeadMonsterList;
+        playerData.posX = GameManager.Instance.LastPos.x;
+        playerData.posY = GameManager.Instance.LastPos.y;
+        playerData.posZ = GameManager.Instance.LastPos.z;
+        playerData.RuneHashSet = GameManager.Instance.RuneHashSet;
 
         try
         {
@@ -507,11 +532,20 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.AutoLUC = playerData.AutoLUC;
             GameManager.Instance.AutoVIT = playerData.AutoVIT;
             GameManager.Instance.QuickSlotIndex = playerData.QuickSlotIndex;
+            GameManager.Instance.isGoldPack = playerData.GemGold;
+            GameManager.Instance.isFood = playerData.GemFood;
+            GameManager.Instance.isClover = playerData.GemClover;
+            GameManager.Instance.isAPBook = playerData.GemBonusAP;
+            GameManager.Instance.DeadMonsterList = playerData.DeadMonsterList;
+            GameManager.Instance.StartPos.x = playerData.posX;
+            GameManager.Instance.StartPos.y = playerData.posY;
+            GameManager.Instance.StartPos.z = playerData.posZ;
+            GameManager.Instance.RuneHashSet = playerData.RuneHashSet;
         }
     }
     #endregion
+    #endregion
 
-    #region 장비 데이터 셋
     public void EquipmentSet()
     {
         // 각 장비 유형별로 보유 개수 초기화
@@ -542,7 +576,6 @@ public class DataManager : MonoBehaviour
             equipmentCountDict.Add(equipmentDatas[i].ItemID, 0);
         }
     }
-    #endregion
 
 
     public Dictionary<int, int> GetOwnDictionary(EquipmentBaseData _equipmentBaseData)

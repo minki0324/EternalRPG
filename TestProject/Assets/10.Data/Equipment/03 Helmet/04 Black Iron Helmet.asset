@@ -19,6 +19,8 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 18
+  EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC778 \uD22C\uAD6C\uC774\uB2E4.\n\uC2DC\uC57C\uAC00
+    \uBD88\uD3B8\uD574\uBCF4\uC778\uB2E4."
   HelmetHP: 1400
   HelmetHPPercent: 28
   HelmetDef: 69

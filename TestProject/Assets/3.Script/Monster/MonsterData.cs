@@ -18,6 +18,7 @@ public class MonsterData : ScriptableObject
     public Vector2 ReturnPos;
     public int RequireEnergy;
     public bool isElite;
+    public int EliteID;
 
     [Header("확률")]
     [Space(10)] // 크리티컬
@@ -40,4 +41,5 @@ public class MonsterData : ScriptableObject
     public int RewordGold;
     public int RewordEnergy;
     public EquipmentBaseData[] RewardItem;
+    public RuneData RewardRune;
 }

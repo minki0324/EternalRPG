@@ -16,6 +16,11 @@ public class PlayerMove : MonoBehaviour
     private Vector2 targetPos = Vector2.zero;
     private Coroutine moveCoroutine;
 
+    private void Start()
+    {
+        gameObject.transform.position = GameManager.Instance.StartPos;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Monster")
@@ -113,6 +118,7 @@ public class PlayerMove : MonoBehaviour
                 rigidbody2D_.MovePosition(newPosition);
             }
             movePoint.position = targetPos;
+            GameManager.Instance.LastPos = transform.position;
 
             yield return null;
         }

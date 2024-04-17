@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 2500
   isCanBuy: 1
   DropRate: 24
+  EquipmentDes: "\uBC88\uCA4D\uC774\uB294 \uAC15\uCCA0\uB85C \uAD6C\uC131\uB41C \uAC11\uC637\uC774\uB2E4.\n\uD2BC\uD2BC\uD574\uBCF4\uC778\uB2E4."
   ArmorHP: 120
   ArmorHPPercent: 9
   ArmorDef: 13

@@ -121,7 +121,7 @@ public class QuickSlotItem : MonoBehaviour
                 }
                 else if (GameManager.Instance.isGoldPack)
                 {
-                    PrintLog.Instance.StaticLog("이미 능력의 책을 구입 했습니다.");
+                    PrintLog.Instance.StaticLog("이미 골드 보따리를 구입 했습니다.");
                 }
                 break;
             case QuickItem.Food:
@@ -130,6 +130,7 @@ public class QuickSlotItem : MonoBehaviour
                     GameManager.Instance.isFood = true;
                     GameManager.Instance.Gem -= 4;
                     PrintLog.Instance.StaticLog("맛있는 고기 구매 완료!");
+                    GameManager.Instance.CurrentEnergy += 3;
                     activeCanvas.SetActive(false);
                     quickSlotItemPanel.SetActive(false);
                 }
@@ -139,7 +140,7 @@ public class QuickSlotItem : MonoBehaviour
                 }
                 else if (GameManager.Instance.isFood)
                 {
-                    PrintLog.Instance.StaticLog("이미 능력의 책을 구입 했습니다.");
+                    PrintLog.Instance.StaticLog("이번 라운드는 이미 고기를 먹었습니다.");
                 }
                 break;
             case QuickItem.Clover:
@@ -157,7 +158,7 @@ public class QuickSlotItem : MonoBehaviour
                 }
                 else if (GameManager.Instance.isClover)
                 {
-                    PrintLog.Instance.StaticLog("이미 능력의 책을 구입 했습니다.");
+                    PrintLog.Instance.StaticLog("이미 행운의 클로버를 구입 했습니다.");
                 }
                 break;
         }

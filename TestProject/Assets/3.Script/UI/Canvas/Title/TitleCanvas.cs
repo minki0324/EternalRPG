@@ -81,6 +81,16 @@ public class TitleCanvas : MonoBehaviour
         // 퀵 슬롯 초기화
         DataManager.Instance.QuickSlotReset();
 
+        // 잡은 몬스터 초기화
+        GameManager.Instance.DeadMonsterList.Clear();
+
+        // 위치 초기화
+        GameManager.Instance.StartPos = Vector3.zero;
+        GameManager.Instance.LastPos = Vector3.zero;
+
+        // 룬 초기화
+        GameManager.Instance.RuneHashSet.Clear();
+
         // 상태 초기화
         GameManager.Instance.BattleSpeed = 1;
         GameManager.Instance.PlayerLevel = 1;

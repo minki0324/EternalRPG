@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 1100
   isCanBuy: 1
   DropRate: 38
+  EquipmentDes: "\uB0A1\uACE0 \uD5E4\uC9C4 \uAC00\uC8FD \uB9DD\uD1A0\uC774\uB2E4."
   CloakHP: 20
   CloakHPPercent: 5
   CloakDef: 8

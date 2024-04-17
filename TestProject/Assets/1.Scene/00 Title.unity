@@ -1006,6 +1006,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuickSlots: []
+  Monsters:
+  - {fileID: 11400000, guid: b3471bff472ee4344b2d706d4fe49c44, type: 2}
+  - {fileID: 11400000, guid: 099062bb0f244f2458700522741c1f34, type: 2}
+  - {fileID: 11400000, guid: 8f7a20244f288de45afc0c72856e257d, type: 2}
+  - {fileID: 11400000, guid: 335ca85582b08ba4eb89a39db21a6c05, type: 2}
+  - {fileID: 11400000, guid: 36adba064f445ad4caab985fa83a1c6c, type: 2}
+  - {fileID: 11400000, guid: ed3bf382b380e634898c1a65f36c306c, type: 2}
+  - {fileID: 11400000, guid: 92076592de02fdb4faa1c699fe954382, type: 2}
+  - {fileID: 11400000, guid: f5c0d74be70ce594e8d729859b648637, type: 2}
+  - {fileID: 11400000, guid: 8314914d29c8e684b88d68029123e747, type: 2}
+  - {fileID: 11400000, guid: 27745ca708c993540bcc16948334e2f9, type: 2}
+  - {fileID: 11400000, guid: 619a07d2ea3322e41a9b2dd2b617308e, type: 2}
+  - {fileID: 11400000, guid: cbe8cecadaa74ac4182f51e37a70d559, type: 2}
+  - {fileID: 11400000, guid: ebec5f47f8c8c3641b4aa6e07b351e87, type: 2}
+  - {fileID: 11400000, guid: 47607b2b1c08249448c68b67e1623dfb, type: 2}
+  - {fileID: 11400000, guid: cc722144e5569a24b812efd009d47b30, type: 2}
+  - {fileID: 11400000, guid: 8b2e7e7befc085d4faa2a3be582bf9b5, type: 2}
+  - {fileID: 11400000, guid: 44b13bd1805923748ad891f7c20629e8, type: 2}
+  - {fileID: 11400000, guid: 6e04afc62b9abb24fb15e4d4cf432d84, type: 2}
+  - {fileID: 11400000, guid: 7ea78851906b6f24b9611cad003b98ad, type: 2}
 --- !u!4 &558294923
 Transform:
   m_ObjectHideFlags: 0
@@ -1866,6 +1886,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ff8d7834f29fba5408141717eb0aab7f, type: 2}
   - {fileID: 11400000, guid: ab4db9e492bb7704780900657878cff7, type: 2}
   - {fileID: 11400000, guid: 73c81c8d26fc41c47b3a44c461e575cf, type: 2}
+  RuneDatas:
+  - {fileID: 11400000, guid: c49c01149f33c7d4390fa9863d8aa546, type: 2}
+  - {fileID: 11400000, guid: 821fa878d90d2294c8579659948a8b48, type: 2}
+  - {fileID: 11400000, guid: e5488ba87dc091f48bb2ea2992c59cb4, type: 2}
+  - {fileID: 11400000, guid: 4f67b09c18d02c74ab53de7ae61162ab, type: 2}
+  - {fileID: 11400000, guid: 81efb93b254862d4fa55340093a60eec, type: 2}
   spriteAtlas: {fileID: 4343727234628468602, guid: fbdee9b518f32ab40aad88761470e10f, type: 2}
   itemPanel: {fileID: 722111849703108609, guid: 73173509e2ed23e4ebdf91b1f4c420b4, type: 3}
 --- !u!4 &744861141
@@ -4852,6 +4878,8 @@ MonoBehaviour:
   BonusAP: 0
   Power: 0
   PlayCount: 0
+  LastPos: {x: 0, y: 0, z: 0}
+  StartPos: {x: 0, y: 0, z: 0}
   STR: 5
   APSTR: 0
   AutoSTR: 0
@@ -4881,6 +4909,7 @@ MonoBehaviour:
   DEXPercent: 0
   LUCPercent: 0
   VITPercent: 0
+  DeadMonsterList: 
   Punch: {fileID: 11400000, guid: f0079229e796dc3439a340c320092210, type: 2}
   WeaponData: {fileID: 11400000, guid: f0079229e796dc3439a340c320092210, type: 2}
   ArmorData: {fileID: 0}

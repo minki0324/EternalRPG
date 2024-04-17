@@ -15,10 +15,12 @@ MonoBehaviour:
   EquipmentType: 4
   SpriteName: 02 Wooden Flow Glove
   ItemID: 904002
-  EquipmentName: "\uC6B0\uB4E0 \uD50C\uB85C\uC6B0 \uC7A5\uAC11"
+  EquipmentName: "\uC6B0\uB4E0 \uD50C\uB85C\uC6B0 \uD314\uCC0C"
   RequireCost: 55000
   isCanBuy: 1
   DropRate: 18
+  EquipmentDes: "\uC587\uC740 \uCC9C\uC5D0 \uAC08\uC0C9 \uB760\uB97C \uB450\uB978
+    \uD314\uCC0C\uC774\uB2E4."
   GloveATK: 120
   GloveATKPercent: 5
   GloveHP: 80

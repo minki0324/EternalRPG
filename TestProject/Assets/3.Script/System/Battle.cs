@@ -21,12 +21,15 @@ public class Battle : MonoBehaviour
     [SerializeField] private TMP_Text monsterLevelText;
     [SerializeField] private TMP_Text oddsText;
     [SerializeField] private Image monsterImage;
-    [SerializeField] private GameObject dropItemObject;
-    [SerializeField] private Transform dropItemTransform;
     [SerializeField] private TMP_Text energyText;
-    [Space(10)]
     [SerializeField] private TMP_Text playerHPText;
     [SerializeField] private Slider playerHPSlider;
+
+    [Header("Drop Item")]
+    [SerializeField] private GameObject dropItemObject;
+    [SerializeField] private Transform dropItemTransform;
+    [Space(10)]
+    [SerializeField] private GameObject runeItemObject;
 
     [Header("Effect")]
     [SerializeField] private RuntimeAnimatorController[] weaponAnimators;
@@ -39,6 +42,8 @@ public class Battle : MonoBehaviour
 
     public float tempWinRate = 0;
     private Coroutine battleCoroutine;
+    [Header("룬")]
+    private bool isDefenceRune = false;
 
     private void OnEnable()
     {
@@ -64,8 +69,17 @@ public class Battle : MonoBehaviour
         // 드롭 아이템 출력
         ItemDropRate(mon);
 
+        // 레어 아이템 출력
+        if(mon.monsterData.isElite)
+        {
+            RuneDropRate(mon);
+        }
+
         // 승산 텍스트 출력
         CalculrateWinRate(mon);
+
+        // 룬 체크
+
 
         energyText.text = $"{mon.monsterData.RequireEnergy}";
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
@@ -334,10 +348,14 @@ public class Battle : MonoBehaviour
     private void MonsterAttack(int _comboCount)
     {
         int damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
+
+        // 방어의 룬 절대 방어 50
+        damage = isDefenceRune ? damage - 50 : damage;
         monsterDamageText.gameObject.SetActive(true);
         monsterDamageText.text = $"-{damage:N0}";
         monsterDamageText.gameObject.GetComponent<Animator>().SetTrigger("Hit");
         int drainAmount = 0;
+        
         GameManager.Instance.PlayerCurHP = Mathf.Max(0, GameManager.Instance.PlayerCurHP - damage);
         drainAmount = Drain(mon.monsterData.DrainPercent, GameManager.Instance.DrainResist, damage, mon.monsterData.DrainAmount);
         if (drainAmount != 0)
@@ -527,10 +545,44 @@ public class Battle : MonoBehaviour
             // 아이템 드랍율 표기
             Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
             int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
-            float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
-            float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = ownCount != 10 ? (float)((mon.monsterData.RewardItem[i].DropRate + addDropRate) / ownCount) : 0;
+            float dropRate = 0;
+
+            if(ownCount < 10)
+            {
+                float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
+                float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
+                dropRate = (float)(addDropRate / (1 + ownCount)); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
+            }
+            
             drop.DropRateText.text = $"{dropRate:F2}%";
         }
+    }
+
+    private void RuneDropRate(Monster mon)
+    {
+        GameObject runeOBJ = Instantiate(runeItemObject);
+        runeOBJ.transform.SetParent(dropItemTransform);
+        RunePanel rune = runeOBJ.GetComponent<RunePanel>();
+
+        if(GameManager.Instance.RuneHashSet == null)
+        {
+            GameManager.Instance.RuneHashSet = new HashSet<string>();
+        }
+        if (GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))
+        { // 이미 획득한 아이템 아이콘 출력
+            rune.QuestionMark.SetActive(false);
+            rune.ItemIcon.SetActive(true);
+            rune.IconSprite.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardRune);
+        }
+        else
+        { // 아직 획득하지 못한 아이템 물음표 출력
+            rune.QuestionMark.SetActive(true);
+            rune.ItemIcon.SetActive(false);
+        }
+    }
+
+    private void RuneCheck()
+    {
+        isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
     }
 }

@@ -22,6 +22,7 @@ public class EquipmentManager : MonoBehaviour
     public RingData[] RingDatas;
     public NecklessData[] NecklessDatas;
     public OtherData[] OtherDatas;
+    public RuneData[] RuneDatas;
 
     [Header("¿Â∫Ò Sprite")]
     public SpriteAtlas spriteAtlas;

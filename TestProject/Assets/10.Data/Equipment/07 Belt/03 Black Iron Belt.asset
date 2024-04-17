@@ -19,6 +19,7 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 18
+  EquipmentDes: "\uD751\uC0C9 \uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uBCA8\uD2B8\uC774\uB2E4."
   BeltHP: 210
   BeltHPPercent: 28
   BeltAvoidPercent: 30

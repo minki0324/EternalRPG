@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public int BonusAP = 0;
     public int Power = 0;
     public int PlayCount = 0;
+    public Vector3 LastPos = Vector3.zero;
+    public Vector3 StartPos = Vector3.zero;
 
     [Header("스텟")]
     public int STR = 5; // 힘을 올리면 공격력이 0.01%씩 상승
@@ -76,6 +78,9 @@ public class GameManager : MonoBehaviour
     public int LUCPercent = 0;
     public int VITPercent = 0;
 
+    [Header("죽인 몬스터")]
+    public List<int> DeadMonsterList = new List<int>();
+
     public WeaponData Punch;
     [Header("착용중인 장비")]
     public WeaponData WeaponData;
@@ -90,6 +95,9 @@ public class GameManager : MonoBehaviour
     public RingData[] RingDatas = new RingData[2];
     public NecklessData NecklessData;
     public OtherData[] OtherDatas = new OtherData[4];
+
+    [Header("룬석")]
+    public HashSet<string> RuneHashSet;
 
     [Header("퀵슬롯 아이템")]
     public bool isAPBook = false;
@@ -116,7 +124,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         Application.targetFrameRate = 60;
-    }
+        RuneHashSet = new HashSet<string>();
+}
 
     public void RenewAbility()
     {
@@ -606,12 +615,13 @@ public class GameManager : MonoBehaviour
     private void RenewOther()
     {
         float sumMoveSpeed = 0;
+        float runeMoveSpeed = RuneHashSet.Contains("속도의 룬") ? 10f : 0f;
         if(ShoesData != null)
         {
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
         }
 
-        MoveSpeed = 30 + Mathf.RoundToInt(sumMoveSpeed);
+        MoveSpeed = 30 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed);
     }
     #endregion
 
@@ -670,6 +680,14 @@ public class GameManager : MonoBehaviour
         isFood = false;
         isGoldPack = false;
 
+        // 잡은 몬스터 초기화
+        DeadMonsterList.Clear();
+
+        // 위치 초기화
+        StartPos = Vector3.zero;
+        LastPos = Vector3.zero;
+
+        // 기본 정보 초기화
         PlayerLevel = 1;
         RequireEXP = 50;
         CurrentEXP = 0;

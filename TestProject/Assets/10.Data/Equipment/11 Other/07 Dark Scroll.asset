@@ -19,6 +19,8 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 22
+  EquipmentDes: "\uD574\uACE8 \uBB38\uC591\uC774 \uADF8\uB824\uC838 \uC788\uB294
+    \uC591\uD53C\uC9C0\uC774\uB2E4."
   type: 3
   OtherATK: 0
   OtherATKPercent: 0

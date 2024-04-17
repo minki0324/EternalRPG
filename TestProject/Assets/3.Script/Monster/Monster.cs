@@ -37,6 +37,19 @@ public class Monster : MonoBehaviour
             levelTxt.text = $"Lv. {monsterData.MonsterLevel}";
         }
         RenewMonsterPower();
+        if(GameManager.Instance.DeadMonsterList.Contains(monsterData.MonsterID))
+        { // 리스트에 담겨있으면 죽은 몹
+            isDead = true;
+            animator.enabled = false;
+            reviveMonster.areaSprite.color = Color.gray;
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                // 몬스터의 스프라이트 알파값을 100으로 설정
+                Color spriteColor = sprites[i].color;
+                spriteColor.a = 0.4f; // 알파값을 0.5로 설정 (100% 투명도)
+                sprites[i].color = spriteColor;
+            }
+        }
     }
 
     public void RenewMonsterPower()
