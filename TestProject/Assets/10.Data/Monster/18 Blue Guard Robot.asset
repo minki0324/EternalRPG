@@ -24,6 +24,7 @@ MonoBehaviour:
   ReturnPos: {x: 1.5, y: 0}
   RequireEnergy: 1
   isElite: 0
+  EliteID: 0
   CriticalPercant: 81
   CriticalResist: 82
   CriticalDamage: 1.7
@@ -37,5 +38,5 @@ MonoBehaviour:
   RewordEXP: 460000
   RewordGold: 4500
   RewordEnergy: 0
-  RewardItem:
-  - {fileID: 11400000, guid: 95488f390445dfb4b96393516833378d, type: 2}
+  RewardItem: []
+  RewardRune: {fileID: 0}

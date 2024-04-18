@@ -38,7 +38,7 @@ MonoBehaviour:
   OtherDrainResist: 0
   OtherDrainAmount: 0
   OtherEXPPercent: 0
-  OtherGoldPercent: 20
+  OtherGoldPercent: 10
   OtherSTRPercent: 0
   OtherDEXPercent: 0
   OtherLUCPercent: 0

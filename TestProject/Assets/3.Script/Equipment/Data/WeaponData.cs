@@ -5,7 +5,12 @@ using Newtonsoft.Json.Converters;
 public enum WeaponType
 {
     Punch,
-    Sword
+    Sword,
+    Hammer,
+    Bow,
+    Spear,
+    Staff,
+    Stone
 }
 
 [CreateAssetMenu(fileName = "Weapon Data", menuName = "Scriptable Object/Weapon Data", order = 0)]

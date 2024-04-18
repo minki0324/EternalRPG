@@ -27,6 +27,7 @@ public class MapBound : MonoBehaviour
         collision.GetComponent<PlayerMove>().boundary = Boundary;
         cameraMove.Boundary = Boundary;
         canvas.mapText.text = MapName;
+        GameManager.Instance.CurrentMapName = MapName;
         PrintLog.Instance.StaticLog(MapName);
     }
 }

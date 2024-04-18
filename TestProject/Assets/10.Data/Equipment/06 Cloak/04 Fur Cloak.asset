@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba38b7bff5173c48ac478e0b0f283ea, type: 3}
+  m_Name: 04 Fur Cloak
+  m_EditorClassIdentifier: 
+  EquipmentType: 10
+  SpriteName: 04 Fur Cloak
+  ItemID: 906004
+  EquipmentName: "\uD37C \uC7A5\uC2DD \uB9DD\uD1A0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 18
+  EquipmentDes: "\uD37C\uB85C \uC7A5\uC2DD\uB41C \uB9DD\uD1A0\uC774\uB2E4. \uB530\uB4EF\uD574
+    \uBCF4\uC778\uB2E4."
+  CloakHP: 950
+  CloakHPPercent: 31
+  CloakDef: 54
+  CloakDefPercent: 21
+  CloakAvoidPercent: 14
+  CloakComboResist: 32
+  CloakDEXPercent: 10
+  CloakLUCPercent: 8
+  CloakVITPercent: 9

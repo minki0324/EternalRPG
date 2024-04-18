@@ -42,7 +42,7 @@ MonoBehaviour:
   OtherGoldPercent: 0
   OtherSTRPercent: 0
   OtherDEXPercent: 0
-  OtherLUCPercent: 15
+  OtherLUCPercent: 5
   OtherVITPercent: 0
   OtherBonusAP: 0
   OtherItemDropRate: 0

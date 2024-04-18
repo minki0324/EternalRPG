@@ -43,6 +43,6 @@ MonoBehaviour:
   OtherSTRPercent: 0
   OtherDEXPercent: 0
   OtherLUCPercent: 0
-  OtherVITPercent: 15
+  OtherVITPercent: 5
   OtherBonusAP: 0
   OtherItemDropRate: 0

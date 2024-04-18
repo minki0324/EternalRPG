@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b78a87cbdee7f4c87719c03812a243, type: 3}
+  m_Name: 01 Simple Neckless
+  m_EditorClassIdentifier: 
+  EquipmentType: 9
+  SpriteName: 01 Simple Neckless
+  ItemID: 910001
+  EquipmentName: "\uC218\uC815 \uBAA9\uAC78\uC774"
+  RequireCost: 14800
+  isCanBuy: 1
+  DropRate: 21
+  EquipmentDes: "\uC8FC\uD669 \uBE5B\uC774 \uB3C4\uB294 \uC218\uC815\uC73C\uB85C
+    \uC7A5\uC2DD\uB41C \uBAA9\uAC78\uC774\uC774\uB2E4."
+  NecklessHP: 55
+  NecklessHPPercent: 9
+  NecklessComboPercent: 11
+  NecklessAvoidPercent: 9
+  NecklessEXPPercent: 10
+  NecklessGoldPercent: 0
+  NecklessDEXPercent: 3
+  NecklessLUCPercent: 4
+  NecklessItemDropRate: 5

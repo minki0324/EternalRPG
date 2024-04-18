@@ -94,6 +94,9 @@ public class PlayerData
     public float posY;
     public float posZ;
     public HashSet<string> RuneHashSet;
+    public string CurrentMapName;
+    public string LayerName;
+    public bool FirstStart;
 
     public PlayerData()
     {
@@ -172,8 +175,8 @@ public class DataManager : MonoBehaviour
         LoadOwnCount();
         LoadEliteMonsterDic();
         LoadEquipSet(GameManager.Instance.QuickSlotIndex);
-        EquipmentSet();
         LoadQuickSlotEquipment();
+        InitOwnDictionary();
         GameManager.Instance.RenewAbility();
     }
 
@@ -283,7 +286,7 @@ public class DataManager : MonoBehaviour
             string json = JsonConvert.SerializeObject(ownCount, Formatting.Indented);
             File.WriteAllText(ownCountPath, json);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -299,7 +302,7 @@ public class DataManager : MonoBehaviour
                 string json = File.ReadAllText(ownCountPath);
                 ownCount = JsonConvert.DeserializeObject<EquipmentOwnCount>(json);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.Log(e.Message);
                 ownCount = null;
@@ -339,7 +342,7 @@ public class DataManager : MonoBehaviour
     public void SaveEquipSet(int _slotIndex)
     {
         EquipmentSet equipmentSet = new EquipmentSet();
-        
+
         equipmentSet.QuickSlotIndex = _slotIndex;
         equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : GameManager.Instance.Punch;
         equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
@@ -382,7 +385,7 @@ public class DataManager : MonoBehaviour
             string json = JsonConvert.SerializeObject(QuickSlots, Formatting.Indented);
             File.WriteAllText(equipmentPath, json);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -400,16 +403,16 @@ public class DataManager : MonoBehaviour
                 QuickSlots = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
 
                 // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
-                for(int i = 0; i < QuickSlots.Count; i++)
+                for (int i = 0; i < QuickSlots.Count; i++)
                 {
-                    if(QuickSlots[i].QuickSlotIndex == _slotIndex)
+                    if (QuickSlots[i].QuickSlotIndex == _slotIndex)
                     { // 저장 되어있는 인덱스 
                         equipmentSet = QuickSlots[i];
                         break;
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.Log(e.Message);
                 equipmentSet = null;
@@ -423,7 +426,7 @@ public class DataManager : MonoBehaviour
 
 
             GameManager.Instance.WeaponData = equipmentSet.EquipWeapon == GameManager.Instance.Punch ? GameManager.Instance.Punch : equipmentSet.EquipWeapon;
-            
+
             GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
             GameManager.Instance.HelmetData = equipmentSet.EquipHelmet != null ? equipmentSet.EquipHelmet : null;
             GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
@@ -442,7 +445,7 @@ public class DataManager : MonoBehaviour
             }
 
             EquipmentCanvas canvas = FindObjectOfType<EquipmentCanvas>();
-            if(canvas != null)
+            if (canvas != null)
             {
                 canvas.InitImage();
             }
@@ -484,13 +487,16 @@ public class DataManager : MonoBehaviour
         playerData.posY = GameManager.Instance.LastPos.y;
         playerData.posZ = GameManager.Instance.LastPos.z;
         playerData.RuneHashSet = GameManager.Instance.RuneHashSet;
+        playerData.CurrentMapName = GameManager.Instance.CurrentMapName;
+        playerData.FirstStart = GameManager.Instance.FirstConnect;
+        playerData.LayerName = GameManager.Instance.LayerName;
 
         try
         {
             string json = JsonConvert.SerializeObject(playerData, Formatting.Indented);
             File.WriteAllText(playerDataPath, json);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -498,15 +504,15 @@ public class DataManager : MonoBehaviour
 
     public void LoadPlayerData()
     {
-        if(File.Exists(playerDataPath))
+        if (File.Exists(playerDataPath))
         {
             PlayerData playerData;
             try
             {
                 string json = File.ReadAllText(playerDataPath);
-                 playerData = JsonConvert.DeserializeObject<PlayerData>(json);
+                playerData = JsonConvert.DeserializeObject<PlayerData>(json);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.Log(e.Message);
                 playerData = null;
@@ -541,6 +547,9 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.StartPos.y = playerData.posY;
             GameManager.Instance.StartPos.z = playerData.posZ;
             GameManager.Instance.RuneHashSet = playerData.RuneHashSet;
+            GameManager.Instance.CurrentMapName = playerData.CurrentMapName;
+            GameManager.Instance.FirstConnect = playerData.FirstStart;
+            GameManager.Instance.LayerName = playerData.LayerName;
         }
     }
     #endregion
@@ -577,6 +586,22 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void InitOwnDictionary()
+    {
+        EquipmentSet();
+        if(WeaponOwnCount == null) WeaponOwnCount = new Dictionary<int, int>();
+        if (ArmorOwnCount == null) ArmorOwnCount = new Dictionary<int, int>();
+        if (HelmetOwnCount == null) HelmetOwnCount = new Dictionary<int, int>();
+        if (PantsOwnCount == null) PantsOwnCount = new Dictionary<int, int>();
+        if (GloveOwnCount == null) GloveOwnCount = new Dictionary<int, int>();
+        if (ShoesOwnCount == null) ShoesOwnCount = new Dictionary<int, int>();
+        if (ShoulderArmorOwnCount == null) ShoulderArmorOwnCount = new Dictionary<int, int>();
+        if (BeltOwnCount == null) BeltOwnCount = new Dictionary<int, int>();
+        if (CloakOwnCount == null) CloakOwnCount = new Dictionary<int, int>();
+        if (NecklessOwnCount == null) NecklessOwnCount = new Dictionary<int, int>();
+        if (RingOwnCount == null) RingOwnCount = new Dictionary<int, int>();
+        if (OtherOwnCount == null) OtherOwnCount = new Dictionary<int, int>();
+    }
 
     public Dictionary<int, int> GetOwnDictionary(EquipmentBaseData _equipmentBaseData)
     {
@@ -622,7 +647,7 @@ public class DataManager : MonoBehaviour
                 equipmentSet = new EquipmentSet();
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -631,19 +656,27 @@ public class DataManager : MonoBehaviour
 
     public void OwnCountReset()
     {
-        WeaponOwnCount.Clear();
-        ArmorOwnCount.Clear();
-        HelmetOwnCount.Clear();
-        PantsOwnCount.Clear();
-        GloveOwnCount.Clear();
-        ShoesOwnCount.Clear();
-        ShoulderArmorOwnCount.Clear();
-        BeltOwnCount.Clear();
-        NecklessOwnCount.Clear();
-        CloakOwnCount.Clear();
-        RingOwnCount.Clear();
-        OtherOwnCount.Clear();
+        ResetDictionaryValuesToZero(WeaponOwnCount);
+        ResetDictionaryValuesToZero(ArmorOwnCount);
+        ResetDictionaryValuesToZero(HelmetOwnCount);
+        ResetDictionaryValuesToZero(PantsOwnCount);
+        ResetDictionaryValuesToZero(GloveOwnCount);
+        ResetDictionaryValuesToZero(ShoesOwnCount);
+        ResetDictionaryValuesToZero(ShoulderArmorOwnCount);
+        ResetDictionaryValuesToZero(BeltOwnCount);
+        ResetDictionaryValuesToZero(NecklessOwnCount);
+        ResetDictionaryValuesToZero(CloakOwnCount);
+        ResetDictionaryValuesToZero(RingOwnCount);
+        ResetDictionaryValuesToZero(OtherOwnCount);
         SaveOwnCount();
+    }
+
+    private void ResetDictionaryValuesToZero(Dictionary<int, int> dictionary)
+    {
+        foreach (var key in dictionary.Keys.ToList())
+        {
+            dictionary[key] = 0;
+        }
     }
 
     public void QuickSlotReset()
@@ -659,7 +692,6 @@ public class DataManager : MonoBehaviour
             Debug.Log("기존의 퀵 슬롯 JSON 파일이 존재하지 않습니다.");
         }
 
-        // 여기에 퀵 슬롯을 초기화하는 로직을 추가하세요
         GameManager.Instance.QuickSlotIndex = 0;
         GameManager.Instance.QuickSlot = new string[5] { "퀵슬롯 1", "퀵슬롯 2", "퀵슬롯 3", "퀵슬롯 4", "퀵슬롯 5" };
     }

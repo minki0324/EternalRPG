@@ -40,7 +40,7 @@ MonoBehaviour:
   OtherDrainAmount: 0
   OtherEXPPercent: 0
   OtherGoldPercent: 0
-  OtherSTRPercent: 15
+  OtherSTRPercent: 5
   OtherDEXPercent: 0
   OtherLUCPercent: 0
   OtherVITPercent: 0

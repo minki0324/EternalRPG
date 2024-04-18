@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 02 Eco Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 02 Eco Ring
+  ItemID: 909002
+  EquipmentName: "\uC5D0\uCF54 \uBC18\uC9C0"
+  RequireCost: 16500
+  isCanBuy: 1
+  DropRate: 22
+  EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uBC18\uC9C0\uC774\uB2E4."
+  RingATK: 16
+  RingATKPercent: 8
+  RingDef: 0
+  RingDefPercent: 0
+  RingCriticalPercent: 6
+  RingCriticalResist: 9
+  RingDrainPercent: 0
+  RingDrainResist: 0
+  RingEXPPercent: 10
+  RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 5

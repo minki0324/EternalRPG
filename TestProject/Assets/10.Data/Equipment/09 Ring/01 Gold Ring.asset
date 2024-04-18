@@ -22,14 +22,14 @@ MonoBehaviour:
   EquipmentDes: "\uC587\uC740 \uAE08\uBC18\uC9C0\uC774\uB2E4."
   RingATK: 0
   RingATKPercent: 0
-  RingDef: 5
-  RingDefPercent: 10
+  RingDef: 9
+  RingDefPercent: 4
   RingCriticalPercent: 0
   RingCriticalResist: 0
   RingDrainPercent: 9
   RingDrainResist: 6
   RingEXPPercent: 0
-  RingGoldPercent: 10
+  RingGoldPercent: 5
   RingSTRPercent: 0
   RingLUCPercent: 0
   RingDEXPercent: 0

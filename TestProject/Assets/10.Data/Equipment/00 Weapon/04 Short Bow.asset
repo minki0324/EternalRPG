@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 04 Short Bow
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 04 Short Bow
+  ItemID: 900004
+  EquipmentName: "\uB2E8\uAD81"
+  RequireCost: 168000
+  isCanBuy: 1
+  DropRate: 28
+  EquipmentDes: "\uBB34\uAC8C\uAC00 \uAC00\uBCBC\uC6B4 \uC9E7\uC740 \uB2E8\uAD81\uC774\uB2E4."
+  WeaponType: 3
+  WeaponATK: 135
+  WeaponATKPercent: 18
+  WeaponComboPercent: 11
+  WeaponCriticalPercent: 9
+  WeaponCriticalDamage: 0.2
+  WeaponDrainPercent: 12
+  WeaponDrainAmount: 0.03
+  WeaponSTRPercent: 12
+  WeaponDEXPercent: 8

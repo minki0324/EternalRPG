@@ -15,15 +15,19 @@ public class AutoPanel : MonoBehaviour
         switch (stat)
         {
             case Stat.STR:
+                AutoNum = GameManager.Instance.AutoSTR;
                 AutoNumText.text = GameManager.Instance.AutoSTR.ToString();
                 break;
             case Stat.DEX:
+                AutoNum = GameManager.Instance.AutoDEX;
                 AutoNumText.text = GameManager.Instance.AutoDEX.ToString();
                 break;
             case Stat.LUC:
+                AutoNum = GameManager.Instance.AutoLUC;
                 AutoNumText.text = GameManager.Instance.AutoLUC.ToString();
                 break;
             case Stat.VIT:
+                AutoNum = GameManager.Instance.AutoVIT;
                 AutoNumText.text = GameManager.Instance.AutoVIT.ToString();
                 break;
         }

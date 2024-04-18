@@ -41,7 +41,7 @@ MonoBehaviour:
   OtherEXPPercent: 0
   OtherGoldPercent: 0
   OtherSTRPercent: 0
-  OtherDEXPercent: 15
+  OtherDEXPercent: 5
   OtherLUCPercent: 0
   OtherVITPercent: 0
   OtherBonusAP: 0

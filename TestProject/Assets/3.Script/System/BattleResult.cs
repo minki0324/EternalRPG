@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
-using System.Linq;
 
 public class BattleResult : MonoBehaviour
 {
@@ -12,7 +10,6 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private GameObject battlePanel;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Player player;
-    [SerializeField] private ScreenTransitionSimpleSoft loading;
     [SerializeField] private ResultPanelTitle resultPanelTitle;
     public Monster mon;
     public bool isWin = false;
@@ -26,6 +23,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text energyText;
     public GameObject DataPanel = null;
     [SerializeField] private GameObject gemPanel;
+    [SerializeField] private GameObject overEnergyWarningPanel;
 
     [Header("아이템")]
     [SerializeField] private GameObject dropResultItem;
@@ -77,8 +75,9 @@ public class BattleResult : MonoBehaviour
     private void AccountBattle_Co()
     { // 전투 결산
         // 경험치
-        int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent / 100))));
+        int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent / 100f))));
         EXP = Mathf.RoundToInt(Random.Range(EXP * 0.95f, EXP * 1.05f));
+        Debug.Log(EXP);
         GameManager.Instance.CurrentEXP += EXP;
         int levelup = 0;
         float requireEXP = 0f;
@@ -102,7 +101,7 @@ public class BattleResult : MonoBehaviour
         // 골드
         int gold = Mathf.RoundToInt(UnityEngine.Random.Range(mon.monsterData.RewordGold * 0.95f, mon.monsterData.RewordGold * 1.05f));
         float quickSlotGold = GameManager.Instance.isGoldPack ? 30 : 0;
-        int totalGold = Mathf.RoundToInt((float)(gold * (1 + ((float)(GameManager.Instance.GoldPercent / 100) + (float)(quickSlotGold / 100)))));
+        int totalGold = Mathf.RoundToInt((float)(gold * (1 + ((float)(GameManager.Instance.GoldPercent / 100f) + (float)(quickSlotGold / 100f)))));
         GameManager.Instance.Gold += totalGold;
 
         // 아이템
@@ -125,7 +124,14 @@ public class BattleResult : MonoBehaviour
         totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
         if (mon.monsterData.isElite)
         { // 엘리트 몬스터라면 리워드 에너지 출력
-            energyText.text = $": +{mon.monsterData.RewordEnergy}";
+            if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
+            {
+                energyText.text = $": -1";
+            }
+            else
+            {
+                energyText.text = $": +{mon.monsterData.RewordEnergy}";
+            }
         }
         else
         { // 일반 몹이라면 소모 에너지만 출력
@@ -143,6 +149,7 @@ public class BattleResult : MonoBehaviour
             battlePanel.SetActive(false);
             activeCanvas.gameObject.SetActive(true);
             inventoryPanel.SetActive(true);
+            overEnergyWarningPanel.SetActive(true);
         }
         else
         { // 에너지가 남아있을 때
@@ -289,27 +296,6 @@ public class BattleResult : MonoBehaviour
         {
             mon.MonsterCurHP = mon.MonsterMaxHP;
         }
-    }
-
-    public void LackOfEnergy()
-    {
-        if (GameManager.Instance.CurrentEnergy <= 0)
-        {
-            StartCoroutine(LackOfEnergy_Co());
-        }
-    }
-
-    private IEnumerator LackOfEnergy_Co()
-    {
-        GameManager.Instance.ResetRound();
-        StartCoroutine(loading.StartLoadingLight());
-
-        while (loading.isLoading)
-        {
-            yield return null;
-        }
-
-        SceneManager.LoadScene(0);
     }
 
     private void GemCalculate()

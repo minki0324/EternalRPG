@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
@@ -9,16 +10,19 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Battle battle;
     public Transform movePoint;
     [SerializeField] private Rigidbody2D rigidbody2D_;
+    [SerializeField] private SortingGroup group;
     public Collider2D boundary;
     public Animator playerAnimator;
     public bool isFight;
     public bool isWayMove = false;
     private Vector2 targetPos = Vector2.zero;
-    private Coroutine moveCoroutine;
+    public Coroutine moveCoroutine;
 
     private void Start()
     {
         gameObject.transform.position = GameManager.Instance.StartPos;
+        group.sortingLayerName = GameManager.Instance.LayerName;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -100,6 +100,7 @@ public class WayPoint : MonoBehaviour
         {
             // 레이어 변경
             collision.gameObject.layer = LayerMask.NameToLayer(toLayer);
+            GameManager.Instance.LayerName = toLayer;
             group.sortingLayerName = toLayer;
         }
     }

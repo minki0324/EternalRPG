@@ -66,6 +66,8 @@ public class Battle : MonoBehaviour
         monsterImage.sprite = mon.monsterData.MonsterSprite;
         monsterImage.SetNativeSize();
 
+        
+
         // 드롭 아이템 출력
         ItemDropRate(mon);
 
@@ -79,9 +81,16 @@ public class Battle : MonoBehaviour
         CalculrateWinRate(mon);
 
         // 룬 체크
+        RuneCheck();
 
-
-        energyText.text = $"{mon.monsterData.RequireEnergy}";
+        if(DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
+        {
+            energyText.text = $"1";
+        }
+        else
+        {
+            energyText.text = $"{mon.monsterData.RequireEnergy}";
+        }
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
@@ -95,6 +104,11 @@ public class Battle : MonoBehaviour
             return;
         }
         ignoreRay.SetActive(true);
+        if (battleCoroutine != null)
+        {
+            StopCoroutine(battleCoroutine);
+            battleCoroutine = null;
+        }
         battleCoroutine = StartCoroutine(StartBattle_Co());
     }
 
@@ -156,6 +170,8 @@ public class Battle : MonoBehaviour
                 break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
             }
         }
+        Time.timeScale = 1f;
+        ignoreRay.SetActive(false);
         for (int i = 0; i < dropItemTransform.childCount; i++)
         {
             Destroy(dropItemTransform.GetChild(i).gameObject);
@@ -165,14 +181,20 @@ public class Battle : MonoBehaviour
         monsterHPText.color = Color.white;
         result.gameObject.SetActive(true);
 
-        Time.timeScale = 1f;
-        ignoreRay.SetActive(false);
+        damageText.gameObject.SetActive(false);
+        monsterDamageText.gameObject.SetActive(false);
+        effectAnimator.gameObject.SetActive(false);
+        damageAnimator.gameObject.SetActive(false);
     }
 
     private IEnumerator StartBattle_Co()
     {
         Time.timeScale = GameManager.Instance.BattleSpeed;
 
+        damageText.gameObject.SetActive(true);
+        effectAnimator.gameObject.SetActive(true);
+        damageAnimator.gameObject.SetActive(true);
+        Debug.Log("여기 들어오는거 아님 ?");
         while (true)
         {
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
@@ -211,6 +233,8 @@ public class Battle : MonoBehaviour
                 break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
             }
         }
+        Time.timeScale = 1f;
+        ignoreRay.SetActive(false);
         for(int i = 0; i < dropItemTransform.childCount; i++)
         {
             Destroy(dropItemTransform.GetChild(i).gameObject);
@@ -221,9 +245,9 @@ public class Battle : MonoBehaviour
         result.gameObject.SetActive(true);
         battleCoroutine = null;
 
-        yield return new WaitForSeconds(1f);
-        Time.timeScale = 1f;
-        ignoreRay.SetActive(false);
+        damageText.gameObject.SetActive(false);
+        effectAnimator.gameObject.SetActive(false);
+        damageAnimator.gameObject.SetActive(false);
     }
 
     private void PlayerTurn(int comboCount)
@@ -339,6 +363,21 @@ public class Battle : MonoBehaviour
                 return con;
             case WeaponType.Sword:
                 con = weaponAnimators[1];
+                return con;
+            case WeaponType.Hammer:
+                con = weaponAnimators[2];
+                return con;
+            case WeaponType.Bow:
+                con = weaponAnimators[3];
+                return con;
+            case WeaponType.Spear:
+                con = weaponAnimators[4];
+                return con;
+            case WeaponType.Staff:
+                con = weaponAnimators[5];
+                return con;
+            case WeaponType.Stone:
+                con = weaponAnimators[6];
                 return con;
             default:
                 return null;

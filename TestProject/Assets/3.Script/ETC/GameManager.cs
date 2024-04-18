@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int BattleSpeed = 1;
     public int QuickSlotIndex = 0;
+    public bool FirstConnect = false;
+    
 
     [Header("기본정보")]
     [Space(10)] // 위는 기본 스텟
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour
     public int PlayCount = 0;
     public Vector3 LastPos = Vector3.zero;
     public Vector3 StartPos = Vector3.zero;
+    public string CurrentMapName = string.Empty;
+    public string LayerName = "Default";
 
     [Header("스텟")]
     public int STR = 5; // 힘을 올리면 공격력이 0.01%씩 상승
@@ -262,7 +266,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherATKPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 5f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0))));
+        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 10f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0))));
         PlayerATKPercent = sumPercent;
     }
     #endregion
@@ -621,7 +625,7 @@ public class GameManager : MonoBehaviour
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
         }
 
-        MoveSpeed = 30 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed);
+        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed);
     }
     #endregion
 
@@ -699,7 +703,11 @@ public class GameManager : MonoBehaviour
         CurrentAP = 0;
         PlayCount++;
         CurrentEnergy = 25 + BonusEnergy;
+        CurrentMapName = string.Empty;
 
         RenewAbility();
+        PlayerCurHP = PlayerMaxHP;
     }
+
+    
 }

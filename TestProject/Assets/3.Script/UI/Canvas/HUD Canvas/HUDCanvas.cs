@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class HUDCanvas : MonoBehaviour
@@ -47,5 +48,50 @@ public class HUDCanvas : MonoBehaviour
 
         transitionObj.SetActive(false);
         activeCanvas.SetActive(false);
+    }
+
+    public void LackOfEnergy()
+    {
+        if (GameManager.Instance.CurrentEnergy <= 0)
+        {
+            StartCoroutine(LackOfEnergy_Co());
+        }
+    }
+
+    private IEnumerator LackOfEnergy_Co()
+    {
+       GameManager.Instance.ResetRound();
+
+        activeCanvas.SetActive(true);
+        transitionObj.SetActive(true);
+        loading.SetTransitioning(true);
+        StartCoroutine(loading.StartLoadingLight());
+
+        while (loading.isLoading)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(0);
+    }
+
+    public void MainSceneLoad()
+    {
+        StartCoroutine(MainSceneLoad_Co());
+    }
+
+    private IEnumerator MainSceneLoad_Co()
+    {
+        activeCanvas.SetActive(true);
+        transitionObj.SetActive(true);
+        loading.SetTransitioning(true);
+        StartCoroutine(loading.StartLoadingLight());
+
+        while (loading.isLoading)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(0);
     }
 }

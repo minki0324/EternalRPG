@@ -62,6 +62,7 @@ public class ReviveMonster : MonoBehaviour
     {
         if (isNearPlayer)
         {
+            GameManager.Instance.DeadMonsterList.Remove(mon.monsterData.MonsterID);
             mon.isDead = false; // 몬스터 부활
             mon.animator.enabled = true;
             mon.InitData();
@@ -69,6 +70,16 @@ public class ReviveMonster : MonoBehaviour
             // 부활 시켰으면 위치 옮김
             player.gameObject.transform.position = new Vector2(mon.gameObject.transform.position.x + mon.monsterData.ReturnPos.x,
                                                                                                                   mon.gameObject.transform.position.y + mon.monsterData.ReturnPos.y);
+
+            PlayerMove playerMove = player.GetComponent<PlayerMove>();
+            if(playerMove.moveCoroutine != null)
+            {
+                StopCoroutine(playerMove.moveCoroutine);
+                playerMove.moveCoroutine = null;
+                playerMove.playerAnimator.SetBool("Idle", true);
+                playerMove.playerAnimator.SetBool("Run", false);
+                playerMove.movePoint.gameObject.SetActive(false);
+            }
 
             // 알파값 다시 올려주기
             for (int i = 0; i < mon.sprites.Length; i++)
@@ -90,7 +101,6 @@ public class ReviveMonster : MonoBehaviour
             }
 
             reviveButton.interactable = false;
-            GameManager.Instance.DeadMonsterList.Remove(mon.monsterData.MonsterID);
         }
     }
 }
