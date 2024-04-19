@@ -44,6 +44,10 @@ public class BattleResult : MonoBehaviour
     private int gemDrop = 2000;
     private void OnEnable()
     {
+        if(GameManager.Instance.CurrentEnergy<=0)
+        {
+            MasterLevelCal();
+        }
         InitData();
     }
 
@@ -324,8 +328,104 @@ public class BattleResult : MonoBehaviour
         if(GameManager.Instance.MasterCurrentEXP >= GameManager.Instance.MasterRequireEXP)
         {
             GameManager.Instance.MasterLevel++;
+            GameManager.Instance.MasterCurrentEXP -= GameManager.Instance.MasterRequireEXP;
             GameManager.Instance.MasterRequireEXP = GameManager.Instance.GetRequireEXPForLevel(GameManager.Instance.MasterLevel);
             PrintLog.Instance.StaticLog("마스터 레벨이 상승했습니다!");
+            MasterAP(GameManager.Instance.MasterLevel);
+        }
+    }
+
+    private void MasterAP(int level)
+    {
+        switch(level)
+        {
+            case 2:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 3:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 4:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 5:
+                GameManager.Instance.MasterCurrentAP += 15;
+                break;
+            case 6:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 7:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 8:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 9:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 10:
+                GameManager.Instance.MasterCurrentAP += 10;
+                break;
+            case 11:
+                GameManager.Instance.MasterCurrentAP += 11;
+                break;
+            case 12:
+                GameManager.Instance.MasterCurrentAP += 12;
+                break;
+            case 13:
+                GameManager.Instance.MasterCurrentAP += 13;
+                break;
+            case 14:
+                GameManager.Instance.MasterCurrentAP += 14;
+                break;
+            case 15:
+                GameManager.Instance.MasterCurrentAP += 15;
+                break;
+            case 16:
+                GameManager.Instance.MasterCurrentAP += 16;
+                break;
+            case 17:
+                GameManager.Instance.MasterCurrentAP += 17;
+                break;
+            case 18:
+                GameManager.Instance.MasterCurrentAP += 18;
+                break;
+            case 19:
+                GameManager.Instance.MasterCurrentAP += 19;
+                break;
+            case 20:
+                GameManager.Instance.MasterCurrentAP += 20;
+                break;
+            case 21:
+                GameManager.Instance.MasterCurrentAP += 20;
+                break;
+            case 22:
+                GameManager.Instance.MasterCurrentAP += 20;
+                break;
+            case 23:
+                GameManager.Instance.MasterCurrentAP += 20;
+                break;
+            case 24:
+                GameManager.Instance.MasterCurrentAP += 25;
+                break;
+            case 25:
+                GameManager.Instance.MasterCurrentAP += 25;
+                break;
+            case 26:
+                GameManager.Instance.MasterCurrentAP += 25;
+                break;
+            case 27:
+                GameManager.Instance.MasterCurrentAP += 25;
+                break;
+            case 28:
+                GameManager.Instance.MasterCurrentAP += 25;
+                break;
+            case 29:
+                GameManager.Instance.MasterCurrentAP += 30;
+                break;
+            case 30:
+                GameManager.Instance.MasterCurrentAP += 30;
+                break;
         }
     }
 }

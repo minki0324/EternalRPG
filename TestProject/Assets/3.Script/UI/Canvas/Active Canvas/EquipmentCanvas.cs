@@ -158,18 +158,28 @@ public class EquipmentCanvas : MonoBehaviour
     }
 
     #region 장비 장착
+    private void EquipMarkActive()
+    {
+        for (int i = 0; i < itemListParent.childCount; i++)
+        {
+            ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
+            itemPanel.SelectIcon.SetActive(true);
+            itemPanel.EquipCheckIcon.SetActive(false);
+        }
+    }
     public void EquipItemCal()
     {
         switch (CurrentItem.EquipmentData.EquipmentType)
         {
             case Category.Weapon:
                 if (CurrentItem.EquipmentData is WeaponData weaponData)
+                {
                     if (isEquip)
                     { // 장비하기 눌렀을 때
-                        for(int i = 0; i < itemListParent.childCount; i++)
+                        for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if(GameManager.Instance.WeaponData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.WeaponData != null && GameManager.Instance.WeaponData.ItemID == itemPanel.EquipmentData.ItemID)
                             { // 장착중 아이콘 표시
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -182,23 +192,26 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     { // 해제하기 눌렀을 때
+                        EquipMarkActive();
                         GameManager.Instance.WeaponData = GameManager.Instance.Punch;
                         weaponIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                }
                 break;
             case Category.Armor:
                 if (CurrentItem.EquipmentData is ArmorData armorData)
+                {
                     if (isEquip)
                     {
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.ArmorData.ItemID == itemPanel.EquipmentData.ItemID)
-                            {
+                            if (GameManager.Instance.ArmorData != null && GameManager.Instance.ArmorData.ItemID == itemPanel.EquipmentData.ItemID)
+                            { // 장착중 아이콘 표시
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
-                                break;
+                                break; // 찾았으면 for문 나감
                             }
                         }
                         GameManager.Instance.ArmorData = armorData;
@@ -207,23 +220,26 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.ArmorData = null;
                         armorIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                }
                 break;
             case Category.Pants:
                 if (CurrentItem.EquipmentData is PantsData pantsData)
+                {
                     if (isEquip)
                     {
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.PantsData.ItemID == itemPanel.EquipmentData.ItemID)
-                            {
+                            if (GameManager.Instance.PantsData != null && GameManager.Instance.PantsData.ItemID == itemPanel.EquipmentData.ItemID)
+                            { // 장착중 아이콘 표시
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
-                                break;
+                                break; // 찾았으면 for문 나감
                             }
                         }
                         GameManager.Instance.PantsData = pantsData;
@@ -232,19 +248,22 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.PantsData = null;
                         pantsIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                }
                 break;
             case Category.Helmet:
                 if (CurrentItem.EquipmentData is HelmetData helmetData)
+                {
                     if (isEquip)
                     {
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.HelmetData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.HelmetData != null && GameManager.Instance.HelmetData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -257,10 +276,12 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.HelmetData = null;
                         helmetIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                     }
+                }
                 break;
             case Category.Glove:
                 if (CurrentItem.EquipmentData is GloveData gloveData)
@@ -269,7 +290,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.GloveData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.GloveData != null && GameManager.Instance.GloveData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -282,6 +303,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.GloveData = null;
                         gloveIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -294,7 +316,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.ShoesData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.ShoesData != null && GameManager.Instance.ShoesData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -307,6 +329,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.ShoesData = null;
                         shoesIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -319,7 +342,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.ClockData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.ClockData != null && GameManager.Instance.ClockData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -332,6 +355,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.ClockData = null;
                         cloakIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -344,7 +368,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.BeltData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.BeltData != null && GameManager.Instance.BeltData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -357,6 +381,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.BeltData = null;
                         beltIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -369,7 +394,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.ShoulderArmorData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.ShoulderArmorData != null && GameManager.Instance.ShoulderArmorData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -382,6 +407,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.ShoulderArmorData = null;
                         shoulderArmorIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -394,7 +420,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.NecklessData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.NecklessData != null && GameManager.Instance.NecklessData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -407,6 +433,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.NecklessData = null;
                         necklessIcon.sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -428,7 +455,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.RingDatas[(int)Slot].ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.RingDatas[(int)Slot] != null && GameManager.Instance.RingDatas[(int)Slot].ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -441,6 +468,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.RingDatas[(int)Slot] = null;
                         ringIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -463,7 +491,7 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.OtherDatas[(int)Slot].ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.OtherDatas[(int)Slot] != null && GameManager.Instance.OtherDatas[(int)Slot].ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
@@ -476,6 +504,7 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
+                        EquipMarkActive();
                         GameManager.Instance.OtherDatas[(int)Slot] = null;
                         otherIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
@@ -483,8 +512,11 @@ public class EquipmentCanvas : MonoBehaviour
                 }
                 break;
         }
-        CurrentItem.EquipCheckIcon.SetActive(true);
-        CurrentItem.SelectIcon.SetActive(false);
+        if(isEquip)
+        {
+            CurrentItem.EquipCheckIcon.SetActive(true);
+            CurrentItem.SelectIcon.SetActive(false);
+        }
         GameManager.Instance.RenewAbility();
     }
     #endregion
