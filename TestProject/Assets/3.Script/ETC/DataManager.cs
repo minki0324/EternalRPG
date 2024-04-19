@@ -67,13 +67,14 @@ public class PlayerData
 {
     public int BattleSpeed;
     public int CurrentLevel;
-    public int TotalGold;
+    public long TotalGold;
     public int Gem;
+    public int GemCount;
     public int CurrentHP;
     public int CurrentEnergy;
     public int BonusEnergy;
-    public int CurrentEXP;
-    public int RequireEXP;
+    public long CurrentEXP;
+    public long RequireEXP;
     public int CurrentAP;
     public int APSTR;
     public int APDEX;
@@ -97,6 +98,7 @@ public class PlayerData
     public string CurrentMapName;
     public string LayerName;
     public bool FirstStart;
+    public int cardBuff;
 
     public PlayerData()
     {
@@ -111,6 +113,26 @@ public class EliteMonster
     public EliteMonster(Dictionary<int, bool> eliteMonsterDic)
     {
         EliteMonsterDic = eliteMonsterDic;
+    }
+}
+
+[System.Serializable]
+public class MasterLevelData
+{
+    public int MasterLevel;
+    public int MasterCurrentEXP;
+    public int MasterRequireEXP;
+    public int MasterCurrentAP;
+    public int MasterRunePoint;
+    public int MasterBonusAPPoint;
+    public int MasterDropPoint;
+    public int MasterMovePoint;
+    public int MasterEnergyPoint;
+    public int MasterGemPoint;
+
+    public MasterLevelData()
+    {
+
     }
 }
 
@@ -141,6 +163,7 @@ public class DataManager : MonoBehaviour
     private string playerDataPath;
     private string eliteMonsterPath;
     private string quickSlotEquipmentPath;
+    private string masterLevelPath;
 
     [Header("Quick Slot List")]
     public List<EquipmentSet> QuickSlots = new List<EquipmentSet>();
@@ -165,12 +188,14 @@ public class DataManager : MonoBehaviour
         playerDataPath = Application.persistentDataPath + "/PlayerData.json";
         eliteMonsterPath = Application.persistentDataPath + "/EliteMonsterDic.json";
         quickSlotEquipmentPath = Application.persistentDataPath + "/quickSlotEquipment.json";
+        masterLevelPath = Application.persistentDataPath + "/MasterLevel.json";
         EliteMonsterDic = new Dictionary<int, bool>();
         QuickSlots = new List<EquipmentSet>();
     }
 
     private void Start()
     {
+        LoadMasterData();
         LoadPlayerData();
         LoadOwnCount();
         LoadEliteMonsterDic();
@@ -185,6 +210,7 @@ public class DataManager : MonoBehaviour
         EquipmentSet();
         SaveOwnCount();
         SavePlayerData();
+        SaveMasterLevelData();
         SaveEliteMonsterDic();
         SaveQuickSlotEquipment();
         SaveEquipSet(GameManager.Instance.QuickSlotIndex);
@@ -197,6 +223,7 @@ public class DataManager : MonoBehaviour
             EquipmentSet();
             SaveOwnCount();
             SavePlayerData();
+            SaveMasterLevelData();
             SaveEliteMonsterDic();
             SaveQuickSlotEquipment();
             SaveEquipSet(GameManager.Instance.QuickSlotIndex);
@@ -490,6 +517,8 @@ public class DataManager : MonoBehaviour
         playerData.CurrentMapName = GameManager.Instance.CurrentMapName;
         playerData.FirstStart = GameManager.Instance.FirstConnect;
         playerData.LayerName = GameManager.Instance.LayerName;
+        playerData.cardBuff = (int)GameManager.Instance.CardBuff;
+        playerData.GemCount = GameManager.Instance.GemCount;
 
         try
         {
@@ -550,6 +579,64 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.CurrentMapName = playerData.CurrentMapName;
             GameManager.Instance.FirstConnect = playerData.FirstStart;
             GameManager.Instance.LayerName = playerData.LayerName;
+            GameManager.Instance.CardBuff = (CardBuffEnum)playerData.cardBuff;
+            GameManager.Instance.GemCount = playerData.GemCount;
+        }
+    }
+    #endregion
+    #region 마스터 레벨 데이터
+    public void SaveMasterLevelData()
+    {
+        MasterLevelData masterData = new MasterLevelData();
+
+        masterData.MasterLevel = GameManager.Instance.MasterLevel;
+        masterData.MasterCurrentEXP = GameManager.Instance.MasterCurrentEXP;
+        masterData.MasterRequireEXP = GameManager.Instance.MasterRequireEXP;
+        masterData.MasterCurrentAP = GameManager.Instance.MasterCurrentAP;
+        masterData.MasterRunePoint = GameManager.Instance.MasterRunePoint;
+        masterData.MasterBonusAPPoint = GameManager.Instance.MasterBonusAPPoint;
+        masterData.MasterDropPoint = GameManager.Instance.MasterDropPoint;
+        masterData.MasterEnergyPoint = GameManager.Instance.MasterEnergyPoint;
+        masterData.MasterGemPoint = GameManager.Instance.MasterGemPoint;
+        masterData.MasterMovePoint = GameManager.Instance.MasterMovePoint;
+
+        try
+        {
+            string json = JsonConvert.SerializeObject(masterData, Formatting.Indented);
+            File.WriteAllText(masterLevelPath, json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    public void LoadMasterData()
+    {
+        if (File.Exists(masterLevelPath))
+        {
+            MasterLevelData masterData;
+            try
+            {
+                string json = File.ReadAllText(masterLevelPath);
+                masterData = JsonConvert.DeserializeObject<MasterLevelData>(json);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+                masterData = null;
+            }
+            GameManager.Instance.MasterLevel = masterData.MasterLevel;
+            GameManager.Instance.MasterCurrentEXP = masterData.MasterCurrentEXP;
+            GameManager.Instance.MasterRequireEXP = masterData.MasterRequireEXP;
+            GameManager.Instance.MasterCurrentAP = masterData.MasterCurrentAP;
+            GameManager.Instance.MasterRunePoint = masterData.MasterRunePoint;
+            GameManager.Instance.MasterBonusAPPoint = masterData.MasterBonusAPPoint;
+            GameManager.Instance.MasterDropPoint = masterData.MasterDropPoint;
+            GameManager.Instance.MasterEnergyPoint = masterData.MasterEnergyPoint;
+            GameManager.Instance.MasterGemPoint = masterData.MasterGemPoint;
+            GameManager.Instance.MasterMovePoint = masterData.MasterMovePoint;
+
         }
     }
     #endregion

@@ -45,8 +45,8 @@ public class StatusPanel : MonoBehaviour
                                         $"DEX% : {GameManager.Instance.DEXPercent:N0}%\n" +
                                         $"LUC% : {GameManager.Instance.LUCPercent:N0}%\n" +
                                         $"VIT% : {GameManager.Instance.VITPercent:N0}%";
-        AddData2.text = $"√ﬂ∞° ∞Ê«Ëƒ° : {GameManager.Instance.EXPPercent:N0}%\n" +
+        AddData2.text = $"√ﬂ∞° ∞Ê«Ëƒ° : {GameManager.Instance.EXPPercent-100:N0}%\n" +
                                         $"æ∆¿Ã≈€ µÂ∑”∑¸ : {GameManager.Instance.ItemDropRate:N0}%\n" +
-                                        $"∞ÒµÂ »πµÊ∑Æ : {GameManager.Instance.GoldPercent:N0}%";
+                                        $"∞ÒµÂ »πµÊ∑Æ : {GameManager.Instance.GoldPercent-100:N0}%";
     }
 }

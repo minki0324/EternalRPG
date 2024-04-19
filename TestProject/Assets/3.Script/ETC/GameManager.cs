@@ -3,14 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum CardBuffEnum
+{
+    None,
+    RuneBuff,
+    BonusAPBuff,
+    EXPandGoldBuff,
+    DropBuff
+}
+
+[System.Serializable]
+public class MasterLevelEXP
+{
+    public int level;
+    public int requireEXP;
+
+    public MasterLevelEXP(int level, int requireEXP)
+    {
+        this.level = level;
+        this.requireEXP = requireEXP;
+    }
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
+    public CardBuffEnum CardBuff;
     public int BattleSpeed = 1;
     public int QuickSlotIndex = 0;
     public bool FirstConnect = false;
-    
+
+    [Header("마스터 레벨")]
+    public List<MasterLevelEXP> masterLevelTable;
+    public int MasterLevel = 1;
+    public int MasterCurrentEXP = 0;
+    public int MasterRequireEXP = 1000;
+    public int MasterCurrentAP = 5;
+    public int MasterRunePoint = 0;
+    public int MasterBonusAPPoint = 0;
+    public int MasterDropPoint = 0;
+    public int MasterMovePoint = 0;
+    public int MasterEnergyPoint = 0;
+    public int MasterGemPoint = 0;
 
     [Header("기본정보")]
     [Space(10)] // 위는 기본 스텟
@@ -25,12 +60,13 @@ public class GameManager : MonoBehaviour
     [Space(10)] // 기본 정보들
     public int PlayerLevel = 1;
     public int MoveSpeed = 30;
-    public int Gold = 0;
+    public long Gold = 0;
     public int Gem = 0;
+    public int GemCount = 0;
     public int CurrentEnergy = 25;
     public int BonusEnergy = 0;
-    public int CurrentEXP = 0;
-    public int RequireEXP = 50;
+    public long CurrentEXP = 0;
+    public long RequireEXP = 50;
     public int CurrentAP = 0;
     public int BonusAP = 0;
     public int Power = 0;
@@ -117,7 +153,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -129,7 +165,16 @@ public class GameManager : MonoBehaviour
         }
         Application.targetFrameRate = 60;
         RuneHashSet = new HashSet<string>();
-}
+    }
+
+    private void Start()
+    {
+        if(CurrentEnergy <= 0)
+        {
+            ResetRound();
+        }
+        MasterLevelEXPData();
+    }
 
     public void RenewAbility()
     {
@@ -159,7 +204,7 @@ public class GameManager : MonoBehaviour
         int sumLUCPercent = 0;
         int baseVIT = 5;
         int sumVITPercent = 0;
-        if(WeaponData != null)
+        if (WeaponData != null)
         {
             sumSTRPercent += Mathf.RoundToInt((float)(WeaponData.WeaponSTRPercent * (1 + GetOwnPercent(WeaponData))));
             sumDEXPercent += Mathf.RoundToInt((float)(WeaponData.WeaponDEXPercent * (1 + GetOwnPercent(WeaponData))));
@@ -202,18 +247,18 @@ public class GameManager : MonoBehaviour
             sumDEXPercent += Mathf.RoundToInt((float)(NecklessData.NecklessDEXPercent * (1 + GetOwnPercent(NecklessData))));
             sumLUCPercent += Mathf.RoundToInt((float)(NecklessData.NecklessLUCPercent * (1 + GetOwnPercent(NecklessData))));
         }
-        for(int i = 0; i < RingDatas.Length; i++)
+        for (int i = 0; i < RingDatas.Length; i++)
         {
-            if(RingDatas[i] != null)
+            if (RingDatas[i] != null)
             {
                 sumSTRPercent += Mathf.RoundToInt((float)(RingDatas[i].RingSTRPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumLUCPercent += Mathf.RoundToInt((float)(RingDatas[i].RingLUCPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumDEXPercent += Mathf.RoundToInt((float)(RingDatas[i].RingDEXPercent * (1 + GetOwnPercent(RingDatas[i]))));
             }
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumSTRPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherSTRPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumDEXPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherDEXPercent * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -238,19 +283,19 @@ public class GameManager : MonoBehaviour
         int baseATK = 5;
         int sumATK = 0;
         int sumPercent = 0;
-        
+
 
         if (WeaponData != null)
         {
             sumATK += Mathf.RoundToInt((float)(WeaponData.WeaponATK * (1 + GetOwnPercent(WeaponData))));
             sumPercent += Mathf.RoundToInt((float)(WeaponData.WeaponATKPercent * (1 + GetOwnPercent(WeaponData))));
         }
-        if(GloveData != null)
+        if (GloveData != null)
         {
             sumATK += Mathf.RoundToInt((float)(GloveData.GloveATK * (1 + GetOwnPercent(GloveData))));
             sumPercent += Mathf.RoundToInt((float)(GloveData.GloveATKPercent * (1 + GetOwnPercent(GloveData))));
         }
-        for(int i = 0; i < RingDatas.Length; i++)
+        for (int i = 0; i < RingDatas.Length; i++)
         {
             if (RingDatas[i] != null)
             {
@@ -258,9 +303,9 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(RingDatas[i].RingATKPercent * (1 + GetOwnPercent(RingDatas[i]))));
             }
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumATK += Mathf.RoundToInt((float)(OtherDatas[i].OtherATK * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherATKPercent * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -277,49 +322,49 @@ public class GameManager : MonoBehaviour
         int baseHP = 100;
         int sumHP = 0;
         int sumPercent = 0;
-        if(ArmorData != null)
+        if (ArmorData != null)
         {
             sumHP += Mathf.RoundToInt((float)(ArmorData.ArmorHP * (1 + GetOwnPercent(ArmorData))));
             sumPercent += Mathf.RoundToInt((float)(ArmorData.ArmorHPPercent * (1 + GetOwnPercent(ArmorData))));
         }
-        if(BeltData != null)
+        if (BeltData != null)
         {
             sumHP += Mathf.RoundToInt((float)(BeltData.BeltHP * (1 + GetOwnPercent(BeltData))));
             sumPercent += Mathf.RoundToInt((float)(BeltData.BeltHPPercent * (1 + GetOwnPercent(BeltData))));
         }
-        if(ClockData != null)
+        if (ClockData != null)
         {
             sumHP += Mathf.RoundToInt((float)(ClockData.CloakHP * (1 + GetOwnPercent(ClockData))));
             sumPercent += Mathf.RoundToInt((float)(ClockData.CloakHPPercent * (1 + GetOwnPercent(ClockData))));
         }
-        if(GloveData != null)
+        if (GloveData != null)
         {
             sumHP += Mathf.RoundToInt((float)(GloveData.GloveHP * (1 + GetOwnPercent(GloveData))));
             sumPercent += Mathf.RoundToInt((float)(GloveData.GloveHPPercent * (1 + GetOwnPercent(GloveData))));
         }
-        if(HelmetData != null)
+        if (HelmetData != null)
         {
             sumHP += Mathf.RoundToInt((float)(HelmetData.HelmetHP * (1 + GetOwnPercent(HelmetData))));
             sumPercent += Mathf.RoundToInt((float)(HelmetData.HelmetHPPercent * (1 + GetOwnPercent(HelmetData))));
         }
-        if(NecklessData != null)
+        if (NecklessData != null)
         {
             sumHP += Mathf.RoundToInt((float)(NecklessData.NecklessHP * (1 + GetOwnPercent(NecklessData))));
             sumPercent += Mathf.RoundToInt((float)(NecklessData.NecklessHPPercent * (1 + GetOwnPercent(NecklessData))));
         }
-        if(PantsData != null)
+        if (PantsData != null)
         {
             sumHP += Mathf.RoundToInt((float)(PantsData.PantsHP * (1 + GetOwnPercent(PantsData))));
             sumPercent += Mathf.RoundToInt((float)(PantsData.PantsHPPercent * (1 + GetOwnPercent(PantsData))));
         }
-        if(ShoesData != null)
+        if (ShoesData != null)
         {
             sumHP += Mathf.RoundToInt((float)(ShoesData.ShoesHP * (1 + GetOwnPercent(ShoesData))));
             sumPercent += Mathf.RoundToInt((float)(ShoesData.ShoesHPPercent * (1 + GetOwnPercent(ShoesData))));
         }
-        for(int i =0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumHP += Mathf.RoundToInt((float)(OtherDatas[i].OtherHP * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherHPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -366,9 +411,9 @@ public class GameManager : MonoBehaviour
             sumDef += Mathf.RoundToInt((float)(ShoesData.ShoesDef * (1 + GetOwnPercent(ShoesData))));
             sumPercent += Mathf.RoundToInt((float)(ShoesData.ShoesDefPercent * (1 + GetOwnPercent(ShoesData))));
         }
-        for(int i = 0; i < RingDatas.Length; i++)
+        for (int i = 0; i < RingDatas.Length; i++)
         {
-            if(RingDatas[i] != null)
+            if (RingDatas[i] != null)
             {
                 sumDef += Mathf.RoundToInt((float)(RingDatas[i].RingDef * (1 + GetOwnPercent(RingDatas[i]))));
                 sumPercent += Mathf.RoundToInt((float)(RingDatas[i].RingDefPercent * (1 + GetOwnPercent(RingDatas[i]))));
@@ -396,39 +441,39 @@ public class GameManager : MonoBehaviour
         int sumCri = 0;
         int sumCriResist = 0;
         float sumCriDamage = 0;
-        if(ArmorData != null)
+        if (ArmorData != null)
         {
             sumCriResist += Mathf.RoundToInt((float)(ArmorData.ArmorCriticalResist * (1 + GetOwnPercent(ArmorData))));
         }
-        if(GloveData != null)
+        if (GloveData != null)
         {
             sumCri += Mathf.RoundToInt((float)(GloveData.GloveCriticalPercent * (1 + GetOwnPercent(GloveData))));
             sumCriDamage += (float)(GloveData.GloveCriticalDamage * (1 + GetOwnPercent(GloveData)));
         }
-        if(PantsData != null)
+        if (PantsData != null)
         {
             sumCriResist += Mathf.RoundToInt((float)(PantsData.PantsCriticalResist * (1 + GetOwnPercent(PantsData))));
         }
-        if(ShoulderArmorData != null)
+        if (ShoulderArmorData != null)
         {
             sumCriResist += Mathf.RoundToInt((float)(ShoulderArmorData.ShoulderCriticalResist * (1 + GetOwnPercent(ShoulderArmorData))));
         }
-        if(WeaponData != null)
+        if (WeaponData != null)
         {
             sumCri += Mathf.RoundToInt((float)(WeaponData.WeaponCriticalPercent * (1 + GetOwnPercent(WeaponData))));
             sumCriDamage += (float)(WeaponData.WeaponCriticalDamage * (1 + GetOwnPercent(WeaponData)));
         }
-        for(int i = 0; i < RingDatas.Length; i++)
+        for (int i = 0; i < RingDatas.Length; i++)
         {
-            if(RingDatas[i] != null)
+            if (RingDatas[i] != null)
             {
                 sumCri += Mathf.RoundToInt((float)(RingDatas[i].RingCriticalPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumCriResist += Mathf.RoundToInt((float)(RingDatas[i].RingCriticalResist * (1 + GetOwnPercent(RingDatas[i]))));
             }
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumCri += Mathf.RoundToInt((float)(OtherDatas[i].OtherCriticalPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumCriResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherCriticalResist * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -450,33 +495,33 @@ public class GameManager : MonoBehaviour
         int baseComboResist = 5;
         int sumComboResist = 0;
 
-        if(WeaponData != null)
+        if (WeaponData != null)
         {
             sumComboPercent += Mathf.RoundToInt((float)(WeaponData.WeaponComboPercent * (1 + GetOwnPercent(WeaponData))));
         }
-        if(ArmorData != null)
+        if (ArmorData != null)
         {
             sumComboResist += Mathf.RoundToInt((float)(ArmorData.ArmorComboResist * (1 + GetOwnPercent(ArmorData))));
         }
-        if(ClockData != null)
+        if (ClockData != null)
         {
             sumComboResist += Mathf.RoundToInt((float)(ClockData.CloakComboResist * (1 + GetOwnPercent(ClockData))));
         }
-        if(GloveData != null)
+        if (GloveData != null)
         {
             sumComboPercent += Mathf.RoundToInt((float)(GloveData.GloveComboPercent * (1 + GetOwnPercent(GloveData))));
         }
-        if(NecklessData != null)
+        if (NecklessData != null)
         {
             sumComboPercent += Mathf.RoundToInt((float)(NecklessData.NecklessComboPercent * (1 + GetOwnPercent(NecklessData))));
         }
-        if(PantsData != null)
+        if (PantsData != null)
         {
             sumComboResist += Mathf.RoundToInt((float)(PantsData.PantsComboResist * (1 + GetOwnPercent(PantsData))));
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumComboPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumComboResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboResist * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -495,7 +540,7 @@ public class GameManager : MonoBehaviour
         int baseAvoidResist = 5;
         int sumAvoidResist = 0;
 
-        if(BeltData != null)
+        if (BeltData != null)
         {
             sumAvoidPercent += Mathf.RoundToInt((float)(BeltData.BeltAvoidPercent * (1 + GetOwnPercent(BeltData))));
         }
@@ -516,9 +561,9 @@ public class GameManager : MonoBehaviour
             sumAvoidPercent += Mathf.RoundToInt((float)(ShoesData.ShoesAvoidPercent * (1 + GetOwnPercent(ShoesData))));
             sumAvoidResist += Mathf.RoundToInt((float)(ShoesData.ShoesAvoidResist * (1 + GetOwnPercent(ShoesData))));
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumAvoidPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherAvoidPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumAvoidResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherAvoidResist * (1 + GetOwnPercent(OtherDatas[i]))));
@@ -540,7 +585,7 @@ public class GameManager : MonoBehaviour
         float baseDrainAmount = 1.05f;
         float sumDrainAmount = 0;
 
-        if(ArmorData != null)
+        if (ArmorData != null)
         {
             sumDrainResist += Mathf.RoundToInt((float)(ArmorData.ArmorDrainResist * (1 + GetOwnPercent(ArmorData))));
         }
@@ -557,17 +602,17 @@ public class GameManager : MonoBehaviour
             sumDrainPercent += Mathf.RoundToInt((float)(WeaponData.WeaponDrainPercent * (1 + GetOwnPercent(WeaponData))));
             sumDrainAmount += (float)(WeaponData.WeaponDrainAmount * (1 + GetOwnPercent(WeaponData)));
         }
-        for(int i = 0; i < RingDatas.Length; i++)
+        for (int i = 0; i < RingDatas.Length; i++)
         {
-            if(RingDatas[i] != null)
+            if (RingDatas[i] != null)
             {
                 sumDrainPercent += Mathf.RoundToInt((float)(RingDatas[i].RingDrainPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumDrainResist += Mathf.RoundToInt((float)(RingDatas[i].RingDrainResist * (1 + GetOwnPercent(RingDatas[i]))));
             }
         }
-        for(int i = 0; i < OtherDatas.Length; i++)
+        for (int i = 0; i < OtherDatas.Length; i++)
         {
-            if(OtherDatas[i] != null)
+            if (OtherDatas[i] != null)
             {
                 sumDrainPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherDrainPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumDrainAmount += (float)(OtherDatas[i].OtherDrainAmount * (1 + GetOwnPercent(OtherDatas[i])));
@@ -586,7 +631,7 @@ public class GameManager : MonoBehaviour
     {
         int sumEXP = 0;
         int sumGold = 0;
-        if(BeltData != null)
+        if (BeltData != null)
         {
             sumEXP += Mathf.RoundToInt((float)(BeltData.BeltEXPPercent * (1 + GetOwnPercent(BeltData))));
         }
@@ -610,8 +655,9 @@ public class GameManager : MonoBehaviour
                 sumGold += Mathf.RoundToInt((float)(OtherDatas[i].OtherGoldPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        EXPPercent = Mathf.RoundToInt((float)(sumEXP * (1 + LUC / 100000.0)));
-        GoldPercent = Mathf.RoundToInt((float)(sumGold * (1 + LUC / 100000.0)));
+        int cardBuff = CardBuff == CardBuffEnum.EXPandGoldBuff ? 20 : 0;
+        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumEXP));
+        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumGold));
     }
     #endregion
 
@@ -619,13 +665,24 @@ public class GameManager : MonoBehaviour
     private void RenewOther()
     {
         float sumMoveSpeed = 0;
+        int sumBonusAP = 0;
         float runeMoveSpeed = RuneHashSet.Contains("속도의 룬") ? 10f : 0f;
-        if(ShoesData != null)
+        if (ShoesData != null)
         {
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
         }
+        for (int i = 0; i < OtherDatas.Length; i++)
+        {
+            if (OtherDatas[i] != null)
+            {
+                sumBonusAP += OtherDatas[i].OtherBonusAP;
+            }
+        }
+        int quickSlotBook = isAPBook ? 1 : 0;
+        int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
-        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed);
+        BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint;
+        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint);
     }
     #endregion
 
@@ -651,12 +708,12 @@ public class GameManager : MonoBehaviour
         power += Mathf.RoundToInt((float)ComboResist / 2f);
         power += Mathf.RoundToInt((float)CriticalPercant / 2f);
         power += Mathf.RoundToInt((float)CriticalResist / 2f);
-        power += Mathf.RoundToInt((float)CriticalDamage *10f);
+        power += Mathf.RoundToInt((float)CriticalDamage * 10f);
         power += Mathf.RoundToInt((float)AvoidPercent);
         power += Mathf.RoundToInt((float)AvoidResist);
         power += Mathf.RoundToInt((float)DrainPercent / 3f);
         power += Mathf.RoundToInt((float)DrainResist / 2f);
-        power += Mathf.RoundToInt((float)DrainAmount *5f);
+        power += Mathf.RoundToInt((float)DrainAmount * 5f);
 
         Power = power;
     }
@@ -684,6 +741,8 @@ public class GameManager : MonoBehaviour
         isFood = false;
         isGoldPack = false;
 
+        CardBuff = CardBuffEnum.None;
+
         // 잡은 몬스터 초기화
         DeadMonsterList.Clear();
 
@@ -709,5 +768,27 @@ public class GameManager : MonoBehaviour
         PlayerCurHP = PlayerMaxHP;
     }
 
+    private void MasterLevelEXPData()
+    {
+        int requireEXP = 1000;
+        for(int i = 0; i < 29; i++)
+        {
+            masterLevelTable.Add(new MasterLevelEXP(i + 2, (i + 1) * (requireEXP + 4000) * (i + 2)));
+            requireEXP += 500;
+        }
+    }
     
+
+    public int GetRequireEXPForLevel(int level)
+    {
+        foreach (var data in masterLevelTable)
+        {
+            if (data.level == level)
+            {
+                return data.requireEXP;
+            }
+        }
+        // 해당 레벨에 대한 정보를 찾을 수 없으면 기본값 반환
+        return 2100000000; // 만렙시
+    }
 }

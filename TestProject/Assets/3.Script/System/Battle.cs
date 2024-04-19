@@ -585,6 +585,7 @@ public class Battle : MonoBehaviour
             Dictionary<int, int> owndictionary = DataManager.Instance.GetOwnDictionary(mon.monsterData.RewardItem[i]);
             int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
             float dropRate = 0;
+            int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
 
             if(ownCount < 10)
             {
@@ -592,8 +593,8 @@ public class Battle : MonoBehaviour
                 float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
                 dropRate = (float)(addDropRate / (1 + ownCount)); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
             }
-            
-            drop.DropRateText.text = $"{dropRate:F2}%";
+
+            drop.DropRateText.text = $"{dropRate+ cardBuff:F2}%";
         }
     }
 

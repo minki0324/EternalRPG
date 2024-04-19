@@ -39,6 +39,9 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text runeNameTxt;
     [SerializeField] private TMP_Text runeDesTxt;
 
+    [Header("젬 천장")]
+    [SerializeField] private GameObject buyingGemButton;
+    private int gemDrop = 2000;
     private void OnEnable()
     {
         InitData();
@@ -75,21 +78,20 @@ public class BattleResult : MonoBehaviour
     private void AccountBattle_Co()
     { // 전투 결산
         // 경험치
-        int EXP = Mathf.RoundToInt((float)(mon.monsterData.RewordEXP * (1 + (float)(GameManager.Instance.EXPPercent / 100f))));
-        EXP = Mathf.RoundToInt(Random.Range(EXP * 0.95f, EXP * 1.05f));
-        Debug.Log(EXP);
+        long EXP = (long)Mathf.Round((float)(mon.monsterData.RewordEXP * (float)(GameManager.Instance.EXPPercent / 100f)));
+        EXP = (long)Mathf.Round(Random.Range(EXP * 0.95f, EXP * 1.05f));
         GameManager.Instance.CurrentEXP += EXP;
         int levelup = 0;
-        float requireEXP = 0f;
-        int quickSlotBook = GameManager.Instance.isAPBook ? 1 : 0;
-        int totalAP = 5 + quickSlotBook + GameManager.Instance.BonusAP;
+        double requireEXP = 0f;
+        
+        int totalAP = GameManager.Instance.BonusAP;
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
             // 곱연산 계산 
-            requireEXP = Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f)) == GameManager.Instance.RequireEXP ?
-                                                        GameManager.Instance.RequireEXP + 1 : Mathf.RoundToInt((float)(GameManager.Instance.RequireEXP * 1.001f));
+            requireEXP = (long)Mathf.Round(GameManager.Instance.RequireEXP * 1.001f) == GameManager.Instance.RequireEXP ?
+                                                        GameManager.Instance.RequireEXP + 1 : (long)Mathf.Round(GameManager.Instance.RequireEXP * 1.001f);
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
-            GameManager.Instance.RequireEXP = Mathf.RoundToInt(requireEXP);
+            GameManager.Instance.RequireEXP = (long)Mathf.Round((float)requireEXP);
             GameManager.Instance.PlayerLevel++;
             GameManager.Instance.CurrentAP += totalAP;
             levelup++;
@@ -99,9 +101,9 @@ public class BattleResult : MonoBehaviour
         APDistribute();
 
         // 골드
-        int gold = Mathf.RoundToInt(UnityEngine.Random.Range(mon.monsterData.RewordGold * 0.95f, mon.monsterData.RewordGold * 1.05f));
+        long gold = (long)Mathf.Round(UnityEngine.Random.Range(mon.monsterData.RewordGold * 0.95f, mon.monsterData.RewordGold * 1.05f));
         float quickSlotGold = GameManager.Instance.isGoldPack ? 30 : 0;
-        int totalGold = Mathf.RoundToInt((float)(gold * (1 + ((float)(GameManager.Instance.GoldPercent / 100f) + (float)(quickSlotGold / 100f)))));
+        long totalGold = (long)Mathf.Round(gold * ((GameManager.Instance.GoldPercent / 100f) + (quickSlotGold / 100f)));
         GameManager.Instance.Gold += totalGold;
 
         // 아이템
@@ -150,6 +152,7 @@ public class BattleResult : MonoBehaviour
             activeCanvas.gameObject.SetActive(true);
             inventoryPanel.SetActive(true);
             overEnergyWarningPanel.SetActive(true);
+            buyingGemButton.SetActive(true);
         }
         else
         { // 에너지가 남아있을 때
@@ -193,10 +196,11 @@ public class BattleResult : MonoBehaviour
             int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
 
             if (ownCount == 10) continue; // 보유 개수가 10개면 더 이상 드랍 x
-
+            float masterBuff = GameManager.Instance.MasterDropPoint == 0 ? 0 : GameManager.Instance.MasterDropPoint / 100f;
+            int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = (float)(addDropRate / (1 + ownCount));
+            float dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff);
             float randomValue = UnityEngine.Random.Range(0f, 100f);
 
             if (dropRate >= 100 || dropRate > randomValue)
@@ -215,7 +219,9 @@ public class BattleResult : MonoBehaviour
     private IEnumerator PrintRuneDrop(Monster mon)
     {
         float randomValue = Random.Range(0f, 100f);
-        float runeDropRate = GameManager.Instance.RuneHashSet.Contains("평범한 룬") ? 1.5f : 1f;
+        float cardbuff = GameManager.Instance.CardBuff == CardBuffEnum.RuneBuff ? 0.5f : 0;
+        int masterBuff = GameManager.Instance.MasterRunePoint != 0 ? 1 : 0;
+        float runeDropRate = GameManager.Instance.RuneHashSet.Contains("평범한 룬") ? 1.5f + cardbuff + masterBuff : 1f + cardbuff + masterBuff;
 
         if (!GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))
         {
@@ -300,11 +306,26 @@ public class BattleResult : MonoBehaviour
 
     private void GemCalculate()
     {
-        int randomValue = Random.Range(0, 2000);
+        int masterBuff = GameManager.Instance.MasterGemPoint == 0 ? 0 : GameManager.Instance.MasterGemPoint * 100;
+        gemDrop -= masterBuff;
+        int randomValue = Random.Range(0, gemDrop);
         if (randomValue == 77)
         {
             gemPanel.SetActive(true);
             GameManager.Instance.Gem++;
+        }
+    }
+
+    private void MasterLevelCal()
+    {
+        int masterExp = GameManager.Instance.PlayerLevel / 1000;
+
+        GameManager.Instance.MasterCurrentEXP += masterExp;
+        if(GameManager.Instance.MasterCurrentEXP >= GameManager.Instance.MasterRequireEXP)
+        {
+            GameManager.Instance.MasterLevel++;
+            GameManager.Instance.MasterRequireEXP = GameManager.Instance.GetRequireEXPForLevel(GameManager.Instance.MasterLevel);
+            PrintLog.Instance.StaticLog("마스터 레벨이 상승했습니다!");
         }
     }
 }

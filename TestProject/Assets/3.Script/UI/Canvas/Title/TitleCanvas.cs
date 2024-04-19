@@ -11,6 +11,8 @@ public class TitleCanvas : MonoBehaviour
     [SerializeField] private GameObject transitionObj;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private GameObject resetWarningPanel;
+    [SerializeField] private GameObject cardBuffPanel;
+    [SerializeField] private GameObject cardBuffWarningPanel;
 
     public void TitleStartButton()
     {
@@ -31,23 +33,50 @@ public class TitleCanvas : MonoBehaviour
         }
         else
         { // 원래 하던 거 이어하기
-            StartCoroutine(StartButton_Co(_isReStart));
+            if(GameManager.Instance.CardBuff == CardBuffEnum.None)
+            {
+                cardBuffPanel.SetActive(true);
+                warningPanel.SetActive(false);
+            }
+            else
+            {
+                StartCoroutine(StartButton_Co());
+            }
         }
     }
 
-    public void ReStartButton(bool _isRestart)
+    public void CardBuffPanel()
     {
-        StartCoroutine(StartButton_Co(_isRestart));
+        GameManager.Instance.ResetRound();
+        TitleStartButton();
+        cardBuffPanel.SetActive(true);
         warningPanel.SetActive(false);
     }
 
-    private IEnumerator StartButton_Co(bool _isReStart)
+    public void CardBuffSelected(int _buffType)
     {
+        GameManager.Instance.CardBuff = (CardBuffEnum)_buffType;
+    }
+
+    public void ReStartButton()
+    {
+        if (GameManager.Instance.CardBuff == CardBuffEnum.None)
+        { // 안골랐으므로 카드 고르라는 경고 띄우기
+            cardBuffWarningPanel.SetActive(true);
+        }
+        else
+        {
+            GameManager.Instance.RenewAbility();
+            StartCoroutine(StartButton_Co());
+            warningPanel.SetActive(false);
+        }
+    }
+
+    private IEnumerator StartButton_Co()
+    {
+        cardBuffPanel.SetActive(false);
         transitionObj.SetActive(true);
         StartCoroutine(loading.StartLoadingLight());
-
-        // 새 게임 버튼일 경우
-        if (_isReStart) GameManager.Instance.ResetRound();
 
         // Loading.isLoading이 false가 될 때까지 대기
         while (loading.isLoading)
@@ -66,6 +95,7 @@ public class TitleCanvas : MonoBehaviour
             return;
         }
         // 장비 초기화
+        GameManager.Instance.CardBuff = CardBuffEnum.None;
         GameManager.Instance.WeaponData = GameManager.Instance.Punch;
         GameManager.Instance.ArmorData = null;
         GameManager.Instance.HelmetData = null;

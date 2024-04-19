@@ -62,6 +62,7 @@ public class EquipmentCanvas : MonoBehaviour
     [SerializeField] private Image[] ringIcons;
     [SerializeField] private Image[] otherIcons;
 
+    
     private void OnEnable()
     {
         EquipmentManager.Instance.ItemListSet("¹«±â", itemListParent);
