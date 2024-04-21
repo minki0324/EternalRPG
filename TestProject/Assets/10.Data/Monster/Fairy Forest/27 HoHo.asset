@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 27 HoHo
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD638\uD638"
+  MonsterID: 27
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 3450
+  MonsterMaxHP: 95000
+  MonsterCurHP: 95000
+  MonsterDef: 2450
+  MonsterATK: 4800
+  MonsterSprite: {fileID: 21300000, guid: 69d990741b06a0945b95f5793940fe7b, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 2
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 135
+  CriticalResist: 136
+  CriticalDamage: 1.82
+  ComboPercent: 121
+  ComboResist: 124
+  AvoidPercent: 117
+  AvoidResist: 135
+  DrainPercent: 128
+  DrainResist: 124
+  DrainAmount: 1.82
+  RewordEXP: 3000000
+  RewordGold: 18000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 9529f9444c8e2e048b2c42b31be21607, type: 2}
+  - {fileID: 11400000, guid: 0ad24a334b925b6438ed8a12952df758, type: 2}
+  - {fileID: 11400000, guid: 4d0b2197f3e97de419de535e50d151ae, type: 2}
+  RewardRune: {fileID: 0}

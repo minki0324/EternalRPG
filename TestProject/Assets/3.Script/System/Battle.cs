@@ -44,6 +44,7 @@ public class Battle : MonoBehaviour
     private Coroutine battleCoroutine;
     [Header("룬")]
     private bool isDefenceRune = false;
+    private int runeHPRegen;
 
     private void OnEnable()
     {
@@ -194,7 +195,10 @@ public class Battle : MonoBehaviour
         damageText.gameObject.SetActive(true);
         effectAnimator.gameObject.SetActive(true);
         damageAnimator.gameObject.SetActive(true);
-        Debug.Log("여기 들어오는거 아님 ?");
+
+        // 턴당 체력 0.5% 회복 
+        runeHPRegen =  GameManager.Instance.RuneHashSet.Contains("재생의 룬") ? Mathf.RoundToInt(GameManager.Instance.PlayerMaxHP / 200f) : 0;
+
         while (true)
         {
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
@@ -262,6 +266,7 @@ public class Battle : MonoBehaviour
         {
             PlayerAttack(comboCount);
             effectAnimator.SetTrigger(GetTrigger(comboCount));
+            GameManager.Instance.PlayerCurHP += runeHPRegen;
         }
 
         if (mon.MonsterCurHP <= 0)

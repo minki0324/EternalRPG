@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 21 Grow WhitePi
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC131\uC7A5\uD55C \uD654\uC774\uD2B8\uD53C"
+  MonsterID: 21
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 1350
+  MonsterMaxHP: 18500
+  MonsterCurHP: 18500
+  MonsterDef: 780
+  MonsterATK: 1400
+  MonsterSprite: {fileID: 21300000, guid: 94a38306e4b448b4abf3f57cdd1aae62, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 2
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 71
+  CriticalResist: 72
+  CriticalDamage: 1.65
+  ComboPercent: 73
+  ComboResist: 74
+  AvoidPercent: 68
+  AvoidResist: 75
+  DrainPercent: 78
+  DrainResist: 75
+  DrainAmount: 1.65
+  RewordEXP: 380000
+  RewordGold: 4100
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 1b14d789f710d93478156b783ab6d901, type: 2}
+  - {fileID: 11400000, guid: eb09034faea068f49a56a3d8cb1f0f9a, type: 2}
+  RewardRune: {fileID: 0}

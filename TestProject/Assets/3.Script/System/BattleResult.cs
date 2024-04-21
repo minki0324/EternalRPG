@@ -200,11 +200,16 @@ public class BattleResult : MonoBehaviour
             int ownCount = owndictionary.ContainsKey(mon.monsterData.RewardItem[i].ItemID) ? owndictionary[mon.monsterData.RewardItem[i].ItemID] : 1;
 
             if (ownCount == 10) continue; // 보유 개수가 10개면 더 이상 드랍 x
+
+            // 고정 드랍율 관련 버프
             float masterBuff = GameManager.Instance.MasterDropPoint == 0 ? 0 : GameManager.Instance.MasterDropPoint / 100f;
             int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
+            int runeDropRate = GameManager.Instance.RuneHashSet.Contains("행운의 룬") ? 2 : 0;
+
+            // 드랍율 계산
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff);
+            float dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + runeDropRate);
             float randomValue = UnityEngine.Random.Range(0f, 100f);
 
             if (dropRate >= 100 || dropRate > randomValue)

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 00 Blue Plant
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBE14\uB8E8 \uD50C\uB79C\uD2B8"
+  MonsterID: 0
+  MonsterType: "\uB098\uBB34"
+  MonsterLevel: 1
+  MonsterMaxHP: 30
+  MonsterCurHP: 30
+  MonsterDef: 0
+  MonsterATK: 5
+  MonsterSprite: {fileID: 21300000, guid: 7ffc83d749d18444e8d15512b0b09e6e, type: 3}
+  ReturnPos: {x: 1.5, y: 0}
+  RequireEnergy: 1
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 5
+  CriticalResist: 5
+  CriticalDamage: 1.2
+  ComboPercent: 5
+  ComboResist: 5
+  AvoidPercent: 5
+  AvoidResist: 5
+  DrainPercent: 5
+  DrainResist: 5
+  DrainAmount: 1.2
+  RewordEXP: 150
+  RewordGold: 35
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
+  - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
+  RewardRune: {fileID: 0}

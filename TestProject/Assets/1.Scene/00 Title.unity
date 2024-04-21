@@ -4141,6 +4141,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44b13bd1805923748ad891f7c20629e8, type: 2}
   - {fileID: 11400000, guid: 6e04afc62b9abb24fb15e4d4cf432d84, type: 2}
   - {fileID: 11400000, guid: 7ea78851906b6f24b9611cad003b98ad, type: 2}
+  - {fileID: 11400000, guid: 2e7353e3f7d893c4987335edd981cd5a, type: 2}
+  - {fileID: 11400000, guid: 7e741d7910f8e6647b313aeebafa9ea9, type: 2}
+  - {fileID: 11400000, guid: c82dfbf71c8a5ed4784c1d1b3e490a52, type: 2}
+  - {fileID: 11400000, guid: 7213662dc9b1cb4498781d967c852c2d, type: 2}
+  - {fileID: 11400000, guid: d6bee81954b7616418834ebdacc69ac4, type: 2}
+  - {fileID: 11400000, guid: d94766a62bd951543b8217e139c3ec62, type: 2}
+  - {fileID: 11400000, guid: 8057e5f53dabf7d4bbee19703bb92ee2, type: 2}
+  - {fileID: 11400000, guid: aede653713bab164d9ad7ee2cf88129c, type: 2}
+  - {fileID: 11400000, guid: c595c60901069ef449dce9fcd5b38199, type: 2}
+  - {fileID: 11400000, guid: 1f1e76338b2eaee45bf4a71ee3520380, type: 2}
 --- !u!4 &558294923
 Transform:
   m_ObjectHideFlags: 0
@@ -5881,6 +5891,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e5488ba87dc091f48bb2ea2992c59cb4, type: 2}
   - {fileID: 11400000, guid: 4f67b09c18d02c74ab53de7ae61162ab, type: 2}
   - {fileID: 11400000, guid: 81efb93b254862d4fa55340093a60eec, type: 2}
+  - {fileID: 11400000, guid: c926daa6815a1d94fa24660e92fa9501, type: 2}
+  - {fileID: 11400000, guid: 78e98fc96dfe8b34ba8ffe9b76c31e8e, type: 2}
+  - {fileID: 11400000, guid: 7865d827fdcee37418f495e36516c9db, type: 2}
   spriteAtlas: {fileID: 4343727234628468602, guid: fbdee9b518f32ab40aad88761470e10f, type: 2}
   itemPanel: {fileID: 722111849703108609, guid: 73173509e2ed23e4ebdf91b1f4c420b4, type: 3}
 --- !u!4 &744861141

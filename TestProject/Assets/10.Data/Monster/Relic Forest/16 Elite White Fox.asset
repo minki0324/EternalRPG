@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 16 Elite White Fox
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5D8\uB9AC\uD2B8 \uBC31\uBBF8\uD638"
+  MonsterID: 16
+  MonsterType: "\uB3D9\uBB3C - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 1720
+  MonsterMaxHP: 39250
+  MonsterCurHP: 39250
+  MonsterDef: 1150
+  MonsterATK: 2250
+  MonsterSprite: {fileID: 21300000, guid: 329e8f16adb647545ba3743d7a6f8d22, type: 3}
+  ReturnPos: {x: 0, y: -2}
+  RequireEnergy: 5
+  isElite: 1
+  EliteID: 3
+  CriticalPercant: 95
+  CriticalResist: 92
+  CriticalDamage: 1.75
+  ComboPercent: 88
+  ComboResist: 89
+  AvoidPercent: 91
+  AvoidResist: 85
+  DrainPercent: 95
+  DrainResist: 97
+  DrainAmount: 1.75
+  RewordEXP: 689000
+  RewordGold: 5580
+  RewordEnergy: 5
+  RewardItem:
+  - {fileID: 11400000, guid: 5945d6e1f3c770b4388bd67a6ce45090, type: 2}
+  - {fileID: 11400000, guid: 37e6bd2d8440aa943941900d38cc1be4, type: 2}
+  RewardRune: {fileID: 11400000, guid: 4f67b09c18d02c74ab53de7ae61162ab, type: 2}

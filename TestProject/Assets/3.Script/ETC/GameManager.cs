@@ -571,7 +571,7 @@ public class GameManager : MonoBehaviour
         }
 
         AvoidPercent = Mathf.RoundToInt((float)((baseAvoidPercent + sumAvoidPercent) * (1 + (DEX / 10000.0))));
-        AvoidResist = Mathf.RoundToInt((float)((baseAvoidResist + sumAvoidResist) * (1 + (DEX / 10000.0))));
+        AvoidResist = Mathf.RoundToInt((float)((baseAvoidResist + sumAvoidResist) * (1 + (DEX / 2000.0))));
     }
     #endregion
 
@@ -637,13 +637,13 @@ public class GameManager : MonoBehaviour
         }
         if (NecklessData != null)
         {
-            sumEXP += Mathf.RoundToInt((float)(NecklessData.NecklessDEXPercent * (1 + GetOwnPercent(NecklessData))));
+            sumEXP += Mathf.RoundToInt((float)(NecklessData.NecklessEXPPercent * (1 + GetOwnPercent(NecklessData))));
         }
         for (int i = 0; i < RingDatas.Length; i++)
         {
             if (RingDatas[i] != null)
             {
-                sumEXP += Mathf.RoundToInt((float)(RingDatas[i].RingDEXPercent * (1 + GetOwnPercent(RingDatas[i]))));
+                sumEXP += Mathf.RoundToInt((float)(RingDatas[i].RingEXPPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumGold += Mathf.RoundToInt((float)(RingDatas[i].RingGoldPercent * (1 + GetOwnPercent(RingDatas[i]))));
             }
         }
@@ -651,7 +651,7 @@ public class GameManager : MonoBehaviour
         {
             if (OtherDatas[i] != null)
             {
-                sumEXP += Mathf.RoundToInt((float)(OtherDatas[i].OtherDEXPercent * (1 + GetOwnPercent(OtherDatas[i]))));
+                sumEXP += Mathf.RoundToInt((float)(OtherDatas[i].OtherEXPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumGold += Mathf.RoundToInt((float)(OtherDatas[i].OtherGoldPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
@@ -667,6 +667,7 @@ public class GameManager : MonoBehaviour
         float sumMoveSpeed = 0;
         int sumBonusAP = 0;
         float runeMoveSpeed = RuneHashSet.Contains("¼ÓµµÀÇ ·é") ? 10f : 0f;
+        
         if (ShoesData != null)
         {
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
@@ -740,6 +741,7 @@ public class GameManager : MonoBehaviour
         isClover = false;
         isFood = false;
         isGoldPack = false;
+        int runeBonusEnergy = RuneHashSet.Contains("¹«¸íÀÇ ·é") ? 2 : 0;
 
         CardBuff = CardBuffEnum.None;
 
@@ -761,7 +763,7 @@ public class GameManager : MonoBehaviour
         Gold = 0;
         CurrentAP = 0;
         PlayCount++;
-        CurrentEnergy = 25 + BonusEnergy;
+        CurrentEnergy = 25 + BonusEnergy + runeBonusEnergy;
         CurrentMapName = string.Empty;
 
         RenewAbility();

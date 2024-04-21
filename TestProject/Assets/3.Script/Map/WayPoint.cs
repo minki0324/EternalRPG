@@ -38,7 +38,6 @@ public class WayPoint : MonoBehaviour
                 playerMove = collision.GetComponent<PlayerMove>();
             }
             playerMove.movePoint.gameObject.SetActive(false);
-
             if (isUP)
             {
                 // 레이어 변경

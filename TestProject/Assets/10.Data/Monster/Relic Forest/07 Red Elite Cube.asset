@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 07 Red Elite Cube
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5D8\uB9AC\uD2B8 \uB808\uB4DC \uD050\uBE0C\uB9AD"
+  MonsterID: 7
+  MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 105
+  MonsterMaxHP: 1350
+  MonsterCurHP: 1350
+  MonsterDef: 67
+  MonsterATK: 108
+  MonsterSprite: {fileID: 21300000, guid: 53fa1d2b605c09b42ac37ea5ad4ef80a, type: 3}
+  ReturnPos: {x: -1.5, y: 1.5}
+  RequireEnergy: 4
+  isElite: 1
+  EliteID: 1
+  CriticalPercant: 13
+  CriticalResist: 17
+  CriticalDamage: 1.4
+  ComboPercent: 18
+  ComboResist: 17
+  AvoidPercent: 16
+  AvoidResist: 18
+  DrainPercent: 14
+  DrainResist: 19
+  DrainAmount: 1.4
+  RewordEXP: 35000
+  RewordGold: 560
+  RewordEnergy: 4
+  RewardItem:
+  - {fileID: 11400000, guid: 8534a3fa68878b743be5ac20cff5d01d, type: 2}
+  - {fileID: 11400000, guid: 9e79f95c6856b8744ad32125bef6274c, type: 2}
+  RewardRune: {fileID: 11400000, guid: 821fa878d90d2294c8579659948a8b48, type: 2}

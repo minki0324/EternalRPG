@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 19 GreenPi
+  m_EditorClassIdentifier: 
+  MonsterName: "\uADF8\uB9B0\uD53C"
+  MonsterID: 19
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 490
+  MonsterMaxHP: 4500
+  MonsterCurHP: 4500
+  MonsterDef: 860
+  MonsterATK: 220
+  MonsterSprite: {fileID: 21300000, guid: d89c85980578c414b918adece82546f4, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 2
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 26
+  CriticalResist: 27
+  CriticalDamage: 1.45
+  ComboPercent: 35
+  ComboResist: 34
+  AvoidPercent: 29
+  AvoidResist: 28
+  DrainPercent: 36
+  DrainResist: 37
+  DrainAmount: 1.45
+  RewordEXP: 120000
+  RewordGold: 1400
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 1d022cd0aa779d34a8173f39bb63a893, type: 2}
+  - {fileID: 11400000, guid: a9a1a8cd4ab2b194f9f7375018df9588, type: 2}
+  RewardRune: {fileID: 0}

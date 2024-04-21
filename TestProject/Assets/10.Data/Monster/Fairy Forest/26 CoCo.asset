@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 26 CoCo
+  m_EditorClassIdentifier: 
+  MonsterName: "\uCF54\uCF54"
+  MonsterID: 26
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 4600
+  MonsterMaxHP: 142000
+  MonsterCurHP: 142000
+  MonsterDef: 3000
+  MonsterATK: 6200
+  MonsterSprite: {fileID: 21300000, guid: 7c7e47477fb5ca14f8a1ecb3c8575492, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 2
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 150
+  CriticalResist: 151
+  CriticalDamage: 1.84
+  ComboPercent: 135
+  ComboResist: 136
+  AvoidPercent: 123
+  AvoidResist: 145
+  DrainPercent: 140
+  DrainResist: 145
+  DrainAmount: 1.84
+  RewordEXP: 4800000
+  RewordGold: 25000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: c7c4b7ef45a38b44982727145b29579a, type: 2}
+  - {fileID: 11400000, guid: 35b43013b669671449f6bbd55ba9003e, type: 2}
+  - {fileID: 11400000, guid: 44908e2b06d6d3f409d37f8416655cda, type: 2}
+  RewardRune: {fileID: 0}

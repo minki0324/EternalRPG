@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 14 Light Fairy
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBE5B\uC758 \uC694\uC815"
+  MonsterID: 14
+  MonsterType: "\uC694\uC815"
+  MonsterLevel: 845
+  MonsterMaxHP: 12500
+  MonsterCurHP: 12500
+  MonsterDef: 490
+  MonsterATK: 960
+  MonsterSprite: {fileID: 21300000, guid: 9110258a920aa664d9b6dda693929b9d, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 1
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 59
+  CriticalResist: 61
+  CriticalDamage: 1.64
+  ComboPercent: 52
+  ComboResist: 55
+  AvoidPercent: 62
+  AvoidResist: 63
+  DrainPercent: 68
+  DrainResist: 67
+  DrainAmount: 1.64
+  RewordEXP: 215000
+  RewordGold: 1800
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: f431763bea868d14aad0e6dfeb3186f7, type: 2}
+  RewardRune: {fileID: 0}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 20 WhitePi
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD654\uC774\uD2B8\uD53C"
+  MonsterID: 20
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 760
+  MonsterMaxHP: 10200
+  MonsterCurHP: 10200
+  MonsterDef: 400
+  MonsterATK: 840
+  MonsterSprite: {fileID: 21300000, guid: 34998fc79a2a91e4785398e77837f71d, type: 3}
+  ReturnPos: {x: 1.5, y: 0}
+  RequireEnergy: 2
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 55
+  CriticalResist: 58
+  CriticalDamage: 1.6
+  ComboPercent: 46
+  ComboResist: 45
+  AvoidPercent: 52
+  AvoidResist: 58
+  DrainPercent: 61
+  DrainResist: 60
+  DrainAmount: 1.6
+  RewordEXP: 380000
+  RewordGold: 4100
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

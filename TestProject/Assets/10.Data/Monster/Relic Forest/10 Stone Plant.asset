@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 10 Stone Plant
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC2A4\uD1A4 \uD50C\uB79C\uD2B8"
+  MonsterID: 10
+  MonsterType: "\uB098\uBB34"
+  MonsterLevel: 670
+  MonsterMaxHP: 7800
+  MonsterCurHP: 7800
+  MonsterDef: 352
+  MonsterATK: 560
+  MonsterSprite: {fileID: 21300000, guid: 754a3e9390a93c447a81341223fe0526, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 1
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 45
+  CriticalResist: 54
+  CriticalDamage: 1.6
+  ComboPercent: 44
+  ComboResist: 42
+  AvoidPercent: 49
+  AvoidResist: 48
+  DrainPercent: 47
+  DrainResist: 43
+  DrainAmount: 1.6
+  RewordEXP: 98000
+  RewordGold: 980
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 57fea10479057fd469d4e5c5bb1e21d1, type: 2}
+  - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}
+  RewardRune: {fileID: 0}

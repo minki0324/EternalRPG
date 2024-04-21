@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 04 Unknown
   m_EditorClassIdentifier: 
   EquipmentType: 12
-  SpriteName: 
+  SpriteName: 04 Unknown
   ItemID: 4
   EquipmentName: 04 Unknown
   RequireCost: 0

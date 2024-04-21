@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 22 Elite Water Fox
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD638\uB791"
+  MonsterID: 22
+  MonsterType: "\uB3D9\uBB3C - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 2600
+  MonsterMaxHP: 59000
+  MonsterCurHP: 59000
+  MonsterDef: 1700
+  MonsterATK: 3200
+  MonsterSprite: {fileID: 21300000, guid: b59562bba1a90ca4c8496b2339ada0c7, type: 3}
+  ReturnPos: {x: 0, y: 1.5}
+  RequireEnergy: 4
+  isElite: 1
+  EliteID: 5
+  CriticalPercant: 115
+  CriticalResist: 118
+  CriticalDamage: 1.8
+  ComboPercent: 105
+  ComboResist: 109
+  AvoidPercent: 102
+  AvoidResist: 120
+  DrainPercent: 111
+  DrainResist: 114
+  DrainAmount: 1.8
+  RewordEXP: 2100000
+  RewordGold: 16000
+  RewordEnergy: 4
+  RewardItem:
+  - {fileID: 11400000, guid: 263964c8db9715c49adc753a4043cc02, type: 2}
+  RewardRune: {fileID: 11400000, guid: c926daa6815a1d94fa24660e92fa9501, type: 2}
