@@ -209,7 +209,7 @@ public class BattleResult : MonoBehaviour
             // 드랍율 계산
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
             float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-            float dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + runeDropRate);
+            float dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + runeDropRate + GameManager.Instance.BadgeData.BadgeItemDropRate);
             float randomValue = UnityEngine.Random.Range(0f, 100f);
 
             if (dropRate >= 100 || dropRate > randomValue)
@@ -228,13 +228,11 @@ public class BattleResult : MonoBehaviour
     private IEnumerator PrintRuneDrop(Monster mon)
     {
         float randomValue = Random.Range(0f, 100f);
-        float cardbuff = GameManager.Instance.CardBuff == CardBuffEnum.RuneBuff ? 0.5f : 0;
-        int masterBuff = GameManager.Instance.MasterRunePoint != 0 ? 1 : 0;
-        float runeDropRate = GameManager.Instance.RuneHashSet.Contains("평범한 룬") ? 1.5f + cardbuff + masterBuff : 1f + cardbuff + masterBuff;
+        
 
         if (!GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))
         {
-            if (runeDropRate >= randomValue)
+            if (GameManager.Instance.RuneDropRate >= randomValue)
             {
                 runeDropEffectPanel.SetActive(true);
                 effectAnimator.SetTrigger("Impact");

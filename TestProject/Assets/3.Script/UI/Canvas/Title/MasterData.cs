@@ -9,6 +9,7 @@ public class MasterData : MonoBehaviour
     [SerializeField] private TMP_Text MasterInfomationText;
     [SerializeField] private GameObject WarningPanel;
     [SerializeField] private MasterStatusPanel[] panels;
+    [SerializeField] private Sprite[] badgeSprites;
 
     private void OnEnable()
     {

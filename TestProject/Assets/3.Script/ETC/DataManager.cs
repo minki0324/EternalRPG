@@ -165,6 +165,9 @@ public class DataManager : MonoBehaviour
     private string quickSlotEquipmentPath;
     private string masterLevelPath;
 
+    [Header("Àåºñ °³¼ö¿¡ µû¸¥ ¹îÁö ¸ñ·Ï")]
+    public BadgeData[] badgeDatas;
+
     [Header("Quick Slot List")]
     public List<EquipmentSet> QuickSlots = new List<EquipmentSet>();
 
@@ -676,7 +679,7 @@ public class DataManager : MonoBehaviour
     public void InitOwnDictionary()
     {
         EquipmentSet();
-        if(WeaponOwnCount == null) WeaponOwnCount = new Dictionary<int, int>();
+        if (WeaponOwnCount == null) WeaponOwnCount = new Dictionary<int, int>();
         if (ArmorOwnCount == null) ArmorOwnCount = new Dictionary<int, int>();
         if (HelmetOwnCount == null) HelmetOwnCount = new Dictionary<int, int>();
         if (PantsOwnCount == null) PantsOwnCount = new Dictionary<int, int>();
@@ -781,5 +784,64 @@ public class DataManager : MonoBehaviour
 
         GameManager.Instance.QuickSlotIndex = 0;
         GameManager.Instance.QuickSlot = new string[5] { "Äü½½·Ô 1", "Äü½½·Ô 2", "Äü½½·Ô 3", "Äü½½·Ô 4", "Äü½½·Ô 5" };
+    }
+
+    public int GetOwnCount()
+    {
+        int sumOwnCount = 0;
+
+        #region
+        foreach (var weaponCount in WeaponOwnCount.Values)
+        {
+            sumOwnCount += weaponCount;
+        }
+        foreach (var armorCount in ArmorOwnCount.Values)
+        {
+            sumOwnCount += armorCount;
+        }
+        foreach (var helmetCount in HelmetOwnCount.Values)
+        {
+            sumOwnCount += helmetCount;
+        }
+        foreach (var pantsCount in PantsOwnCount.Values)
+        {
+            sumOwnCount += pantsCount;
+        }
+        foreach (var gloveCount in GloveOwnCount.Values)
+        {
+            sumOwnCount += gloveCount;
+        }
+        foreach (var shoesCount in ShoesOwnCount.Values)
+        {
+            sumOwnCount += shoesCount;
+        }
+        foreach (var cloakCount in CloakOwnCount.Values)
+        {
+            sumOwnCount += cloakCount;
+        }
+        foreach (var beltCount in BeltOwnCount.Values)
+        {
+            sumOwnCount += beltCount;
+        }
+        foreach (var shoulderCount in ShoulderArmorOwnCount.Values)
+        {
+            sumOwnCount += shoulderCount;
+        }
+        foreach (var necklessCount in NecklessOwnCount.Values)
+        {
+            sumOwnCount += necklessCount;
+        }
+        foreach (var ringCount in RingOwnCount.Values)
+        {
+            sumOwnCount += ringCount;
+        }
+        foreach (var otherCount in OtherOwnCount.Values)
+        {
+            sumOwnCount += otherCount;
+        }
+
+        #endregion
+
+        return sumOwnCount;
     }
 }

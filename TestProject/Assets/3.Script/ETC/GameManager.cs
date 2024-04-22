@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
     public int DEXPercent = 0;
     public int LUCPercent = 0;
     public int VITPercent = 0;
+    public float RuneDropRate = 1;
 
     [Header("죽인 몬스터")]
     public List<int> DeadMonsterList = new List<int>();
@@ -135,6 +136,9 @@ public class GameManager : MonoBehaviour
     public RingData[] RingDatas = new RingData[2];
     public NecklessData NecklessData;
     public OtherData[] OtherDatas = new OtherData[4];
+
+    [Header("뱃지")]
+    public BadgeData BadgeData;
 
     [Header("룬석")]
     public HashSet<string> RuneHashSet;
@@ -266,14 +270,14 @@ public class GameManager : MonoBehaviour
                 sumVITPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherVITPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        STR = Mathf.RoundToInt((baseSTR + APSTR) * (1 + (float)(sumSTRPercent / 100f)));
-        DEX = Mathf.RoundToInt((baseDEX + APDEX) * (1 + (float)(sumDEXPercent / 100f)));
-        LUC = Mathf.RoundToInt((baseLUC + APLUC) * (1 + (float)(sumLUCPercent / 100f)));
-        VIT = Mathf.RoundToInt((baseVIT + APVIT) * (1 + (float)(sumVITPercent / 100f)));
-        STRPercent = sumSTRPercent;
-        DEXPercent = sumDEXPercent;
-        LUCPercent = sumLUCPercent;
-        VITPercent = sumVITPercent;
+        STR = Mathf.RoundToInt((baseSTR + APSTR) * (1 + (float)(sumSTRPercent / 100f)) + BadgeData.BadgeSTRPercent);
+        DEX = Mathf.RoundToInt((baseDEX + APDEX) * (1 + (float)(sumDEXPercent / 100f)) + BadgeData.BadgeDEXPercent);
+        LUC = Mathf.RoundToInt((baseLUC + APLUC) * (1 + (float)(sumLUCPercent / 100f)) + BadgeData.BadgeLUCPercent);
+        VIT = Mathf.RoundToInt((baseVIT + APVIT) * (1 + (float)(sumVITPercent / 100f)) + BadgeData.BadgeVITPercent);
+        STRPercent = sumSTRPercent + BadgeData.BadgeSTRPercent;
+        DEXPercent = sumDEXPercent + BadgeData.BadgeDEXPercent;
+        LUCPercent = sumLUCPercent + BadgeData.BadgeLUCPercent;
+        VITPercent = sumVITPercent + BadgeData.BadgeVITPercent;
     }
     #endregion
 
@@ -311,7 +315,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherATKPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 10f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0))));
+        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 10f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0)) + BadgeData.BadgeATKPercent));
         PlayerATKPercent = sumPercent;
     }
     #endregion
@@ -571,7 +575,7 @@ public class GameManager : MonoBehaviour
         }
 
         AvoidPercent = Mathf.RoundToInt((float)((baseAvoidPercent + sumAvoidPercent) * (1 + (DEX / 10000.0))));
-        AvoidResist = Mathf.RoundToInt((float)((baseAvoidResist + sumAvoidResist) * (1 + (DEX / 2000.0))));
+        AvoidResist = Mathf.RoundToInt((float)((baseAvoidResist + sumAvoidResist) * (1 + (DEX / 2000.0)) + BadgeData.BadgeAvoidResist));
     }
     #endregion
 
@@ -656,18 +660,26 @@ public class GameManager : MonoBehaviour
             }
         }
         int cardBuff = CardBuff == CardBuffEnum.EXPandGoldBuff ? 20 : 0;
-        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumEXP));
-        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumGold));
+        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumEXP + BadgeData.BadgeEXPPercent));
+        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumGold + BadgeData.BadgeGoldPercent));
     }
     #endregion
 
     #region 기타 갱신
     private void RenewOther()
     {
-        float sumMoveSpeed = 0;
+        // 보너스 AP
         int sumBonusAP = 0;
+
+        // 이동속도
+        float sumMoveSpeed = 0;
         float runeMoveSpeed = RuneHashSet.Contains("속도의 룬") ? 10f : 0f;
-        
+
+        // 룬 드롭
+        float runeDropCardbuff = CardBuff == CardBuffEnum.RuneBuff ? 0.5f : 0;
+        int runeDropMasterBuff = MasterRunePoint != 0 ? 1 : 0;
+        float basicRuneBuff = RuneHashSet.Contains("평범한 룬") ? 0.5f : 0f;
+
         if (ShoesData != null)
         {
             sumMoveSpeed += ShoesData.ShoesMoveSpeed;
@@ -682,8 +694,9 @@ public class GameManager : MonoBehaviour
         int quickSlotBook = isAPBook ? 1 : 0;
         int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
-        BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint;
-        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint);
+        BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
+        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
+        RuneDropRate = 1 + cardBuff + runeDropMasterBuff + basicRuneBuff + BadgeData.BadgeRuneDrop;
     }
     #endregion
 
@@ -763,7 +776,7 @@ public class GameManager : MonoBehaviour
         Gold = 0;
         CurrentAP = 0;
         PlayCount++;
-        CurrentEnergy = 25 + BonusEnergy + runeBonusEnergy;
+        CurrentEnergy = 25 + BonusEnergy + runeBonusEnergy + BadgeData.BadgeBonusEnergy;
         CurrentMapName = string.Empty;
 
         RenewAbility();
@@ -792,5 +805,29 @@ public class GameManager : MonoBehaviour
         }
         // 해당 레벨에 대한 정보를 찾을 수 없으면 기본값 반환
         return 2100000000; // 만렙시
+    }
+
+    public void BadgeGrade()
+    {
+        int totalOwnCount = DataManager.Instance.GetOwnCount();
+
+        // 총합이 800 보다 크거나 같다면
+        if (totalOwnCount >= 800) BadgeData = DataManager.Instance.badgeDatas[8];
+        // 총합이 700보다 크거나 같고 800보다 작다면
+        else if (totalOwnCount >= 700 && totalOwnCount < 800) BadgeData = DataManager.Instance.badgeDatas[7];
+        // 총합이 600보다 크거나 같고 700보다 작다면
+        else if (totalOwnCount >= 600 && totalOwnCount < 700) BadgeData = DataManager.Instance.badgeDatas[6];
+        // 총합이 500보다 크거나 같고 600보다 작다면
+        else if (totalOwnCount >= 500 && totalOwnCount < 600) BadgeData = DataManager.Instance.badgeDatas[5];
+        // 총합이 400보다 크거나 같고 500보다 작다면
+        else if (totalOwnCount >= 400 && totalOwnCount < 500) BadgeData = DataManager.Instance.badgeDatas[4];
+        // 총합이 300보다 크거나 같고 400보다 작다면
+        else if (totalOwnCount >= 300 && totalOwnCount < 400) BadgeData = DataManager.Instance.badgeDatas[3];
+        // 총합이 200보다 크거나 같고 300보다 작다면
+        else if (totalOwnCount >= 200 && totalOwnCount < 300) BadgeData = DataManager.Instance.badgeDatas[2];
+        // 총합이 100보다 크거나 같고 200보다 작다면
+        else if (totalOwnCount >= 100 && totalOwnCount < 200) BadgeData = DataManager.Instance.badgeDatas[1];
+        // 총합이 0보다 크거나 같고 100보다 작다면
+        else if (totalOwnCount >= 0 && totalOwnCount < 100) BadgeData = DataManager.Instance.badgeDatas[0];
     }
 }
