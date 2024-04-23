@@ -571,6 +571,9 @@ public class EquipmentCanvas : MonoBehaviour
             CurrentItem.OwnCount.text = ownDictionary[itemID].ToString();
             PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 구매 성공!");
 
+            // 구매 완료했다면 뱃지 갱신
+            GameManager.Instance.BadgeGrade();
+
             // 스텟 갱신 해줘야됨
             GameManager.Instance.RenewAbility();
         }
@@ -735,7 +738,7 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendBasicData("체력", necklessData.NecklessHP, ownCount);
                     AppendBasicData("체력%", necklessData.NecklessHPPercent, ownCount);
                     AppendPercentData("연타 확률", necklessData.NecklessComboPercent, ownCount);
-                    AppendPercentData("회피 확률", necklessData.NecklessAvoidPercent, ownCount);
+                    AppendPercentData("회피 확률", necklessData.NecklessAvoidResist, ownCount);
                     AppendAddData("추가 경험치%", necklessData.NecklessEXPPercent, ownCount);
                     AppendAddData("아이템 드롭률%", necklessData.NecklessItemDropRate, ownCount);
                     AppendAddData("추가 골드%", necklessData.NecklessGoldPercent, ownCount);
@@ -1128,7 +1131,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("체력", GameManager.Instance.NecklessData.NecklessHP, necklessData.NecklessHP, ownCount, targetOwnCount);
                         CompareAttribute("체력%", GameManager.Instance.NecklessData.NecklessHPPercent, necklessData.NecklessHPPercent, ownCount, targetOwnCount);
                         CompareAttribute("연타 확률", GameManager.Instance.NecklessData.NecklessComboPercent, necklessData.NecklessComboPercent, ownCount, targetOwnCount, false);
-                        CompareAttribute("회피 확률", GameManager.Instance.NecklessData.NecklessAvoidPercent, necklessData.NecklessAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 확률", GameManager.Instance.NecklessData.NecklessAvoidResist, necklessData.NecklessAvoidResist, ownCount, targetOwnCount, false);
                         CompareAddAttribute("추가 경험치%", GameManager.Instance.NecklessData.NecklessEXPPercent, necklessData.NecklessEXPPercent, ownCount, targetOwnCount);
                         CompareAddAttribute("아이템 드롭률%", GameManager.Instance.NecklessData.NecklessItemDropRate, necklessData.NecklessItemDropRate, ownCount, targetOwnCount);
                         CompareAddAttribute("추가 골드%", GameManager.Instance.NecklessData.NecklessGoldPercent, necklessData.NecklessGoldPercent, ownCount, targetOwnCount);
@@ -1140,7 +1143,7 @@ public class EquipmentCanvas : MonoBehaviour
                         CompareAttribute("체력", 0, necklessData.NecklessHP, ownCount, targetOwnCount);
                         CompareAttribute("체력%", 0, necklessData.NecklessHPPercent, ownCount, targetOwnCount);
                         CompareAttribute("연타 확률", 0, necklessData.NecklessComboPercent, ownCount, targetOwnCount, false);
-                        CompareAttribute("회피 확률", 0, necklessData.NecklessAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("회피 확률", 0, necklessData.NecklessAvoidResist, ownCount, targetOwnCount, false);
                         CompareAddAttribute("추가 경험치%", 0, necklessData.NecklessEXPPercent, ownCount, targetOwnCount);
                         CompareAddAttribute("아이템 드롭률%", 0, necklessData.NecklessItemDropRate, ownCount, targetOwnCount);
                         CompareAddAttribute("추가 골드%", 0, necklessData.NecklessGoldPercent, ownCount, targetOwnCount);

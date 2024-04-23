@@ -38,6 +38,7 @@ public class WayPoint : MonoBehaviour
                 playerMove = collision.GetComponent<PlayerMove>();
             }
             playerMove.movePoint.gameObject.SetActive(false);
+            
             if (isUP)
             {
                 // 레이어 변경
@@ -45,6 +46,7 @@ public class WayPoint : MonoBehaviour
                 group.sortingLayerName = toLayer;
             }
 
+            GameManager.Instance.LayerName = toLayer;
             ignoreRayCanvas.SetActive(true);
             player = collision.GetComponent<Transform>();
             playerMove.isWayMove = true;

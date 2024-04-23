@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e46b2c16d0e684ab6dbcb22491742e, type: 3}
+  m_Name: 07 Lunatic
+  m_EditorClassIdentifier: 
+  BadgeSprite: 07 Lunatic
+  BadgeName: "\uB8E8\uB098\uD2F1"
+  NextGrade: 1200
+  BadgeATKPercent: 50
+  BadgeMoveSpeed: 10
+  BadgeBonusEnergy: 8
+  BadgeBonusAP: 4
+  BadgeSTRPercent: 36
+  BadgeDEXPercent: 36
+  BadgeLUCPercent: 36
+  BadgeVITPercent: 36
+  BadgeAvoidResist: 170
+  BadgeEXPPercent: 180
+  BadgeGoldPercent: 180
+  BadgeItemDropRate: 2
+  BadgeRuneDrop: 1

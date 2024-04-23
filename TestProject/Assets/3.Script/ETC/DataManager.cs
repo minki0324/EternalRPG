@@ -210,6 +210,19 @@ public class DataManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SaveDataAll();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            SaveDataAll();
+        }
+    }
+
+    public void SaveDataAll()
+    {
         EquipmentSet();
         SaveOwnCount();
         SavePlayerData();
@@ -217,20 +230,6 @@ public class DataManager : MonoBehaviour
         SaveEliteMonsterDic();
         SaveQuickSlotEquipment();
         SaveEquipSet(GameManager.Instance.QuickSlotIndex);
-    }
-
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            EquipmentSet();
-            SaveOwnCount();
-            SavePlayerData();
-            SaveMasterLevelData();
-            SaveEliteMonsterDic();
-            SaveQuickSlotEquipment();
-            SaveEquipSet(GameManager.Instance.QuickSlotIndex);
-        }
     }
 
     #region Json 세이브&로드
@@ -791,57 +790,112 @@ public class DataManager : MonoBehaviour
         int sumOwnCount = 0;
 
         #region
-        foreach (var weaponCount in WeaponOwnCount.Values)
+        if (WeaponOwnCount != null)
         {
-            sumOwnCount += weaponCount;
+            foreach (var weaponCount in WeaponOwnCount.Values)
+            {
+                sumOwnCount += weaponCount;
+            }
         }
-        foreach (var armorCount in ArmorOwnCount.Values)
+        if (ArmorOwnCount != null)
         {
-            sumOwnCount += armorCount;
+            foreach (var armorCount in ArmorOwnCount.Values)
+            {
+                sumOwnCount += armorCount;
+            }
         }
-        foreach (var helmetCount in HelmetOwnCount.Values)
+        if (HelmetOwnCount != null)
         {
-            sumOwnCount += helmetCount;
+            foreach (var helmetCount in HelmetOwnCount.Values)
+            {
+                sumOwnCount += helmetCount;
+            }
         }
-        foreach (var pantsCount in PantsOwnCount.Values)
+        if (PantsOwnCount != null)
         {
-            sumOwnCount += pantsCount;
+            foreach (var pantsCount in PantsOwnCount.Values)
+            {
+                sumOwnCount += pantsCount;
+            }
         }
-        foreach (var gloveCount in GloveOwnCount.Values)
+        if (GloveOwnCount != null)
         {
-            sumOwnCount += gloveCount;
+            foreach (var gloveCount in GloveOwnCount.Values)
+            {
+                sumOwnCount += gloveCount;
+            }
         }
-        foreach (var shoesCount in ShoesOwnCount.Values)
+        if (ShoesOwnCount != null)
         {
-            sumOwnCount += shoesCount;
+            foreach (var shoesCount in ShoesOwnCount.Values)
+            {
+                sumOwnCount += shoesCount;
+            }
         }
-        foreach (var cloakCount in CloakOwnCount.Values)
+        if (CloakOwnCount != null)
         {
-            sumOwnCount += cloakCount;
+            foreach (var cloakCount in CloakOwnCount.Values)
+            {
+                sumOwnCount += cloakCount;
+            }
         }
-        foreach (var beltCount in BeltOwnCount.Values)
+        if (BeltOwnCount != null)
         {
-            sumOwnCount += beltCount;
+            foreach (var beltCount in BeltOwnCount.Values)
+            {
+                sumOwnCount += beltCount;
+            }
         }
-        foreach (var shoulderCount in ShoulderArmorOwnCount.Values)
+        if (ShoulderArmorOwnCount != null)
         {
-            sumOwnCount += shoulderCount;
+            foreach (var shoulderCount in ShoulderArmorOwnCount.Values)
+            {
+                sumOwnCount += shoulderCount;
+            }
         }
-        foreach (var necklessCount in NecklessOwnCount.Values)
+        if (NecklessOwnCount != null)
         {
-            sumOwnCount += necklessCount;
+            foreach (var necklessCount in NecklessOwnCount.Values)
+            {
+                sumOwnCount += necklessCount;
+            }
         }
-        foreach (var ringCount in RingOwnCount.Values)
+        if (RingOwnCount != null)
         {
-            sumOwnCount += ringCount;
+            foreach (var ringCount in RingOwnCount.Values)
+            {
+                sumOwnCount += ringCount;
+            }
         }
-        foreach (var otherCount in OtherOwnCount.Values)
+        if (OtherOwnCount != null)
         {
-            sumOwnCount += otherCount;
+            foreach (var otherCount in OtherOwnCount.Values)
+            {
+                sumOwnCount += otherCount;
+            }
         }
-
         #endregion
 
         return sumOwnCount;
+    }
+
+    public int TotalOwnCount()
+    {
+        int totalOwnCount = 0;
+
+        totalOwnCount += WeaponOwnCount.Count * 10;
+        totalOwnCount += ArmorOwnCount.Count * 10;
+        totalOwnCount += HelmetOwnCount.Count * 10;
+        totalOwnCount += PantsOwnCount.Count * 10;
+        totalOwnCount += GloveOwnCount.Count * 10;
+        totalOwnCount += ShoesOwnCount.Count * 10;
+        totalOwnCount += CloakOwnCount.Count * 10;
+        totalOwnCount += ShoulderArmorOwnCount.Count * 10;
+        totalOwnCount += BeltOwnCount.Count * 10;
+        totalOwnCount += NecklessOwnCount.Count * 10;
+        totalOwnCount += RingOwnCount.Count * 10;
+        totalOwnCount += OtherOwnCount.Count * 10;
+
+        return totalOwnCount;
     }
 }

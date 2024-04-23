@@ -178,6 +178,7 @@ public class GameManager : MonoBehaviour
             ResetRound();
         }
         MasterLevelEXPData();
+        BadgeGrade();
     }
 
     public void RenewAbility()
@@ -531,8 +532,8 @@ public class GameManager : MonoBehaviour
                 sumComboResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboResist * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        ComboPercent = Mathf.RoundToInt((float)((baseComboPercent + sumComboPercent) * (1 + LUC / 10000.0)));
-        ComboResist = Mathf.RoundToInt((float)((baseComboResist + sumComboResist) * (1 + LUC / 10000.0)));
+        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + sumComboPercent + LUC / 2000.0));
+        ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 2000.0));
     }
     #endregion
 
@@ -558,7 +559,7 @@ public class GameManager : MonoBehaviour
         }
         if (NecklessData != null)
         {
-            sumAvoidPercent += Mathf.RoundToInt((float)(NecklessData.NecklessAvoidPercent * (1 + GetOwnPercent(NecklessData))));
+            sumAvoidResist += Mathf.RoundToInt((float)(NecklessData.NecklessAvoidResist * (1 + GetOwnPercent(NecklessData))));
         }
         if (ShoesData != null)
         {
@@ -574,8 +575,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        AvoidPercent = Mathf.RoundToInt((float)((baseAvoidPercent + sumAvoidPercent) * (1 + (DEX / 10000.0))));
-        AvoidResist = Mathf.RoundToInt((float)((baseAvoidResist + sumAvoidResist) * (1 + (DEX / 2000.0)) + BadgeData.BadgeAvoidResist));
+        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + DEX / 3000.0));
+        AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + DEX / 1000.0 + BadgeData.BadgeAvoidResist));
     }
     #endregion
 
@@ -635,6 +636,7 @@ public class GameManager : MonoBehaviour
     {
         int sumEXP = 0;
         int sumGold = 0;
+        int sumDrop = 0;
         if (BeltData != null)
         {
             sumEXP += Mathf.RoundToInt((float)(BeltData.BeltEXPPercent * (1 + GetOwnPercent(BeltData))));
@@ -642,6 +644,8 @@ public class GameManager : MonoBehaviour
         if (NecklessData != null)
         {
             sumEXP += Mathf.RoundToInt((float)(NecklessData.NecklessEXPPercent * (1 + GetOwnPercent(NecklessData))));
+            sumGold += Mathf.RoundToInt((float)(NecklessData.NecklessGoldPercent * (1 + GetOwnPercent(NecklessData))));
+            sumDrop += Mathf.RoundToInt((float)(NecklessData.NecklessItemDropRate * (1 + GetOwnPercent(NecklessData))));
         }
         for (int i = 0; i < RingDatas.Length; i++)
         {
@@ -649,6 +653,7 @@ public class GameManager : MonoBehaviour
             {
                 sumEXP += Mathf.RoundToInt((float)(RingDatas[i].RingEXPPercent * (1 + GetOwnPercent(RingDatas[i]))));
                 sumGold += Mathf.RoundToInt((float)(RingDatas[i].RingGoldPercent * (1 + GetOwnPercent(RingDatas[i]))));
+                sumDrop += Mathf.RoundToInt((float)RingDatas[i].RingItemDropRate * (1 + GetOwnPercent(RingDatas[i])));
             }
         }
         for (int i = 0; i < OtherDatas.Length; i++)
@@ -657,11 +662,13 @@ public class GameManager : MonoBehaviour
             {
                 sumEXP += Mathf.RoundToInt((float)(OtherDatas[i].OtherEXPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
                 sumGold += Mathf.RoundToInt((float)(OtherDatas[i].OtherGoldPercent * (1 + GetOwnPercent(OtherDatas[i]))));
+                sumDrop += Mathf.RoundToInt((float)(OtherDatas[i].OtherItemDropRate * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
         int cardBuff = CardBuff == CardBuffEnum.EXPandGoldBuff ? 20 : 0;
         EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumEXP + BadgeData.BadgeEXPPercent));
         GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumGold + BadgeData.BadgeGoldPercent));
+        ItemDropRate = sumDrop;
     }
     #endregion
 
@@ -811,23 +818,14 @@ public class GameManager : MonoBehaviour
     {
         int totalOwnCount = DataManager.Instance.GetOwnCount();
 
-        // 총합이 800 보다 크거나 같다면
-        if (totalOwnCount >= 800) BadgeData = DataManager.Instance.badgeDatas[8];
-        // 총합이 700보다 크거나 같고 800보다 작다면
-        else if (totalOwnCount >= 700 && totalOwnCount < 800) BadgeData = DataManager.Instance.badgeDatas[7];
-        // 총합이 600보다 크거나 같고 700보다 작다면
-        else if (totalOwnCount >= 600 && totalOwnCount < 700) BadgeData = DataManager.Instance.badgeDatas[6];
-        // 총합이 500보다 크거나 같고 600보다 작다면
-        else if (totalOwnCount >= 500 && totalOwnCount < 600) BadgeData = DataManager.Instance.badgeDatas[5];
-        // 총합이 400보다 크거나 같고 500보다 작다면
-        else if (totalOwnCount >= 400 && totalOwnCount < 500) BadgeData = DataManager.Instance.badgeDatas[4];
-        // 총합이 300보다 크거나 같고 400보다 작다면
-        else if (totalOwnCount >= 300 && totalOwnCount < 400) BadgeData = DataManager.Instance.badgeDatas[3];
-        // 총합이 200보다 크거나 같고 300보다 작다면
-        else if (totalOwnCount >= 200 && totalOwnCount < 300) BadgeData = DataManager.Instance.badgeDatas[2];
-        // 총합이 100보다 크거나 같고 200보다 작다면
-        else if (totalOwnCount >= 100 && totalOwnCount < 200) BadgeData = DataManager.Instance.badgeDatas[1];
-        // 총합이 0보다 크거나 같고 100보다 작다면
-        else if (totalOwnCount >= 0 && totalOwnCount < 100) BadgeData = DataManager.Instance.badgeDatas[0];
+        if (totalOwnCount >= 1200) BadgeData = DataManager.Instance.badgeDatas[8];
+        else if (totalOwnCount >= 1050 && totalOwnCount < 1200) BadgeData = DataManager.Instance.badgeDatas[7];
+        else if (totalOwnCount >= 900 && totalOwnCount < 1050) BadgeData = DataManager.Instance.badgeDatas[6];
+        else if (totalOwnCount >= 750 && totalOwnCount < 900) BadgeData = DataManager.Instance.badgeDatas[5];
+        else if (totalOwnCount >= 600 && totalOwnCount < 750) BadgeData = DataManager.Instance.badgeDatas[4];
+        else if (totalOwnCount >= 450 && totalOwnCount < 600) BadgeData = DataManager.Instance.badgeDatas[3];
+        else if (totalOwnCount >= 300 && totalOwnCount < 450) BadgeData = DataManager.Instance.badgeDatas[2];
+        else if (totalOwnCount >= 150 && totalOwnCount < 300) BadgeData = DataManager.Instance.badgeDatas[1];
+        else if (totalOwnCount >= 0 && totalOwnCount < 150) BadgeData = DataManager.Instance.badgeDatas[0];
     }
 }

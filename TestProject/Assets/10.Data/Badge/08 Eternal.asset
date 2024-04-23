@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e46b2c16d0e684ab6dbcb22491742e, type: 3}
+  m_Name: 08 Eternal
+  m_EditorClassIdentifier: 
+  BadgeSprite: 08 Eternal
+  BadgeName: "\uC774\uD130\uB110"
+  NextGrade: 0
+  BadgeATKPercent: 70
+  BadgeMoveSpeed: 10
+  BadgeBonusEnergy: 10
+  BadgeBonusAP: 5
+  BadgeSTRPercent: 45
+  BadgeDEXPercent: 45
+  BadgeLUCPercent: 45
+  BadgeVITPercent: 45
+  BadgeAvoidResist: 200
+  BadgeEXPPercent: 200
+  BadgeGoldPercent: 200
+  BadgeItemDropRate: 3
+  BadgeRuneDrop: 1

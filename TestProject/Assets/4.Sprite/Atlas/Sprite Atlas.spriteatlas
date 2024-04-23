@@ -162,7 +162,9 @@ SpriteAtlas:
   - {fileID: 1878342548, guid: 6656cff0176db3349aa484846e5a62ea, type: 3}
   - {fileID: 21300000, guid: 65bd52014a1d7de44b3b77dc1bfb29ea, type: 3}
   - {fileID: 21300000, guid: 8ab20d018976348b196e3d1370b667f6, type: 3}
+  - {fileID: 21300000, guid: 679ece01cb8f09c459fca3e21c08fa4d, type: 3}
   - {fileID: 21300000, guid: 27d7d32160319f44f8a0246e3d48c227, type: 3}
+  - {fileID: 21300000, guid: e9e5b3318fc66e04b8ebae62a28eab1b, type: 3}
   - {fileID: 21300000, guid: 5cd57d41bde4cfc44ab0311d5039105f, type: 3}
   - {fileID: 21300000, guid: 7df1c0514a551ee44b2198c72eb21972, type: 3}
   - {fileID: 21300000, guid: 8cc1d3615366c0a4897a93f536d955d3, type: 3}
@@ -281,6 +283,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c8fce9b2eab54ad4ea3443460c79e1b0, type: 3}
   - {fileID: 21300000, guid: b5d661c29a73c5d4f8659cc5dd44354e, type: 3}
   - {fileID: 21300000, guid: 517f22c24e9e39143bf257ad11b571df, type: 3}
+  - {fileID: 21300000, guid: 6d1b95d2dfe559f4c87f1a93d937b222, type: 3}
   - {fileID: 21300000, guid: a6dca9f2793b3ee4e93384c15c62f645, type: 3}
   - {fileID: 21300000, guid: bcc644231695277428fd676f278b570c, type: 3}
   - {fileID: -1165843736, guid: 5711f1337d7f44943b510e97551bfc16, type: 3}
@@ -353,6 +356,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a73fa5d41ee4f34488c2f44f8da51729, type: 3}
   - {fileID: 21300000, guid: 72885305f458e6a49b97ef9dd6f07f66, type: 3}
   - {fileID: 21300000, guid: 460be2154a5ec074f830b84341827a32, type: 3}
+  - {fileID: 21300000, guid: 54cca23560968444b9972a988c23c2ab, type: 3}
   - {fileID: 21300000, guid: dcaaad35ea773b346bf696316487c718, type: 3}
   - {fileID: 21300076, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300008, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
@@ -560,6 +564,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 356c0b18fbd3e4e94a7e05ae60d72575, type: 3}
   - {fileID: 21300000, guid: 87c26b18bee825a458fd3872c78e7255, type: 3}
   - {fileID: 21300000, guid: 4e9022385a0599044982ff6cd6835b68, type: 3}
+  - {fileID: 21300000, guid: a55eea48a849be149a705e2fce7cce4f, type: 3}
   - {fileID: 21300000, guid: 2448f5684ba27485e98c9e49e5d35e81, type: 3}
   - {fileID: 21300000, guid: ec2dca688246fa14596c398668d2abfc, type: 3}
   - {fileID: 21300000, guid: 7dabb38881d716c4684b5a828915f6f5, type: 3}
@@ -609,6 +614,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5aa0e87a9691bea43862b0f13e278d5d, type: 3}
   - {fileID: 21300000, guid: 5649518a0104c4fdda2a3d3d0d10ad55, type: 3}
   - {fileID: 21300000, guid: 9110258a920aa664d9b6dda693929b9d, type: 3}
+  - {fileID: 21300000, guid: 081f539ad6fae544d86e39e18784dd45, type: 3}
   - {fileID: 21300000, guid: 22b690aadc19e2a4788eea505559cd91, type: 3}
   - {fileID: 21300000, guid: 2e8d94aab28ded54c98b293a4ef24615, type: 3}
   - {fileID: 21300000, guid: ba5aa4aaf64af9144b41db5cb46018c4, type: 3}
@@ -754,6 +760,7 @@ SpriteAtlas:
   - {fileID: -1755257290, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: 310307055, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: 833271748, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
+  - {fileID: 21300000, guid: 40bf39acac3c8da4f9cfac1be09f7ba1, type: 3}
   - {fileID: -697956452, guid: 9725cbbc282a6a349b398e4cebcbe5a8, type: 3}
   - {fileID: -1474091309, guid: 9725cbbc282a6a349b398e4cebcbe5a8, type: 3}
   - {fileID: 261812431, guid: 9725cbbc282a6a349b398e4cebcbe5a8, type: 3}
@@ -783,6 +790,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4b740c2db694941dabf916fbfcf27ed4, type: 3}
   - {fileID: 21300000, guid: 07dcf33d5b3064446b3c26f020b42f7c, type: 3}
   - {fileID: 21300000, guid: 97faf44d45d66d24599f4e6d0fa1ee9d, type: 3}
+  - {fileID: 21300000, guid: 9325f27d0292b134cb8109f1b01f0576, type: 3}
+  - {fileID: 21300000, guid: 227a437db39210c48a8046fbab43d8fb, type: 3}
   - {fileID: 21300000, guid: 12be8f7de939827499fbe6257128c74a, type: 3}
   - {fileID: -1487485499, guid: a15cb58dd42023d4babe0e81531ef651, type: 3}
   - {fileID: -1348538255, guid: a15cb58dd42023d4babe0e81531ef651, type: 3}
@@ -931,6 +940,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4c14091fa147c5d42b235f34beb8e9ba, type: 3}
   - {fileID: 21300000, guid: 84e35d1f055ca3b4d8c1fc9bd1ccb842, type: 3}
   - {fileID: 21300000, guid: 0da5e42fcf951af4b9561e1106f01acf, type: 3}
+  - {fileID: 21300000, guid: 8568773fe470a584ab49fefcd7c71848, type: 3}
   - {fileID: 21300000, guid: a283fc4fd3262a94a9623ce5f34487a7, type: 3}
   - {fileID: 21300000, guid: 64c2fd7f47d02f3428d1ecbda9ff08f5, type: 3}
   - {fileID: 21300000, guid: a59850af8971de74f92bdc2af546be3c, type: 3}
@@ -1041,7 +1051,9 @@ SpriteAtlas:
   - Impact01_6
   - 23 Elite Fire Fox
   - bg Frame
+  - 06 Legendary
   - 00 Steel Helmet
+  - btn_rectangle_01_n_blue 1
   - icon_coins 1
   - 14 Horn of Echoes
   - 04 Blue Wisp
@@ -1160,6 +1172,7 @@ SpriteAtlas:
   - 03 Eco Leather Helmet
   - 02 Sapphire Neckless
   - 03 Eco Leather Pants
+  - 01 Cooper
   - 00 Silver Ring
   - Enchantment_45_secretbook 1
   - Hit_3_purple_SpriteSheet 1_4
@@ -1232,6 +1245,7 @@ SpriteAtlas:
   - 06 Blank Scroll
   - 02 Speed Rune
   - 01 Iron Shoulder
+  - 04 Platinum
   - 00 Exp Book
   - TX Tileset Wall_38
   - TX Tileset Wall_4
@@ -1439,6 +1453,7 @@ SpriteAtlas:
   - frame_itemframe_00_frame_yellow
   - 02 Wooden Flow Shoes
   - 10 Shadow Scroll
+  - 07 Lunatic
   - bg Battle Result
   - 00 Leather Belt
   - cloak_16 1
@@ -1488,6 +1503,7 @@ SpriteAtlas:
   - Loot_28_rune 1
   - slider_edgetype_00_fill
   - 14 Light Fairy
+  - 03 Gold
   - 03 Defence Rune
   - 25 Elite Chaos Fox
   - cloak_30 1
@@ -1633,6 +1649,7 @@ SpriteAtlas:
   - Slash_Angled_04_BW_SpriteSheet 1_1
   - Slash_Angled_04_BW_SpriteSheet 1_2
   - Slash_Angled_04_BW_SpriteSheet 1_3
+  - 05 Unique
   - Slash_Curved_08_Unique_SpriteSheet 1_4
   - Slash_Curved_08_Unique_SpriteSheet 1_5
   - Slash_Curved_08_Unique_SpriteSheet 1_6
@@ -1662,6 +1679,8 @@ SpriteAtlas:
   - function_icon_helmet_2
   - run 1
   - frame_itemframe_01_White1 1
+  - 00 Bronze
+  - 08 Eternal
   - 01 Iron Glove
   - lazer_green_SpriteSheet 1_8
   - lazer_green_SpriteSheet 1_9
@@ -1810,6 +1829,7 @@ SpriteAtlas:
   - Jewelry_13_diamond 1
   - 04 Black Iron Armor
   - cloak_33 1
+  - 02 Silver
   - 08 Ancient Rune Scroll
   - Jewelry_34_fire_ring 1
   - 06 Lucky Rune

@@ -40,6 +40,9 @@ public class Battle : MonoBehaviour
     [SerializeField] private TMP_Text monsterDamageText;
     private bool isCritical = false;
 
+    private int zeroCountCri = 0;
+    private int zeroCountNormal = 0;
+
     public float tempWinRate = 0;
     private Coroutine battleCoroutine;
     [Header("룬")]
@@ -137,6 +140,11 @@ public class Battle : MonoBehaviour
 
         while (true)
         {
+            if (zeroCountCri == 100 || zeroCountNormal == 1000)
+            {
+                DefeatBattle();
+            }
+
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
@@ -166,6 +174,7 @@ public class Battle : MonoBehaviour
                 playerHPText.color = new Color(1f, 1f, 1f); // 흰색
                 monsterDamageText.gameObject.SetActive(false);
             }
+
             if (GameManager.Instance.PlayerCurHP <= 0)
             {
                 break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
@@ -201,6 +210,12 @@ public class Battle : MonoBehaviour
 
         while (true)
         {
+            if (zeroCountCri == 100 || zeroCountNormal == 1000)
+            {
+                DefeatBattle();
+                break;
+            }
+
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
@@ -232,6 +247,7 @@ public class Battle : MonoBehaviour
                 playerHPText.color = new Color(1f, 1f, 1f); // 흰색
                 monsterDamageText.gameObject.SetActive(false);
             }
+
             if (GameManager.Instance.PlayerCurHP <= 0)
             {
                 break; // 플레이어의 체력이 0이하라면 while 루프를 빠져나옴
@@ -314,6 +330,8 @@ public class Battle : MonoBehaviour
         int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
         int drainAmount = 0;
 
+        if (isCritical && damage == 0) zeroCountCri++;
+        else if (!isCritical && damage == 0) zeroCountNormal++;
         // 크리티컬 확인
         if (isCritical)
         {
@@ -598,10 +616,9 @@ public class Battle : MonoBehaviour
             {
                 float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
                 float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
-                dropRate = (float)(addDropRate / (1 + ownCount)); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
+                dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + GameManager.Instance.BadgeData.BadgeItemDropRate); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
             }
-
-            drop.DropRateText.text = $"{dropRate+ cardBuff + masterBuff + GameManager.Instance.BadgeData.BadgeItemDropRate:F2}%";
+            drop.DropRateText.text = $"{dropRate:F2}%";
         }
     }
 
@@ -631,5 +648,13 @@ public class Battle : MonoBehaviour
     private void RuneCheck()
     {
         isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
+    }
+
+    private void DefeatBattle()
+    {
+        result.isWin = false;
+        GameManager.Instance.PlayerCurHP = 0;
+        zeroCountCri = 0;
+        zeroCountNormal = 0;
     }
 }

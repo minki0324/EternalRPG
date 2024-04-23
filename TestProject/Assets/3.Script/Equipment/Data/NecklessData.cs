@@ -9,7 +9,7 @@ public class NecklessData : EquipmentBaseData
     public int NecklessHPPercent;
     [Space(10)] // 확률 정보
     public int NecklessComboPercent;
-    public int NecklessAvoidPercent;
+    public int NecklessAvoidResist;
     [Space(10)] // 추가 정보
     public int NecklessEXPPercent;
     public int NecklessGoldPercent;

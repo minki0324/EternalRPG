@@ -53,6 +53,7 @@ public class BattleResult : MonoBehaviour
 
     private void InitData()
     {
+        AfterBattleMonster(mon, isWin);
         if (isWin)
         {
             resultPanelTitle.Result = true;
@@ -76,7 +77,6 @@ public class BattleResult : MonoBehaviour
                 energyText.text = $": {mon.monsterData.RewordEnergy * 2}";
             }
         }
-        AfterBattleMonster(mon, isWin);
     }
 
     private void AccountBattle_Co()
@@ -130,14 +130,7 @@ public class BattleResult : MonoBehaviour
         totalGoldText.text = $": {GameManager.Instance.Gold:N0}";
         if (mon.monsterData.isElite)
         { // 엘리트 몬스터라면 리워드 에너지 출력
-            if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
-            {
-                energyText.text = $": -1";
-            }
-            else
-            {
-                energyText.text = $": +{mon.monsterData.RewordEnergy}";
-            }
+            
         }
         else
         { // 일반 몹이라면 소모 에너지만 출력
@@ -157,6 +150,7 @@ public class BattleResult : MonoBehaviour
             inventoryPanel.SetActive(true);
             overEnergyWarningPanel.SetActive(true);
             buyingGemButton.SetActive(true);
+            DataManager.Instance.SaveDataAll();
         }
         else
         { // 에너지가 남아있을 때
@@ -221,6 +215,10 @@ public class BattleResult : MonoBehaviour
                 GameObject dropItem = Instantiate(dropResultItem);
                 dropItem.transform.SetParent(dropResultItemParent);
                 dropItem.GetComponent<DropItem>().DropItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
+
+                // 아이템이 드랍됐다면 뱃지 확인
+                GameManager.Instance.BadgeGrade();
+                GameManager.Instance.RenewAbility();
             }
         }
     }
@@ -293,12 +291,14 @@ public class BattleResult : MonoBehaviour
 
             if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
             { // 잡아봤던 엘리트 몬스터임
+                energyText.text = $": -1";
                 return;
             }
             else
             { // 만약 엘리트 몬스터 딕셔너리에 해당 키가 없다면 (처음 잡았다면)
                 if (mon.monsterData.isElite)
                 { // 엘리트 몬스터라면
+                    energyText.text = $": +{mon.monsterData.RewordEnergy}";
                     DataManager.Instance.EliteMonsterDic.Add(mon.monsterData.MonsterID, true);
                 }
                 GameManager.Instance.BonusEnergy += mon.monsterData.RewordEnergy;

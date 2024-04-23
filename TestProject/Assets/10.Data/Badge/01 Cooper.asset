@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e46b2c16d0e684ab6dbcb22491742e, type: 3}
+  m_Name: 01 Cooper
+  m_EditorClassIdentifier: 
+  BadgeSprite: 01 Cooper
+  BadgeName: "\uAD6C\uB9AC"
+  NextGrade: 300
+  BadgeGrade: 1
+  BadgeATKPercent: 5
+  BadgeMoveSpeed: 4
+  BadgeBonusEnergy: 0
+  BadgeBonusAP: 0
+  BadgeSTRPercent: 3
+  BadgeDEXPercent: 3
+  BadgeLUCPercent: 3
+  BadgeVITPercent: 3
+  BadgeAvoidResist: 15
+  BadgeEXPPercent: 30
+  BadgeGoldPercent: 30
+  BadgeItemDropRate: 0
+  BadgeRuneDrop: 0

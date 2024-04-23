@@ -22,7 +22,7 @@ MonoBehaviour:
   EquipmentDes: "\uAC15\uCCA0 \uBC84\uD074\uC774 \uB3CB\uBCF4\uC774\uB294 \uBCA8\uD2B8\uC774\uB2E4."
   BeltHP: 20
   BeltHPPercent: 15
-  BeltAvoidPercent: 18
+  BeltAvoidPercent: 10
   BeltEXPPercent: 10
   BeltLUCPercent: 5
   BeltVITPercent: 3

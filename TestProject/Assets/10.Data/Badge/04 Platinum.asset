@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e46b2c16d0e684ab6dbcb22491742e, type: 3}
+  m_Name: 04 Platinum
+  m_EditorClassIdentifier: 
+  BadgeSprite: 04 Platinum
+  BadgeName: "\uD50C\uB798\uD2F0\uB118"
+  NextGrade: 750
+  BadgeATKPercent: 25
+  BadgeMoveSpeed: 6
+  BadgeBonusEnergy: 2
+  BadgeBonusAP: 1
+  BadgeSTRPercent: 15
+  BadgeDEXPercent: 15
+  BadgeLUCPercent: 15
+  BadgeVITPercent: 15
+  BadgeAvoidResist: 80
+  BadgeEXPPercent: 100
+  BadgeGoldPercent: 100
+  BadgeItemDropRate: 1
+  BadgeRuneDrop: 0.5

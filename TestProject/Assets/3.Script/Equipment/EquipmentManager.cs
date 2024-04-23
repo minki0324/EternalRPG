@@ -249,4 +249,10 @@ public class EquipmentManager : MonoBehaviour
         string spriteName = _equipmentdata.SpriteName;
         return spriteAtlas.GetSprite(spriteName);
     }
+
+    public Sprite GetBadgeSprite(BadgeData badgeData)
+    {
+        string spriteName = badgeData.BadgeSprite;
+        return spriteAtlas.GetSprite(spriteName);
+    }
 }

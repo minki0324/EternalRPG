@@ -1,4 +1,6 @@
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 public enum MasterBadge
 {
@@ -16,7 +18,10 @@ public enum MasterBadge
 [CreateAssetMenu(fileName = "Badge Data", menuName = "Scriptable Object/Badge Data", order = 0)]
 public class BadgeData : ScriptableObject
 {
-    public MasterBadge BadgeGrade;
+    public string BadgeSprite;
+    public string BadgeName;
+    public int NextGrade;
+    [Space(10)]
     public int BadgeATKPercent;
     [Space(10)]
     public int BadgeMoveSpeed = 2;
@@ -33,5 +38,5 @@ public class BadgeData : ScriptableObject
     public int BadgeEXPPercent = 5;
     public int BadgeGoldPercent = 5;
     public int BadgeItemDropRate;
-    public int BadgeRuneDrop;
+    public float BadgeRuneDrop;
 }

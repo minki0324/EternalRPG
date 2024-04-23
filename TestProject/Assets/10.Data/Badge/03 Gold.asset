@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e46b2c16d0e684ab6dbcb22491742e, type: 3}
+  m_Name: 03 Gold
+  m_EditorClassIdentifier: 
+  BadgeSprite: 03 Gold
+  BadgeName: "\uACE8\uB4DC"
+  NextGrade: 600
+  BadgeATKPercent: 20
+  BadgeMoveSpeed: 6
+  BadgeBonusEnergy: 2
+  BadgeBonusAP: 1
+  BadgeSTRPercent: 10
+  BadgeDEXPercent: 10
+  BadgeLUCPercent: 10
+  BadgeVITPercent: 10
+  BadgeAvoidResist: 50
+  BadgeEXPPercent: 70
+  BadgeGoldPercent: 70
+  BadgeItemDropRate: 0
+  BadgeRuneDrop: 0.5

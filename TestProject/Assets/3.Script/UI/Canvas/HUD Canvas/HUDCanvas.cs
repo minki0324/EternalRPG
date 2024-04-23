@@ -50,6 +50,7 @@ public class HUDCanvas : MonoBehaviour
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
         loading.SetTransitioning(true);
+        GameManager.Instance.LastPos = GameManager.Instance.StartPos;
         StartCoroutine(loading.StartLoadingDark());
 
         // Loading.isLoading이 false가 될 때까지 대기
