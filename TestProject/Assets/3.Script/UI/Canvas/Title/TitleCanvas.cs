@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TitleCanvas : MonoBehaviour
 {
     [SerializeField] private TMP_Text infomationText;
-    [SerializeField] private ScreenTransitionSimpleSoft loading;
+    [SerializeField] private Image transitionImage;
     [SerializeField] private GameObject transitionObj;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private GameObject resetWarningPanel;
@@ -76,10 +77,14 @@ public class TitleCanvas : MonoBehaviour
     {
         cardBuffPanel.SetActive(false);
         transitionObj.SetActive(true);
-        StartCoroutine(loading.StartLoadingLight());
+        if (TransitionFade.instance.FadeCoroutine != null)
+        {
+            StopCoroutine(TransitionFade.instance.FadeCoroutine);
+        }
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
 
         // Loading.isLoading이 false가 될 때까지 대기
-        while (loading.isLoading)
+        while (TransitionFade.instance.isLoading)
         {
             yield return null;
         }

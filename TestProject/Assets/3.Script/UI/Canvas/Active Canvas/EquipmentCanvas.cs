@@ -15,6 +15,7 @@ public enum CompareSlot
 public class EquipmentCanvas : MonoBehaviour
 {
     private CompareSlot Slot;
+    [SerializeField] private HUDCanvas HUDCanvas;
     [SerializeField] private TMP_Text categoryName;
     [SerializeField] private Transform itemListParent;
     [SerializeField] private TMP_Text totalGoldText;
@@ -167,6 +168,7 @@ public class EquipmentCanvas : MonoBehaviour
             itemPanel.EquipCheckIcon.SetActive(false);
         }
     }
+
     public void EquipItemCal()
     {
         switch (CurrentItem.EquipmentData.EquipmentType)
@@ -192,10 +194,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     { // 해제하기 눌렀을 때
-                        EquipMarkActive();
-                        GameManager.Instance.WeaponData = GameManager.Instance.Punch;
-                        weaponIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.WeaponData.ItemID)
+                        { // 다른 장비를 눌렀을 때도 장착 해제되는 현상 방지
+                            EquipMarkActive();
+                            GameManager.Instance.WeaponData = GameManager.Instance.Punch;
+                            weaponIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;
@@ -220,10 +229,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.ArmorData = null;
-                        armorIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if (CurrentItem.ItemID == GameManager.Instance.ArmorData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.ArmorData = null;
+                            armorIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;
@@ -248,10 +264,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.PantsData = null;
-                        pantsIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.PantsData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.PantsData = null;
+                            pantsIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;
@@ -276,10 +299,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.HelmetData = null;
-                        helmetIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.HelmetData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.HelmetData = null;
+                            helmetIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;
@@ -303,10 +333,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.GloveData = null;
-                        gloveIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.GloveData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.GloveData = null;
+                            gloveIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.Shoes:
@@ -329,10 +366,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.ShoesData = null;
-                        shoesIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.ShoesData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.ShoesData = null;
+                            shoesIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.Clock:
@@ -355,10 +399,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.ClockData = null;
-                        cloakIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.ClockData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.ClockData = null;
+                            cloakIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.Belt:
@@ -381,10 +432,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.BeltData = null;
-                        beltIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.BeltData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.BeltData = null;
+                            beltIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.ShoulderArmor:
@@ -407,10 +465,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.ShoulderArmorData = null;
-                        shoulderArmorIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.ShoulderArmorData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.ShoulderArmorData = null;
+                            shoulderArmorIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.Neckless:
@@ -433,10 +498,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.NecklessData = null;
-                        necklessIcon.sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if (CurrentItem.ItemID == GameManager.Instance.NecklessData.ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.NecklessData = null;
+                            necklessIcon.sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 break;
             case Category.Ring:
@@ -468,10 +540,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.RingDatas[(int)Slot] = null;
-                        ringIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if(CurrentItem.ItemID == GameManager.Instance.RingDatas[(int)Slot].ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.RingDatas[(int)Slot] = null;
+                            ringIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;
@@ -504,10 +583,17 @@ public class EquipmentCanvas : MonoBehaviour
                     }
                     else
                     {
-                        EquipMarkActive();
-                        GameManager.Instance.OtherDatas[(int)Slot] = null;
-                        otherIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
-                        PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        if (CurrentItem.ItemID == GameManager.Instance.OtherDatas[(int)Slot].ItemID)
+                        {
+                            EquipMarkActive();
+                            GameManager.Instance.OtherDatas[(int)Slot] = null;
+                            otherIcons[(int)Slot].sprite = GameManager.Instance.NoneBackground;
+                            PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
+                        }
+                        else
+                        {
+                            PrintLog.Instance.StaticLog($"장착중이지 않은 아이템 입니다.");
+                        }
                     }
                 }
                 break;

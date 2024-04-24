@@ -7,7 +7,7 @@ using TMPro;
 
 public class HUDCanvas : MonoBehaviour
 {
-    [SerializeField] private ScreenTransitionSimpleSoft loading;
+    [SerializeField] private Image transitionImage;
     [SerializeField] private GameObject transitionObj;
     [SerializeField] private GameObject activeCanvas;
 
@@ -30,9 +30,14 @@ public class HUDCanvas : MonoBehaviour
     [SerializeField] private TMP_Text gemCountText;
     [SerializeField] private TMP_Text goldCostText;
 
+    [Header("뱃지 이펙트")]
+    [SerializeField] private GameObject badgeEffectPanel;
+    [SerializeField] private Image badgeImage;
+    [SerializeField] private TMP_Text badgeText;
+
     private void Start()
     {
-        StartCoroutine(StartGame());
+        StartGame();
     }
 
     private void LateUpdate()
@@ -45,19 +50,12 @@ public class HUDCanvas : MonoBehaviour
         HPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
     }
 
-    private IEnumerator StartGame()
+    private void StartGame()
     {
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
-        loading.SetTransitioning(true);
+        
         GameManager.Instance.LastPos = GameManager.Instance.StartPos;
-        StartCoroutine(loading.StartLoadingDark());
-
-        // Loading.isLoading이 false가 될 때까지 대기
-        while (loading.isLoading)
-        {
-            yield return null;
-        }
 
         cardBuffImage.sprite = cardBuffSprite[(int)GameManager.Instance.CardBuff];
         transitionObj.SetActive(false);
@@ -78,10 +76,13 @@ public class HUDCanvas : MonoBehaviour
 
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
-        loading.SetTransitioning(true);
-        StartCoroutine(loading.StartLoadingLight());
+        if (TransitionFade.instance.FadeCoroutine != null)
+        {
+            StopCoroutine(TransitionFade.instance.FadeCoroutine);
+        }
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
 
-        while (loading.isLoading)
+        while (TransitionFade.instance.isLoading)
         {
             yield return null;
         }
@@ -98,10 +99,13 @@ public class HUDCanvas : MonoBehaviour
     {
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
-        loading.SetTransitioning(true);
-        StartCoroutine(loading.StartLoadingLight());
+        if (TransitionFade.instance.FadeCoroutine != null)
+        {
+            StopCoroutine(TransitionFade.instance.FadeCoroutine);
+        }
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
 
-        while (loading.isLoading)
+        while (TransitionFade.instance.isLoading)
         {
             yield return null;
         }
@@ -176,6 +180,55 @@ public class HUDCanvas : MonoBehaviour
         else
         {
             PrintLog.Instance.StaticLog("골드가 부족합니다.");
+        }
+    }
+
+    public void BadgeEffect()
+    {
+        int totalOwnCount = DataManager.Instance.GetOwnCount();
+
+        switch(totalOwnCount)
+        {
+            case 150: // 구리
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[0]);
+                badgeText.text = "브론즈 등급";
+                badgeText.color = new Color(217, 162, 134);
+                break;
+            case 300: // 실버
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[1]);
+                badgeText.text = "실버 등급";
+                badgeText.color = new Color(178, 188, 195);
+                break;
+            case 450: // 골드
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[2]);
+                badgeText.text = "골드 등급";
+                badgeText.color = new Color(253, 186, 65);
+                break;
+            case 600: // 플래티넘
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[3]);
+                badgeText.text = "플래티넘 등급";
+                badgeText.color = new Color(181, 173, 212);
+                break;
+            case 750: // 유니크
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[4]);
+                badgeText.text = "유니크 등급";
+                badgeText.color = new Color(166, 117, 218);
+                break;
+            case 900: // 레전더리
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[5]);
+                badgeText.text = "레전더리 등급";
+                badgeText.color = new Color(170, 249, 180);
+                break;
+            case 1050: // 루나틱
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[6]);
+                badgeText.text = "루나틱 등급";
+                badgeText.color = new Color(252, 147, 189);
+                break;
+            case 1200: // 이터널
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[7]);
+                badgeText.text = "이터널 등급";
+                badgeText.color = new Color(202, 231, 249);
+                break;
         }
     }
 }

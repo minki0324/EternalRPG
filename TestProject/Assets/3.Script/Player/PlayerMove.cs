@@ -22,7 +22,6 @@ public class PlayerMove : MonoBehaviour
     {
         gameObject.transform.position = GameManager.Instance.StartPos;
         group.sortingLayerName = GameManager.Instance.LayerName;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -271,10 +271,10 @@ public class GameManager : MonoBehaviour
                 sumVITPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherVITPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        STR = Mathf.RoundToInt((baseSTR + APSTR) * (1 + (float)(sumSTRPercent / 100f)) + BadgeData.BadgeSTRPercent);
-        DEX = Mathf.RoundToInt((baseDEX + APDEX) * (1 + (float)(sumDEXPercent / 100f)) + BadgeData.BadgeDEXPercent);
-        LUC = Mathf.RoundToInt((baseLUC + APLUC) * (1 + (float)(sumLUCPercent / 100f)) + BadgeData.BadgeLUCPercent);
-        VIT = Mathf.RoundToInt((baseVIT + APVIT) * (1 + (float)(sumVITPercent / 100f)) + BadgeData.BadgeVITPercent);
+        STR = Mathf.RoundToInt((baseSTR + APSTR) * (1 + (float)((sumSTRPercent + BadgeData.BadgeSTRPercent) / 100f)));
+        DEX = Mathf.RoundToInt((baseDEX + APDEX) * (1 + (float)((sumDEXPercent + BadgeData.BadgeDEXPercent) / 100f)));
+        LUC = Mathf.RoundToInt((baseLUC + APLUC) * (1 + (float)((sumLUCPercent + BadgeData.BadgeLUCPercent) / 100f)));
+        VIT = Mathf.RoundToInt((baseVIT + APVIT) * (1 + (float)((sumVITPercent + BadgeData.BadgeVITPercent) / 100f)));
         STRPercent = sumSTRPercent + BadgeData.BadgeSTRPercent;
         DEXPercent = sumDEXPercent + BadgeData.BadgeDEXPercent;
         LUCPercent = sumLUCPercent + BadgeData.BadgeLUCPercent;
@@ -702,7 +702,7 @@ public class GameManager : MonoBehaviour
         int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
         BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
-        MoveSpeed = 40 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
+        MoveSpeed = 50 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
         RuneDropRate = 1 + cardBuff + runeDropMasterBuff + basicRuneBuff + BadgeData.BadgeRuneDrop;
     }
     #endregion

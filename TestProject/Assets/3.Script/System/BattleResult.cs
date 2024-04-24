@@ -6,6 +6,7 @@ using TMPro;
 
 public class BattleResult : MonoBehaviour
 {
+    [SerializeField] private HUDCanvas HUDCanvas;
     [SerializeField] private ActiveCanvas activeCanvas;
     [SerializeField] private GameObject battlePanel;
     [SerializeField] private GameObject inventoryPanel;

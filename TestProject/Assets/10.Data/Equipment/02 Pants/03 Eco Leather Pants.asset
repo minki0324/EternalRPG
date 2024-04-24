@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentType: 3
   SpriteName: 03 Eco Leather Pants
-  ItemID: 902004
+  ItemID: 902003
   EquipmentName: "\uC5D0\uCF54 \uB808\uB354 \uBC14\uC9C0"
   RequireCost: 380000
   isCanBuy: 1

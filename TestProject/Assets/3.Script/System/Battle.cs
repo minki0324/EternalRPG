@@ -13,6 +13,8 @@ public class Battle : MonoBehaviour
     [SerializeField] private GameObject ignoreRay = null;
     public Monster mon = null;
     private WaitForSeconds battleDelay = new WaitForSeconds(0.7f);
+    private int fakePlayerHP = 0;
+    private int fakeMonsterHP = 0;
 
     [Header("UI")]
     [SerializeField] private TMP_Text monsterHPText;
@@ -70,13 +72,14 @@ public class Battle : MonoBehaviour
         monsterImage.sprite = mon.monsterData.MonsterSprite;
         monsterImage.SetNativeSize();
 
-        
+        // 룬 회복량 체크
+        runeHPRegen = GameManager.Instance.RuneHashSet.Contains("재생의 룬") ? Mathf.RoundToInt(GameManager.Instance.PlayerMaxHP / 200f) : 0;
 
         // 드롭 아이템 출력
         ItemDropRate(mon);
 
         // 레어 아이템 출력
-        if(mon.monsterData.isElite)
+        if (mon.monsterData.isElite)
         {
             RuneDropRate(mon);
         }
@@ -87,7 +90,7 @@ public class Battle : MonoBehaviour
         // 룬 체크
         RuneCheck();
 
-        if(DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
+        if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
         {
             energyText.text = $"1";
         }
@@ -95,7 +98,7 @@ public class Battle : MonoBehaviour
         {
             energyText.text = $"{mon.monsterData.RequireEnergy}";
         }
-        playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP}";
+        playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
     }
@@ -113,7 +116,7 @@ public class Battle : MonoBehaviour
             StopCoroutine(battleCoroutine);
             battleCoroutine = null;
         }
-        battleCoroutine = StartCoroutine(StartBattle_Co());
+        battleCoroutine = StartCoroutine(StartBattle_Co(false));
     }
 
     public void BackButton()
@@ -130,31 +133,32 @@ public class Battle : MonoBehaviour
         activeCanvas.versusPanel.SetActive(false);
     }
 
-    public void SkipBattle()
+    public void SkipBattle(bool isSkip)
     {
-        if(battleCoroutine != null)
+        if (battleCoroutine != null)
         {
             StopCoroutine(battleCoroutine);
             battleCoroutine = null;
         }
+        int battleCount = 0;
 
         while (true)
         {
-            if (zeroCountCri == 100 || zeroCountNormal == 1000)
+            battleCount++;
+            if(battleCount == 500)
             {
                 DefeatBattle();
+                break;
             }
-
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                PlayerTurn(i);
+                PlayerTurn(i, isSkip);
 
                 if (mon.MonsterCurHP <= 0)
                 {
                     break; // 몬스터의 체력이 0 이하이면 for 루프를 빠져나옴
                 }
-                playerHPText.color = Color.white;
             }
             if (mon.MonsterCurHP <= 0)
             {
@@ -164,15 +168,13 @@ public class Battle : MonoBehaviour
             comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                monsterTurn(i);
+                monsterTurn(i, isSkip);
 
                 if (GameManager.Instance.PlayerCurHP <= 0)
                 {
                     break; // 플레이어의 체력이 0이하라면 for 루프를 빠져나옴
                 }
 
-                playerHPText.color = new Color(1f, 1f, 1f); // 흰색
-                monsterDamageText.gameObject.SetActive(false);
             }
 
             if (GameManager.Instance.PlayerCurHP <= 0)
@@ -197,7 +199,7 @@ public class Battle : MonoBehaviour
         damageAnimator.gameObject.SetActive(false);
     }
 
-    private IEnumerator StartBattle_Co()
+    private IEnumerator StartBattle_Co(bool isSkip)
     {
         Time.timeScale = GameManager.Instance.BattleSpeed;
 
@@ -205,13 +207,12 @@ public class Battle : MonoBehaviour
         effectAnimator.gameObject.SetActive(true);
         damageAnimator.gameObject.SetActive(true);
 
-        // 턴당 체력 0.5% 회복 
-        runeHPRegen =  GameManager.Instance.RuneHashSet.Contains("재생의 룬") ? Mathf.RoundToInt(GameManager.Instance.PlayerMaxHP / 200f) : 0;
-
         while (true)
         {
-            if (zeroCountCri == 100 || zeroCountNormal == 1000)
-            {
+            int maxCridamage = Mathf.RoundToInt(GameManager.Instance.PlayerATK * 1.05f * GameManager.Instance.CriticalDamage);
+            if (mon.monsterData.MonsterDef > maxCridamage)
+            { // 최대 크리데미지가 몬스터의 방어를 뚫지 못하는 경우
+                PrintLog.Instance.StaticLog("혼신의 힘을 다해 일격을 날렸지만, 적의 방어를 뚫지 못한다.");
                 DefeatBattle();
                 break;
             }
@@ -219,7 +220,7 @@ public class Battle : MonoBehaviour
             int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                PlayerTurn(i);
+                PlayerTurn(i, isSkip);
 
                 if (mon.MonsterCurHP <= 0)
                 {
@@ -236,7 +237,7 @@ public class Battle : MonoBehaviour
             comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
             for (int i = 1; i < comboCount + 1; i++)
             {
-                monsterTurn(i);
+                monsterTurn(i, isSkip);
 
                 if (GameManager.Instance.PlayerCurHP <= 0)
                 {
@@ -255,7 +256,7 @@ public class Battle : MonoBehaviour
         }
         Time.timeScale = 1f;
         ignoreRay.SetActive(false);
-        for(int i = 0; i < dropItemTransform.childCount; i++)
+        for (int i = 0; i < dropItemTransform.childCount; i++)
         {
             Destroy(dropItemTransform.GetChild(i).gameObject);
         }
@@ -270,25 +271,32 @@ public class Battle : MonoBehaviour
         damageAnimator.gameObject.SetActive(false);
     }
 
-    private void PlayerTurn(int comboCount)
+    #region 플레이어
+    private void PlayerTurn(int comboCount, bool isSkip)
     {
         if (Avoid(mon.monsterData.AvoidPercent, GameManager.Instance.AvoidResist))
         { // 회피 성공했을 때
-            damageText.text = $"회피 !";
-            damageText.color = Color.cyan;
-            PrintLog.Instance.BattleLog($"몬스터의 회피 !");
+            if (!isSkip)
+            {
+                damageText.text = $"회피 !";
+                damageText.color = Color.cyan;
+                PrintLog.Instance.BattleLog($"몬스터의 회피 !");
+            }
         }
         else
         {
-            PlayerAttack(comboCount);
-            effectAnimator.SetTrigger(GetTrigger(comboCount));
+            PlayerAttack(comboCount, isSkip);
+            if (!isSkip)
+            {
+                effectAnimator.SetTrigger(GetTrigger(comboCount));
+            }
             GameManager.Instance.PlayerCurHP += runeHPRegen;
         }
 
         if (mon.MonsterCurHP <= 0)
         { // 승리
             result.isWin = true;
-            if(mon.monsterData.isElite)
+            if (mon.monsterData.isElite)
             { // 엘리트 몬스터는 에너지 1만 차감
                 GameManager.Instance.CurrentEnergy--;
             }
@@ -298,8 +306,67 @@ public class Battle : MonoBehaviour
             }
         }
     }
+    private void PlayerAttack(int _comboCount, bool isSkip)
+    {
+        int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
+        int drainAmount = 0;
 
-    private void monsterTurn(int comboCount)
+        // 크리티컬 확인
+        if (!isSkip)
+        {
+            if (isCritical)
+            {
+                damageText.text = $"치명타 !\n{damage:N0} !";
+                damageText.color = Color.yellow;
+            }
+            else
+            {
+                damageText.text = $"{damage:N0} !";
+                damageText.color = Color.white;
+            }
+        }
+        mon.MonsterCurHP = Mathf.Max(0, mon.MonsterCurHP - damage);
+
+        // 흡혈 확인
+        drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
+        if (drainAmount != 0)
+        {
+            GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount);
+            if (!isSkip)
+            {
+                PrintLog.Instance.BattleLog($"플레이어의 흡혈 {drainAmount:N0}만큼 체력을 회복합니다.");
+                playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+                playerHPText.color = Color.green;
+                playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
+            }
+        }
+
+        // 콤보 관련 텍스트 띄워주기
+        if (!isSkip)
+        {
+            if (_comboCount != 1)
+            {
+                PrintLog.Instance.BattleLog($"{_comboCount}연격 ! {mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
+            }
+            else
+            {
+                PrintLog.Instance.BattleLog($"{mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
+            }
+
+            // 몬스터 체력바 관리
+            monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
+            monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
+
+            // 데미지 이펙트 
+            runtimeEffectAnimator = GetAnimator();
+            effectAnimator.runtimeAnimatorController = runtimeEffectAnimator;
+            damageAnimator.SetTrigger("Damage");
+        }
+    }
+    #endregion
+
+    #region 몬스터
+    private void monsterTurn(int comboCount, bool isSkip)
     {
         if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
         { // 회피 성공했을 때
@@ -307,14 +374,14 @@ public class Battle : MonoBehaviour
         }
         else
         {
-            MonsterAttack(comboCount);
+            MonsterAttack(comboCount, isSkip);
             playerHPText.color = new Color(1f, 0f, 0f); // 빨간색
         }
 
         if (GameManager.Instance.PlayerCurHP <= 0)
         { // 패배
             result.isWin = false;
-            if(mon.monsterData.isElite)
+            if (mon.monsterData.isElite)
             {
                 GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy;
             }
@@ -325,123 +392,52 @@ public class Battle : MonoBehaviour
         }
     }
 
-    private void PlayerAttack(int _comboCount)
-    {
-        int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
-        int drainAmount = 0;
 
-        if (isCritical && damage == 0) zeroCountCri++;
-        else if (!isCritical && damage == 0) zeroCountNormal++;
-        // 크리티컬 확인
-        if (isCritical)
-        {
-            damageText.text = $"치명타 !\n{damage:N0} !";
-            damageText.color = Color.yellow;
-        }
-        else
-        {
-            damageText.text = $"{damage:N0} !";
-            damageText.color = Color.white;
-        }
-        mon.MonsterCurHP = Mathf.Max(0, mon.MonsterCurHP - damage);
-
-        // 흡혈 확인
-        drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
-        if (drainAmount != 0)
-        {
-            PrintLog.Instance.BattleLog($"플레이어의 흡혈 {drainAmount:N0}만큼 체력을 회복합니다.");
-            GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, GameManager.Instance.PlayerCurHP + drainAmount);
-            playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
-            playerHPText.color = Color.green;
-            playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
-        }
-
-        // 콤보 관련 텍스트 띄워주기
-        if (_comboCount != 1)
-        {
-            PrintLog.Instance.BattleLog($"{_comboCount}연격 ! {mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
-        }
-        else
-        {
-            PrintLog.Instance.BattleLog($"{mon.monsterData.MonsterName}에게 {damage:N0}의 피해를 입혔습니다.");
-        }
-
-        // 몬스터 체력바 관리
-        monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
-        monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
-
-        // 데미지 이펙트 
-        runtimeEffectAnimator = GetAnimator();
-        effectAnimator.runtimeAnimatorController = runtimeEffectAnimator;
-        damageAnimator.SetTrigger("Damage");
-    }
-
-    private RuntimeAnimatorController GetAnimator()
-    {
-        RuntimeAnimatorController con;
-        switch (GameManager.Instance.WeaponData.WeaponType)
-        {
-            case WeaponType.Punch:
-                con = weaponAnimators[0];
-                return con;
-            case WeaponType.Sword:
-                con = weaponAnimators[1];
-                return con;
-            case WeaponType.Hammer:
-                con = weaponAnimators[2];
-                return con;
-            case WeaponType.Bow:
-                con = weaponAnimators[3];
-                return con;
-            case WeaponType.Spear:
-                con = weaponAnimators[4];
-                return con;
-            case WeaponType.Staff:
-                con = weaponAnimators[5];
-                return con;
-            case WeaponType.Stone:
-                con = weaponAnimators[6];
-                return con;
-            default:
-                return null;
-        }
-    }
-
-    private void MonsterAttack(int _comboCount)
+    private void MonsterAttack(int _comboCount, bool isSkip)
     {
         int damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
 
         // 방어의 룬 절대 방어 50
         damage = isDefenceRune ? damage - 50 : damage;
-        monsterDamageText.gameObject.SetActive(true);
-        monsterDamageText.text = $"-{damage:N0}";
-        monsterDamageText.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        if (!isSkip)
+        {
+            monsterDamageText.gameObject.SetActive(true);
+            monsterDamageText.text = $"-{damage:N0}";
+            monsterDamageText.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        }
         int drainAmount = 0;
-        
+
         GameManager.Instance.PlayerCurHP = Mathf.Max(0, GameManager.Instance.PlayerCurHP - damage);
         drainAmount = Drain(mon.monsterData.DrainPercent, GameManager.Instance.DrainResist, damage, mon.monsterData.DrainAmount);
         if (drainAmount != 0)
         { // 흡혈 성공 텍스트 띄워줘야함 todo
             mon.MonsterCurHP = Mathf.Min(mon.MonsterMaxHP, mon.MonsterCurHP + drainAmount);
-            PrintLog.Instance.BattleLog($"몬스터의 흡혈 {drainAmount:N0}만큼 몬스터의 체력이 회복됩니다.");
-            // 몬스터 체력바 관리
-            monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
-            monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
+            if (!isSkip)
+            {
+                PrintLog.Instance.BattleLog($"몬스터의 흡혈 {drainAmount:N0}만큼 몬스터의 체력이 회복됩니다.");
+                // 몬스터 체력바 관리
+                monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
+                monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
+            }
         }
 
-        if (_comboCount != 1)
+        if (!isSkip)
         {
-            PrintLog.Instance.BattleLog($"몬스터의 {_comboCount}연격 ! 플레이어는 {damage:N0}의 피해를 입혔습니다.");
+            if (_comboCount != 1)
+            {
+                PrintLog.Instance.BattleLog($"몬스터의 {_comboCount}연격 ! 플레이어는 {damage:N0}의 피해를 입혔습니다.");
+            }
+            else
+            {
+                PrintLog.Instance.BattleLog($"플레이어는 {damage:N0}의 피해를 입혔습니다.");
+            }
+            playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+            playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         }
-        else
-        {
-            PrintLog.Instance.BattleLog($"플레이어는 {damage:N0}의 피해를 입혔습니다.");
-        }
-        playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
-        playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
-
     }
+    #endregion
 
+    #region 전투 변수 계산
     private int DamageCalculate(float _Objdamage, float _ObjCriPercent, float _ObjCriDamage, float _EnemyCriResist, int _EnemyDef)
     {
         float damage = Random.Range(_Objdamage * 0.95f, _Objdamage * 1.05f);
@@ -518,80 +514,9 @@ public class Battle : MonoBehaviour
             return false;
         }
     }
+    #endregion
 
-    private string GetTrigger(int comboCount)
-    {
-        switch (comboCount)
-        {
-            case 1: return "Single";
-            case 2: return "Double";
-            case 3: return "Tripple";
-            case 4: return "Four";
-            case 5: return "Five";
-            default: return "Six";
-        }
-    }
-
-    private void CalculrateWinRate(Monster mon)
-    {
-        string winRateString = string.Empty;
-        float PlayerWinPercent = 0f;
-        int playerPower = GameManager.Instance.Power;
-        int monsterPower = mon.MonsterPower;
-
-        if(playerPower >= monsterPower*2)
-        { // 전투력 2배 이상이기 때문에 승리
-            PlayerWinPercent = 100f;
-        }
-        else if(monsterPower >= playerPower*2)
-        { // 몬스터 전투력이 2배 이상이기 때문에 패배
-            PlayerWinPercent = 0f;
-        }
-        else
-        {
-            float tempPower = (float)playerPower - (float)monsterPower;
-            if(tempPower >= 0)
-            { // 플레이어가 더 강하거나 같은 경우
-                PlayerWinPercent = 100 - (((float)monsterPower - ((float)playerPower / 2)) / ((float)playerPower / 200) / 2);
-            }
-            else
-            { // 몬스터가 더 강한 경우
-                PlayerWinPercent = 50 - (((float)monsterPower - (float)playerPower) / (((float)playerPower * 2) / 100));
-            }
-        }
-
-        if (PlayerWinPercent <= 0)
-        {
-            oddsText.text = "불가능에 가까운 상대입니다.";
-            oddsText.color = Color.red;
-        }
-        else if (20 > PlayerWinPercent && PlayerWinPercent > 0)
-        {
-            oddsText.text = "상대하기 어려운 상대입니다.";
-            oddsText.color = Color.magenta;
-        }
-        else if (40 > PlayerWinPercent && PlayerWinPercent > 20)
-        {
-            oddsText.text = "제압해볼 수 있는 상대입니다.";
-            oddsText.color = Color.gray;
-        }
-        else if (60 > PlayerWinPercent && PlayerWinPercent > 40)
-        {
-            oddsText.text = "나와 비슷한 상대입니다.";
-            oddsText.color = Color.white;
-        }
-        else if (80 > PlayerWinPercent && PlayerWinPercent > 60)
-        {
-            oddsText.text = "비교적 손쉬운 상대입니다.";
-            oddsText.color = Color.cyan;
-        }
-        else
-        {
-            oddsText.text = "압도할 수 있는 상대입니다.";
-            oddsText.color = Color.green;
-        }
-    }
-
+    #region 리워드 드랍
     private void ItemDropRate(Monster mon)
     {
         for (int i = 0; i < mon.monsterData.RewardItem.Length; i++)
@@ -628,7 +553,7 @@ public class Battle : MonoBehaviour
         runeOBJ.transform.SetParent(dropItemTransform);
         RunePanel rune = runeOBJ.GetComponent<RunePanel>();
 
-        if(GameManager.Instance.RuneHashSet == null)
+        if (GameManager.Instance.RuneHashSet == null)
         {
             GameManager.Instance.RuneHashSet = new HashSet<string>();
         }
@@ -644,17 +569,207 @@ public class Battle : MonoBehaviour
             rune.ItemIcon.SetActive(false);
         }
     }
+    #endregion
+
+    #region 기타
+    private RuntimeAnimatorController GetAnimator()
+    {
+        RuntimeAnimatorController con;
+        switch (GameManager.Instance.WeaponData.WeaponType)
+        {
+            case WeaponType.Punch:
+                con = weaponAnimators[0];
+                return con;
+            case WeaponType.Sword:
+                con = weaponAnimators[1];
+                return con;
+            case WeaponType.Hammer:
+                con = weaponAnimators[2];
+                return con;
+            case WeaponType.Bow:
+                con = weaponAnimators[3];
+                return con;
+            case WeaponType.Spear:
+                con = weaponAnimators[4];
+                return con;
+            case WeaponType.Staff:
+                con = weaponAnimators[5];
+                return con;
+            case WeaponType.Stone:
+                con = weaponAnimators[6];
+                return con;
+            default:
+                return null;
+        }
+    }
 
     private void RuneCheck()
     {
         isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
     }
 
+    private string GetTrigger(int comboCount)
+    {
+        switch (comboCount)
+        {
+            case 1: return "Single";
+            case 2: return "Double";
+            case 3: return "Tripple";
+            case 4: return "Four";
+            case 5: return "Five";
+            default: return "Six";
+        }
+    }
+
     private void DefeatBattle()
     {
         result.isWin = false;
         GameManager.Instance.PlayerCurHP = 0;
-        zeroCountCri = 0;
-        zeroCountNormal = 0;
     }
+    #endregion
+
+    #region 승률
+    private void CalculrateWinRate(Monster mon)
+    {
+        int winCount = 0;
+
+        for (int i = 0; i < 20; i++)
+        {
+            if (FakeBattle(mon))
+            { // true 값을 받게되면 승리
+                winCount++;
+            }
+        }
+
+        float PlayerWinPercent = winCount * 5f;
+
+        if (PlayerWinPercent <= 0)
+        {
+            oddsText.text = "불가능에 가까운 상대입니다.";
+            oddsText.color = Color.red;
+        }
+        else if (20 >= PlayerWinPercent && PlayerWinPercent > 0)
+        {
+            oddsText.text = "상대하기 어려운 상대입니다.";
+            oddsText.color = Color.magenta;
+        }
+        else if (40 >= PlayerWinPercent && PlayerWinPercent > 20)
+        {
+            oddsText.text = "제압해볼 수 있는 상대입니다.";
+            oddsText.color = Color.gray;
+        }
+        else if (60 >= PlayerWinPercent && PlayerWinPercent > 40)
+        {
+            oddsText.text = "나와 비슷한 상대입니다.";
+            oddsText.color = Color.white;
+        }
+        else if (80 >= PlayerWinPercent && PlayerWinPercent > 60)
+        {
+            oddsText.text = "비교적 손쉬운 상대입니다.";
+            oddsText.color = Color.cyan;
+        }
+        else
+        {
+            oddsText.text = "압도할 수 있는 상대입니다.";
+            oddsText.color = Color.green;
+        }
+    }
+    private bool FakeBattle(Monster mon)
+    {
+        int maxCridamage = Mathf.RoundToInt(GameManager.Instance.PlayerATK * 1.05f * GameManager.Instance.CriticalDamage);
+        if (mon.monsterData.MonsterDef > maxCridamage)
+        { // 최대 크리데미지가 몬스터의 방어를 뚫지 못하는 경우
+            return false;
+        }
+
+        fakeMonsterHP = mon.MonsterCurHP;
+        fakePlayerHP = GameManager.Instance.PlayerCurHP;
+
+        for (int i = 0; i < 500; i++)
+        {
+            FakePlayerTurn(mon);
+            if (fakeMonsterHP <= 0)
+            { // 몬스터의 체력이 0보다 작을 경우 승리
+                return true;
+            }
+            FakeMonsterTurn(mon);
+            if(fakePlayerHP <= 0)
+            { // 플레이어의 체력이 0보다 작을 경우 패배
+                return false;
+            }
+        }
+        // 500턴이 넘어가면 자동 패배
+        return false;
+    }
+
+    private void FakePlayerTurn(Monster mon)
+    {
+        // 콤보 계산 해야됨
+        int comboCount = ComboCount(GameManager.Instance.ComboPercent, mon.monsterData.ComboResist);
+        int damage = 0;
+        int drainAmount = 0;
+
+        for (int i = 1; i < comboCount + 1; i++)
+        {
+            if (Avoid(mon.monsterData.AvoidPercent, GameManager.Instance.AvoidResist))
+            { // 몬스터가 회피 성공했을 때
+
+            }
+            else
+            {
+                damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
+                fakeMonsterHP = Mathf.Max(0, fakeMonsterHP - damage);
+
+                if (fakeMonsterHP <= 0)
+                { // 승리
+                    return;
+                }
+
+                drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
+                if(drainAmount != 0)
+                {
+                    fakePlayerHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, fakePlayerHP + drainAmount);
+                }
+
+                // 리젠 룬
+                fakePlayerHP += runeHPRegen;
+            }
+        }
+    }
+
+    private void FakeMonsterTurn(Monster mon)
+    {
+        int damage = 0;
+        int drainAmount = 0;
+        int comboCount = ComboCount(mon.monsterData.ComboPercent, GameManager.Instance.ComboResist);
+
+        for (int i = 1; i < comboCount + 1; i++)
+        {
+            if(Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.ComboPercent))
+            { // 플레이어가 회피 성공했을 때
+
+            }
+            else
+            {
+                damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
+
+                // 방어의 룬 절대 방어 50
+                damage = isDefenceRune ? damage - 50 : damage;
+
+                fakePlayerHP = Mathf.Max(0, fakePlayerHP - damage);
+
+                if (fakePlayerHP <= 0)
+                { // 패배
+                    return;
+                }
+
+                drainAmount = Drain(mon.monsterData.DrainPercent, GameManager.Instance.DrainResist, damage, mon.monsterData.DrainAmount);
+                if (drainAmount != 0)
+                {
+                    fakeMonsterHP = Mathf.Min(mon.MonsterMaxHP, fakeMonsterHP + drainAmount);
+                }
+            }
+        }
+    }
+#endregion
 }

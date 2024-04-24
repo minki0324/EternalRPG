@@ -34,7 +34,7 @@ MonoBehaviour:
   AvoidResist: 135
   DrainPercent: 128
   DrainResist: 124
-  DrainAmount: 1.82
+  DrainAmount: 1.37
   RewordEXP: 3000000
   RewordGold: 18000
   RewordEnergy: 0

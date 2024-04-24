@@ -24,6 +24,7 @@ MonoBehaviour:
   ReturnPos: {x: 1.5, y: 0}
   RequireEnergy: 1
   isElite: 0
+  EliteID: 0
   CriticalPercant: 29
   CriticalResist: 31
   CriticalDamage: 1.5
@@ -33,9 +34,10 @@ MonoBehaviour:
   AvoidResist: 36
   DrainPercent: 42
   DrainResist: 40
-  DrainAmount: 1.5
+  DrainAmount: 1.18
   RewordEXP: 78000
   RewordGold: 780
   RewordEnergy: 0
   RewardItem:
   - {fileID: 11400000, guid: cd0214332276f034281ce8e8e5e6caf3, type: 2}
+  RewardRune: {fileID: 0}

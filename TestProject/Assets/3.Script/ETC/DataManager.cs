@@ -206,6 +206,7 @@ public class DataManager : MonoBehaviour
         LoadQuickSlotEquipment();
         InitOwnDictionary();
         GameManager.Instance.RenewAbility();
+        InvokeRepeating("SaveDataAll", 0, 60);
     }
 
     private void OnApplicationQuit()

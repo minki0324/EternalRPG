@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 
 public class WayPoint : MonoBehaviour
 {
     [SerializeField] private GameObject ignoreRayCanvas;
     [SerializeField] private GameObject transitionObj;
-    [SerializeField] private ScreenTransitionSimpleSoft Loading;
+    [SerializeField] private Image transitionImage;
     [SerializeField] private Transform targetWay;
     [SerializeField] private Vector2 offSet;
 
@@ -70,17 +71,21 @@ public class WayPoint : MonoBehaviour
             yield return null;
         }
         transitionObj.SetActive(true);
-        Loading.SetTransitioning(true);
-        StartCoroutine(Loading.StartLoadingDark());
+        if(TransitionFade.instance.FadeCoroutine != null)
+        {
+            StopCoroutine(TransitionFade.instance.FadeCoroutine);
+        }
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
 
         // Loading.isLoading이 false가 될 때까지 대기
-        while (Loading.isLoading)
+        while (TransitionFade.instance.isLoading)
         {
             yield return null;
         }
 
         // 다음 웨이포인트로 이동
         player.position = (Vector2)targetWay.position + offSet;
+        GameManager.Instance.LastPos = player.position;
 
         transitionObj.SetActive(false);
 

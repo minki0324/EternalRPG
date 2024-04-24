@@ -15,7 +15,7 @@ MonoBehaviour:
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uBE14\uB8E8 \uC704\uC2A4\uD504"
   MonsterID: 9
   MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
-  MonsterLevel: 580
+  MonsterLevel: 730
   MonsterMaxHP: 9860
   MonsterCurHP: 9860
   MonsterDef: 489
@@ -34,7 +34,7 @@ MonoBehaviour:
   AvoidResist: 48
   DrainPercent: 42
   DrainResist: 46
-  DrainAmount: 1.5
+  DrainAmount: 1.2
   RewordEXP: 106800
   RewordGold: 1200
   RewordEnergy: 5

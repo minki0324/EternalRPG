@@ -7,7 +7,7 @@ public class MapBound : MonoBehaviour
     public string MapName;
     [SerializeField] private CamareMove cameraMove;
     public Collider2D Boundary;
-    [SerializeField] private ScreenTransitionSimpleSoft loading;
+    
     [SerializeField] private HUDCanvas canvas;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,7 +20,7 @@ public class MapBound : MonoBehaviour
 
     private IEnumerator WaitLoading(Collider2D collision)
     {
-        while(loading.isLoading)
+        while(TransitionFade.instance.isLoading)
         {
             yield return null;
         }
