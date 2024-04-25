@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 34 Poison Mushroom
+  m_EditorClassIdentifier: 
+  MonsterName: "\uB3C5\uC744 \uD488\uC740 \uBC84\uC12F"
+  MonsterID: 34
+  MonsterType: "\uBC84\uC12F"
+  MonsterLevel: 21000
+  MonsterMaxHP: 760000
+  MonsterCurHP: 760000
+  MonsterDef: 15800
+  MonsterATK: 23500
+  MonsterSprite: {fileID: 21300000, guid: f5f8db41c5aa3804e983a9a248db8dfa, type: 3}
+  ReturnPos: {x: 1.5, y: 0}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 205
+  CriticalResist: 210
+  CriticalDamage: 2
+  ComboPercent: 208
+  ComboResist: 212
+  AvoidPercent: 205
+  AvoidResist: 235
+  DrainPercent: 210
+  DrainResist: 215
+  DrainAmount: 1.5
+  RewordEXP: 18500000
+  RewordGold: 105000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: c429760211bf78c40be8bed2b0d0a925, type: 2}
+  RewardRune: {fileID: 0}

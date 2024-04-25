@@ -8982,6 +8982,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0c48849d90086747a2c0d8e68db00dc, type: 2}
   - {fileID: 11400000, guid: ecf88b7f073f1d74fa85323be06efbe2, type: 2}
   - {fileID: 11400000, guid: c7c4b7ef45a38b44982727145b29579a, type: 2}
+  - {fileID: 11400000, guid: 34d2dd69b868c4847ac1bbfbc8ed3407, type: 2}
+  - {fileID: 11400000, guid: 6cfa56bdb4e3901449cff2031dc2c18e, type: 2}
   NecklessDatas:
   - {fileID: 11400000, guid: 8534a3fa68878b743be5ac20cff5d01d, type: 2}
   - {fileID: 11400000, guid: 1b14d789f710d93478156b783ab6d901, type: 2}
@@ -9004,6 +9006,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5945d6e1f3c770b4388bd67a6ce45090, type: 2}
   - {fileID: 11400000, guid: 86944296dc92af342b25c364903e6fcc, type: 2}
   - {fileID: 11400000, guid: 4d0b2197f3e97de419de535e50d151ae, type: 2}
+  - {fileID: 11400000, guid: b2bcf553875a90c45937f0aa9e4826e8, type: 2}
+  - {fileID: 11400000, guid: 7e5eed376fae27749b2cc6a6aa424c9b, type: 2}
   RuneDatas:
   - {fileID: 11400000, guid: c49c01149f33c7d4390fa9863d8aa546, type: 2}
   - {fileID: 11400000, guid: 821fa878d90d2294c8579659948a8b48, type: 2}
@@ -9013,6 +9017,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c926daa6815a1d94fa24660e92fa9501, type: 2}
   - {fileID: 11400000, guid: 78e98fc96dfe8b34ba8ffe9b76c31e8e, type: 2}
   - {fileID: 11400000, guid: 7865d827fdcee37418f495e36516c9db, type: 2}
+  - {fileID: 11400000, guid: fd1d09cabde36c54cb3e89c4402680a3, type: 2}
+  - {fileID: 11400000, guid: 5577cb9640bc05747abe4a536edb2cbb, type: 2}
   spriteAtlas: {fileID: 4343727234628468602, guid: fbdee9b518f32ab40aad88761470e10f, type: 2}
   itemPanel: {fileID: 722111849703108609, guid: 73173509e2ed23e4ebdf91b1f4c420b4, type: 3}
 --- !u!4 &744861141

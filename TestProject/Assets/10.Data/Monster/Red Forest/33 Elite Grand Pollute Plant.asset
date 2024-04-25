@@ -20,7 +20,7 @@ MonoBehaviour:
   MonsterCurHP: 440000
   MonsterDef: 8500
   MonsterATK: 17500
-  MonsterSprite: {fileID: 21300000, guid: 7ffc83d749d18444e8d15512b0b09e6e, type: 3}
+  MonsterSprite: {fileID: 21300000, guid: ddd7a092c08bcc146aae0fb39250ae57, type: 3}
   ReturnPos: {x: 0, y: -2}
   RequireEnergy: 5
   isElite: 1
@@ -39,6 +39,6 @@ MonoBehaviour:
   RewordGold: 87000
   RewordEnergy: 5
   RewardItem:
-  - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
-  - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
-  RewardRune: {fileID: 0}
+  - {fileID: 11400000, guid: 35b43013b669671449f6bbd55ba9003e, type: 2}
+  - {fileID: 11400000, guid: 34d2dd69b868c4847ac1bbfbc8ed3407, type: 2}
+  RewardRune: {fileID: 11400000, guid: 5577cb9640bc05747abe4a536edb2cbb, type: 2}

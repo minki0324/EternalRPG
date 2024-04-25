@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 05 Sapphire Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 05 Sapphire Ring
+  ItemID: 909005
+  EquipmentName: "\uC0AC\uD30C\uC774\uC5B4 \uBC18\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 21
+  EquipmentDes: "\uD478\uB978 \uC0AC\uD30C\uC774\uC5B4 \uC7A5\uC2DD\uC774 \uBC15\uD78C
+    \uBC18\uC9C0\uC774\uB2E4."
+  RingATK: 38
+  RingATKPercent: 11
+  RingDef: 0
+  RingDefPercent: 0
+  RingCriticalPercent: 19
+  RingCriticalResist: 21
+  RingDrainPercent: 0
+  RingDrainResist: 0
+  RingEXPPercent: 15
+  RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 8

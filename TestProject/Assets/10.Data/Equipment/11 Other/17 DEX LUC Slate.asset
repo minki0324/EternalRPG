@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355a32e0a9da82e4481af7032ead074a, type: 3}
+  m_Name: 17 DEX LUC Slate
+  m_EditorClassIdentifier: 
+  EquipmentType: 11
+  SpriteName: 17 DEX LUC Slate
+  ItemID: 911017
+  EquipmentName: "\uC2E0\uC18D\uC758 \uC11D\uD310"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 25
+  EquipmentDes: "\uC2E0\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uC11D\uD310\uC774\uB2E4."
+  type: 5
+  OtherATK: 0
+  OtherATKPercent: 0
+  OtherHP: 0
+  OtherHPPercent: 0
+  OtherDef: 0
+  OtherDefPercent: 0
+  OtherCriticalPercent: 0
+  OtherCriticalResist: 0
+  OtherCriticalDamage: 0
+  OtherComboPercent: 0
+  OtherComboResist: 0
+  OtherAvoidPercent: 0
+  OtherAvoidResist: 0
+  OtherDrainPercent: 0
+  OtherDrainResist: 0
+  OtherDrainAmount: 0
+  OtherEXPPercent: 0
+  OtherGoldPercent: 0
+  OtherSTRPercent: 0
+  OtherDEXPercent: 10
+  OtherLUCPercent: 10
+  OtherVITPercent: 0
+  OtherBonusAP: 0
+  OtherItemDropRate: 0

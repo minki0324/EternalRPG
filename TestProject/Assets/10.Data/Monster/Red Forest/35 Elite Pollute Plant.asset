@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 35 Elite Pollute Plant
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC624\uC5FC\uB41C \uC5D8\uB9AC\uD2B8 \uD50C\uB79C\uD2B8"
+  MonsterID: 35
+  MonsterType: "\uB098\uBB34 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 13500
+  MonsterMaxHP: 370000
+  MonsterCurHP: 370000
+  MonsterDef: 7800
+  MonsterATK: 14500
+  MonsterSprite: {fileID: 21300000, guid: a6c03060a76fc4a419818f570ab7b0b0, type: 3}
+  ReturnPos: {x: 1.5, y: 0}
+  RequireEnergy: 4
+  isElite: 1
+  EliteID: 9
+  CriticalPercant: 187
+  CriticalResist: 185
+  CriticalDamage: 1.9
+  ComboPercent: 182
+  ComboResist: 188
+  AvoidPercent: 178
+  AvoidResist: 196
+  DrainPercent: 181
+  DrainResist: 184
+  DrainAmount: 1.42
+  RewordEXP: 12100000
+  RewordGold: 77000
+  RewordEnergy: 4
+  RewardItem:
+  - {fileID: 11400000, guid: b2bcf553875a90c45937f0aa9e4826e8, type: 2}
+  - {fileID: 11400000, guid: 7e5eed376fae27749b2cc6a6aa424c9b, type: 2}
+  RewardRune: {fileID: 11400000, guid: fd1d09cabde36c54cb3e89c4402680a3, type: 2}

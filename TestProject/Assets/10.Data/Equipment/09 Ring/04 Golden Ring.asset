@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 04 Golden Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 04 Golden Ring
+  ItemID: 909004
+  EquipmentName: "\uB450\uAEBC\uC6B4 \uAE08 \uBC18\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 21
+  EquipmentDes: "\uB450\uAEBC\uC6B4 \uAE08\uC73C\uB85C\uB41C \uBC18\uC9C0\uC774\uB2E4.
+    \uBE44\uC2F8\uBCF4\uC778\uB2E4."
+  RingATK: 0
+  RingATKPercent: 0
+  RingDef: 43
+  RingDefPercent: 11
+  RingCriticalPercent: 8
+  RingCriticalResist: 12
+  RingDrainPercent: 14
+  RingDrainResist: 11
+  RingEXPPercent: 0
+  RingGoldPercent: 13
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 7
