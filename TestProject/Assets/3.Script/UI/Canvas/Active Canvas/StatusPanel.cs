@@ -33,12 +33,12 @@ public class StatusPanel : MonoBehaviour
                                           $"¹æ¾î·Â% : {GameManager.Instance.PlayerDefPercent:N0}%";
         percentData1.text = $"Å©¸®Æ¼ÄÃ È®·ü : {GameManager.Instance.CriticalPercant:N0}%\n" +
                                              $"Å©¸®Æ¼ÄÃ ÀúÇ× : {GameManager.Instance.CriticalResist:N0}%\n" +
-                                             $"Å©¸®Æ¼ÄÃ µ¥¹ÌÁö : {GameManager.Instance.CriticalDamage:N0}%\n" +
+                                             $"Å©¸®Æ¼ÄÃ µ¥¹ÌÁö : x{GameManager.Instance.CriticalDamage:N2}\n" +
                                              $"¿¬Å¸ È®·ü : {GameManager.Instance.ComboPercent:N0}%\n" +
                                              $"¿¬Å¸ ÀúÇ× : {GameManager.Instance.ComboResist:N0}%";
         percentData2.text = $"ÈíÇ÷ È®·ü : {GameManager.Instance.DrainPercent:N0}%\n" +
                                               $"ÈíÇ÷ ÀúÇ× : {GameManager.Instance.DrainResist:N0}%\n" +
-                                              $"ÈíÇ÷ : {GameManager.Instance.DrainAmount:N0}%\n" +
+                                              $"ÈíÇ÷ : x{GameManager.Instance.DrainAmount:N2}\n" +
                                               $"È¸ÇÇ È®·ü : {GameManager.Instance.AvoidPercent:N0}%\n" +
                                               $"È¸ÇÇ ÀúÇ× : {GameManager.Instance.AvoidResist:N0}%";
         AddData1.text = $"STR% : {GameManager.Instance.STRPercent:N0}%\n" +
