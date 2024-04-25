@@ -218,6 +218,7 @@ public class BattleResult : MonoBehaviour
                 dropItem.GetComponent<DropItem>().DropItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
 
                 // 아이템이 드랍됐다면 뱃지 확인
+                HUDCanvas.CheckBadgeCount();
                 GameManager.Instance.BadgeGrade();
                 GameManager.Instance.RenewAbility();
             }

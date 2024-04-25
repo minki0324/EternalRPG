@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 30 Red Mushroom
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBD89\uC740 \uBC84\uC12F"
+  MonsterID: 30
+  MonsterType: "\uBC84\uC12F"
+  MonsterLevel: 2900
+  MonsterMaxHP: 25500
+  MonsterCurHP: 25500
+  MonsterDef: 780
+  MonsterATK: 1730
+  MonsterSprite: {fileID: 21300000, guid: 7ffc83d749d18444e8d15512b0b09e6e, type: 3}
+  ReturnPos: {x: -1.5, y: 0}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 75
+  CriticalResist: 72
+  CriticalDamage: 1.65
+  ComboPercent: 69
+  ComboResist: 67
+  AvoidPercent: 75
+  AvoidResist: 70
+  DrainPercent: 71
+  DrainResist: 72
+  DrainAmount: 1.25
+  RewordEXP: 1220000
+  RewordGold: 12000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
+  - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
+  RewardRune: {fileID: 0}

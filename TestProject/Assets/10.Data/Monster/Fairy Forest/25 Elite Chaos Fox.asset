@@ -15,11 +15,11 @@ MonoBehaviour:
   MonsterName: "\uD638\uB780"
   MonsterID: 25
   MonsterType: "\uB3D9\uBB3C - \uC5D8\uB9AC\uD2B8"
-  MonsterLevel: 5300
+  MonsterLevel: 9000
   MonsterMaxHP: 215000
   MonsterCurHP: 215000
-  MonsterDef: 3800
-  MonsterATK: 8100
+  MonsterDef: 4400
+  MonsterATK: 10000
   MonsterSprite: {fileID: 21300000, guid: 2e8d94aab28ded54c98b293a4ef24615, type: 3}
   ReturnPos: {x: 0, y: -1.5}
   RequireEnergy: 5

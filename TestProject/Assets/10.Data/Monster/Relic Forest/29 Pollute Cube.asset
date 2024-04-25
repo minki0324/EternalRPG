@@ -15,12 +15,12 @@ MonoBehaviour:
   MonsterName: "\uC624\uC5FC\uB41C \uD050\uBE0C\uB9AD"
   MonsterID: 29
   MonsterType: "\uC815\uB839"
-  MonsterLevel: 115
+  MonsterLevel: 235
   MonsterMaxHP: 1200
   MonsterCurHP: 1200
   MonsterDef: 55
   MonsterATK: 84
-  MonsterSprite: {fileID: 21300000, guid: c6a49dc6eb784ca488e561fdf5a5126b, type: 3}
+  MonsterSprite: {fileID: 21300000, guid: 62ee229c2c22273439185746731b1705, type: 3}
   ReturnPos: {x: -1.5, y: 0}
   RequireEnergy: 1
   isElite: 0

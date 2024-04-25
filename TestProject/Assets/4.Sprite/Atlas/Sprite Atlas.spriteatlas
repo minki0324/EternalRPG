@@ -419,6 +419,38 @@ SpriteAtlas:
   - {fileID: 21300058, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300116, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
   - {fileID: 21300078, guid: 9f8f114589864b6489859a58fbb6baf9, type: 3}
+  - {fileID: -612373592, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -1594233141, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -627179129, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1757963576, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 2028270587, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 579132320, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -799444589, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1893487878, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -162827031, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 775114902, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -1861154810, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -518718931, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 37644083, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 321037576, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 364866505, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 526913979, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -666605829, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -2051245546, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -2135568573, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1563331282, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 2121171295, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1230021202, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -1595933725, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -449987178, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -204326023, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1798317789, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -1225457484, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 213173264, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 242793938, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -2055347689, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: -515069974, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
+  - {fileID: 1226333418, guid: a28b714537d9aa449b0d664a615fff3d, type: 3}
   - {fileID: 21300000, guid: e1392745b28b8d6489f299b5c603f6c5, type: 3}
   - {fileID: 21300000, guid: 66c03fa5b19379644bc8338a76a92566, type: 3}
   - {fileID: 21300000, guid: 2ecf54c5e218e4647ada23d1fbb3f2d0, type: 3}
@@ -753,6 +785,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d97fe36c9f277244882c8d10085fef40, type: 3}
   - {fileID: 21300000, guid: 75ef796c55411e14eb7b0d04edefe9d4, type: 3}
   - {fileID: 21300000, guid: 7fe26e6c3fab2a04389810fab4d30307, type: 3}
+  - {fileID: 21300000, guid: 62ee229c2c22273439185746731b1705, type: 3}
   - {fileID: -1045021582, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: 251141730, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
   - {fileID: -1430873800, guid: 4f5e40ac2964f1646b01beb3dfb2544e, type: 3}
@@ -1308,6 +1341,38 @@ SpriteAtlas:
   - TX Tileset Wall_29
   - TX Tileset Wall_58
   - TX Tileset Wall_39
+  - Badge Effect_20
+  - Badge Effect_21
+  - Badge Effect_22
+  - Badge Effect_23
+  - Badge Effect_24
+  - Badge Effect_25
+  - Badge Effect_31
+  - Badge Effect_26
+  - Badge Effect_30
+  - Badge Effect_27
+  - Badge Effect_28
+  - Badge Effect_29
+  - Badge Effect_19
+  - Badge Effect_18
+  - Badge Effect_11
+  - Badge Effect_10
+  - Badge Effect_13
+  - Badge Effect_12
+  - Badge Effect_15
+  - Badge Effect_14
+  - Badge Effect_17
+  - Badge Effect_16
+  - Badge Effect_2
+  - Badge Effect_3
+  - Badge Effect_0
+  - Badge Effect_1
+  - Badge Effect_6
+  - Badge Effect_7
+  - Badge Effect_4
+  - Badge Effect_5
+  - Badge Effect_8
+  - Badge Effect_9
   - 04 LUC Cube
   - 00 Steel Shoulder
   - 00 Steel Armor
@@ -1642,6 +1707,7 @@ SpriteAtlas:
   - 00 Leather Cloak
   - Loot_30_rune 1
   - 12 luminous Scroll
+  - 29 Pollute Cube
   - Slash_Angled_04_BW_SpriteSheet 1_4
   - Slash_Angled_04_BW_SpriteSheet 1_5
   - Slash_Angled_04_BW_SpriteSheet 1_6

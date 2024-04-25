@@ -15,7 +15,7 @@ MonoBehaviour:
   MonsterName: "\uD0C4\uAD11 \uC218\uBE44 \uB85C\uBD07"
   MonsterID: 18
   MonsterType: "\uC694\uC815"
-  MonsterLevel: 1550
+  MonsterLevel: 3200
   MonsterMaxHP: 24500
   MonsterCurHP: 24500
   MonsterDef: 860

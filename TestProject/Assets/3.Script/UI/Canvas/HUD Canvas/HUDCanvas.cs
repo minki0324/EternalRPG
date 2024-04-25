@@ -32,8 +32,10 @@ public class HUDCanvas : MonoBehaviour
 
     [Header("뱃지 이펙트")]
     [SerializeField] private GameObject badgeEffectPanel;
+    [SerializeField] private GameObject badgeInfoPanel;
     [SerializeField] private Image badgeImage;
     [SerializeField] private TMP_Text badgeText;
+    [SerializeField] private Animator badgeEffect;
 
     private void Start()
     {
@@ -183,52 +185,64 @@ public class HUDCanvas : MonoBehaviour
         }
     }
 
-    public void BadgeEffect()
+    public void CheckBadgeCount()
     {
         int totalOwnCount = DataManager.Instance.GetOwnCount();
 
+        if (totalOwnCount == 150 || totalOwnCount == 300 || totalOwnCount == 450 || totalOwnCount == 600 || totalOwnCount == 750 || totalOwnCount == 900 || totalOwnCount == 1050 || totalOwnCount == 1200) StartCoroutine(BadgeEffect(totalOwnCount));
+        else return;
+    }
+
+    public IEnumerator BadgeEffect(int totalOwnCount)
+    {
+        badgeEffectPanel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+
+        badgeEffect.SetTrigger("Badge");
+        yield return new WaitForSeconds(1.2f);
         switch(totalOwnCount)
         {
             case 150: // 구리
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[0]);
-                badgeText.text = "브론즈 등급";
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[1]);
+                badgeText.text = "구리 등급";
                 badgeText.color = new Color(217, 162, 134);
                 break;
             case 300: // 실버
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[1]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[2]);
                 badgeText.text = "실버 등급";
                 badgeText.color = new Color(178, 188, 195);
                 break;
             case 450: // 골드
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[2]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[3]);
                 badgeText.text = "골드 등급";
                 badgeText.color = new Color(253, 186, 65);
                 break;
             case 600: // 플래티넘
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[3]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[4]);
                 badgeText.text = "플래티넘 등급";
                 badgeText.color = new Color(181, 173, 212);
                 break;
             case 750: // 유니크
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[4]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[5]);
                 badgeText.text = "유니크 등급";
                 badgeText.color = new Color(166, 117, 218);
                 break;
             case 900: // 레전더리
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[5]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[6]);
                 badgeText.text = "레전더리 등급";
                 badgeText.color = new Color(170, 249, 180);
                 break;
             case 1050: // 루나틱
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[6]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[7]);
                 badgeText.text = "루나틱 등급";
                 badgeText.color = new Color(252, 147, 189);
                 break;
             case 1200: // 이터널
-                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[7]);
+                badgeImage.sprite = EquipmentManager.Instance.GetBadgeSprite(DataManager.Instance.badgeDatas[8]);
                 badgeText.text = "이터널 등급";
                 badgeText.color = new Color(202, 231, 249);
                 break;
         }
+        badgeInfoPanel.SetActive(true);
     }
 }

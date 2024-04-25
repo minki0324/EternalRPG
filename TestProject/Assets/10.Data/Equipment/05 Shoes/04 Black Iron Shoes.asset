@@ -28,4 +28,4 @@ MonoBehaviour:
   ShoesAvoidResist: 21
   ShoesDEXPercent: 16
   ShoesVITPercent: 15
-  ShoesMoveSpeed: 13
+  ShoesMoveSpeed: 5

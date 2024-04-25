@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 31 Pollute Mushroom
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC624\uC5FC\uB41C \uBC84\uC12F"
+  MonsterID: 31
+  MonsterType: "\uBC84\uC12F"
+  MonsterLevel: 8500
+  MonsterMaxHP: 190000
+  MonsterCurHP: 190000
+  MonsterDef: 4200
+  MonsterATK: 9600
+  MonsterSprite: {fileID: 21300000, guid: 7ffc83d749d18444e8d15512b0b09e6e, type: 3}
+  ReturnPos: {x: 0, y: -1.5}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 158
+  CriticalResist: 156
+  CriticalDamage: 1.82
+  ComboPercent: 168
+  ComboResist: 165
+  AvoidPercent: 157
+  AvoidResist: 175
+  DrainPercent: 169
+  DrainResist: 175
+  DrainAmount: 1.38
+  RewordEXP: 9000000
+  RewordGold: 45000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
+  - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
+  RewardRune: {fileID: 0}

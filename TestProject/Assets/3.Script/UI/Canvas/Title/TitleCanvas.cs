@@ -120,6 +120,9 @@ public class TitleCanvas : MonoBehaviour
             GameManager.Instance.RingDatas[i] = null;
         }
 
+        // 엘리트 몬스터 초기화
+        DataManager.Instance.EliteMonsterDic.Clear();
+
         // 장비 보유개수 초기화
         DataManager.Instance.OwnCountReset();
 

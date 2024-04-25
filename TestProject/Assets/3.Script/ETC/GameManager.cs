@@ -702,7 +702,7 @@ public class GameManager : MonoBehaviour
         int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
         BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
-        MoveSpeed = 50 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
+        MoveSpeed = 55 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
         RuneDropRate = 1 + cardBuff + runeDropMasterBuff + basicRuneBuff + BadgeData.BadgeRuneDrop;
     }
     #endregion

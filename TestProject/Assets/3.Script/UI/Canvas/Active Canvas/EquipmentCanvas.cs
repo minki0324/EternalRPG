@@ -659,6 +659,7 @@ public class EquipmentCanvas : MonoBehaviour
 
             // 구매 완료했다면 뱃지 갱신
             GameManager.Instance.BadgeGrade();
+            HUDCanvas.CheckBadgeCount();
 
             // 스텟 갱신 해줘야됨
             GameManager.Instance.RenewAbility();
@@ -1348,16 +1349,16 @@ public class EquipmentCanvas : MonoBehaviour
             CompareAttribute("방어력", 0, otherData.OtherDef, 0, targetOwnCount);
             CompareAttribute("방어력%", 0, otherData.OtherDefPercent, 0, targetOwnCount);
             // 확률
-            CompareAttribute("크리티컬 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("크리티컬 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("크리티컬 데미지", 0, otherData.OtherDefPercent, 0, targetOwnCount, true);
-            CompareAttribute("흡혈 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("흡혈 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("흡혈", 0, otherData.OtherDefPercent, 0, targetOwnCount, true);
-            CompareAttribute("연타 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("연타 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("회피 확률", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
-            CompareAttribute("회피 저항", 0, otherData.OtherDefPercent, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 확률", 0, otherData.OtherCriticalPercent, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 저항", 0, otherData.OtherCriticalResist, 0, targetOwnCount, false);
+            CompareAttribute("크리티컬 데미지", 0, otherData.OtherCriticalDamage, 0, targetOwnCount, true);
+            CompareAttribute("흡혈 확률", 0, otherData.OtherDrainPercent, 0, targetOwnCount, false);
+            CompareAttribute("흡혈 저항", 0, otherData.OtherDrainResist, 0, targetOwnCount, false);
+            CompareAttribute("흡혈", 0, otherData.OtherDrainAmount, 0, targetOwnCount, true);
+            CompareAttribute("연타 확률", 0, otherData.OtherComboPercent, 0, targetOwnCount, false);
+            CompareAttribute("연타 저항", 0, otherData.OtherComboResist, 0, targetOwnCount, false);
+            CompareAttribute("회피 확률", 0, otherData.OtherAvoidPercent, 0, targetOwnCount, false);
+            CompareAttribute("회피 저항", 0, otherData.OtherAvoidResist, 0, targetOwnCount, false);
             CompareAddAttribute("추가 경험치%", 0, otherData.OtherEXPPercent, 0, targetOwnCount);
             CompareAddAttribute("아이템 드롭률%", 0, otherData.OtherItemDropRate, 0, targetOwnCount);
             CompareAddAttribute("추가 골드%", 0, otherData.OtherGoldPercent, 0, targetOwnCount);
