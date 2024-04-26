@@ -41,4 +41,5 @@ MonoBehaviour:
   RewardItem:
   - {fileID: 11400000, guid: d27a59897ba578647bcd52461ca264fd, type: 2}
   - {fileID: 11400000, guid: 60959f91ce0da254ab730d692561ba44, type: 2}
+  - {fileID: 11400000, guid: 7b59be4913dfac948804b6e7bc35a6de, type: 2}
   RewardRune: {fileID: 0}

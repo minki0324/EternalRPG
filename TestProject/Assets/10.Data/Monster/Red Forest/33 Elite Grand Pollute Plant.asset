@@ -35,9 +35,10 @@ MonoBehaviour:
   DrainPercent: 197
   DrainResist: 199
   DrainAmount: 1.45
-  RewordEXP: 14800000
+  RewordEXP: 38000000
   RewordGold: 87000
   RewordEnergy: 5
   RewardItem:
   - {fileID: 11400000, guid: 34d2dd69b868c4847ac1bbfbc8ed3407, type: 2}
+  - {fileID: 11400000, guid: 8e6960c99ca395445a22fb3d415ee406, type: 2}
   RewardRune: {fileID: 11400000, guid: 5577cb9640bc05747abe4a536edb2cbb, type: 2}

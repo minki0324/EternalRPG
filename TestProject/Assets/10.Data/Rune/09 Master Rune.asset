@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6750d37ca271a4891bff464dc80d89, type: 3}
+  m_Name: 09 Master Rune
+  m_EditorClassIdentifier: 
+  EquipmentType: 12
+  SpriteName: 09 Master Rune
+  ItemID: 9
+  EquipmentName: "\uC131\uC7A5\uC758 \uB8EC"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 0
+  EquipmentDes: "\uD55C \uD68C\uCC28\uC758 \uC5D0\uB108\uC9C0\uB97C \uC804\uBD80
+    \uC18C\uBE44\uD588\uC744 \uB54C \uB9C8\uC2A4\uD130 \uB808\uBCA8 X 20\uC758 \uB9C8\uC2A4\uD130
+    \uACBD\uD5D8\uCE58 \uD68D\uB4DD"

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 45 Guard Roid A
+  m_EditorClassIdentifier: 
+  MonsterName: "\uAC00\uB4DC\uB85C\uC774\uB4DC A"
+  MonsterID: 45
+  MonsterType: "\uB85C\uBD07"
+  MonsterLevel: 13700
+  MonsterMaxHP: 380000
+  MonsterCurHP: 380000
+  MonsterDef: 8000
+  MonsterATK: 15000
+  MonsterSprite: {fileID: 21300000, guid: 78a60059ed61f9a4c8d482a03a6f7d3b, type: 3}
+  ReturnPos: {x: 2, y: 0}
+  RequireEnergy: 5
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 188
+  CriticalResist: 187
+  CriticalDamage: 1.9
+  ComboPercent: 183
+  ComboResist: 190
+  AvoidPercent: 180
+  AvoidResist: 198
+  DrainPercent: 182
+  DrainResist: 185
+  DrainAmount: 1.43
+  RewordEXP: 72000000
+  RewordGold: 190000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

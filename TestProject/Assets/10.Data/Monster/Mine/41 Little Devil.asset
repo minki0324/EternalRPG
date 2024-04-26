@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 41 Little Devil
+  m_EditorClassIdentifier: 
+  MonsterName: "\uAF2C\uB9C8 \uC545\uB9C8"
+  MonsterID: 41
+  MonsterType: "\uC545"
+  MonsterLevel: 9200
+  MonsterMaxHP: 230000
+  MonsterCurHP: 230000
+  MonsterDef: 4800
+  MonsterATK: 10800
+  MonsterSprite: {fileID: 21300000, guid: 0c6f5a99bdf189e4f9e7226a9e08922d, type: 3}
+  ReturnPos: {x: -2, y: 0}
+  RequireEnergy: 5
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 175
+  CriticalResist: 172
+  CriticalDamage: 1.86
+  ComboPercent: 172
+  ComboResist: 173
+  AvoidPercent: 165
+  AvoidResist: 195
+  DrainPercent: 175
+  DrainResist: 190
+  DrainAmount: 1.41
+  RewordEXP: 30000000
+  RewordGold: 100000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

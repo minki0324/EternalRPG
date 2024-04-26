@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 36 Green Guard Robot
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD0C4\uAD11 \uACBD\uBE44 \uB85C\uBD07"
+  MonsterID: 36
+  MonsterType: "\uB85C\uBD07"
+  MonsterLevel: 5100
+  MonsterMaxHP: 89000
+  MonsterCurHP: 89000
+  MonsterDef: 2200
+  MonsterATK: 4900
+  MonsterSprite: {fileID: 21300000, guid: 0b2417924d0a9f047ac0627f5c25bf62, type: 3}
+  ReturnPos: {x: -2, y: 0}
+  RequireEnergy: 5
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 123
+  CriticalResist: 122
+  CriticalDamage: 1.75
+  ComboPercent: 108
+  ComboResist: 109
+  AvoidPercent: 114
+  AvoidResist: 135
+  DrainPercent: 122
+  DrainResist: 124
+  DrainAmount: 1.38
+  RewordEXP: 7500000
+  RewordGold: 44000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}
