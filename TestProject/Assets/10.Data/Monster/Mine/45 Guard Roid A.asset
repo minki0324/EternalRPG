@@ -21,7 +21,7 @@ MonoBehaviour:
   MonsterDef: 8000
   MonsterATK: 15000
   MonsterSprite: {fileID: 21300000, guid: 78a60059ed61f9a4c8d482a03a6f7d3b, type: 3}
-  ReturnPos: {x: 2, y: 0}
+  ReturnPos: {x: 3, y: 0}
   RequireEnergy: 5
   isElite: 0
   EliteID: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
   MonsterMaxHP: 470000
   MonsterCurHP: 470000
   MonsterDef: 9500
-  MonsterATK: 17000
+  MonsterATK: 18500
   MonsterSprite: {fileID: 21300000, guid: 8c94dc06ce0f02d48bde1f6a7e4b9466, type: 3}
   ReturnPos: {x: 2, y: 2}
   RequireEnergy: 6

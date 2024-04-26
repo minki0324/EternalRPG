@@ -21,7 +21,7 @@ MonoBehaviour:
   MonsterDef: 6100
   MonsterATK: 11800
   MonsterSprite: {fileID: 21300000, guid: 95272bf1b0690414bb3611f1e6e25564, type: 3}
-  ReturnPos: {x: 2, y: 2}
+  ReturnPos: {x: 3, y: 3}
   RequireEnergy: 5
   isElite: 0
   EliteID: 0
@@ -38,5 +38,6 @@ MonoBehaviour:
   RewordEXP: 44000000
   RewordGold: 130000
   RewordEnergy: 0
-  RewardItem: []
+  RewardItem:
+  - {fileID: 11400000, guid: 126025904f5ffa443906182e33cef500, type: 2}
   RewardRune: {fileID: 0}

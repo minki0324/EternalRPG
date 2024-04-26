@@ -625,6 +625,14 @@ public class Battle : MonoBehaviour
     {
         result.isWin = false;
         GameManager.Instance.PlayerCurHP = 0;
+        if (mon.monsterData.isElite)
+        {
+            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy;
+        }
+        else
+        {
+            GameManager.Instance.CurrentEnergy -= mon.monsterData.RequireEnergy * 2;
+        }
     }
     #endregion
 
