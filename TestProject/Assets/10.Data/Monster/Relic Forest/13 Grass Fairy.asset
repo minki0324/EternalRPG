@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 13 Grass Fairy
   m_EditorClassIdentifier: 
   MonsterName: "\uD480\uC758 \uC694\uC815"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 13
   MonsterType: "\uC694\uC815"
   MonsterLevel: 1500

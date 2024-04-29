@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 29 Pollute Cube
   m_EditorClassIdentifier: 
   MonsterName: "\uC624\uC5FC\uB41C \uD050\uBE0C\uB9AD"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 29
   MonsterType: "\uC815\uB839"
   MonsterLevel: 235

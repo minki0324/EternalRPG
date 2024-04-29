@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 18 Blue Guard Robot
   m_EditorClassIdentifier: 
   MonsterName: "\uD0C4\uAD11 \uC218\uBE44 \uB85C\uBD07"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 18
   MonsterType: "\uB85C\uBD07"
   MonsterLevel: 3200

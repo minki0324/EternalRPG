@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 20 WhitePi
   m_EditorClassIdentifier: 
   MonsterName: "\uD654\uC774\uD2B8\uD53C"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 20
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 1680

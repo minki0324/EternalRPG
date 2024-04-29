@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 02 Flask Fairy
   m_EditorClassIdentifier: 
   MonsterName: "\uD50C\uB77C\uC2A4\uD06C \uD398\uC5B4\uB9AC"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 2
   MonsterType: "\uC694\uC815"
   MonsterLevel: 20

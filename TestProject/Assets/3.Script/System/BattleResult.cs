@@ -40,12 +40,16 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text runeNameTxt;
     [SerializeField] private TMP_Text runeDesTxt;
 
+    private bool isMasterRune = false;
+
     [Header("젬 천장")]
     [SerializeField] private GameObject buyingGemButton;
     private int gemDrop = 2000;
+
     private void OnEnable()
     {
-        if(GameManager.Instance.CurrentEnergy<=0)
+        RuneCheck();
+        if (GameManager.Instance.CurrentEnergy<=0)
         {
             MasterLevelCal();
         }
@@ -93,8 +97,7 @@ public class BattleResult : MonoBehaviour
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
             // 곱연산 계산 
-            requireEXP = (long)Mathf.Round(GameManager.Instance.RequireEXP * 1.001f) == GameManager.Instance.RequireEXP ?
-                                                        GameManager.Instance.RequireEXP + 1 : (long)Mathf.Round(GameManager.Instance.RequireEXP * 1.001f);
+            requireEXP = (long)GameManager.Instance.RequireEXP + Mathf.RoundToInt(GameManager.Instance.PlayerLevel / 1000f) + 1;
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = (long)Mathf.Round((float)requireEXP);
             GameManager.Instance.PlayerLevel++;
@@ -145,6 +148,7 @@ public class BattleResult : MonoBehaviour
         if (GameManager.Instance.CurrentEnergy <= 0)
         {
             // 에너지 없어서 라운드 종료될 때 초기화
+            
             gameObject.SetActive(false);
             battlePanel.SetActive(false);
             activeCanvas.gameObject.SetActive(true);
@@ -328,9 +332,15 @@ public class BattleResult : MonoBehaviour
     private void MasterLevelCal()
     {
         int masterExp = GameManager.Instance.PlayerLevel / 1000;
-
+        MasterRune();
         GameManager.Instance.MasterCurrentEXP += masterExp;
-        if(GameManager.Instance.MasterCurrentEXP >= GameManager.Instance.MasterRequireEXP)
+
+        MasterLevelUp();
+    }
+
+    private void MasterLevelUp()
+    {
+        if (GameManager.Instance.MasterCurrentEXP >= GameManager.Instance.MasterRequireEXP)
         {
             GameManager.Instance.MasterLevel++;
             GameManager.Instance.MasterCurrentEXP -= GameManager.Instance.MasterRequireEXP;
@@ -338,6 +348,20 @@ public class BattleResult : MonoBehaviour
             PrintLog.Instance.StaticLog("마스터 레벨이 상승했습니다!");
             MasterAP(GameManager.Instance.MasterLevel);
         }
+    }
+
+    private void MasterRune()
+    {
+        if(isMasterRune)
+        {
+            int runeEXP = GameManager.Instance.MasterLevel * 20;
+            GameManager.Instance.MasterCurrentEXP += runeEXP;
+        }
+    }
+
+    private void RuneCheck()
+    {
+        isMasterRune = GameManager.Instance.RuneHashSet.Contains("성장의 룬");
     }
 
     private void MasterAP(int level)

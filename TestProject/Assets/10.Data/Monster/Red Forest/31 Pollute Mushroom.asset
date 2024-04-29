@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 31 Pollute Mushroom
   m_EditorClassIdentifier: 
   MonsterName: "\uC624\uC5FC\uB41C \uBC84\uC12F"
+  MonsterLocation: "\uBD89\uC740 \uAE30\uC6B4\uC758 \uC232"
   MonsterID: 31
   MonsterType: "\uBC84\uC12F"
   MonsterLevel: 8500

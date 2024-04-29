@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 04 Blue Wisp
   m_EditorClassIdentifier: 
   MonsterName: "\uBE14\uB8E8 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 4
   MonsterType: "\uC815\uB839"
   MonsterLevel: 135

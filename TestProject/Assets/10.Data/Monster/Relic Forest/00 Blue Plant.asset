@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 00 Blue Plant
   m_EditorClassIdentifier: 
   MonsterName: "\uBE14\uB8E8 \uD50C\uB79C\uD2B8"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 0
   MonsterType: "\uB098\uBB34"
   MonsterLevel: 1

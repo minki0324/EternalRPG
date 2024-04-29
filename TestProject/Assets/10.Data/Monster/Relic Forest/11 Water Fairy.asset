@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 11 Water Fairy
   m_EditorClassIdentifier: 
   MonsterName: "\uBB3C\uC758 \uC694\uC815"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 11
   MonsterType: "\uC694\uC815"
   MonsterLevel: 650

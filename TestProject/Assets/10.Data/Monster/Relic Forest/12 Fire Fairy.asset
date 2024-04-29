@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 12 Fire Fairy
   m_EditorClassIdentifier: 
   MonsterName: "\uBD88\uC758 \uC694\uC815"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 12
   MonsterType: "\uC694\uC815"
   MonsterLevel: 1250

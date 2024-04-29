@@ -33,7 +33,7 @@ MonoBehaviour:
   OtherComboPercent: 10
   OtherComboResist: 0
   OtherAvoidPercent: 0
-  OtherAvoidResist: 55
+  OtherAvoidResist: 30
   OtherDrainPercent: 0
   OtherDrainResist: 0
   OtherDrainAmount: 0

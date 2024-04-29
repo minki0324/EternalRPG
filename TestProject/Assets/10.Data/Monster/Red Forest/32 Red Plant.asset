@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 32 Red Plant
   m_EditorClassIdentifier: 
   MonsterName: "\uB808\uB4DC \uD50C\uB79C\uD2B8"
+  MonsterLocation: "\uBD89\uC740 \uAE30\uC6B4\uC758 \uC232"
   MonsterID: 32
   MonsterType: "\uB098\uBB34"
   MonsterLevel: 5500
@@ -21,7 +22,7 @@ MonoBehaviour:
   MonsterDef: 2300
   MonsterATK: 6100
   MonsterSprite: {fileID: 21300000, guid: e348c45242425e743ada85b816d38c2b, type: 3}
-  ReturnPos: {x: 1.5, y: 0}
+  ReturnPos: {x: 2.5, y: 0}
   RequireEnergy: 3
   isElite: 0
   EliteID: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 26 CoCo
   m_EditorClassIdentifier: 
   MonsterName: "\uCF54\uCF54"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 26
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 7500

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 08 Red Cube
   m_EditorClassIdentifier: 
   MonsterName: "\uB808\uB4DC \uD050\uBE0C\uB9AD"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 8
   MonsterType: "\uC815\uB839"
   MonsterLevel: 880

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 30 Red Mushroom
   m_EditorClassIdentifier: 
   MonsterName: "\uBD89\uC740 \uBC84\uC12F"
+  MonsterLocation: "\uBD89\uC740 \uAE30\uC6B4\uC758 \uC232"
   MonsterID: 30
   MonsterType: "\uBC84\uC12F"
   MonsterLevel: 2900

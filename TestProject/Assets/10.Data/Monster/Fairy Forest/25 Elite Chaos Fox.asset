@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 25 Elite Chaos Fox
   m_EditorClassIdentifier: 
   MonsterName: "\uD638\uB780"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 25
   MonsterType: "\uB3D9\uBB3C - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 9000

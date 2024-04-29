@@ -7,6 +7,7 @@ public class MonsterData : ScriptableObject
 {
     [Header("기본 데이터")]
     public string MonsterName;
+    public string MonsterLocation;
     public int MonsterID;
     public string MonsterType;
     public int MonsterLevel;

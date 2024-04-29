@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
         RenewOther();
         RenewReward();
         RenewPlayerPower();
+        if (PlayerCurHP > PlayerMaxHP) PlayerCurHP = PlayerMaxHP;
     }
 
     #region Ω∫≈› ∞ªΩ≈
@@ -316,7 +317,8 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherATKPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 10f)) * (1 + (sumPercent / 100.0) + (STR / 10000.0)) + BadgeData.BadgeATKPercent));
+
+        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 7f)) * (1 + (sumPercent / 100.0)) + BadgeData.BadgeATKPercent));
         PlayerATKPercent = sumPercent;
     }
     #endregion
@@ -375,7 +377,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherHPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP + (VIT / 2f)) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
+        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP + VIT/1.5f) * (1 + (sumPercent / 100.0))));
         PlayerHPPercent = sumPercent;
     }
     #endregion
@@ -432,7 +434,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherDefPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef + (VIT / 10f)) * (1 + (sumPercent / 100.0) + (VIT / 10000.0))));
+        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef + VIT/9f) * (1 + (sumPercent / 100.0))));
         PlayerDefPercent = sumPercent;
     }
     #endregion
@@ -532,8 +534,8 @@ public class GameManager : MonoBehaviour
                 sumComboResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboResist * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + sumComboPercent + LUC / 2000.0));
-        ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 2000.0));
+        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + sumComboPercent + LUC / 3000.0));
+        ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 3000.0));
     }
     #endregion
 
@@ -544,6 +546,7 @@ public class GameManager : MonoBehaviour
         int sumAvoidPercent = 0;
         int baseAvoidResist = 5;
         int sumAvoidResist = 0;
+        int runeAvoidResist = RuneHashSet.Contains("∏Ì¡ﬂ¿« ∑È") ? 25 : 0;
 
         if (BeltData != null)
         {
@@ -575,8 +578,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + DEX / 3000.0));
-        AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + DEX / 1000.0 + BadgeData.BadgeAvoidResist));
+        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + DEX / 5000.0));
+        AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + runeAvoidResist + DEX / 3000.0 + BadgeData.BadgeAvoidResist));
     }
     #endregion
 
@@ -637,6 +640,10 @@ public class GameManager : MonoBehaviour
         int sumEXP = 0;
         int sumGold = 0;
         int sumDrop = 0;
+        int runeEXP = RuneHashSet.Contains("∞Ê«Ë¿« ∑È") ? 50 : 0;
+        int runeGold = RuneHashSet.Contains("∫Œ¿Ø¿« ∑È") ? 40 : 0;
+        int cardBuff = CardBuff == CardBuffEnum.EXPandGoldBuff ? 20 : 0;
+
         if (BeltData != null)
         {
             sumEXP += Mathf.RoundToInt((float)(BeltData.BeltEXPPercent * (1 + GetOwnPercent(BeltData))));
@@ -665,9 +672,8 @@ public class GameManager : MonoBehaviour
                 sumDrop += Mathf.RoundToInt((float)(OtherDatas[i].OtherItemDropRate * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        int cardBuff = CardBuff == CardBuffEnum.EXPandGoldBuff ? 20 : 0;
-        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumEXP + BadgeData.BadgeEXPPercent));
-        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 1000f + cardBuff + sumGold + BadgeData.BadgeGoldPercent));
+        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 3000f + cardBuff + sumEXP + runeEXP + BadgeData.BadgeEXPPercent));
+        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 3000f + cardBuff + sumGold + runeGold+ BadgeData.BadgeGoldPercent));
         ItemDropRate = sumDrop;
     }
     #endregion
@@ -702,7 +708,7 @@ public class GameManager : MonoBehaviour
         int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
         BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
-        MoveSpeed = 55 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
+        MoveSpeed = 65 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
         RuneDropRate = 1 + cardBuff + runeDropMasterBuff + basicRuneBuff + BadgeData.BadgeRuneDrop;
     }
     #endregion

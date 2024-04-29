@@ -365,6 +365,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae1788943277b4eea8c8373be2f1a9bd, type: 3}
   - {fileID: 21300000, guid: e0d3c1b424203a7488d462e689ca6828, type: 3}
   - {fileID: 21300000, guid: a73fa5d41ee4f34488c2f44f8da51729, type: 3}
+  - {fileID: 21300000, guid: b751a9f49c15b42409357c4c7ebee787, type: 3}
   - {fileID: 21300000, guid: 72885305f458e6a49b97ef9dd6f07f66, type: 3}
   - {fileID: 21300000, guid: 460be2154a5ec074f830b84341827a32, type: 3}
   - {fileID: 21300000, guid: 54cca23560968444b9972a988c23c2ab, type: 3}
@@ -656,6 +657,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ac3397d918f15134a9c119afdc237f2f, type: 3}
   - {fileID: -868637029, guid: f6f95df97b76d71449efa1bcb4194ac6, type: 3}
   - {fileID: 21300000, guid: 2efcbc0a69f07ec47ba5e60ca6c21a92, type: 3}
+  - {fileID: 21300000, guid: ca53f91a4b58a5946856e2475f3133f5, type: 3}
   - {fileID: 21300000, guid: 80786f2a784006c43a986c210baa6778, type: 3}
   - {fileID: 652020482, guid: df28e44a6bd5bae47b61f87dd40c897d, type: 3}
   - {fileID: 317345345, guid: df28e44a6bd5bae47b61f87dd40c897d, type: 3}
@@ -871,6 +873,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: eb48fd9d6edda4fd4b6b42ac346507d6, type: 3}
   - {fileID: 21300000, guid: 34352e9d2edd352438de2b625dfebc8f, type: 3}
   - {fileID: 21300000, guid: a03f1aad4a4ca564c9dadb9885b4dd6a, type: 3}
+  - {fileID: 21300000, guid: 32a9b3cd30377d7429e75282feb4e707, type: 3}
   - {fileID: 21300000, guid: 92f69ccd8015e054a9350bde1a549be8, type: 3}
   - {fileID: 21300000, guid: 48ad8ced4d7c0694d903952f4b69bc5f, type: 3}
   - {fileID: 21300120, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
@@ -952,6 +955,8 @@ SpriteAtlas:
   - {fileID: 1220389972, guid: dc55357e9d30abf4891a5b6cc4f65516, type: 3}
   - {fileID: -8641346, guid: dc55357e9d30abf4891a5b6cc4f65516, type: 3}
   - {fileID: 583961653, guid: dc55357e9d30abf4891a5b6cc4f65516, type: 3}
+  - {fileID: 21300000, guid: 065b748eea8763c468c50f518e39e225, type: 3}
+  - {fileID: 21300000, guid: 8c2c919e2631b0642bf7715ed66f66c3, type: 3}
   - {fileID: 21300006, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300044, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
   - {fileID: 21300002, guid: ed7554aeefd5da44a9fe1ee9b93afe77, type: 3}
@@ -1246,7 +1251,7 @@ SpriteAtlas:
   - 03 Eco Leather Pants
   - 01 Cooper
   - 00 Silver Ring
-  - Enchantment_45_secretbook 1
+  - 23 Sun Book
   - Hit_3_purple_SpriteSheet 1_4
   - Hit_3_purple_SpriteSheet 1_5
   - Hit_3_purple_SpriteSheet 1_0
@@ -1317,6 +1322,7 @@ SpriteAtlas:
   - icon_lightning_yellow
   - 06 Wooden Staff
   - 06 Blank Scroll
+  - 00 Relic Forest
   - 02 Speed Rune
   - 01 Iron Shoulder
   - 04 Platinum
@@ -1434,7 +1440,7 @@ SpriteAtlas:
   - Slash_Angled_04_Normal_SpriteSheet 1_2
   - Slash_Angled_04_Normal_SpriteSheet 1_3
   - Loot_197_rune 1
-  - Enchantment_41_book 1
+  - 24 EXP Book4
   - 43 Elite Nature Golem
   - 03 DEX Cube
   - 16 Elite White Fox
@@ -1608,6 +1614,7 @@ SpriteAtlas:
   - 04 Short Bow
   - 73eb87b7865cc9c4d169d91f1ce157ae_0
   - btn_rectangle_01_n_green
+  - 03 Mine
   - 46 Elite Guard Robot
   - Ground_Hit_1_blue_SpriteSheet 1_4
   - Ground_Hit_1_blue_SpriteSheet 1_5
@@ -1823,6 +1830,7 @@ SpriteAtlas:
   - icon_color_gem_02
   - 05 Sapphire Ring
   - 00 Leather Glove
+  - 02 Red Forest
   - 00 Steel Helmet
   - 02 Flask Fairy
   - TX Props Pillar Broken
@@ -1904,6 +1912,8 @@ SpriteAtlas:
   - Hit_3_normal_SpriteSheet 1_2
   - Hit_3_normal_SpriteSheet 1_1
   - Hit_3_normal_SpriteSheet 1_0
+  - function_icon_boot_fly 1
+  - 01 Fairy Forest
   - TX Shadow Crate Small
   - TX Shadow Road Sign W
   - TX Shadow Cube

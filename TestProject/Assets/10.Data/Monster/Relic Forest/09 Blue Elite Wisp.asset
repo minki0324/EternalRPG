@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 09 Blue Elite Wisp
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uBE14\uB8E8 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 9
   MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 1850

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 39 Flame Golem
   m_EditorClassIdentifier: 
   MonsterName: "\uD654\uC5FC \uACE8\uB818"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 39
   MonsterType: "\uACE8\uB818"
   MonsterLevel: 16800

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 19 GreenPi
   m_EditorClassIdentifier: 
   MonsterName: "\uADF8\uB9B0\uD53C"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 19
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 1050

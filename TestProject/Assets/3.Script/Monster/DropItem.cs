@@ -8,4 +8,5 @@ public class DropItem : MonoBehaviour
 {
     public Image DropItemImage;
     public TMP_Text DropRateText;
+    public TMP_Text OwnCountText;
 }

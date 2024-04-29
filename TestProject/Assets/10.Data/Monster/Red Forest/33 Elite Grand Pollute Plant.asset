@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 33 Elite Grand Pollute Plant
   m_EditorClassIdentifier: 
   MonsterName: "\uC624\uC5FC\uB41C \uC7A5\uB85C \uD50C\uB79C\uD2B8"
+  MonsterLocation: "\uBD89\uC740 \uAE30\uC6B4\uC758 \uC232"
   MonsterID: 33
   MonsterType: "\uB098\uBB34 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 15500

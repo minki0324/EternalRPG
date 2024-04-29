@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 46 Elite Guard Robot
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uACBD\uBE44 \uB85C\uBD07"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 46
   MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 11500

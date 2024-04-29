@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 43 Elite Nature Golem
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uC790\uC5F0\uC758 \uACE8\uB818"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 43
   MonsterType: "\uACE8\uB818 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 16000

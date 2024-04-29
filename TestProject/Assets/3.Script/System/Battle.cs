@@ -50,6 +50,7 @@ public class Battle : MonoBehaviour
     [Header("룬")]
     private bool isDefenceRune = false;
     private int runeHPRegen;
+    private bool isPoisonRune = false;
 
     private void OnEnable()
     {
@@ -202,6 +203,7 @@ public class Battle : MonoBehaviour
     private IEnumerator StartBattle_Co(bool isSkip)
     {
         Time.timeScale = GameManager.Instance.BattleSpeed;
+        PoisonRune();
 
         damageText.gameObject.SetActive(true);
         effectAnimator.gameObject.SetActive(true);
@@ -438,6 +440,16 @@ public class Battle : MonoBehaviour
     #endregion
 
     #region 전투 변수 계산
+    private void PoisonRune()
+    {
+        if(isPoisonRune)
+        {
+            int poisonDamage = Mathf.RoundToInt(mon.MonsterMaxHP * 0.05f);
+            mon.MonsterCurHP -= poisonDamage;
+            PrintLog.Instance.BattleLog($"독성의 룬 효과로 몬스터의 체력이 {poisonDamage:N0}만큼 감소.");
+        }
+    }
+
     private int DamageCalculate(float _Objdamage, float _ObjCriPercent, float _ObjCriDamage, float _EnemyCriResist, int _EnemyDef)
     {
         float damage = Random.Range(_Objdamage * 0.95f, _Objdamage * 1.05f);
@@ -540,7 +552,7 @@ public class Battle : MonoBehaviour
             if (ownCount < 10)
             {
                 float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
-                float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100) + (float)(quickSlotDrop / 100)));
+                float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100f) + (float)(quickSlotDrop / 100f)));
                 dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + GameManager.Instance.BadgeData.BadgeItemDropRate); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
             }
             drop.DropRateText.text = $"{dropRate:F2}%";
@@ -606,6 +618,7 @@ public class Battle : MonoBehaviour
     private void RuneCheck()
     {
         isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
+        isPoisonRune = GameManager.Instance.RuneHashSet.Contains("독성의 룬");
     }
 
     private string GetTrigger(int comboCount)

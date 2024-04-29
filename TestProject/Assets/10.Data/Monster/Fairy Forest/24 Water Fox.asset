@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 24 Water Fox
   m_EditorClassIdentifier: 
   MonsterName: "\uC218\uD638"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 24
   MonsterType: "\uB3D9\uBB3C "
   MonsterLevel: 3700

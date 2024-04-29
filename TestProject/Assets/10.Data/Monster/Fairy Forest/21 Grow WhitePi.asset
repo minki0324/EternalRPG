@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 21 Grow WhitePi
   m_EditorClassIdentifier: 
   MonsterName: "\uC131\uC7A5\uD55C \uD654\uC774\uD2B8\uD53C"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 21
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 2600

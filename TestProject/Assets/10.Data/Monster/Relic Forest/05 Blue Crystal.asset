@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 05 Blue Crystal
   m_EditorClassIdentifier: 
   MonsterName: "\uBE14\uB8E8 \uD06C\uB9AC\uD2F1"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 5
   MonsterType: "\uC815\uB839"
   MonsterLevel: 440

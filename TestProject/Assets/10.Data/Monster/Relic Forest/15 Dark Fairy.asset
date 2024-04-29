@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 15 Dark Fairy
   m_EditorClassIdentifier: 
   MonsterName: "\uC5B4\uB460\uC758 \uC694\uC815"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 15
   MonsterType: "\uC694\uC815"
   MonsterLevel: 2430

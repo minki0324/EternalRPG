@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 44 Crystal Guard
   m_EditorClassIdentifier: 
   MonsterName: "\uD06C\uB9AC\uC2A4\uD0C8 \uAC00\uB4DC"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 44
   MonsterType: "\uB85C\uBD07"
   MonsterLevel: 20500

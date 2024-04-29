@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 45 Guard Roid A
   m_EditorClassIdentifier: 
   MonsterName: "\uAC00\uB4DC\uB85C\uC774\uB4DC A"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 45
   MonsterType: "\uB85C\uBD07"
   MonsterLevel: 13700

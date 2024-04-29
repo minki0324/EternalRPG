@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 03 Blue Cube
   m_EditorClassIdentifier: 
   MonsterName: "\uBE14\uB8E8 \uD050\uBE0C\uB9AD"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 3
   MonsterType: "\uC815\uB839"
   MonsterLevel: 85

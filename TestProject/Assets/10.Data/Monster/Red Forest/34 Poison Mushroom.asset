@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 34 Poison Mushroom
   m_EditorClassIdentifier: 
   MonsterName: "\uB3C5\uC744 \uD488\uC740 \uBC84\uC12F"
+  MonsterLocation: "\uBD89\uC740 \uAE30\uC6B4\uC758 \uC232"
   MonsterID: 34
   MonsterType: "\uBC84\uC12F"
   MonsterLevel: 21000

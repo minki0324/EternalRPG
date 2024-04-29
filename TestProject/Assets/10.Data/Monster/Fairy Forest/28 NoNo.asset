@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 28 NoNo
   m_EditorClassIdentifier: 
   MonsterName: "\uB178\uB178"
+  MonsterLocation: "\uC815\uB839\uC758 \uC232"
   MonsterID: 28
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 4700

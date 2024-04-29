@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 10 Stone Plant
   m_EditorClassIdentifier: 
   MonsterName: "\uC2A4\uD1A4 \uD50C\uB79C\uD2B8"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 10
   MonsterType: "\uB098\uBB34"
   MonsterLevel: 1450

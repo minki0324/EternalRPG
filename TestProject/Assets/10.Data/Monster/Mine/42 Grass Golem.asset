@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 42 Grass Golem
   m_EditorClassIdentifier: 
   MonsterName: "\uD480\uC78E \uACE8\uB818"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 42
   MonsterType: "\uACE8\uB818"
   MonsterLevel: 10500

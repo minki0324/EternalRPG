@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 01 Blue Mushroom
   m_EditorClassIdentifier: 
   MonsterName: "\uD30C\uB780 \uBC84\uC12F"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 1
   MonsterType: "\uBC84\uC12F"
   MonsterLevel: 6

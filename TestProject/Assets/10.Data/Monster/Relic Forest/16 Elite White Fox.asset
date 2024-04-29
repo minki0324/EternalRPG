@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 16 Elite White Fox
   m_EditorClassIdentifier: 
   MonsterName: "\uC5D8\uB9AC\uD2B8 \uBC31\uBBF8\uD638"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 16
   MonsterType: "\uB3D9\uBB3C - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 3500

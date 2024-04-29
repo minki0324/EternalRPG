@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 36 Green Guard Robot
   m_EditorClassIdentifier: 
   MonsterName: "\uD0C4\uAD11 \uACBD\uBE44 \uB85C\uBD07"
+  MonsterLocation: "\uAD11\uC0B0 \uCD08\uC785\uBD80"
   MonsterID: 36
   MonsterType: "\uB85C\uBD07"
   MonsterLevel: 5100
