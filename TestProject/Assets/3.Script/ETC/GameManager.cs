@@ -178,11 +178,11 @@ public class GameManager : MonoBehaviour
             ResetRound();
         }
         MasterLevelEXPData();
-        BadgeGrade();
     }
 
     public void RenewAbility()
     {
+        BadgeGrade();
         // 스텟 먼저 갱신
         RenewStat();
 

@@ -96,6 +96,11 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void AskQuickSlotPanel(int _index)
     {
+        if(GameManager.Instance.CurrentEnergy <= 0)
+        {
+            PrintLog.Instance.StaticLog($"에너지가 없어 퀵 슬롯 변경이 불가능 합니다.");
+            return;
+        }
         if(!activeCanvas.activeSelf)
         { // 메인부터 켰는지
             isMain = true;
@@ -173,8 +178,15 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void ChangeEquipmentQuickSlot()
     {
-        DataManager.Instance.LoadEquipSet(GameManager.Instance.QuickSlotIndex);
-        PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
+        if(GameManager.Instance.CurrentEnergy > 0)
+        {
+            DataManager.Instance.LoadEquipSet(GameManager.Instance.QuickSlotIndex);
+            PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
+        }
+        else
+        {
+            PrintLog.Instance.StaticLog($"에너지가 없어 퀵 슬롯 변경이 불가능 합니다.");
+        }
     }
 
     public void SaveEquipmentQuickSlot(int _index)

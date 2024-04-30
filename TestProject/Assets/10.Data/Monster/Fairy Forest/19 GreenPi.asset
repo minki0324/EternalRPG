@@ -19,23 +19,23 @@ MonoBehaviour:
   MonsterLevel: 1050
   MonsterMaxHP: 4500
   MonsterCurHP: 4500
-  MonsterDef: 312
-  MonsterATK: 325
+  MonsterDef: 324
+  MonsterATK: 390
   MonsterSprite: {fileID: 21300000, guid: d89c85980578c414b918adece82546f4, type: 3}
   ReturnPos: {x: 0, y: -1.5}
   RequireEnergy: 2
   isElite: 0
   EliteID: 0
   CriticalPercant: 26
-  CriticalResist: 27
+  CriticalResist: 22
   CriticalDamage: 1.45
-  ComboPercent: 35
-  ComboResist: 34
-  AvoidPercent: 29
-  AvoidResist: 28
-  DrainPercent: 36
-  DrainResist: 37
-  DrainAmount: 1.17
+  ComboPercent: 27
+  ComboResist: 23
+  AvoidPercent: 23
+  AvoidResist: 20
+  DrainPercent: 20
+  DrainResist: 17
+  DrainAmount: 1.22
   RewordEXP: 120000
   RewordGold: 1400
   RewordEnergy: 0

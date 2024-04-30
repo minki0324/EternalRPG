@@ -12147,8 +12147,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE30\uC874\uC758 \uBAA8\uB4E0 \uB370\uC774\uD130\uAC00 \uC0AD\uC81C\uB429\uB2C8\uB2E4.\n\uCD08\uAE30\uD654
-    \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_text: "\uB9C8\uC2A4\uD130 \uC815\uBCF4\uB97C \uC81C\uC678\uD55C \uBAA8\uB4E0
+    \n\uB370\uC774\uD130\uAC00 \uC0AD\uC81C\uB429\uB2C8\uB2E4.\n\uADF8\uB798\uB3C4
+    \uCD08\uAE30\uD654 \uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbeae9c8b23e0804bba561ddb31d2de3, type: 2}
   m_sharedMaterial: {fileID: -4623906362146707526, guid: fbeae9c8b23e0804bba561ddb31d2de3, type: 2}
