@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -592,6 +593,7 @@ public class GameManager : MonoBehaviour
         int sumDrainResist = 0;
         float baseDrainAmount = 1.05f;
         float sumDrainAmount = 0;
+        int soulDrain = DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true) * 3;
 
         if (ArmorData != null)
         {
@@ -628,8 +630,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        DrainPercent = baseDrain + sumDrainPercent;
-        DrainResist = baseDrainResist + sumDrainResist;
+        DrainPercent = baseDrain + sumDrainPercent + soulDrain;
+        DrainResist = baseDrainResist + sumDrainResist + soulDrain;
         DrainAmount = baseDrainAmount + sumDrainAmount;
     }
     #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class BattleResult : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private ActiveCanvas activeCanvas;
     [SerializeField] private GameObject battlePanel;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private GameObject soulPanel;
     [SerializeField] private Player player;
     [SerializeField] private ResultPanelTitle resultPanelTitle;
     public Monster mon;
@@ -295,6 +297,12 @@ public class BattleResult : MonoBehaviour
                 mon.sprites[i].color = spriteColor;
             }
 
+            if(DataManager.Instance.EliteMonsterDic.Count == 0 && mon.monsterData.isElite)
+            { // 모든 엘리트 몬스터 중에 처음 잡았다면
+                soulPanel.SetActive(true);
+                HUDCanvas.soulChestObj.SetActive(true);
+            }
+
             if (DataManager.Instance.EliteMonsterDic.ContainsKey(mon.monsterData.MonsterID))
             { // 잡아봤던 엘리트 몬스터임
                 energyText.text = $": -1";
@@ -309,6 +317,9 @@ public class BattleResult : MonoBehaviour
                 }
                 GameManager.Instance.BonusEnergy += mon.monsterData.RewordEnergy;
                 GameManager.Instance.CurrentEnergy += mon.monsterData.RewordEnergy;
+
+                HUDCanvas.soulDesText.text = $"처치한 엘리트 몬스터 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true)}\n" +
+                                                                 $"추가 흡혈 확률&저항 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true) * 3}%";
             }
         }
         else

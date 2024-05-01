@@ -850,6 +850,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4b740c2db694941dabf916fbfcf27ed4, type: 3}
   - {fileID: 21300000, guid: 07dcf33d5b3064446b3c26f020b42f7c, type: 3}
   - {fileID: 21300000, guid: 97faf44d45d66d24599f4e6d0fa1ee9d, type: 3}
+  - {fileID: 21300000, guid: ae7f625d5763a3446a360d899c2e44d0, type: 3}
   - {fileID: 21300000, guid: c9daec6d8a8b1cf45b809a9d642e763e, type: 3}
   - {fileID: 21300000, guid: 9325f27d0292b134cb8109f1b01f0576, type: 3}
   - {fileID: 21300000, guid: 227a437db39210c48a8046fbab43d8fb, type: 3}
@@ -1807,6 +1808,7 @@ SpriteAtlas:
   - function_icon_helmet_2
   - run 1
   - frame_itemframe_01_White1 1
+  - Blacksmith_60_magic_chest 1
   - Spear_24 1
   - 00 Bronze
   - 08 Eternal

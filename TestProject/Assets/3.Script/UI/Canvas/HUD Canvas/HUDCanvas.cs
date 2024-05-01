@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Linq;
 
 public class HUDCanvas : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class HUDCanvas : MonoBehaviour
     [Header("카드 버프")]
     [SerializeField] private Sprite[] cardBuffSprite;
     [SerializeField] private Image cardBuffImage;
+    [SerializeField] private TMP_Text cardNameText;
+    [SerializeField] private TMP_Text cardDesText;
+
+    [Header("영혼 수집상자")]
+    public GameObject soulChestObj;
+    public TMP_Text soulDesText;
 
     [Header("젬 천장")]
     [SerializeField] private GameObject buyingGemPanel;
@@ -56,12 +63,44 @@ public class HUDCanvas : MonoBehaviour
     {
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
-        
+        if (DataManager.Instance.EliteMonsterDic.Count > 0)
+        {
+            soulChestObj.SetActive(true);
+            soulDesText.text = $"처치한 엘리트 몬스터 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true)}\n" +
+                                          $"추가 흡혈 확률&저항 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true) * 3}%";
+        }
+
         GameManager.Instance.LastPos = GameManager.Instance.StartPos;
 
         cardBuffImage.sprite = cardBuffSprite[(int)GameManager.Instance.CardBuff];
+        CardBuffToolTip();
         transitionObj.SetActive(false);
         activeCanvas.SetActive(false);
+    }
+
+    private void CardBuffToolTip()
+    {
+        switch (GameManager.Instance.CardBuff)
+        {
+            case CardBuffEnum.None:
+                break;
+            case CardBuffEnum.RuneBuff:
+                cardNameText.text = "룬의 부적";
+                cardDesText.text = "이번 회차 룬 드랍율이 50% 증가합니다.";
+                break;
+            case CardBuffEnum.BonusAPBuff:
+                cardNameText.text = "능력의 부적";
+                cardDesText.text = "이번 회차 레벨업당 추가 능력치가 1 증가합니다.";
+                break;
+            case CardBuffEnum.EXPandGoldBuff:
+                cardNameText.text = "경험의 부적";
+                cardDesText.text = "이번 회차 경험치 및 골드 획득량이 20% 증가합니다.";
+                break;
+            case CardBuffEnum.DropBuff:
+                cardNameText.text = "행운의 부적";
+                cardDesText.text = "이번 회차 고정 아이템 드랍율이 3% 증가합니다.";
+                break;
+        }
     }
 
     public void LackOfEnergy()
@@ -244,5 +283,12 @@ public class HUDCanvas : MonoBehaviour
                 break;
         }
         badgeInfoPanel.SetActive(true);
+    }
+
+    public void Tooltip(GameObject target)
+    {
+        bool active = target.activeSelf;
+
+        target.SetActive(!active);
     }
 }
