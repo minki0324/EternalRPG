@@ -206,6 +206,7 @@ public class BattleResult : MonoBehaviour
             float masterBuff = GameManager.Instance.MasterDropPoint == 0 ? 0 : GameManager.Instance.MasterDropPoint / 100f;
             int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
             int runeDropRate = GameManager.Instance.RuneHashSet.Contains("행운의 룬") ? 2 : 0;
+            runeDropRate += GameManager.Instance.RuneHashSet.Contains("행운의 룬ll") ? 2 : 0;
 
             // 드랍율 계산
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;

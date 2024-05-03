@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 50 Dark Crystal
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5B4\uB460\uC758 \uD06C\uB9AC\uD2F1"
+  MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
+  MonsterID: 50
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 48000
+  MonsterMaxHP: 2400000
+  MonsterCurHP: 2400000
+  MonsterDef: 68475
+  MonsterATK: 82500
+  MonsterSprite: {fileID: 21300000, guid: 1f52c75193c172d4298d059315bf06d9, type: 3}
+  ReturnPos: {x: 2, y: -3}
+  RequireEnergy: 6
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 189
+  CriticalResist: 161
+  CriticalDamage: 2.25
+  ComboPercent: 186
+  ComboResist: 158
+  AvoidPercent: 179
+  AvoidResist: 152
+  DrainPercent: 174
+  DrainResist: 148
+  DrainAmount: 1.62
+  RewordEXP: 350000000
+  RewordGold: 530000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

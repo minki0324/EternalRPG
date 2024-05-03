@@ -1,0 +1,4249 @@
+fileFormatVersion: 2
+guid: 51f142ff1ec490042bbd854fee63a422
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dec_props2_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 776
+        width: 138
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e706f913eb8df864e9eb9fbd231294e0
+      internalID: 1262031900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 776
+        width: 138
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c14b509170e7d4468400f859136691f
+      internalID: -887674669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 776
+        width: 153
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f75658cc078e8458e25cacc35a3565
+      internalID: -1983632600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_3
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 776
+        width: 153
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecc9143a4d7db442870b583dc8dd425
+      internalID: -47910746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_4
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 776
+        width: 153
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e5ae2e079929b4cb10b18994355394
+      internalID: 101370586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_5
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 776
+        width: 153
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2baa4327d2485540a6e963e5a4b1839
+      internalID: -21439235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_6
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 776
+        width: 138
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbf4fad72c1bd94b879525da2734bff
+      internalID: -20452227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_7
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 776
+        width: 138
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbbf6301d850f648a5412b09e2f2d98
+      internalID: 1248187436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 678
+        width: 128
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d117c6e84335540a2206468e6ec816
+      internalID: -267979231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 646
+        width: 94
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7832eb27b8dfffb489a51a02d2f8b2e2
+      internalID: -1751056827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_10
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 652
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a83a5c8697af14bb80e329890f44be
+      internalID: 1759761643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 652
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79eb88235b75e74f8fdc442e99fb0b1
+      internalID: 385150409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_12
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 652
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86733b2602c795241bd01cc395e912d5
+      internalID: 2013581436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_13
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 648
+        width: 93
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0158bf044385fd4c94d6ce6dd2f5858
+      internalID: 1110284547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_14
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 648
+        width: 93
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed33d316e4f7624e96ee575ea42663f
+      internalID: -155399920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_15
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 652
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5555481b3b6da14bbc3c9bd987aa283
+      internalID: 1801312094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_16
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 652
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874910c08c5e3f54381b625ced1d736e
+      internalID: -655229783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_17
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 652
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d45fd8008759ea40a125cd0f57587a1
+      internalID: 1891061298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_18
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 646
+        width: 94
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cce7ba608fd1e446acc57b736831662
+      internalID: -616978996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_19
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 678
+        width: 128
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbec3007fc7b2b42b8a6b87a305aa46
+      internalID: 645401921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 641
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087971c86b4d3d04f828cc4656c935c7
+      internalID: 87070104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 648
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536bac7d14463e0409b3a8d530e85d20
+      internalID: -507454045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 554
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7564e720518406345a4371896587cce6
+      internalID: -1866625871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_23
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 554
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0bec1318a4b2647ac6d7cee2af9db7
+      internalID: 1128536205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_24
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 648
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7004fe36b8a2a124a91412d0529fc80f
+      internalID: 1447114279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_25
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 641
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1beb38798ff50c646afefd43b1397dd9
+      internalID: 1612154656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddc44934066c124d93960c3b5c3b59b
+      internalID: -1114360323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_27
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 611
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d42e17275a1c049ac679d233385cf4
+      internalID: -440115035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 488
+        width: 160
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d473d8c292fdab4286663d389dbe2c0
+      internalID: 390554709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_29
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 496
+        width: 111
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb89bb9a27212d4eb6504b522b1621a
+      internalID: -533832637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_30
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 492
+        width: 125
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7275e67461967a34fb0a81961ba5cf75
+      internalID: -1228564593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_31
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 514
+        width: 192
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09359b0bb10715a429fc81dbcab3da4d
+      internalID: 861266965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_32
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 492
+        width: 125
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d81150941cf2443aabcbebd3f0b8a3
+      internalID: -324016655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_33
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 496
+        width: 111
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913848bae125fd0499262934010e79ec
+      internalID: 133881182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_34
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 488
+        width: 160
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf3e9254bd75c04e99bebe092984bfd
+      internalID: -1373329570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_35
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 611
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8541f56dbd9c933468ac83e5ca14f382
+      internalID: -1043272095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_36
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63683b4d2de37c4ab10de92e749144c
+      internalID: -999427096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_37
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 549
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3ff87a35cea864bb57761dc3688afd
+      internalID: -1409729164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_38
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 549
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c3f96faa04bd34fa30798783830121
+      internalID: -1754959163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_39
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 513
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32273892b36795c47b6805aaf4e76092
+      internalID: -1831197840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_40
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 520
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94954319c3ee5543b183259292a152f
+      internalID: -882150721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_41
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 483
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587f6be33c79bff4cb176ce7a9b9312d
+      internalID: -1214305420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d78f359ddaf6e44bed805fabf3165a
+      internalID: -1476329660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_43
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 480
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0608272e1116b840bf60217c395a797
+      internalID: 2037398453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_44
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 483
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8534e0bab4af484392d394bcbc8a41c
+      internalID: -1375860952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_45
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 520
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b78ec120f52944fa19fbe2d12257f1
+      internalID: -482324033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_46
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 513
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0432f220d3f41dc469d45129aaea0a64
+      internalID: -1732938967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0850d0103e54604faa66fc688c3acee
+      internalID: 1242966762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_48
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 483
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0b950b5f9e9b7498f9a08dc94f4fff
+      internalID: -1090675657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_49
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 483
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ded1c8c2f9bd24580a0e2f98caa1fe
+      internalID: 2075973442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_50
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 480
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63e304d5d6fd174a824f6c1b1f80494
+      internalID: -1219477501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_51
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 421
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6b18e7c66d1984eb08a6ab7544f460
+      internalID: 5602948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_52
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5096d5f447575448a47b4786f37b46
+      internalID: -852318089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_53
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 388
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187fff1f95144bf4ca164d90e16ea1a7
+      internalID: 1932195542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_54
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 388
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcac083aca7d4364eb9df810d560c090
+      internalID: 1275507512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_55
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 388
+        width: 95
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0d1cc0609fd344d9c85fd29fcc277b
+      internalID: -1736632433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_56
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 387
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013acb94ca1d4d042916b4dd09ff6285
+      internalID: 1388117206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_57
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 396
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e3e36c86bcab244936fe63e1fed766
+      internalID: 211586904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_58
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 397
+        width: 83
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a189ffd08472147bfcd8fcdbffcc90
+      internalID: 2099717042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_59
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 397
+        width: 83
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c958456c3bd3c439438b4ba6532a97
+      internalID: -1691868145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_60
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 396
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c427375177612fc4790d52691acc3860
+      internalID: 543612921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_61
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 387
+        width: 76
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3a2f6c415f0af4389d01709d69d55a
+      internalID: -327389066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_62
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 388
+        width: 95
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fcfd516b83cbd488c436d2e41aeeb3
+      internalID: -144318630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_63
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 388
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c46a9c6eecac9d449acd9b841a63cab
+      internalID: 2045932132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_64
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 388
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc4ab407817e7844b476badec5301e9
+      internalID: -1738271177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_65
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c500e7986a95e41a9b540bc707b5b4
+      internalID: 2013921694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_66
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 421
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57c03101c8bead4591e898718cab380
+      internalID: 1003683949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_67
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 320
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054bcd63ee7242746b81e98fe2f6bddd
+      internalID: 1545938750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_68
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 365
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f344fa7dcdc081e4da0d6bedcb4993a6
+      internalID: 69033354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_69
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 355
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965ec4c85fa2b604e80482cf5fd0d40f
+      internalID: -1388750685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_70
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 363
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09f9604a8819fb49a43d6b15d322bc3
+      internalID: 670979224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_71
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 269
+        width: 60
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8eb261b9205e6c4688d5493958fad05
+      internalID: -802637747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_72
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 270
+        width: 77
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16daaf9fbab97b44a0c7d269d8d73cb
+      internalID: 301642030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_73
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 295
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d5e68bf0e62d94c86da37ac40f8260
+      internalID: 1269308929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_74
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 289
+        width: 128
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395c4c6edddb0ba4fa4d0119d3cfcf5b
+      internalID: -855754604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_75
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 295
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d17c79bfeb16c847b49ed993aac5197
+      internalID: 1184995937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_76
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 270
+        width: 77
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396227571ff15e249ba7f5e6fa7745ed
+      internalID: -1919076444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_77
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 269
+        width: 60
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5892ed4fe7ed68641bc3ae73efe5394f
+      internalID: 33345508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_78
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 363
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c9141d89a290941b1fb43dfd3461df
+      internalID: -662756191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_79
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 355
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d46f7469e1f00418dd1debb6fe29c2
+      internalID: -875466688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_80
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 365
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ca4616347d7f345881725cc9bcd116
+      internalID: -1829410861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_81
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 320
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 995673c2f03124e4c9e89f97a93f23d3
+      internalID: -550780580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_82
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 326
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68f8dbda0d33bf4abd59a53df242650
+      internalID: 690034436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_83
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 328
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6ec25c7e71ac641b005f22b7126d7b
+      internalID: -296777148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_84
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5958554462d7854da07a82c42a1372f
+      internalID: 1296124878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_85
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 270
+        width: 64
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0401f01b0dab3ec479fe62311683bd0d
+      internalID: 44174330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_86
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 264
+        width: 67
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb74cfece1fb634c9be8bc6523e1f2b
+      internalID: 183605643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_87
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 264
+        width: 67
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2215ee83acac2214793dd01065777c3e
+      internalID: 619903021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_88
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 270
+        width: 64
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad9abd1f06461143b78c2d217b6b80f
+      internalID: 1650833849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_89
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ecceb856d4bebe4dac6e6c795b583ff
+      internalID: -1559589975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_90
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 328
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44d4b76a400e6d43af22f23688985d3
+      internalID: -632995895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_91
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 326
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2953c4addf3824240aedb10e6ef69898
+      internalID: 237306985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_92
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 290
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aae27f3b9cde284bb1dc7a05f454f85
+      internalID: -565857993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_93
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 290
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9d58838812eba4a93d25ea2bb1fe57
+      internalID: -1721549200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_94
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 288
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c25db12d424c9e42a1d48723f0edcfa
+      internalID: 1645305852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_95
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 295
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ba4dfa9da4ff947b390fd4a350fad6
+      internalID: 330612076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_96
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 275
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedb72dc2adf6f848944623a86c71927
+      internalID: 183264249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_97
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 275
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daec6c37c5f52ab48a4efa4f29c02bc6
+      internalID: 1258683895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_98
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 295
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b144c38a21adec4fa56e0d7e76d9e3a
+      internalID: 1595716199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_99
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 288
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179ae27a847fc3e4a8793907564dce9a
+      internalID: 871788634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_100
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 290
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ce51302372ae4ba9aea17860db320
+      internalID: 588200726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_101
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 290
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7382fe1096d1154eb8ab24e094b0ad4
+      internalID: -1096339543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_102
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 195
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7264b342d8ab36547a0006536639bde4
+      internalID: 831097571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_103
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 201
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59054e9668844624baa3d1415bc69f10
+      internalID: -1561055947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_104
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 203
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e226e4c6a25fc741b836ab073665bae
+      internalID: -1301866917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_105
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 205
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b687b2d5d3cdbe64a8b024503a7f96e1
+      internalID: -2044731133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_106
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 226
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd16962ecbdf3c847841777d3a791d57
+      internalID: 397231661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_107
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 195
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5fe507845346844cbae81ebe3708277
+      internalID: -218858619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_108
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 202
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfbc85d820f7284c8978fa5f905d28c
+      internalID: -428024256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_109
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 200
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8964b3ec0d8409048996c49efeb3ecd4
+      internalID: 1670018687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_110
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 202
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17bea19f8fcdd0a4bbede66ab70f1487
+      internalID: 1374247561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_111
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 225
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8fb14595655b84884b404928b231c9
+      internalID: -75695943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_112
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 201
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c69d1a2670a9b64bbdc8f2d4a1385fa
+      internalID: -838270380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_113
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 202
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1a84a234337274fa8b9ecf336fe831
+      internalID: -982044456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_114
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 205
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ccb475f7a15404a8d0ce9d0ca85967
+      internalID: -366696063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_115
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 205
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19f163d32d51a54682347695321d2c6
+      internalID: -1457874742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_116
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 202
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb35f092580f204459eb8b83ae4cac2f
+      internalID: 338081034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_117
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 202
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235cee915000d544698d1f198de0ea59
+      internalID: 1659968521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_118
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 202
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1f99e3588e632489ca85793129e4f5
+      internalID: -1649787712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_119
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 201
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ff49fbdf6751f4aad1d855be880849
+      internalID: 1440295622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_120
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 205
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0c07f104fc2434c9afce3eccf1bb3f
+      internalID: -2134223159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_121
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 201
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a9c1ab0e4aa6c42b66f3603ff73e9a
+      internalID: 1943581080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_122
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 206
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82abdfb40fa31ed4383af59a779db6c7
+      internalID: -89616472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_123
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 197
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8771ee5fb2b0d44c9bed490823fe6d6
+      internalID: 723032532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_124
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 198
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ec46d7a28198d4fb169fa909ab427f
+      internalID: -1563978097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_125
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 98
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff69586fe46f4249b344232138c5586
+      internalID: -1882636727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_126
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 100
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf80195ff68b4aa42a2fab236816f970
+      internalID: 294405415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_127
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 98
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7759e94e29b75714dbd6113b7a302518
+      internalID: -753143617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_128
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 100
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a429d010a82fb4b84b87c33638874a
+      internalID: -1497389778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_129
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 96
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1b7556879f88e45b54878f9607903f
+      internalID: -319668022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_130
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 103
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae651a59b9292734e82351f80e689b9f
+      internalID: -384257201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_131
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 66
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc8c88a14a308d49a287ec36787eb1c
+      internalID: 581186236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_132
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 73
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0df76b4baf8de4b917d48f7709bcdf
+      internalID: -258332498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_133
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 64
+        width: 53
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f234ee254cafe4aa3b4136e86e79bd
+      internalID: -573375133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_134
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 69
+        width: 45
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e25308b38a88240ad3b3acab0a3ac6
+      internalID: -2113052482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_135
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 87
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e879f8e7506cc65409f5c8ec33355c69
+      internalID: -798921880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_136
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 87
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39dcbc6edb7d97b4da6bfffdebc03bc3
+      internalID: 563145629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_137
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 69
+        width: 45
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87abd52b446218545a8860b103f71dc8
+      internalID: 768719557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_138
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 64
+        width: 53
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9587d8e5d9a5b4390fb707e891d88a
+      internalID: 883129854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_139
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 73
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d56df59e88abc4195bbcc93d162bd9
+      internalID: -269404566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_140
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 66
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50aeb436abec1b44b44c8f578603bf8
+      internalID: 6479868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_141
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 103
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63055daecbc21424baa600e5614df6df
+      internalID: 442686059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_142
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 96
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d96af4c699594043acdc4212aec5d88
+      internalID: 106893946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_143
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 100
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f0f5a9606c3b64984e87d1da31d76d
+      internalID: 1316102790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_144
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 98
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d795e2eb8a296e4c8e59c9b1b649f4d
+      internalID: 304974728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_145
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 100
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c30a088c75b974fbd97058ed4941d6
+      internalID: -1385322962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_146
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 98
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87444cad3a4a3c42a7821d1e2b42e26
+      internalID: -2027151757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_147
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 65
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94505da7204fca94d8a63a2e287b8b79
+      internalID: 986881932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_148
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 15
+        width: 27
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbb92684aaca324fa15ee45f31edf31
+      internalID: 724854667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_149
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 54
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6993294b361dc44e829e465a536196f
+      internalID: -398812991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_150
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 39
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f308f2fdd462a204aad32cf8c3b01d58
+      internalID: -2073349664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_151
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 64
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65bd42e5c728494488b73455bfce0ba
+      internalID: 128345926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_152
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 64
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8aac5320b2f5c84399659395ef1fec7
+      internalID: 1318222086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_153
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 54
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10849b6dea1965c4c9011ea6ebd416da
+      internalID: 1813943329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_154
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 39
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116b5a86d5b35184eb5e400df8d9d27b
+      internalID: 31833385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_155
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 39
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc92a90ffbbcba94c89ef10303dc8d1e
+      internalID: 1647459263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_156
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 39
+        width: 39
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678d6f7b9c480614cb4d407442018d67
+      internalID: -2098440657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_157
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 9
+        width: 27
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6372da2407760524b9cd1f3414b6e194
+      internalID: -67683128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_158
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 10
+        width: 27
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7822f233d0129b647bcaa4e00d778fb9
+      internalID: -1582067835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_159
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 13
+        width: 27
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a08d8cc0ec2f243834edcfff492cf9
+      internalID: 1960582897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_160
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 13
+        width: 27
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4215e596334f82b4e9826324f0a8a4e1
+      internalID: 554098670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_161
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b867e5a29638b2048b2c473af1e502bc
+      internalID: 1785756673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_162
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 2
+        width: 27
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c59fd2ecb750634388fa449dfae2959
+      internalID: 356145297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_163
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 7
+        width: 39
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f14021f886202439da64713a10bd41
+      internalID: -259396767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_164
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 7
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c631ac4ca277296478c5e7a432d34fba
+      internalID: -1946836058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_165
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 38
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d619ffdd56fccf340b176ddf32157df6
+      internalID: -1020799873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_166
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 35
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d44e9c01eba4004c8c8d3f7b7251c61
+      internalID: -195680317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_167
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 44
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237aa3bbe1d0e474088cc738c7b71f2f
+      internalID: 596911944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_168
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 10
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03aa3b0919b7aaa4eaeb9b5533d76ab3
+      internalID: 2008068564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_169
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 12
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5caa7963d99453645b82db41dc4e1c8b
+      internalID: 379143496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_170
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e05d524c63155f4e9968a5bab133061
+      internalID: 1674430968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_171
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2494fabf83e8df4f8b71f51db73bf80
+      internalID: 686127027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_172
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 6
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f11534b24ed2844a19d561e72d27e7
+      internalID: -513776717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_173
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 4
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba738cc4008f92447a1f25b686eef06a
+      internalID: -1814055908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_174
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 4
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67f81827f1de7440867eb9492646e6d
+      internalID: 2048743786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_175
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 6
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bb11e3996fe3646984c38ad2278209
+      internalID: -754239297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_176
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 3
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7047176627fb6b24cb27ce89a56ce3c9
+      internalID: -2003049137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_177
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 12
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8934ae800d9cc1742bf84c763cae371b
+      internalID: -1165546383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_178
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 3
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27eb99d547379b4c835050be81bd8ca
+      internalID: 1679220677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_179
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 6
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328366c5889c1284da371a0c0f758e6a
+      internalID: 1659905830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_180
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 4
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668d86bf90380f74694596a29e6b6a37
+      internalID: -60947872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_181
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 12
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30404cb337f784342b5f21e4b1b72ce5
+      internalID: -2095435803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_182
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 3
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521c98ba41d3cfa4b81668412e33a666
+      internalID: 731506512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_183
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 6
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 654fb8e9c05851f4fa7cc522a4ae36cb
+      internalID: -58511349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_184
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 4
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0c83695d1254245ab7772f82e10ecd
+      internalID: 614127503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_185
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 6
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ab73178de54ae4aa963c02d33aa47a
+      internalID: -1804732732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dec_props2_186
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 0
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76afa849c6c3c9f4381668a1bdafb603
+      internalID: 1273186323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dec_props2_147: 986881932
+      Dec_props2_170: 1674430968
+      Dec_props2_7: 1248187436
+      Dec_props2_172: -513776717
+      Dec_props2_179: 1659905830
+      Dec_props2_5: -21439235
+      Dec_props2_81: -550780580
+      Dec_props2_59: -1691868145
+      Dec_props2_29: -533832637
+      Dec_props2_97: 1258683895
+      Dec_props2_54: 1275507512
+      Dec_props2_119: 1440295622
+      Dec_props2_67: 1545938750
+      Dec_props2_151: 128345926
+      Dec_props2_63: 2045932132
+      Dec_props2_83: -296777148
+      Dec_props2_112: -838270380
+      Dec_props2_18: -616978996
+      Dec_props2_127: -753143617
+      Dec_props2_50: -1219477501
+      Dec_props2_72: 301642030
+      Dec_props2_109: 1670018687
+      Dec_props2_148: 724854667
+      Dec_props2_11: 385150409
+      Dec_props2_182: 731506512
+      Dec_props2_124: -1563978097
+      Dec_props2_88: 1650833849
+      Dec_props2_173: -1814055908
+      Dec_props2_85: 44174330
+      Dec_props2_121: 1943581080
+      Dec_props2_126: 294405415
+      Dec_props2_157: -67683128
+      Dec_props2_22: -1866625871
+      Dec_props2_37: -1409729164
+      Dec_props2_31: 861266965
+      Dec_props2_144: 304974728
+      Dec_props2_185: -1804732732
+      Dec_props2_16: -655229783
+      Dec_props2_15: 1801312094
+      Dec_props2_9: -1751056827
+      Dec_props2_62: -144318630
+      Dec_props2_17: 1891061298
+      Dec_props2_51: 5602948
+      Dec_props2_64: -1738271177
+      Dec_props2_154: 31833385
+      Dec_props2_30: -1228564593
+      Dec_props2_57: 211586904
+      Dec_props2_56: 1388117206
+      Dec_props2_93: -1721549200
+      Dec_props2_69: -1388750685
+      Dec_props2_52: -852318089
+      Dec_props2_175: -754239297
+      Dec_props2_68: 69033354
+      Dec_props2_53: 1932195542
+      Dec_props2_55: -1736632433
+      Dec_props2_171: 686127027
+      Dec_props2_98: 1595716199
+      Dec_props2_167: 596911944
+      Dec_props2_134: -2113052482
+      Dec_props2_28: 390554709
+      Dec_props2_106: 397231661
+      Dec_props2_150: -2073349664
+      Dec_props2_104: -1301866917
+      Dec_props2_178: 1679220677
+      Dec_props2_165: -1020799873
+      Dec_props2_95: 330612076
+      Dec_props2_8: -267979231
+      Dec_props2_24: 1447114279
+      Dec_props2_117: 1659968521
+      Dec_props2_136: 563145629
+      Dec_props2_156: -2098440657
+      Dec_props2_45: -482324033
+      Dec_props2_140: 6479868
+      Dec_props2_0: 1262031900
+      Dec_props2_6: -20452227
+      Dec_props2_130: -384257201
+      Dec_props2_13: 1110284547
+      Dec_props2_78: -662756191
+      Dec_props2_43: 2037398453
+      Dec_props2_116: 338081034
+      Dec_props2_87: 619903021
+      Dec_props2_146: -2027151757
+      Dec_props2_122: -89616472
+      Dec_props2_48: -1090675657
+      Dec_props2_110: 1374247561
+      Dec_props2_160: 554098670
+      Dec_props2_105: -2044731133
+      Dec_props2_89: -1559589975
+      Dec_props2_39: -1831197840
+      Dec_props2_114: -366696063
+      Dec_props2_84: 1296124878
+      Dec_props2_142: 106893946
+      Dec_props2_143: 1316102790
+      Dec_props2_4: 101370586
+      Dec_props2_177: -1165546383
+      Dec_props2_153: 1813943329
+      Dec_props2_74: -855754604
+      Dec_props2_25: 1612154656
+      Dec_props2_100: 588200726
+      Dec_props2_71: -802637747
+      Dec_props2_44: -1375860952
+      Dec_props2_80: -1829410861
+      Dec_props2_141: 442686059
+      Dec_props2_108: -428024256
+      Dec_props2_137: 768719557
+      Dec_props2_168: 2008068564
+      Dec_props2_149: -398812991
+      Dec_props2_161: 1785756673
+      Dec_props2_12: 2013581436
+      Dec_props2_34: -1373329570
+      Dec_props2_176: -2003049137
+      Dec_props2_79: -875466688
+      Dec_props2_36: -999427096
+      Dec_props2_111: -75695943
+      Dec_props2_46: -1732938967
+      Dec_props2_169: 379143496
+      Dec_props2_86: 183605643
+      Dec_props2_181: -2095435803
+      Dec_props2_75: 1184995937
+      Dec_props2_138: 883129854
+      Dec_props2_152: 1318222086
+      Dec_props2_23: 1128536205
+      Dec_props2_66: 1003683949
+      Dec_props2_133: -573375133
+      Dec_props2_82: 690034436
+      Dec_props2_92: -565857993
+      Dec_props2_145: -1385322962
+      Dec_props2_1: -887674669
+      Dec_props2_38: -1754959163
+      Dec_props2_60: 543612921
+      Dec_props2_21: -507454045
+      Dec_props2_49: 2075973442
+      Dec_props2_47: 1242966762
+      Dec_props2_70: 670979224
+      Dec_props2_20: 87070104
+      Dec_props2_132: -258332498
+      Dec_props2_61: -327389066
+      Dec_props2_41: -1214305420
+      Dec_props2_91: 237306985
+      Dec_props2_26: -1114360323
+      Dec_props2_123: 723032532
+      Dec_props2_77: 33345508
+      Dec_props2_73: 1269308929
+      Dec_props2_101: -1096339543
+      Dec_props2_129: -319668022
+      Dec_props2_99: 871788634
+      Dec_props2_162: 356145297
+      Dec_props2_19: 645401921
+      Dec_props2_35: -1043272095
+      Dec_props2_164: -1946836058
+      Dec_props2_174: 2048743786
+      Dec_props2_115: -1457874742
+      Dec_props2_158: -1582067835
+      Dec_props2_102: 831097571
+      Dec_props2_76: -1919076444
+      Dec_props2_107: -218858619
+      Dec_props2_166: -195680317
+      Dec_props2_113: -982044456
+      Dec_props2_155: 1647459263
+      Dec_props2_10: 1759761643
+      Dec_props2_14: -155399920
+      Dec_props2_159: 1960582897
+      Dec_props2_183: -58511349
+      Dec_props2_96: 183264249
+      Dec_props2_180: -60947872
+      Dec_props2_32: -324016655
+      Dec_props2_2: -1983632600
+      Dec_props2_128: -1497389778
+      Dec_props2_131: 581186236
+      Dec_props2_27: -440115035
+      Dec_props2_139: -269404566
+      Dec_props2_42: -1476329660
+      Dec_props2_65: 2013921694
+      Dec_props2_125: -1882636727
+      Dec_props2_40: -882150721
+      Dec_props2_58: 2099717042
+      Dec_props2_120: -2134223159
+      Dec_props2_94: 1645305852
+      Dec_props2_90: -632995895
+      Dec_props2_33: 133881182
+      Dec_props2_163: -259396767
+      Dec_props2_118: -1649787712
+      Dec_props2_3: -47910746
+      Dec_props2_135: -798921880
+      Dec_props2_186: 1273186323
+      Dec_props2_103: -1561055947
+      Dec_props2_184: 614127503
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

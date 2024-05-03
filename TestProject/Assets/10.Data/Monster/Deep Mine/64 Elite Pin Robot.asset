@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 64 Elite Pin Robot
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5D8\uB9AC\uD2B8 \uC9D1\uAC8C\uB85C\uBD07"
+  MonsterLocation: "\uAD11\uC0B0 \uB098\uAC00\uB294\uAE38"
+  MonsterID: 64
+  MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 40500
+  MonsterMaxHP: 1900000
+  MonsterCurHP: 1900000
+  MonsterDef: 56440
+  MonsterATK: 68000
+  MonsterSprite: {fileID: 21300000, guid: f44b45ed4928ccb4ca255588a5be7bad, type: 3}
+  ReturnPos: {x: 3.5, y: 0}
+  RequireEnergy: 7
+  isElite: 1
+  EliteID: 19
+  CriticalPercant: 181
+  CriticalResist: 154
+  CriticalDamage: 2.19
+  ComboPercent: 178
+  ComboResist: 151
+  AvoidPercent: 174
+  AvoidResist: 148
+  DrainPercent: 171
+  DrainResist: 145
+  DrainAmount: 1.6
+  RewordEXP: 150000000
+  RewordGold: 280000
+  RewordEnergy: 7
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: fd961a3273286ab4cb5312d7fe58c620, type: 2}

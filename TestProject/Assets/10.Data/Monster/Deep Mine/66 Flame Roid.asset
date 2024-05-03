@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 66 Flame Roid
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD3ED\uC5FC\uC758 \uB85C\uC774\uB4DC"
+  MonsterLocation: "\uAD11\uC0B0 \uB098\uAC00\uB294\uAE38"
+  MonsterID: 66
+  MonsterType: "\uB85C\uBD07"
+  MonsterLevel: 51500
+  MonsterMaxHP: 2800000
+  MonsterCurHP: 2800000
+  MonsterDef: 73870
+  MonsterATK: 89000
+  MonsterSprite: {fileID: 21300000, guid: b59c3676bfdf0784ba0e8f3988fe9293, type: 3}
+  ReturnPos: {x: 0, y: 3.5}
+  RequireEnergy: 7
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 192
+  CriticalResist: 163
+  CriticalDamage: 2.28
+  ComboPercent: 188
+  ComboResist: 160
+  AvoidPercent: 184
+  AvoidResist: 156
+  DrainPercent: 181
+  DrainResist: 154
+  DrainAmount: 1.64
+  RewordEXP: 434000000
+  RewordGold: 644000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

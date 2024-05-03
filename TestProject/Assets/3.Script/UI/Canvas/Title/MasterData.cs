@@ -25,6 +25,8 @@ public class MasterData : MonoBehaviour
 
     public void PointReset()
     {
+        int runePoint = GameManager.Instance.RuneHashSet.Contains("´É·ÂÀÇ ·é") ? 50 : 0;
+        GameManager.Instance.MasterCurrentAP += runePoint;
         GameManager.Instance.MasterCurrentAP += GameManager.Instance.MasterRunePoint * 200;
         GameManager.Instance.MasterCurrentAP += GameManager.Instance.MasterBonusAPPoint * 100;
         GameManager.Instance.MasterCurrentAP += GameManager.Instance.MasterDropPoint;

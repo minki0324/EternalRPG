@@ -449,6 +449,8 @@ public class GameManager : MonoBehaviour
         int sumCri = 0;
         int sumCriResist = 0;
         float sumCriDamage = 0;
+        int runeCriPercent = RuneHashSet.Contains("Ä¡¸íÀÇ ·é") ? 30 : 0;
+        float runeCriDamage = RuneHashSet.Contains("Ä¡¸íÀÇ ·é") ? 0.3f : 0;
         if (ArmorData != null)
         {
             sumCriResist += Mathf.RoundToInt((float)(ArmorData.ArmorCriticalResist * (1 + GetOwnPercent(ArmorData))));
@@ -489,9 +491,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CriticalPercant = baseCri + sumCri;
+        CriticalPercant = baseCri + sumCri + runeCriPercent;
         CriticalResist = baseCriResist + sumCriResist;
-        CriticalDamage = baseCriDamage + sumCriDamage;
+        CriticalDamage = baseCriDamage + sumCriDamage + runeCriDamage;
     }
     #endregion
 
@@ -502,6 +504,7 @@ public class GameManager : MonoBehaviour
         int sumComboPercent = 0;
         int baseComboResist = 5;
         int sumComboResist = 0;
+        int runeComboPercent = RuneHashSet.Contains("¼Ó°øÀÇ ·é") ? 40 : 0;
 
         if (WeaponData != null)
         {
@@ -535,7 +538,7 @@ public class GameManager : MonoBehaviour
                 sumComboResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboResist * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + sumComboPercent + LUC / 3000.0));
+        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + runeComboPercent + sumComboPercent + LUC / 3000.0));
         ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 3000.0));
     }
     #endregion
@@ -547,6 +550,7 @@ public class GameManager : MonoBehaviour
         int sumAvoidPercent = 0;
         int baseAvoidResist = 5;
         int sumAvoidResist = 0;
+        int runeAvoidPercent = RuneHashSet.Contains("½Å¼ÓÀÇ ·é") ? 30 : 0;
         int runeAvoidResist = RuneHashSet.Contains("¸íÁßÀÇ ·é") ? 25 : 0;
 
         if (BeltData != null)
@@ -579,7 +583,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + DEX / 5000.0));
+        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + runeAvoidPercent + DEX / 5000.0));
         AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + runeAvoidResist + DEX / 3000.0 + BadgeData.BadgeAvoidResist));
     }
     #endregion
@@ -685,6 +689,8 @@ public class GameManager : MonoBehaviour
     {
         // º¸³Ê½º AP
         int sumBonusAP = 0;
+        int runeBonusAP = RuneHashSet.Contains("¸¶³ªÀÇ ·é") ? 1 : 0;
+        runeBonusAP += RuneHashSet.Contains("¸¶·ÂÀÇ ·é") ? 1 : 0;
 
         // ÀÌµ¿¼Óµµ
         float sumMoveSpeed = 0;
@@ -709,7 +715,7 @@ public class GameManager : MonoBehaviour
         int quickSlotBook = isAPBook ? 1 : 0;
         int cardBuff = CardBuff == CardBuffEnum.BonusAPBuff ? 1 : 0;
 
-        BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
+        BonusAP = 5 + sumBonusAP + quickSlotBook + cardBuff + runeBonusAP + MasterBonusAPPoint + BadgeData.BadgeBonusAP;
         MoveSpeed = 65 + Mathf.RoundToInt(sumMoveSpeed + runeMoveSpeed + MasterMovePoint + BadgeData.BadgeMoveSpeed);
         RuneDropRate = 1 + cardBuff + runeDropMasterBuff + basicRuneBuff + BadgeData.BadgeRuneDrop;
     }
@@ -770,6 +776,7 @@ public class GameManager : MonoBehaviour
         isFood = false;
         isGoldPack = false;
         int runeBonusEnergy = RuneHashSet.Contains("¹«¸íÀÇ ·é") ? 2 : 0;
+        runeBonusEnergy += RuneHashSet.Contains("Ã¼·ÂÀÇ ·é") ? 4 : 0;
 
         CardBuff = CardBuffEnum.None;
 

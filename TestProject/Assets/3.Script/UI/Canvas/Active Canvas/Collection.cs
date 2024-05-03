@@ -15,7 +15,9 @@ public enum Location
     RelicForest,
     FairyForest,
     RedForest,
-    Mine
+    Mine,
+    InTree,
+    DeepMine
 }
 
 public class Collection : MonoBehaviour

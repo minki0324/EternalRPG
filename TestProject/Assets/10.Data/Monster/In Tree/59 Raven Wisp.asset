@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 59 Raven Wisp
+  m_EditorClassIdentifier: 
+  MonsterName: "\uCE60\uD751\uC758 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
+  MonsterID: 59
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 105000
+  MonsterMaxHP: 10000000
+  MonsterCurHP: 10000000
+  MonsterDef: 157700
+  MonsterATK: 190000
+  MonsterSprite: {fileID: 21300000, guid: 852c73ab8913362449060d2d2704bbe6, type: 3}
+  ReturnPos: {x: 3, y: 0}
+  RequireEnergy: 6
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 251
+  CriticalResist: 213
+  CriticalDamage: 2.65
+  ComboPercent: 248
+  ComboResist: 211
+  AvoidPercent: 241
+  AvoidResist: 205
+  DrainPercent: 236
+  DrainResist: 201
+  DrainAmount: 1.82
+  RewordEXP: 710000000
+  RewordGold: 890000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

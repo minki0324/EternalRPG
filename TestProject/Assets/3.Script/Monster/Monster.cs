@@ -29,12 +29,12 @@ public class Monster : MonoBehaviour
         MonsterATK = monsterData.MonsterATK;
         if(monsterData.isElite)
         {
-            levelTxt.text = $"Lv. {monsterData.MonsterLevel}\n엘리트 몬스터" ;
+            levelTxt.text = $"Lv. {monsterData.MonsterLevel:N0}\n엘리트 몬스터" ;
 
         }
         else
         {
-            levelTxt.text = $"Lv. {monsterData.MonsterLevel}";
+            levelTxt.text = $"Lv. {monsterData.MonsterLevel:N0}";
         }
         RenewMonsterPower();
         if(GameManager.Instance.DeadMonsterList.Contains(monsterData.MonsterID))

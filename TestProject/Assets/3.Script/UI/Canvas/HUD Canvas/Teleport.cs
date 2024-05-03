@@ -38,6 +38,12 @@ public class Teleport : MonoBehaviour
             case "±¤»ê ÃÊÀÔºÎ":
                 TeleportLocation = (Location)3;
                 break;
+            case "Á×Àº ³ª¹« µ¿±¼":
+                TeleportLocation = (Location)4;
+                break;
+            case "±¤»ê ³ª°¡´Â±æ":
+                TeleportLocation = (Location)5;
+                break;
         }
         miniMapImage.sprite = teleportLocationDropdown.options[selectDropDown].image;
     }

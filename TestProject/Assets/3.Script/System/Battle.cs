@@ -49,6 +49,7 @@ public class Battle : MonoBehaviour
     private Coroutine battleCoroutine;
     [Header("룬")]
     private bool isDefenceRune = false;
+    private bool isHardSkinRune = false;
     private int runeHPRegen;
     private bool isPoisonRune = false;
 
@@ -401,6 +402,9 @@ public class Battle : MonoBehaviour
 
         // 방어의 룬 절대 방어 50
         damage = isDefenceRune ? damage - 50 : damage;
+
+        // 철갑의 룬 최종 데미지 4% 감소
+        damage = isHardSkinRune ? Mathf.RoundToInt(damage*0.96f) : damage;
         if (!isSkip)
         {
             monsterDamageText.gameObject.SetActive(true);
@@ -547,13 +551,14 @@ public class Battle : MonoBehaviour
             float dropRate = 0;
             int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
             float masterBuff = GameManager.Instance.MasterDropPoint == 0 ? 0 : GameManager.Instance.MasterDropPoint / 100f;
-
+            int runeDropRate = GameManager.Instance.RuneHashSet.Contains("행운의 룬") ? 2 : 0;
+            runeDropRate += GameManager.Instance.RuneHashSet.Contains("행운의 룬ll") ? 2 : 0;
 
             if (ownCount < 10)
             {
                 float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
                 float addDropRate = (float)(mon.monsterData.RewardItem[i].DropRate * (1 + (float)(GameManager.Instance.ItemDropRate / 100f) + (float)(quickSlotDrop / 100f)));
-                dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + GameManager.Instance.BadgeData.BadgeItemDropRate); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
+                dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + runeDropRate + GameManager.Instance.BadgeData.BadgeItemDropRate); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
             }
             drop.DropRateText.text = $"{dropRate:F2}%";
         }
@@ -619,6 +624,7 @@ public class Battle : MonoBehaviour
     {
         isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
         isPoisonRune = GameManager.Instance.RuneHashSet.Contains("독성의 룬");
+        isHardSkinRune = GameManager.Instance.RuneHashSet.Contains("철갑의 룬");
     }
 
     private string GetTrigger(int comboCount)
