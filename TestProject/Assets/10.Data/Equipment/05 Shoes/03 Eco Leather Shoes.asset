@@ -23,7 +23,7 @@ MonoBehaviour:
   ShoesHP: 1000
   ShoesHPPercent: 8
   ShoesDef: 35
-  ShoesDefPercent: 9
+  ShoesDefPercent: 4
   ShoesAvoidPercent: 18
   ShoesAvoidResist: 17
   ShoesDEXPercent: 10

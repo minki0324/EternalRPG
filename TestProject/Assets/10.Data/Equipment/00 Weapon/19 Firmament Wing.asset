@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 19 Firmament Wing
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 19 Firmament Wing
+  ItemID: 900019
+  EquipmentName: "\uCC3D\uACF5\uC758 \uB0A0\uAC1C"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 12
+  EquipmentDes: "\uAD6C\uC870\uB97C \uCD5C\uC18C\uD654\uD558\uC5EC \uBB34\uAC8C\uB97C
+    \uCD5C\uB300\uD55C \uC904\uC778 \uD65C\uC774\uB2E4."
+  WeaponType: 3
+  WeaponATK: 3950
+  WeaponATKPercent: 65
+  WeaponComboPercent: 48
+  WeaponCriticalPercent: 47
+  WeaponCriticalDamage: 0.58
+  WeaponDrainPercent: 46
+  WeaponDrainAmount: 0.16
+  WeaponSTRPercent: 47
+  WeaponDEXPercent: 46

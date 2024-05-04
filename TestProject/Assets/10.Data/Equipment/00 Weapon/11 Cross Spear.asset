@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 11 Cross Spear
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 11 Cross Spear
+  ItemID: 900011
+  EquipmentName: "\uC2ED\uC790\uCC3D"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 20
+  EquipmentDes: "\uC2ED\uC790 \uBAA8\uC591\uC744 \uB764 \uCC3D\uC774\uB2E4."
+  WeaponType: 4
+  WeaponATK: 680
+  WeaponATKPercent: 36
+  WeaponComboPercent: 27
+  WeaponCriticalPercent: 26
+  WeaponCriticalDamage: 0.34
+  WeaponDrainPercent: 26
+  WeaponDrainAmount: 0.05
+  WeaponSTRPercent: 24
+  WeaponDEXPercent: 25

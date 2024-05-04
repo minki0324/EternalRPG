@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 62 Elite Guard Roid
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5D8\uB9AC\uD2B8 \uAC00\uB4DC\uB85C\uC774\uB4DC"
+  MonsterLocation: "\uAD11\uC0B0 \uB098\uAC00\uB294\uAE38"
+  MonsterID: 62
+  MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 31500
+  MonsterMaxHP: 1400000
+  MonsterCurHP: 1400000
+  MonsterDef: 44405
+  MonsterATK: 53500
+  MonsterSprite: {fileID: 21300000, guid: 0bc63b0ecd18e7547b6d82c01f9b6713, type: 3}
+  ReturnPos: {x: 0, y: -3}
+  RequireEnergy: 6
+  isElite: 1
+  EliteID: 18
+  CriticalPercant: 171
+  CriticalResist: 145
+  CriticalDamage: 2.13
+  ComboPercent: 168
+  ComboResist: 143
+  AvoidPercent: 166
+  AvoidResist: 141
+  DrainPercent: 162
+  DrainResist: 138
+  DrainAmount: 1.56
+  RewordEXP: 150000000
+  RewordGold: 280000
+  RewordEnergy: 6
+  RewardItem:
+  - {fileID: 11400000, guid: e28f713af3b288d48819d540fe354770, type: 2}
+  - {fileID: 11400000, guid: 36871d912b96efe4396bc757f43525c1, type: 2}
+  RewardRune: {fileID: 11400000, guid: 57b8dc3503535324ab5bf54fd89f80a0, type: 2}

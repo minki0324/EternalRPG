@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 65 Fire Roid
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBD88\uAF43 \uB85C\uC774\uB4DC"
+  MonsterLocation: "\uAD11\uC0B0 \uB098\uAC00\uB294\uAE38"
+  MonsterID: 65
+  MonsterType: "\uB85C\uBD07"
+  MonsterLevel: 46000
+  MonsterMaxHP: 2200000
+  MonsterCurHP: 2200000
+  MonsterDef: 65570
+  MonsterATK: 79000
+  MonsterSprite: {fileID: 21300000, guid: cabbc9fa33233e940ab6b9a36a74057b, type: 3}
+  ReturnPos: {x: 2, y: -3.5}
+  RequireEnergy: 7
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 186
+  CriticalResist: 158
+  CriticalDamage: 2.23
+  ComboPercent: 182
+  ComboResist: 155
+  AvoidPercent: 177
+  AvoidResist: 150
+  DrainPercent: 172
+  DrainResist: 146
+  DrainAmount: 1.61
+  RewordEXP: 385000000
+  RewordGold: 595000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 792fe231af5a3a044a5431a7473b07c8, type: 2}
+  - {fileID: 11400000, guid: 73da1ae2397d5b645a76b782c4fb9703, type: 2}
+  RewardRune: {fileID: 0}

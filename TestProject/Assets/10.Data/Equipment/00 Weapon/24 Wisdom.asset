@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 24 Wisdom
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 24 Wisdom
+  ItemID: 900024
+  EquipmentName: "\uC9C0\uD61C"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 7
+  EquipmentDes: "\uC9C0\uD61C\uC758 \uACE0\uB300 \uC815\uB839\uC774 \uAE43\uB4E0
+    \uC9C0\uD321\uC774\uC774\uB2E4.\n\uD30C\uC774\uC5B4\uBCFC\uC744 \uBA54\uD14C\uC624\uCC98\uB7FC
+    \uBCF4\uC77C \uC815\uB3C4\uB85C \uB9C8\uB825\uC744 \uC99D\uD3ED\uD574\uC900\uB2E4\uACE0
+    \uD55C\uB2E4."
+  WeaponType: 5
+  WeaponATK: 7200
+  WeaponATKPercent: 95
+  WeaponComboPercent: 57
+  WeaponCriticalPercent: 58
+  WeaponCriticalDamage: 0.8
+  WeaponDrainPercent: 57
+  WeaponDrainAmount: 0.3
+  WeaponSTRPercent: 57
+  WeaponDEXPercent: 57

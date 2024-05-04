@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 15 Wind Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 15 Wind Ring
+  ItemID: 909015
+  EquipmentName: "\uBC14\uB78C\uC758 \uBC18\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 12
+  EquipmentDes: "\uC2E0\uC18D\uD55C \uBC14\uB78C\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294
+    \uBC18\uC9C0\uC774\uB2E4."
+  RingATK: 440
+  RingATKPercent: 32
+  RingDef: 0
+  RingDefPercent: 0
+  RingCriticalPercent: 36
+  RingCriticalResist: 35
+  RingDrainPercent: 0
+  RingDrainResist: 0
+  RingEXPPercent: 25
+  RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 15

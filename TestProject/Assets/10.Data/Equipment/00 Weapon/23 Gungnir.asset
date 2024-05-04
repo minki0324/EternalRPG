@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 23 Gungnir
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 23 Gungnir
+  ItemID: 900023
+  EquipmentName: "\uAD81\uB2C8\uB974"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 8
+  EquipmentDes: "\uC0AC\uC545\uD55C \uACE0\uB300 \uC545\uB9C8\uC758 \uC2EC\uC7A5\uC5D0
+    \uAF42\uD600 \uC788\uC5C8\uB358 \uCC3D\uC774\uB2E4.\n\uC545\uD55C \uAE30\uC6B4\uC774
+    \uC2A4\uBA70\uB4E4\uC5B4 \uC8FC\uC778\uC744 \uC12C\uAE30\uC9C0 \uC54A\uB294\uB2E4."
+  WeaponType: 4
+  WeaponATK: 6600
+  WeaponATKPercent: 91
+  WeaponComboPercent: 56
+  WeaponCriticalPercent: 55
+  WeaponCriticalDamage: 0.75
+  WeaponDrainPercent: 55
+  WeaponDrainAmount: 0.26
+  WeaponSTRPercent: 54
+  WeaponDEXPercent: 55

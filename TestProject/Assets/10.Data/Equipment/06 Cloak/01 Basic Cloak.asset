@@ -22,9 +22,9 @@ MonoBehaviour:
   EquipmentDes: "\uD3C9\uBC94\uD55C \uAC80\uC740 \uCC9C\uC73C\uB85C \uB418\uC5B4\uC788\uB294
     \uB9DD\uD1A0\uC774\uB2E4."
   CloakHP: 45
-  CloakHPPercent: 9
+  CloakHPPercent: 6
   CloakDef: 12
-  CloakDefPercent: 7
+  CloakDefPercent: 3
   CloakAvoidPercent: 8
   CloakComboResist: 10
   CloakDEXPercent: 2

@@ -20,10 +20,10 @@ MonoBehaviour:
   isCanBuy: 1
   DropRate: 14
   EquipmentDes: "\uC790\uC218\uC815 \uC7A5\uC2DD\uC774 \uB2EC\uB9B0 \uBAA9\uAC78\uC774\uC774\uB2E4."
-  NecklessHP: 880
+  NecklessHP: 680
   NecklessHPPercent: 15
   NecklessComboPercent: 16
-  NecklessAvoidPercent: 17
+  NecklessAvoidResist: 0
   NecklessEXPPercent: 17
   NecklessGoldPercent: 0
   NecklessDEXPercent: 8

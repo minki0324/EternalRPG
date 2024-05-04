@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933393279ba6a5b4196d73e7be7dbb9c, type: 3}
+  m_Name: 05 Red Flame Shoulder
+  m_EditorClassIdentifier: 
+  EquipmentType: 7
+  SpriteName: 05 Red Flame Shoulder
+  ItemID: 908005
+  EquipmentName: "\uC801\uC5FC\uC758 \uACAC\uC7A5"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 16
+  EquipmentDes: "\uD751\uC0C9 \uCCA0\uC5D0 \uD574\uACE8 \uB514\uD14C\uC77C\uC774
+    \uB3CB\uBCF4\uC774\uB294 \uAC15\uCCA0 \uACAC\uC7A5\uC774\uB2E4."
+  ShoulderDef: 245
+  ShoulderDefPercent: 7
+  ShoulderCriticalResist: 21
+  ShoulderDrainResist: 25
+  ShoulderDEXPercent: 17
+  ShoulderVITPercent: 18

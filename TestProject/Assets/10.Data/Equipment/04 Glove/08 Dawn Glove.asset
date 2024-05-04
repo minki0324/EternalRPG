@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643343ac5989ade408641921f3f8744a, type: 3}
+  m_Name: 08 Dawn Glove
+  m_EditorClassIdentifier: 
+  EquipmentType: 4
+  SpriteName: 08 Dawn Glove
+  ItemID: 904008
+  EquipmentName: "\uC5EC\uBA85\uC758 \uC7A5\uAC11"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 9
+  EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uC7A5\uAC11\uC774\uB2E4.\n\uD478\uB978
+    \uBCF4\uC11D \uC7A5\uC2DD\uC5D0\uC11C \uC54C \uC218 \uC5C6\uB294 \uD798\uC774
+    \uB290\uAEF4\uC9C4\uB2E4."
+  GloveATK: 2200
+  GloveATKPercent: 49
+  GloveHP: 1400
+  GloveHPPercent: 18
+  GloveComboPercent: 39
+  GloveCriticalPercent: 40
+  GloveCriticalDamage: 0.5
+  GloveSTRPercent: 28
+  GloveDEXPercent: 28

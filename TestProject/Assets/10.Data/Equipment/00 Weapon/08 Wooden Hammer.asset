@@ -27,7 +27,7 @@ MonoBehaviour:
   WeaponComboPercent: 19
   WeaponCriticalPercent: 17
   WeaponCriticalDamage: 0.28
-  WeaponDrainPercent: 23
+  WeaponDrainPercent: 19
   WeaponDrainAmount: 0.03
   WeaponSTRPercent: 17
   WeaponDEXPercent: 18

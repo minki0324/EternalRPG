@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b00c9c5167abf0458341bd3d70df3ab, type: 3}
+  m_Name: 08 Dawn Armor
+  m_EditorClassIdentifier: 
+  EquipmentType: 1
+  SpriteName: 08 Dawn Armor
+  ItemID: 901008
+  EquipmentName: "\uC5EC\uBA85\uC758 \uAC11\uC637"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 12
+  EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uAC11\uC637\uC774\uB2E4."
+  ArmorHP: 18500
+  ArmorHPPercent: 45
+  ArmorDef: 440
+  ArmorDefPercent: 13
+  ArmorComboResist: 41
+  ArmorCriticalResist: 39
+  ArmorDrainResist: 43
+  ArmorVITPercent: 30

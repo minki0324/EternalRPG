@@ -27,6 +27,6 @@ MonoBehaviour:
   GloveHPPercent: 8
   GloveComboPercent: 12
   GloveCriticalPercent: 11
-  GloveCriticalDamage: 0.3
+  GloveCriticalDamage: 0.24
   GloveSTRPercent: 4
   GloveDEXPercent: 3

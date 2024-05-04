@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643343ac5989ade408641921f3f8744a, type: 3}
+  m_Name: 06 Emperor Knight Glove
+  m_EditorClassIdentifier: 
+  EquipmentType: 4
+  SpriteName: 06 Emperor Knight Glove
+  ItemID: 904006
+  EquipmentName: "\uD669\uC2E4 \uAE30\uC0AC \uC7A5\uAC11"
+  RequireCost: 21500000
+  isCanBuy: 1
+  DropRate: 12
+  EquipmentDes: "\uC81C\uAD6D\uC758 \uAE30\uC0AC\uB4E4\uC774 \uC0AC\uC6A9\uD558\uB294
+    \uC7A5\uAC11\uC774\uB2E4."
+  GloveATK: 950
+  GloveATKPercent: 33
+  GloveHP: 700
+  GloveHPPercent: 14
+  GloveComboPercent: 31
+  GloveCriticalPercent: 32
+  GloveCriticalDamage: 0.4
+  GloveSTRPercent: 20
+  GloveDEXPercent: 21

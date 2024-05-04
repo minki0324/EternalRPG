@@ -23,10 +23,10 @@ MonoBehaviour:
   WeaponType: 6
   WeaponATK: 580
   WeaponATKPercent: 34
-  WeaponComboPercent: 28
-  WeaponCriticalPercent: 27
+  WeaponComboPercent: 25
+  WeaponCriticalPercent: 24
   WeaponCriticalDamage: 0.32
-  WeaponDrainPercent: 33
+  WeaponDrainPercent: 24
   WeaponDrainAmount: 0.04
   WeaponSTRPercent: 22
   WeaponDEXPercent: 24

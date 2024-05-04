@@ -392,7 +392,7 @@ public class GameManager : MonoBehaviour
         if (ArmorData != null)
         {
             sumDef += Mathf.RoundToInt((float)(ArmorData.ArmorDef * (1 + GetOwnPercent(ArmorData))));
-            sumPercent += Mathf.RoundToInt((float)(ArmorData.ArmorDef * (1 + GetOwnPercent(ArmorData))));
+            sumPercent += Mathf.RoundToInt((float)(ArmorData.ArmorDefPercent * (1 + GetOwnPercent(ArmorData))));
         }
         if (ClockData != null)
         {

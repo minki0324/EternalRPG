@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a848837bdff7be345a9b4ad86ce73c8b, type: 3}
+  m_Name: 08 Dawn Shoes
+  m_EditorClassIdentifier: 
+  EquipmentType: 5
+  SpriteName: 08 Dawn Shoes
+  ItemID: 905008
+  EquipmentName: "\uC5EC\uBA85\uC758 \uBD80\uCE20"
+  RequireCost: 3800
+  isCanBuy: 0
+  DropRate: 15
+  EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uBD80\uCE20\uC774\uB2E4.\n\uAC00\uBCBC\uC6B0\uBA74\uC11C
+    \uC54C \uC218 \uC5C6\uB294 \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4."
+  ShoesHP: 15600
+  ShoesHPPercent: 31
+  ShoesDef: 390
+  ShoesDefPercent: 12
+  ShoesAvoidPercent: 42
+  ShoesAvoidResist: 43
+  ShoesDEXPercent: 30
+  ShoesVITPercent: 29
+  ShoesMoveSpeed: 10

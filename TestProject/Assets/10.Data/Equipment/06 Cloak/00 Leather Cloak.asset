@@ -21,9 +21,9 @@ MonoBehaviour:
   DropRate: 38
   EquipmentDes: "\uB0A1\uACE0 \uD5E4\uC9C4 \uAC00\uC8FD \uB9DD\uD1A0\uC774\uB2E4."
   CloakHP: 20
-  CloakHPPercent: 5
+  CloakHPPercent: 4
   CloakDef: 8
-  CloakDefPercent: 5
+  CloakDefPercent: 1
   CloakAvoidPercent: 6
   CloakComboResist: 0
   CloakDEXPercent: 0

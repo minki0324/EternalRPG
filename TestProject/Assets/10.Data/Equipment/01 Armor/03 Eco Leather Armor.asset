@@ -22,9 +22,9 @@ MonoBehaviour:
   EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uAC00\uC8FD
     \uAC11\uC637\uC774\uB2E4."
   ArmorHP: 850
-  ArmorHPPercent: 20
+  ArmorHPPercent: 19
   ArmorDef: 35
-  ArmorDefPercent: 22
+  ArmorDefPercent: 6
   ArmorComboResist: 11
   ArmorCriticalResist: 10
   ArmorDrainResist: 8

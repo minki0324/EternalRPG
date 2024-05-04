@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 12 Mana Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 12 Mana Ring
+  ItemID: 909012
+  EquipmentName: "\uB9C8\uB825\uC758 \uBC18\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 13
+  EquipmentDes: "\uB9C8\uB098\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC18\uC9C0\uC774\uB2E4."
+  RingATK: 0
+  RingATKPercent: 0
+  RingDef: 166
+  RingDefPercent: 27
+  RingCriticalPercent: 0
+  RingCriticalResist: 0
+  RingDrainPercent: 30
+  RingDrainResist: 27
+  RingEXPPercent: 20
+  RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 12

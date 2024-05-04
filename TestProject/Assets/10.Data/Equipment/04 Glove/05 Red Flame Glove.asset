@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643343ac5989ade408641921f3f8744a, type: 3}
+  m_Name: 05 Red Flame Glove
+  m_EditorClassIdentifier: 
+  EquipmentType: 4
+  SpriteName: 05 Red Flame Glove
+  ItemID: 904005
+  EquipmentName: "\uC801\uC5FC\uC758 \uC7A5\uAC11"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 16
+  EquipmentDes: "\uBD89\uC740 \uC7A5\uC2DD\uC73C\uB85C \uB514\uC790\uC778 \uB41C
+    \uAC00\uC8FD \uC7A5\uAC11\uC774\uB2E4."
+  GloveATK: 680
+  GloveATKPercent: 28
+  GloveHP: 500
+  GloveHPPercent: 11
+  GloveComboPercent: 27
+  GloveCriticalPercent: 29
+  GloveCriticalDamage: 0.37
+  GloveSTRPercent: 18
+  GloveDEXPercent: 17

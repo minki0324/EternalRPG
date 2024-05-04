@@ -21,8 +21,8 @@ MonoBehaviour:
   DropRate: 22
   EquipmentDes: "\uC0DD\uBA85\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uBCA8\uD2B8\uC774\uB2E4."
   BeltHP: 480
-  BeltHPPercent: 33
-  BeltAvoidPercent: 19
+  BeltHPPercent: 19
+  BeltAvoidPercent: 22
   BeltEXPPercent: 20
   BeltLUCPercent: 14
   BeltVITPercent: 19

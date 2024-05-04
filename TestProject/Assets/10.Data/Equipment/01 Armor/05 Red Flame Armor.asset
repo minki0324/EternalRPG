@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b00c9c5167abf0458341bd3d70df3ab, type: 3}
+  m_Name: 05 Red Flame Armor
+  m_EditorClassIdentifier: 
+  EquipmentType: 1
+  SpriteName: 05 Red Flame Armor
+  ItemID: 901005
+  EquipmentName: "\uC801\uC5FC\uC758 \uAC11\uC637"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 18
+  EquipmentDes: "\uBD89\uC740 \uB8E8\uBE44\uB85C \uC7A5\uC2DD\uC774 \uB41C \uAC11\uC637\uC774\uB2E4."
+  ArmorHP: 2800
+  ArmorHPPercent: 28
+  ArmorDef: 145
+  ArmorDefPercent: 9
+  ArmorComboResist: 26
+  ArmorCriticalResist: 25
+  ArmorDrainResist: 27
+  ArmorVITPercent: 17

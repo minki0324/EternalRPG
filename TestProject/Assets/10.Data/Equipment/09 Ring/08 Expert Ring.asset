@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe48d6e809f034baff2606de9ffa4c, type: 3}
+  m_Name: 08 Expert Ring
+  m_EditorClassIdentifier: 
+  EquipmentType: 8
+  SpriteName: 08 Expert Ring
+  ItemID: 909008
+  EquipmentName: "\uC219\uB828\uC758 \uBC18\uC9C0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 15
+  EquipmentDes: "\uC131\uC7A5\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uBC18\uC9C0\uC774\uB2E4."
+  RingATK: -500
+  RingATKPercent: -10
+  RingDef: -300
+  RingDefPercent: -10
+  RingCriticalPercent: 0
+  RingCriticalResist: 0
+  RingDrainPercent: 0
+  RingDrainResist: 0
+  RingEXPPercent: 100
+  RingGoldPercent: 0
+  RingSTRPercent: 0
+  RingLUCPercent: 0
+  RingDEXPercent: 0
+  RingItemDropRate: 10

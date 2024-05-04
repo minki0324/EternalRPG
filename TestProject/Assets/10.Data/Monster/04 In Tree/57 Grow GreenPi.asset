@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 57 Grow GreenPi
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBB34\uC7A5\uD55C \uADF8\uB9B0\uD53C"
+  MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
+  MonsterID: 57
+  MonsterType: "\uB3D9\uBB3C"
+  MonsterLevel: 91000
+  MonsterMaxHP: 7700000
+  MonsterCurHP: 7700000
+  MonsterDef: 135954
+  MonsterATK: 163800
+  MonsterSprite: {fileID: 21300000, guid: df8151307cf3d044c8526744a3424b2e, type: 3}
+  ReturnPos: {x: -3, y: 3}
+  RequireEnergy: 6
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 240
+  CriticalResist: 204
+  CriticalDamage: 2.55
+  ComboPercent: 237
+  ComboResist: 201
+  AvoidPercent: 230
+  AvoidResist: 196
+  DrainPercent: 225
+  DrainResist: 191
+  DrainAmount: 1.77
+  RewordEXP: 620000000
+  RewordGold: 770000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 5bacea6b39e093c478595da4a81168b4, type: 2}
+  - {fileID: 11400000, guid: 56d45bb138592a744a82b7e983cf84bf, type: 2}
+  - {fileID: 11400000, guid: 482f705d8e6a5b947976146513455719, type: 2}
+  RewardRune: {fileID: 0}

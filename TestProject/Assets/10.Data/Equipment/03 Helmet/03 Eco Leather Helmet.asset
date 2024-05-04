@@ -22,9 +22,9 @@ MonoBehaviour:
   EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uBAA8\uC790\uC774\uB2E4.\n\uAE43\uD138
     \uC7A5\uC2DD\uC774 \uB3CB\uBCF4\uC778\uB2E4."
   HelmetHP: 950
-  HelmetHPPercent: 19
+  HelmetHPPercent: 16
   HelmetDef: 30
-  HelmetDefPercent: 18
+  HelmetDefPercent: 6
   HelmetAvoidPercent: 11
   HelmetDrainResist: 9
   HelmetSTRPercent: 9

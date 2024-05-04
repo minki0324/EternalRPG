@@ -22,7 +22,7 @@ MonoBehaviour:
   EquipmentDes: "\uAC08\uC0C9 \uAC00\uC8FD \uB760\uC7A5\uC2DD\uC774 \uC788\uB294
     \uACAC\uC7A5\uC774\uB2E4."
   ShoulderDef: 55
-  ShoulderDefPercent: 4
+  ShoulderDefPercent: 3
   ShoulderCriticalResist: 8
   ShoulderDrainResist: 8
   ShoulderDEXPercent: 6

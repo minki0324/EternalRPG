@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 51 Dark Wisp
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5B4\uB460\uC758 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
+  MonsterID: 51
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 53000
+  MonsterMaxHP: 2900000
+  MonsterCurHP: 2900000
+  MonsterDef: 76360
+  MonsterATK: 92000
+  MonsterSprite: {fileID: 21300000, guid: 799a74135ca05414e89156a4edc03a5e, type: 3}
+  ReturnPos: {x: 3, y: 0}
+  RequireEnergy: 6
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 195
+  CriticalResist: 166
+  CriticalDamage: 2.3
+  ComboPercent: 192
+  ComboResist: 163
+  AvoidPercent: 185
+  AvoidResist: 157
+  DrainPercent: 180
+  DrainResist: 153
+  DrainAmount: 1.65
+  RewordEXP: 410000000
+  RewordGold: 590000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 759f25261576a0a49a423fd6059a750c, type: 2}
+  - {fileID: 11400000, guid: 8547902431abff747bde77c67bb31ff8, type: 2}
+  - {fileID: 11400000, guid: 3de4a3b7ce09bed4eb83154cdeaf4481, type: 2}
+  RewardRune: {fileID: 0}

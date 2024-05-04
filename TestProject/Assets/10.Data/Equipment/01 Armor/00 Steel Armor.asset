@@ -24,7 +24,7 @@ MonoBehaviour:
   ArmorHP: 30
   ArmorHPPercent: 5
   ArmorDef: 3
-  ArmorDefPercent: 5
+  ArmorDefPercent: 1
   ArmorComboResist: 2
   ArmorCriticalResist: 0
   ArmorDrainResist: 0

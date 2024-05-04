@@ -23,7 +23,7 @@ MonoBehaviour:
   PantsHP: 80
   PantsHPPercent: 13
   PantsDef: 9
-  PantsDefPercent: 6
+  PantsDefPercent: 2
   PantsComboResist: 4
   PantsCriticalResist: 2
   PantsVITPercent: 3

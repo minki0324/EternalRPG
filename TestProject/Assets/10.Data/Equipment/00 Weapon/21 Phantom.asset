@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 21 Phantom
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 21 Phantom
+  ItemID: 900021
+  EquipmentName: "\uD32C\uD140"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 10
+  EquipmentDes: "\uBD89\uACE0 \uBD88\uAE38\uD55C \uAE30\uC6B4\uC744 \uB0B4\uBFDC\uB294
+    \uB9C8\uB825\uC11D\uC774\uB2E4."
+  WeaponType: 6
+  WeaponATK: 5100
+  WeaponATKPercent: 78
+  WeaponComboPercent: 51
+  WeaponCriticalPercent: 50
+  WeaponCriticalDamage: 0.66
+  WeaponDrainPercent: 50
+  WeaponDrainAmount: 0.2
+  WeaponSTRPercent: 50
+  WeaponDEXPercent: 50

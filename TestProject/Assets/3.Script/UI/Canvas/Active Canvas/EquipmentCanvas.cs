@@ -815,7 +815,6 @@ public class EquipmentCanvas : MonoBehaviour
                     AppendAddData("추가 골드%", ringData.RingGoldPercent, ownCount);
                     AppendAddData("추가 STR%", ringData.RingSTRPercent, ownCount);
                     AppendAddData("추가 LUC%", ringData.RingLUCPercent, ownCount);
-                    AppendAddData("추가 DEF%", ringData.RingDefPercent, ownCount);
                 }
                 break;
             case Category.Neckless:

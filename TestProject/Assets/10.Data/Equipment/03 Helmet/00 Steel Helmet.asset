@@ -24,7 +24,7 @@ MonoBehaviour:
   HelmetHP: 20
   HelmetHPPercent: 2
   HelmetDef: 5
-  HelmetDefPercent: 4
+  HelmetDefPercent: 1
   HelmetAvoidPercent: 3
   HelmetDrainResist: 0
   HelmetSTRPercent: 0

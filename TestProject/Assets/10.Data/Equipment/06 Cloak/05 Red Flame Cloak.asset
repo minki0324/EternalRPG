@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba38b7bff5173c48ac478e0b0f283ea, type: 3}
+  m_Name: 05 Red Flame Cloak
+  m_EditorClassIdentifier: 
+  EquipmentType: 10
+  SpriteName: 05 Red Flame Cloak
+  ItemID: 906005
+  EquipmentName: "\uC801\uC5FC\uC758 \uB9DD\uD1A0"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 15
+  EquipmentDes: "\uD574\uACE8 \uBB38\uC591\uC774 \uC778\uC0C1\uC801\uC778 \uB9DD\uD1A0\uC774\uB2E4."
+  CloakHP: 1600
+  CloakHPPercent: 19
+  CloakDef: 110
+  CloakDefPercent: 8
+  CloakAvoidPercent: 18
+  CloakComboResist: 22
+  CloakDEXPercent: 13
+  CloakLUCPercent: 11
+  CloakVITPercent: 12

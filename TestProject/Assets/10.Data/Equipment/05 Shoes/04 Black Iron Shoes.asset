@@ -20,10 +20,10 @@ MonoBehaviour:
   isCanBuy: 0
   DropRate: 20
   EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC778 \uAC15\uCCA0 \uBD80\uCE20\uC774\uB2E4."
-  ShoesHP: 2200
+  ShoesHP: 1700
   ShoesHPPercent: 14
   ShoesDef: 50
-  ShoesDefPercent: 14
+  ShoesDefPercent: 5
   ShoesAvoidPercent: 23
   ShoesAvoidResist: 21
   ShoesDEXPercent: 16

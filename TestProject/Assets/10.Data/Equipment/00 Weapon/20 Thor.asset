@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 20 Thor
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 20 Thor
+  ItemID: 900020
+  EquipmentName: "\uD1A0\uB974"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 11
+  EquipmentDes: "\uB1CC\uC804\uC758 \uAE30\uC6B4\uC774 \uC11C\uB824\uC788\uB294 \uB9DD\uCE58\uC774\uB2E4."
+  WeaponType: 2
+  WeaponATK: 4400
+  WeaponATKPercent: 72
+  WeaponComboPercent: 49
+  WeaponCriticalPercent: 48
+  WeaponCriticalDamage: 0.62
+  WeaponDrainPercent: 48
+  WeaponDrainAmount: 0.18
+  WeaponSTRPercent: 48
+  WeaponDEXPercent: 49

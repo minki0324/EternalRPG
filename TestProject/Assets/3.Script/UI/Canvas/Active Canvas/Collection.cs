@@ -111,6 +111,12 @@ public class Collection : MonoBehaviour
             case "±¤»ê ÃÊÀÔºÎ":
                 monsterLocation = (Location)3;
                 break;
+            case "Á×Àº ³ª¹« µ¿±¼":
+                monsterLocation= (Location)4;
+                break;
+            case "±¤»ê ³ª°¡´Â±æ":
+                monsterLocation= (Location)5;
+                break;
         }
         MonsterColletionLocation();
     }
@@ -263,6 +269,12 @@ public class Collection : MonoBehaviour
                 break;
             case Location.Mine:
                 location = "±¤»ê ÃÊÀÔºÎ";
+                break;
+            case Location.InTree:
+                location = "Á×Àº ³ª¹« µ¿±¼";
+                break;
+            case Location.DeepMine:
+                location = "±¤»ê ³ª°¡´Â±æ";
                 break;
         }
         

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b921357fe30af7542b92b5567aa3389d, type: 3}
+  m_Name: 13 Horn Bow
+  m_EditorClassIdentifier: 
+  EquipmentType: 0
+  SpriteName: 13 Horn Bow
+  ItemID: 900013
+  EquipmentName: "\uAC01\uAD81"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 16
+  EquipmentDes: "\uB2E8\uB2E8\uD55C \uBFD4\uC744 \uC7AC\uB8CC\uB85C \uB9CC\uB4E0
+    \uD65C\uC774\uB2E4. \uD0C4\uC131\uC774 \uBD80\uC871\uD558\uC9C0\uB9CC \uD2BC\uD2BC\uD558\uB2E4."
+  WeaponType: 3
+  WeaponATK: 1250
+  WeaponATKPercent: 43
+  WeaponComboPercent: 32
+  WeaponCriticalPercent: 31
+  WeaponCriticalDamage: 0.38
+  WeaponDrainPercent: 31
+  WeaponDrainAmount: 0.07
+  WeaponSTRPercent: 30
+  WeaponDEXPercent: 29

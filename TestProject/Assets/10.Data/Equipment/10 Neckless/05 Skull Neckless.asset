@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b78a87cbdee7f4c87719c03812a243, type: 3}
+  m_Name: 05 Skull Neckless
+  m_EditorClassIdentifier: 
+  EquipmentType: 9
+  SpriteName: 05 Skull Neckless
+  ItemID: 910005
+  EquipmentName: "\uD574\uACE8 \uBAA9\uAC78\uC774"
+  RequireCost: 9700000
+  isCanBuy: 1
+  DropRate: 13
+  EquipmentDes: "\uD574\uACE8 \uC7A5\uC2DD\uC774 \uB2EC\uB9B0 \uBAA9\uAC78\uC774\uC774\uB2E4."
+  NecklessHP: 2200
+  NecklessHPPercent: 22
+  NecklessComboPercent: 23
+  NecklessAvoidResist: 0
+  NecklessEXPPercent: 23
+  NecklessGoldPercent: 0
+  NecklessDEXPercent: 13
+  NecklessLUCPercent: 15
+  NecklessItemDropRate: 15

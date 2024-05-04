@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b00c9c5167abf0458341bd3d70df3ab, type: 3}
+  m_Name: 07 Executor Armor
+  m_EditorClassIdentifier: 
+  EquipmentType: 1
+  SpriteName: 07 Executor Armor
+  ItemID: 901007
+  EquipmentName: "\uC9D1\uD589\uC790\uC758 \uAC11\uC637"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 14
+  EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uAC10\uB3C4\uB294 \uAC11\uC637\uC774\uB2E4."
+  ArmorHP: 10500
+  ArmorHPPercent: 39
+  ArmorDef: 295
+  ArmorDefPercent: 11
+  ArmorComboResist: 35
+  ArmorCriticalResist: 33
+  ArmorDrainResist: 37
+  ArmorVITPercent: 24

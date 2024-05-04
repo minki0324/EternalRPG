@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba38b7bff5173c48ac478e0b0f283ea, type: 3}
+  m_Name: 06 Emperor Knight Cloak
+  m_EditorClassIdentifier: 
+  EquipmentType: 10
+  SpriteName: 06 Emperor Knight Cloak
+  ItemID: 906006
+  EquipmentName: "\uD669\uC2E4 \uAE30\uC0AC \uB9DD\uD1A0"
+  RequireCost: 22000000
+  isCanBuy: 1
+  DropRate: 13
+  EquipmentDes: "\uC81C\uAD6D\uC758 \uAE30\uC0AC\uB4E4\uC774 \uC0AC\uC6A9\uD558\uB294
+    \uB9DD\uD1A0\uC774\uB2E4.\n\uACE0\uAE09 \uC6D0\uB2E8\uC744 \uC0AC\uC6A9\uD55C
+    \uB4EF \uBD80\uB4DC\uB7FD\uB2E4."
+  CloakHP: 2900
+  CloakHPPercent: 23
+  CloakDef: 205
+  CloakDefPercent: 9
+  CloakAvoidPercent: 23
+  CloakComboResist: 27
+  CloakDEXPercent: 15
+  CloakLUCPercent: 14
+  CloakVITPercent: 16

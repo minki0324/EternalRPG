@@ -18,11 +18,11 @@ MonoBehaviour:
   EquipmentName: "\uD751\uCCA0 \uACAC\uC7A5"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 15
+  DropRate: 14
   EquipmentDes: "\uD751\uC0C9 \uCCA0\uC5D0 \uD574\uACE8 \uB514\uD14C\uC77C\uC774
     \uB3CB\uBCF4\uC774\uB294 \uAC15\uCCA0 \uACAC\uC7A5\uC774\uB2E4."
   ShoulderDef: 160
-  ShoulderDefPercent: 10
+  ShoulderDefPercent: 5
   ShoulderCriticalResist: 18
   ShoulderDrainResist: 21
   ShoulderDEXPercent: 14

@@ -21,9 +21,9 @@ MonoBehaviour:
   DropRate: 16
   EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC778 \uAC11\uC637\uC774\uB2E4."
   ArmorHP: 1600
-  ArmorHPPercent: 33
+  ArmorHPPercent: 23
   ArmorDef: 85
-  ArmorDefPercent: 29
+  ArmorDefPercent: 8
   ArmorComboResist: 22
   ArmorCriticalResist: 20
   ArmorDrainResist: 19

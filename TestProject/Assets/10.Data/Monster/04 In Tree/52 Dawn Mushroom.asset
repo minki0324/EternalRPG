@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 52 Dawn Mushroom
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC12C\uAD11\uC758 \uBC84\uC12F"
+  MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
+  MonsterID: 52
+  MonsterType: "\uBC84\uC12F"
+  MonsterLevel: 61000
+  MonsterMaxHP: 3600000
+  MonsterCurHP: 3600000
+  MonsterDef: 88561
+  MonsterATK: 106700
+  MonsterSprite: {fileID: 21300000, guid: 36bab61313d18014c90d3d8a7483546e, type: 3}
+  ReturnPos: {x: 4, y: 0}
+  RequireEnergy: 6
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 203
+  CriticalResist: 173
+  CriticalDamage: 2.35
+  ComboPercent: 200
+  ComboResist: 170
+  AvoidPercent: 193
+  AvoidResist: 164
+  DrainPercent: 188
+  DrainResist: 160
+  DrainAmount: 1.67
+  RewordEXP: 450000000
+  RewordGold: 650000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: ba09d5d7866312548a63c1c64654a0b0, type: 2}
+  - {fileID: 11400000, guid: 056ac1f8e5efd6144a565bb7e13e85c3, type: 2}
+  - {fileID: 11400000, guid: ad7507f8e52d6334586ac5955dd9d283, type: 2}
+  RewardRune: {fileID: 0}

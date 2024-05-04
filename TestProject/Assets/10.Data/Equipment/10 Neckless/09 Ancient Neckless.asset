@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b78a87cbdee7f4c87719c03812a243, type: 3}
+  m_Name: 09 Ancient Neckless
+  m_EditorClassIdentifier: 
+  EquipmentType: 9
+  SpriteName: 09 Ancient Neckless
+  ItemID: 910009
+  EquipmentName: "\uACE0\uB300\uC758 \uBAA9\uAC78\uC774"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 8
+  EquipmentDes: "\uACE0\uB300 \uB9C8\uBC95\uC11D \uC7A5\uC2DD\uC774 \uB2EC\uB9B0
+    \uBAA9\uAC78\uC774\uC774\uB2E4."
+  NecklessHP: 6800
+  NecklessHPPercent: 31
+  NecklessComboPercent: 32
+  NecklessAvoidResist: 0
+  NecklessEXPPercent: 30
+  NecklessGoldPercent: 0
+  NecklessDEXPercent: 24
+  NecklessLUCPercent: 25
+  NecklessItemDropRate: 25

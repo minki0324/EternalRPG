@@ -21,7 +21,7 @@ MonoBehaviour:
   DropRate: 15
   EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uACAC\uC7A5\uC774\uB2E4."
   ShoulderDef: 105
-  ShoulderDefPercent: 8
+  ShoulderDefPercent: 4
   ShoulderCriticalResist: 14
   ShoulderDrainResist: 18
   ShoulderDEXPercent: 10

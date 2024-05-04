@@ -22,11 +22,11 @@ MonoBehaviour:
   EquipmentDes: "\uC790\uC5F0\uC744 \uB2EE\uC740 \uD480\uC78E\uC0C9 \uAC00\uC8FD
     \uC0AC\uC774\uC0AC\uC774 \uCCA0\uC744 \uB367\uB304 \uD314\uCC0C\uC774\uB2E4."
   GloveATK: 280
-  GloveATKPercent: 20
-  GloveHP: 850
-  GloveHPPercent: 11
+  GloveATKPercent: 15
+  GloveHP: 220
+  GloveHPPercent: 6
   GloveComboPercent: 21
   GloveCriticalPercent: 22
-  GloveCriticalDamage: 0.4
+  GloveCriticalDamage: 0.3
   GloveSTRPercent: 11
   GloveDEXPercent: 12
