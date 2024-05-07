@@ -603,6 +603,7 @@ public class EquipmentCanvas : MonoBehaviour
             CurrentItem.EquipCheckIcon.SetActive(true);
             CurrentItem.SelectIcon.SetActive(false);
         }
+        DataManager.Instance.SaveEquipment();
         GameManager.Instance.RenewAbility();
     }
     #endregion
@@ -623,6 +624,7 @@ public class EquipmentCanvas : MonoBehaviour
         equipNameText.text = CurrentItem.EquipmentData.EquipmentName;
         equipdesText.text = CurrentItem.EquipmentData.EquipmentDes;
         equipImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
+        
     }
 
     public void BuyItemButton()

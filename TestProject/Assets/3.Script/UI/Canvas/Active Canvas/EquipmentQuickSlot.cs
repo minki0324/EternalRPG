@@ -180,7 +180,7 @@ public class EquipmentQuickSlot : MonoBehaviour
     {
         if(GameManager.Instance.CurrentEnergy > 0)
         {
-            DataManager.Instance.LoadEquipSet(GameManager.Instance.QuickSlotIndex);
+            DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
             PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
         }
         else
@@ -191,7 +191,7 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void SaveEquipmentQuickSlot(int _index)
     {
-        DataManager.Instance.SaveEquipSet(_index);
+        DataManager.Instance.SaveQuickSlotEquipment(_index);
         PrintLog.Instance.StaticLog($"{_index}번째 슬롯 : [{GameManager.Instance.QuickSlot[_index]}] 저장 완료");
     }
 

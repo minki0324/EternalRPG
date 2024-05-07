@@ -162,7 +162,8 @@ public class EquipmentManager : MonoBehaviour
         switch (_equipmentBaseData.EquipmentType)
         {
             case Category.Weapon:
-                if(GameManager.Instance.WeaponData != GameManager.Instance.Punch && GameManager.Instance.WeaponData.ItemID == _equipmentBaseData.ItemID)
+                if (GameManager.Instance.WeaponData == GameManager.Instance.Punch) return false;
+                else if( GameManager.Instance.WeaponData.ItemID == _equipmentBaseData.ItemID)
                 {
                     return true;
                 }

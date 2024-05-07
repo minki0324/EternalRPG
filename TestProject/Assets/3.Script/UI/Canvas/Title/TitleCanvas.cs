@@ -81,7 +81,7 @@ public class TitleCanvas : MonoBehaviour
         {
             StopCoroutine(TransitionFade.instance.FadeCoroutine);
         }
-        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade(transitionImage, true));
 
         // Loading.isLoading이 false가 될 때까지 대기
         while (TransitionFade.instance.isLoading)

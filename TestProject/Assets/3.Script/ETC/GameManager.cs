@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
             ResetRound();
         }
         MasterLevelEXPData();
+        LastPos = StartPos;
     }
 
     public void RenewAbility()

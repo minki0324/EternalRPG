@@ -33,7 +33,8 @@ public class HUDCanvas : MonoBehaviour
 
     [Header("젬 천장")]
     [SerializeField] private GameObject buyingGemPanel;
-    private int buyingGemCount;
+    public int buyingGemCount;
+    public int requireGemCost = 100000;
     [SerializeField] private TMP_Text gemCountText;
     [SerializeField] private TMP_Text goldCostText;
 
@@ -69,8 +70,6 @@ public class HUDCanvas : MonoBehaviour
             soulDesText.text = $"처치한 엘리트 몬스터 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true)}\n" +
                                           $"추가 흡혈 확률&저항 : {DataManager.Instance.EliteMonsterDic.Count(kv => kv.Value == true) * 3}%";
         }
-
-        GameManager.Instance.LastPos = GameManager.Instance.StartPos;
 
         cardBuffImage.sprite = cardBuffSprite[(int)GameManager.Instance.CardBuff];
         CardBuffToolTip();
@@ -114,6 +113,8 @@ public class HUDCanvas : MonoBehaviour
     private IEnumerator LackOfEnergy_Co()
     {
        GameManager.Instance.ResetRound();
+        requireGemCost = 100000;
+        buyingGemCount = 0;
 
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
@@ -121,7 +122,7 @@ public class HUDCanvas : MonoBehaviour
         {
             StopCoroutine(TransitionFade.instance.FadeCoroutine);
         }
-        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade(transitionImage, true));
 
         while (TransitionFade.instance.isLoading)
         {
@@ -144,7 +145,7 @@ public class HUDCanvas : MonoBehaviour
         {
             StopCoroutine(TransitionFade.instance.FadeCoroutine);
         }
-        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade(transitionImage, true));
 
         while (TransitionFade.instance.isLoading)
         {
@@ -157,7 +158,7 @@ public class HUDCanvas : MonoBehaviour
     public void GemPanelOpen()
     {
         gemCountText.text = $"{GameManager.Instance.GemCount} / 100";
-        goldCostText.text = $"100,000";
+        goldCostText.text = buyingGemCount != 5 ? $"{requireGemCost:N0}" : "더 이상 구매가 불가능합니다.";
         buyingGemPanel.SetActive(true);
     }
 
@@ -196,6 +197,7 @@ public class HUDCanvas : MonoBehaviour
 
         if (GameManager.Instance.Gold >= _requireCost)
         {
+            GameManager.Instance.Gold -= _requireCost;
             GameManager.Instance.GemCount++;
             if (GameManager.Instance.GemCount == 100)
             { // 젬 추가해주기
@@ -216,6 +218,7 @@ public class HUDCanvas : MonoBehaviour
             else
             {
                 goldCostText.text = $"{_nextCost:N0}";
+                requireGemCost = _nextCost;
             }
         }
         else

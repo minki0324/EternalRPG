@@ -62,7 +62,7 @@ public class WayPoint : MonoBehaviour
 
         Vector3 originScale = player.localScale;
         float elapsedTime = 0f;
-        float duration = 0.7f; // 각 스케일링 애니메이션의 지속 시간
+        float duration = 0.45f; // 각 스케일링 애니메이션의 지속 시간
 
         while (elapsedTime < duration)
         {
@@ -75,7 +75,7 @@ public class WayPoint : MonoBehaviour
         {
             StopCoroutine(TransitionFade.instance.FadeCoroutine);
         }
-        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade_out(transitionImage, true));
+        TransitionFade.instance.FadeCoroutine = StartCoroutine(TransitionFade.instance.fade(transitionImage, true));
 
         // Loading.isLoading이 false가 될 때까지 대기
         while (TransitionFade.instance.isLoading)

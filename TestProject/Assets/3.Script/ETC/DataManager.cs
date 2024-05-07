@@ -159,10 +159,11 @@ public class DataManager : MonoBehaviour
 
     [Header("Json")]
     private string ownCountPath;
+    private string quickSlotEquipmentPath;
+    private string quickSlotEquipmentNamePath;
     private string equipmentPath;
     private string playerDataPath;
     private string eliteMonsterPath;
-    private string quickSlotEquipmentPath;
     private string masterLevelPath;
 
     [Header("장비 개수에 따른 뱃지 목록")]
@@ -187,10 +188,11 @@ public class DataManager : MonoBehaviour
             return;
         }
         ownCountPath = Application.persistentDataPath + "/EquipmentOwnCount.json";
-        equipmentPath = Application.persistentDataPath + "/EquipmentSet.json";
+        quickSlotEquipmentPath = Application.persistentDataPath + "/EquipmentSet.json";
+        equipmentPath = Application.persistentDataPath + "/Equipment.json";
         playerDataPath = Application.persistentDataPath + "/PlayerData.json";
         eliteMonsterPath = Application.persistentDataPath + "/EliteMonsterDic.json";
-        quickSlotEquipmentPath = Application.persistentDataPath + "/quickSlotEquipment.json";
+        quickSlotEquipmentNamePath = Application.persistentDataPath + "/quickSlotEquipment.json";
         masterLevelPath = Application.persistentDataPath + "/MasterLevel.json";
         EliteMonsterDic = new Dictionary<int, bool>();
         QuickSlots = new List<EquipmentSet>();
@@ -202,8 +204,8 @@ public class DataManager : MonoBehaviour
         LoadPlayerData();
         LoadOwnCount();
         LoadEliteMonsterDic();
-        LoadEquipSet(GameManager.Instance.QuickSlotIndex);
-        LoadQuickSlotEquipment();
+        LoadQuickSlotName();
+        LoadEquipment();
         InitOwnDictionary();
         GameManager.Instance.RenewAbility();
         InvokeRepeating("SaveDataAll", 0, 60);
@@ -229,32 +231,151 @@ public class DataManager : MonoBehaviour
         SavePlayerData();
         SaveMasterLevelData();
         SaveEliteMonsterDic();
-        SaveQuickSlotEquipment();
-        SaveEquipSet(GameManager.Instance.QuickSlotIndex);
+        SaveQuickSlotName();
     }
 
     #region Json 세이브&로드
-    #region 장비 퀵슬롯
+    #region 장비 퀵슬롯 이름
 
-    private void SaveQuickSlotEquipment()
+    private void SaveQuickSlotName()
     {
         QuickSlotData quickSlotData = new QuickSlotData(GameManager.Instance.QuickSlot);
 
         string json = JsonUtility.ToJson(quickSlotData);
-        File.WriteAllText(quickSlotEquipmentPath, json);
+        File.WriteAllText(quickSlotEquipmentNamePath, json);
     }
 
-    private void LoadQuickSlotEquipment()
+    private void LoadQuickSlotName()
     {
         try
         {
-            string json = File.ReadAllText(quickSlotEquipmentPath);
+            string json = File.ReadAllText(quickSlotEquipmentNamePath);
             QuickSlotData quickSlotData = JsonUtility.FromJson<QuickSlotData>(json);
             GameManager.Instance.QuickSlot = quickSlotData.Quickslot;
         }
         catch
         {
 
+        }
+    }
+    #endregion
+    #region 장비 퀵슬롯
+    public void SaveQuickSlotEquipment(int _slotIndex)
+    {
+        EquipmentSet equipmentSet = new EquipmentSet();
+
+        equipmentSet.QuickSlotIndex = _slotIndex;
+        equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : GameManager.Instance.Punch;
+        equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
+        equipmentSet.EquipHelmet = GameManager.Instance.HelmetData != null ? GameManager.Instance.HelmetData : null;
+        equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
+        equipmentSet.EquipGlove = GameManager.Instance.GloveData != null ? GameManager.Instance.GloveData : null;
+        equipmentSet.EquipShoes = GameManager.Instance.ShoesData != null ? GameManager.Instance.ShoesData : null;
+        equipmentSet.EquipCloak = GameManager.Instance.ClockData != null ? GameManager.Instance.ClockData : null;
+        equipmentSet.EquipShoulder = GameManager.Instance.ShoulderArmorData != null ? GameManager.Instance.ShoulderArmorData : null;
+        equipmentSet.EquipNeckless = GameManager.Instance.NecklessData != null ? GameManager.Instance.NecklessData : null;
+        equipmentSet.EquipBelt = GameManager.Instance.BeltData != null ? GameManager.Instance.BeltData : null;
+        equipmentSet.EquipRings[0] = GameManager.Instance.RingDatas[0] != null ? GameManager.Instance.RingDatas[0] : null;
+        equipmentSet.EquipRings[1] = GameManager.Instance.RingDatas[1] != null ? GameManager.Instance.RingDatas[1] : null;
+        for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
+        {
+            equipmentSet.EquipOther[i] = GameManager.Instance.OtherDatas[i] != null ? GameManager.Instance.OtherDatas[i] : null;
+        }
+        
+        try
+        {
+            // QuickSlots 리스트에서 기존에 저장된 장비 세트를 찾음
+            bool found = false;
+            for (int i = 0; i < QuickSlots.Count; i++)
+            {
+                if (QuickSlots[i].QuickSlotIndex == _slotIndex)
+                {
+                    // 기존에 저장된 장비 세트가 있으면 해당 인덱스의 장비 세트를 수정
+                    QuickSlots[i] = equipmentSet;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                // 기존에 저장된 장비 세트가 없으면 새로 추가
+                QuickSlots.Add(equipmentSet);
+            }
+
+            GameManager.Instance.QuickSlotIndex = _slotIndex;
+            string json = JsonConvert.SerializeObject(QuickSlots, Formatting.Indented);
+            File.WriteAllText(quickSlotEquipmentPath, json);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    public void LoadQuickSlotEquipment(int _slotIndex)
+    {
+        if (File.Exists(quickSlotEquipmentPath))
+        {
+            EquipmentSet equipmentSet = null;
+            GameManager.Instance.QuickSlotIndex = _slotIndex;
+            try
+            {
+                string json = File.ReadAllText(quickSlotEquipmentPath);
+                QuickSlots = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
+
+                // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
+                for (int i = 0; i < QuickSlots.Count; i++)
+                {
+                    if (QuickSlots[i].QuickSlotIndex == _slotIndex)
+                    { // 저장 되어있는 인덱스 
+                        equipmentSet = QuickSlots[i];
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+                equipmentSet = null;
+            }
+
+            // equipmentSet이 null인 경우 새로운 장비 세트를 생성
+            if (equipmentSet == null)
+            {
+                equipmentSet = new EquipmentSet();
+            }
+
+            if(equipmentSet.EquipWeapon == null)
+            {
+                GameManager.Instance.WeaponData = GameManager.Instance.Punch;
+            }
+            else
+            {
+                GameManager.Instance.WeaponData = equipmentSet.EquipWeapon;
+            }
+            
+            GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
+            GameManager.Instance.HelmetData = equipmentSet.EquipHelmet != null ? equipmentSet.EquipHelmet : null;
+            GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
+            GameManager.Instance.GloveData = equipmentSet.EquipGlove != null ? equipmentSet.EquipGlove : null;
+            GameManager.Instance.ShoesData = equipmentSet.EquipShoes != null ? equipmentSet.EquipShoes : null;
+            GameManager.Instance.ClockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
+            GameManager.Instance.ShoulderArmorData = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder : null;
+            GameManager.Instance.NecklessData = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless : null;
+            GameManager.Instance.BeltData = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt : null;
+            GameManager.Instance.RingDatas[0] = equipmentSet.EquipRings[0] != null ? equipmentSet.EquipRings[0] : null;
+            GameManager.Instance.RingDatas[1] = equipmentSet.EquipRings[1] != null ? equipmentSet.EquipRings[1] : null;
+
+            for (int i = 0; i < GameManager.Instance.OtherDatas.Length && i < equipmentSet.EquipOther.Length; i++)
+            {
+                GameManager.Instance.OtherDatas[i] = equipmentSet.EquipOther[i] != null ? equipmentSet.EquipOther[i] : null;
+            }
+
+            EquipmentCanvas canvas = FindObjectOfType<EquipmentCanvas>();
+            if (canvas != null)
+            {
+                canvas.InitImage();
+            }
         }
     }
     #endregion
@@ -365,121 +486,6 @@ public class DataManager : MonoBehaviour
             NecklessOwnCount = new Dictionary<int, int>();
             RingOwnCount = new Dictionary<int, int>();
             OtherOwnCount = new Dictionary<int, int>();
-        }
-    }
-    #endregion
-    #region 장착중인 장비
-    public void SaveEquipSet(int _slotIndex)
-    {
-        EquipmentSet equipmentSet = new EquipmentSet();
-
-        equipmentSet.QuickSlotIndex = _slotIndex;
-        equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : GameManager.Instance.Punch;
-        equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
-        equipmentSet.EquipHelmet = GameManager.Instance.HelmetData != null ? GameManager.Instance.HelmetData : null;
-        equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
-        equipmentSet.EquipGlove = GameManager.Instance.GloveData != null ? GameManager.Instance.GloveData : null;
-        equipmentSet.EquipShoes = GameManager.Instance.ShoesData != null ? GameManager.Instance.ShoesData : null;
-        equipmentSet.EquipCloak = GameManager.Instance.ClockData != null ? GameManager.Instance.ClockData : null;
-        equipmentSet.EquipShoulder = GameManager.Instance.ShoulderArmorData != null ? GameManager.Instance.ShoulderArmorData : null;
-        equipmentSet.EquipNeckless = GameManager.Instance.NecklessData != null ? GameManager.Instance.NecklessData : null;
-        equipmentSet.EquipBelt = GameManager.Instance.BeltData != null ? GameManager.Instance.BeltData : null;
-        equipmentSet.EquipRings[0] = GameManager.Instance.RingDatas[0] != null ? GameManager.Instance.RingDatas[0] : null;
-        equipmentSet.EquipRings[1] = GameManager.Instance.RingDatas[1] != null ? GameManager.Instance.RingDatas[1] : null;
-        for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
-        {
-            equipmentSet.EquipOther[i] = GameManager.Instance.OtherDatas[i] != null ? GameManager.Instance.OtherDatas[i] : null;
-        }
-
-        try
-        {
-            // QuickSlots 리스트에서 기존에 저장된 장비 세트를 찾음
-            bool found = false;
-            for (int i = 0; i < QuickSlots.Count; i++)
-            {
-                if (QuickSlots[i].QuickSlotIndex == _slotIndex)
-                {
-                    // 기존에 저장된 장비 세트가 있으면 해당 인덱스의 장비 세트를 수정
-                    QuickSlots[i] = equipmentSet;
-                    found = true;
-                    break;
-                }
-            }
-            if (!found)
-            {
-                // 기존에 저장된 장비 세트가 없으면 새로 추가
-                QuickSlots.Add(equipmentSet);
-            }
-
-            GameManager.Instance.QuickSlotIndex = _slotIndex;
-            string json = JsonConvert.SerializeObject(QuickSlots, Formatting.Indented);
-            File.WriteAllText(equipmentPath, json);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
-        }
-    }
-
-    public void LoadEquipSet(int _slotIndex)
-    {
-        if (File.Exists(equipmentPath))
-        {
-            EquipmentSet equipmentSet = null;
-            GameManager.Instance.QuickSlotIndex = _slotIndex;
-            try
-            {
-                string json = File.ReadAllText(equipmentPath);
-                QuickSlots = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
-
-                // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
-                for (int i = 0; i < QuickSlots.Count; i++)
-                {
-                    if (QuickSlots[i].QuickSlotIndex == _slotIndex)
-                    { // 저장 되어있는 인덱스 
-                        equipmentSet = QuickSlots[i];
-                        break;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e.Message);
-                equipmentSet = null;
-            }
-
-            // equipmentSet이 null인 경우 새로운 장비 세트를 생성합니다.
-            if (equipmentSet == null)
-            {
-                equipmentSet = new EquipmentSet();
-            }
-
-
-            GameManager.Instance.WeaponData = equipmentSet.EquipWeapon == GameManager.Instance.Punch ? GameManager.Instance.Punch : equipmentSet.EquipWeapon;
-
-            GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
-            GameManager.Instance.HelmetData = equipmentSet.EquipHelmet != null ? equipmentSet.EquipHelmet : null;
-            GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
-            GameManager.Instance.GloveData = equipmentSet.EquipGlove != null ? equipmentSet.EquipGlove : null;
-            GameManager.Instance.ShoesData = equipmentSet.EquipShoes != null ? equipmentSet.EquipShoes : null;
-            GameManager.Instance.ClockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
-            GameManager.Instance.ShoulderArmorData = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder : null;
-            GameManager.Instance.NecklessData = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless : null;
-            GameManager.Instance.BeltData = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt : null;
-            GameManager.Instance.RingDatas[0] = equipmentSet.EquipRings[0] != null ? equipmentSet.EquipRings[0] : null;
-            GameManager.Instance.RingDatas[1] = equipmentSet.EquipRings[1] != null ? equipmentSet.EquipRings[1] : null;
-
-            for (int i = 0; i < GameManager.Instance.OtherDatas.Length && i < equipmentSet.EquipOther.Length; i++)
-            {
-                GameManager.Instance.OtherDatas[i] = equipmentSet.EquipOther[i] != null ? equipmentSet.EquipOther[i] : null;
-            }
-
-            EquipmentCanvas canvas = FindObjectOfType<EquipmentCanvas>();
-            if (canvas != null)
-            {
-                canvas.InitImage();
-            }
-            GameManager.Instance.RenewAbility();
         }
     }
     #endregion
@@ -643,6 +649,88 @@ public class DataManager : MonoBehaviour
         }
     }
     #endregion
+    #region 장착중인 장비
+    public void SaveEquipment()
+    {
+        try
+        {
+            EquipmentSet equipmentSet = new EquipmentSet();
+
+            equipmentSet.EquipWeapon = GameManager.Instance.WeaponData != null ? GameManager.Instance.WeaponData : GameManager.Instance.Punch;
+            equipmentSet.EquipArmor = GameManager.Instance.ArmorData != null ? GameManager.Instance.ArmorData : null;
+            equipmentSet.EquipHelmet = GameManager.Instance.HelmetData != null ? GameManager.Instance.HelmetData : null;
+            equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
+            equipmentSet.EquipGlove = GameManager.Instance.GloveData != null ? GameManager.Instance.GloveData : null;
+            equipmentSet.EquipShoes = GameManager.Instance.ShoesData != null ? GameManager.Instance.ShoesData : null;
+            equipmentSet.EquipCloak = GameManager.Instance.ClockData != null ? GameManager.Instance.ClockData : null;
+            equipmentSet.EquipShoulder = GameManager.Instance.ShoulderArmorData != null ? GameManager.Instance.ShoulderArmorData : null;
+            equipmentSet.EquipNeckless = GameManager.Instance.NecklessData != null ? GameManager.Instance.NecklessData : null;
+            equipmentSet.EquipBelt = GameManager.Instance.BeltData != null ? GameManager.Instance.BeltData : null;
+            equipmentSet.EquipRings[0] = GameManager.Instance.RingDatas[0] != null ? GameManager.Instance.RingDatas[0] : null;
+            equipmentSet.EquipRings[1] = GameManager.Instance.RingDatas[1] != null ? GameManager.Instance.RingDatas[1] : null;
+            for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
+            {
+                equipmentSet.EquipOther[i] = GameManager.Instance.OtherDatas[i] != null ? GameManager.Instance.OtherDatas[i] : null;
+            }
+
+            string json = JsonConvert.SerializeObject(equipmentSet, Formatting.Indented);
+            File.WriteAllText(equipmentPath, json);
+        }
+        catch(Exception ex)
+        {
+            Debug.LogError(ex.Message);
+        }
+    }
+
+    public void LoadEquipment()
+    {
+        if (File.Exists(equipmentPath))
+        {
+            string json = File.ReadAllText(equipmentPath);
+            EquipmentSet equipmentSet = JsonConvert.DeserializeObject<EquipmentSet>(json);
+
+            GameManager.Instance.WeaponData = equipmentSet.EquipWeapon == GameManager.Instance.Punch ? GameManager.Instance.Punch : equipmentSet.EquipWeapon;
+
+            GameManager.Instance.ArmorData = equipmentSet.EquipArmor != null ? equipmentSet.EquipArmor : null;
+            GameManager.Instance.HelmetData = equipmentSet.EquipHelmet != null ? equipmentSet.EquipHelmet : null;
+            GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
+            GameManager.Instance.GloveData = equipmentSet.EquipGlove != null ? equipmentSet.EquipGlove : null;
+            GameManager.Instance.ShoesData = equipmentSet.EquipShoes != null ? equipmentSet.EquipShoes : null;
+            GameManager.Instance.ClockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
+            GameManager.Instance.ShoulderArmorData = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder : null;
+            GameManager.Instance.NecklessData = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless : null;
+            GameManager.Instance.BeltData = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt : null;
+            GameManager.Instance.RingDatas[0] = equipmentSet.EquipRings[0] != null ? equipmentSet.EquipRings[0] : null;
+            GameManager.Instance.RingDatas[1] = equipmentSet.EquipRings[1] != null ? equipmentSet.EquipRings[1] : null;
+
+            for (int i = 0; i < GameManager.Instance.OtherDatas.Length && i < equipmentSet.EquipOther.Length; i++)
+            {
+                GameManager.Instance.OtherDatas[i] = equipmentSet.EquipOther[i] != null ? equipmentSet.EquipOther[i] : null;
+            }
+        }
+        else
+        {
+            GameManager.Instance.WeaponData = GameManager.Instance.Punch;
+
+            GameManager.Instance.ArmorData = null;
+            GameManager.Instance.HelmetData = null;
+            GameManager.Instance.PantsData = null;
+            GameManager.Instance.GloveData = null;
+            GameManager.Instance.ShoesData = null;
+            GameManager.Instance.ClockData = null;
+            GameManager.Instance.ShoulderArmorData = null;
+            GameManager.Instance.NecklessData = null;
+            GameManager.Instance.BeltData = null;
+            GameManager.Instance.RingDatas[0] = null;
+            GameManager.Instance.RingDatas[1] = null;
+
+            for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
+            {
+                GameManager.Instance.OtherDatas[i] = null;
+            }
+        }
+    }
+    #endregion
     #endregion
 
     public void EquipmentSet()
@@ -719,7 +807,7 @@ public class DataManager : MonoBehaviour
         List<EquipmentSet> equipmentList = new List<EquipmentSet>();
         try
         {
-            string json = File.ReadAllText(equipmentPath);
+            string json = File.ReadAllText(quickSlotEquipmentPath);
             equipmentList = JsonConvert.DeserializeObject<List<EquipmentSet>>(json);
 
             // 저장된 장비 세트 중에서 _slotIndex에 해당하는 것을 찾음
@@ -772,8 +860,9 @@ public class DataManager : MonoBehaviour
     public void QuickSlotReset()
     {
         // 기존의 JSON 파일 삭제
-        if (File.Exists(quickSlotEquipmentPath))
+        if (File.Exists(quickSlotEquipmentNamePath))
         {
+            File.Delete(quickSlotEquipmentNamePath);
             File.Delete(quickSlotEquipmentPath);
             Debug.Log("기존의 퀵 슬롯 JSON 파일이 삭제되었습니다.");
         }

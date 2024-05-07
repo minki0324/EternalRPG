@@ -26,6 +26,7 @@ public class Battle : MonoBehaviour
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text playerHPText;
     [SerializeField] private Slider playerHPSlider;
+    [SerializeField] private GameObject energyObject;
 
     [Header("Drop Item")]
     [SerializeField] private GameObject dropItemObject;
@@ -100,6 +101,7 @@ public class Battle : MonoBehaviour
         {
             energyText.text = $"{mon.monsterData.RequireEnergy}";
         }
+        energyObject.SetActive(true);
         playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
         playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         PrintLog.Instance.BattleLog("하단의 버튼을 눌러 행동을 정해주세요.");
@@ -112,6 +114,7 @@ public class Battle : MonoBehaviour
             PrintLog.Instance.StaticLog("체력이 없어 싸울 수 없다.");
             return;
         }
+        energyObject.SetActive(false);
         ignoreRay.SetActive(true);
         if (battleCoroutine != null)
         {

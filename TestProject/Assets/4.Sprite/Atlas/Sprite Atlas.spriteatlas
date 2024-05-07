@@ -845,6 +845,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b3b544ebcf7ae094c9e16e394062bbaf, type: 3}
   - {fileID: 21300000, guid: 6e9a52fba68a0214aa6f9ee4bc51d331, type: 3}
   - {fileID: 21300000, guid: 86d792fb4ee98ea44a93259326c31b71, type: 3}
+  - {fileID: 21300000, guid: 5d72d4fb354830548861895e6cb84d37, type: 3}
   - {fileID: 21300000, guid: 457456fb09db5fe48815891fc242890f, type: 3}
   - {fileID: 21300000, guid: 3042e6fb495ee644b98e6c33129c8a5e, type: 3}
   - {fileID: 21300000, guid: c8fedafb0d7561346a045b79f553c0db, type: 3}
@@ -879,6 +880,7 @@ SpriteAtlas:
   - {fileID: 21300148, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
   - {fileID: 21300146, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
   - {fileID: 21300000, guid: 599b482cd0c1ed5499fd27388db825b2, type: 3}
+  - {fileID: 21300000, guid: d001613c27fcbcd4cbf9195bf1d52032, type: 3}
   - {fileID: 21300000, guid: 03e83f3ccdad0754984f8a1b935c1d5c, type: 3}
   - {fileID: 21300000, guid: 1e1b894c7549a014287d33061f08da55, type: 3}
   - {fileID: 21300000, guid: 9ab4b94c5a1bce440b4422f1076dbbf5, type: 3}
@@ -1103,10 +1105,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4c14091fa147c5d42b235f34beb8e9ba, type: 3}
   - {fileID: 21300000, guid: 84e35d1f055ca3b4d8c1fc9bd1ccb842, type: 3}
   - {fileID: 21300000, guid: 0da5e42fcf951af4b9561e1106f01acf, type: 3}
+  - {fileID: 21300000, guid: cce7282f9fe230d46babef593fb19824, type: 3}
   - {fileID: 21300000, guid: 8568773fe470a584ab49fefcd7c71848, type: 3}
   - {fileID: 21300000, guid: 67b1393f54633e641bb2ca1660444aa4, type: 3}
   - {fileID: 21300000, guid: 0da7624f2c7cf0d4c8f9c48c7684b8bc, type: 3}
   - {fileID: 21300000, guid: a283fc4fd3262a94a9623ce5f34487a7, type: 3}
+  - {fileID: 21300000, guid: 847b547f85a85e441b646c208af25850, type: 3}
   - {fileID: 21300000, guid: 76ff0b9ff5f035948a0e61e6dbb5b047, type: 3}
   - {fileID: 21300000, guid: a59850af8971de74f92bdc2af546be3c, type: 3}
   - {fileID: 21300000, guid: a4b851af715239e49a722020eb729890, type: 3}
@@ -1902,6 +1906,7 @@ SpriteAtlas:
   - 28 NoNo
   - 35 Skull Relic
   - bg Move Point
+  - label_flag_03_White1 1
   - 00 Exp Book
   - 03 Blue Cube
   - 01 Iron Helmet
@@ -1936,6 +1941,7 @@ SpriteAtlas:
   - TX Grass C
   - TX Grass B
   - 08 Poison Rune
+  - toggle_checkbox_on 1
   - 20 Thor
   - 00 Silver Neckless
   - 21 Phantom
@@ -2160,10 +2166,12 @@ SpriteAtlas:
   - 16 Raven
   - 04 Black Iron Armor
   - 07 Executor Cloak
+  - toggle_checkbox_off 1
   - 02 Silver
   - 08 Dawn Armor
   - Enchantment_12_magicsubstance 1
   - 08 Ancient Rune Scroll
+  - label_flag_03_Demo 1
   - 16 Dark Ring
   - 06 Lucky Rune
   - 15 Terra

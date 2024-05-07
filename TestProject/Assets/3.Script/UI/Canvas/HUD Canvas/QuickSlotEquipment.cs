@@ -9,6 +9,6 @@ public class QuickSlotEquipment : MonoBehaviour
 
     public void ChangeEquipmentQuickSlot(int _index)
     {
-        DataManager.Instance.LoadEquipSet(_index);
+        DataManager.Instance.LoadQuickSlotEquipment(_index);
     }
 }
