@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     public bool isWayMove = false;
     private Vector2 targetPos = Vector2.zero;
     public Coroutine moveCoroutine;
+    [SerializeField] private PlayerMovePad movePad;
+    
 
     private void Start()
     {
@@ -72,22 +74,30 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && !GameManager.Instance.isMovePad)
         {
             if (!IsTouchingUI())
-            {
+            { // 직접 터치 방식일 때
                 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 if (moveCoroutine != null)
                 {
                     StopCoroutine(moveCoroutine);
                 }
-                moveCoroutine = StartCoroutine(Move());
+                moveCoroutine = StartCoroutine(DirectMove());
             }
+        }
+        else if(GameManager.Instance.isMovePad && movePad.isTouch)
+        {
+            if (moveCoroutine != null)
+            {
+                StopCoroutine(moveCoroutine);
+            }
+            moveCoroutine = StartCoroutine(PadMove());
         }
     }
 
-    private IEnumerator Move()
+    private IEnumerator DirectMove()
     {
         // movePoint 위치 조정
         movePoint.gameObject.SetActive(true);
@@ -121,6 +131,51 @@ public class PlayerMove : MonoBehaviour
                 rigidbody2D_.MovePosition(newPosition);
             }
             movePoint.position = targetPos;
+            GameManager.Instance.LastPos = transform.position;
+
+            yield return null;
+        }
+
+        movePoint.gameObject.SetActive(false);
+        // 이동이 완료되면 애니메이션을 Idle로 전환
+        playerAnimator.SetBool("Idle", true);
+        playerAnimator.SetBool("Run", false);
+        moveCoroutine = null;
+    }
+
+    private IEnumerator PadMove()
+    { // 패드 이동
+        // 애니메이션 변경
+        playerAnimator.SetBool("Idle", false);
+        playerAnimator.SetBool("Run", true);
+
+        
+
+        while (movePad.isTouch)
+        {
+            Vector3 forPos = (Vector3)movePad.targetPos;
+            
+
+            Vector3 newPosition = transform.position + (forPos.normalized * Time.deltaTime * GameManager.Instance.MoveSpeed * 0.1f);
+
+            // 이동 방향에 따라 플레이어를 뒤집음
+            if (transform.position.x > newPosition.x)
+            {
+                // 목표 위치가 플레이어의 오른쪽에 있을 때
+                transform.localScale = new Vector3(1, 1, 1); // 원래 방향으로 회전
+            }
+            else
+            {
+                // 목표 위치가 플레이어의 왼쪽에 있을 때
+                transform.localScale = new Vector3(-1, 1, 1); // 반대로 회전 (x축 플립)
+            }
+
+            // 바운더리 영역 내에서만 이동하도록 제한
+            if (boundary.bounds.Contains(newPosition))
+            {
+                rigidbody2D_.MovePosition(newPosition);
+            }
+            movePoint.position = movePad.targetPos;
             GameManager.Instance.LastPos = transform.position;
 
             yield return null;

@@ -516,7 +516,7 @@ public class EquipmentCanvas : MonoBehaviour
                 {
                     for (int i = 0; i < GameManager.Instance.RingDatas.Length; i++)
                     {
-                        if (GameManager.Instance.RingDatas[i] == ringData)
+                        if (GameManager.Instance.RingDatas[i] != null && GameManager.Instance.RingDatas[i].ItemID == ringData.ItemID)
                         { // 중복 착용 todo
                             PrintLog.Instance.StaticLog("이미 착용중인 아이템 입니다.");
                             return;
@@ -559,7 +559,7 @@ public class EquipmentCanvas : MonoBehaviour
                 {
                     for (int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
                     {
-                        if (GameManager.Instance.OtherDatas[i] == otherData)
+                        if (GameManager.Instance.OtherDatas[i] != null && GameManager.Instance.OtherDatas[i].ItemID == otherData.ItemID && isEquip)
                         { // 중복 착용 todo
                             PrintLog.Instance.StaticLog("이미 착용중인 아이템 입니다.");
                             return;

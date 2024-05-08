@@ -245,6 +245,53 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+    public string ChangeEquipmentCategory(Category category)
+    {
+        string exCategory = string.Empty;
+        switch (category)
+        {
+            case Category.Weapon:
+                exCategory = "무기";
+                break;
+            case Category.Armor:
+                exCategory = "갑옷";
+                break;
+            case Category.Helmet:
+                exCategory = "투구";
+                break;
+            case Category.Pants:
+                exCategory = "각반";
+                break;
+            case Category.Glove:
+                exCategory = "장갑";
+                break;
+            case Category.Shoes:
+                exCategory = "신발";
+                break;
+            case Category.Belt:
+                exCategory = "벨트";
+                break;
+            case Category.ShoulderArmor:
+                exCategory = "견장";
+                break;
+            case Category.Ring:
+                exCategory = "반지";
+                break;
+            case Category.Neckless:
+                exCategory = "목걸이";
+                break;
+            case Category.Clock:
+                exCategory = "망토";
+                break;
+            case Category.Other:
+                exCategory = "보조";
+                break;
+            case Category.Rune:
+                break;
+        }
+        return exCategory;
+    }
+
     public Sprite GetEquipmentSprite(EquipmentBaseData _equipmentdata)
     {
         string spriteName = _equipmentdata.SpriteName;

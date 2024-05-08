@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int BattleSpeed = 1;
     public int QuickSlotIndex = 0;
     public bool FirstConnect = false;
+    public bool isMovePad = false;
 
     [Header("마스터 레벨")]
     public List<MasterLevelEXP> masterLevelTable;

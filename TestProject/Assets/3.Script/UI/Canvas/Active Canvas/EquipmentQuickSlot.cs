@@ -55,7 +55,7 @@ public class EquipmentQuickSlot : MonoBehaviour
     [SerializeField] private TMP_Text[] ringTexts;
     [SerializeField] private TMP_Text[] otherTexts;
 
-    private bool isPanelOpen = false;
+    private bool isPanelOpen = true;
     private bool isMain = false;
     private Coroutine panelMoveCoroutine;
 
@@ -182,6 +182,7 @@ public class EquipmentQuickSlot : MonoBehaviour
         {
             DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
             PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
+            GameManager.Instance.RenewAbility();
         }
         else
         {
@@ -220,8 +221,8 @@ public class EquipmentQuickSlot : MonoBehaviour
         float duration = 0.5f;
         float elapsedTime = 0f;
 
-        Vector3 startPos = _isOpen ? new Vector3(0, 180, 0) : new Vector3(-220, 180, 0);
-        Vector3 endPos = _isOpen ? new Vector3(-220, 180, 0) : new Vector3(0, 180, 0);
+        Vector3 startPos = _isOpen ? new Vector3(-410, -465, 0) : new Vector3(-640, -465, 0);
+        Vector3 endPos = _isOpen ? new Vector3(-640, -465, 0) : new Vector3(-410, -465, 0);
 
         for (int i = 0; i < HUDButton.Length; i++)
         {
@@ -233,12 +234,12 @@ public class EquipmentQuickSlot : MonoBehaviour
         while (elapsedTime < duration)
         {
             // 패널 위치 변경
-            rectTransform.position = Vector3.Lerp(startPos, endPos, elapsedTime / duration);
+            rectTransform.localPosition = Vector3.Lerp(startPos, endPos, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         // 마지막 위치 설정
-        rectTransform.position = endPos;
+        rectTransform.localPosition = endPos;
 
         for(int i = 0; i < HUDButton.Length; i++)
         {

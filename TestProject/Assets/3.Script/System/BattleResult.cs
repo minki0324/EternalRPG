@@ -98,7 +98,6 @@ public class BattleResult : MonoBehaviour
         int totalAP = GameManager.Instance.BonusAP;
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
-            // 곱연산 계산 
             requireEXP = (long)GameManager.Instance.RequireEXP + Mathf.RoundToInt(GameManager.Instance.PlayerLevel / 1000f) + 1;
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = (long)Mathf.Round((float)requireEXP);
@@ -228,13 +227,20 @@ public class BattleResult : MonoBehaviour
                 HUDCanvas.CheckBadgeCount();
                 GameManager.Instance.BadgeGrade();
                 GameManager.Instance.RenewAbility();
+
+                // 툴팁 관련
+                Tooltip tooltip = dropItem.GetComponent<Tooltip>();
+                tooltip.TooltipItemName.text = mon.monsterData.RewardItem[i].EquipmentName;
+                tooltip.TooltipItemCategory.text = $"종류 : {EquipmentManager.Instance.ChangeEquipmentCategory(mon.monsterData.RewardItem[i].EquipmentType)}";
+                tooltip.TooltipItemDes.text = mon.monsterData.RewardItem[i].EquipmentDes;
+                tooltip.TooltipItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
             }
         }
     }
 
     private IEnumerator PrintRuneDrop(Monster mon)
     {
-        float randomValue = Random.Range(0f, 100f);
+        float randomValue = /*Random.Range(0f, 100f)*/0;
         
 
         if (!GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))
@@ -354,11 +360,14 @@ public class BattleResult : MonoBehaviour
     {
         if (GameManager.Instance.MasterCurrentEXP >= GameManager.Instance.MasterRequireEXP)
         {
-            GameManager.Instance.MasterLevel++;
-            GameManager.Instance.MasterCurrentEXP -= GameManager.Instance.MasterRequireEXP;
-            GameManager.Instance.MasterRequireEXP = GameManager.Instance.GetRequireEXPForLevel(GameManager.Instance.MasterLevel);
-            PrintLog.Instance.StaticLog("마스터 레벨이 상승했습니다!");
-            MasterAP(GameManager.Instance.MasterLevel);
+            if(GameManager.Instance.MasterLevel < 30)
+            {
+                GameManager.Instance.MasterLevel++;
+                GameManager.Instance.MasterCurrentEXP -= GameManager.Instance.MasterRequireEXP;
+                GameManager.Instance.MasterRequireEXP = GameManager.Instance.GetRequireEXPForLevel(GameManager.Instance.MasterLevel);
+                PrintLog.Instance.StaticLog("마스터 레벨이 상승했습니다!");
+                MasterAP(GameManager.Instance.MasterLevel);
+            }
         }
     }
 

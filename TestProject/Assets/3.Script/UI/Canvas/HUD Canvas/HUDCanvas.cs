@@ -45,6 +45,9 @@ public class HUDCanvas : MonoBehaviour
     [SerializeField] private TMP_Text badgeText;
     [SerializeField] private Animator badgeEffect;
 
+    [Header("게임 패드")]
+    [SerializeField] private GameObject gamePad;
+
     private void Start()
     {
         StartGame();
@@ -64,6 +67,10 @@ public class HUDCanvas : MonoBehaviour
     {
         activeCanvas.SetActive(true);
         transitionObj.SetActive(true);
+
+        // 게임 패드
+        gamePad.SetActive(GameManager.Instance.isMovePad);
+
         if (DataManager.Instance.EliteMonsterDic.Count > 0)
         {
             soulChestObj.SetActive(true);

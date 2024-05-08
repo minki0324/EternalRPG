@@ -99,6 +99,7 @@ public class PlayerData
     public string LayerName;
     public bool FirstStart;
     public int cardBuff;
+    public bool isMovePad;
 
     public PlayerData()
     {
@@ -528,6 +529,7 @@ public class DataManager : MonoBehaviour
         playerData.LayerName = GameManager.Instance.LayerName;
         playerData.cardBuff = (int)GameManager.Instance.CardBuff;
         playerData.GemCount = GameManager.Instance.GemCount;
+        playerData.isMovePad = GameManager.Instance.isMovePad;
 
         try
         {
@@ -590,6 +592,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.LayerName = playerData.LayerName;
             GameManager.Instance.CardBuff = (CardBuffEnum)playerData.cardBuff;
             GameManager.Instance.GemCount = playerData.GemCount;
+            GameManager.Instance.isMovePad = playerData.isMovePad;
         }
     }
     #endregion

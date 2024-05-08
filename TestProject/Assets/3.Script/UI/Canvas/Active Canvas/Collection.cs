@@ -63,6 +63,9 @@ public class Collection : MonoBehaviour
                 }
                 break;
             case CollectionType.Monster:
+                monsterCollectionDropdown.value = 0;
+                locationDropdown.value = 0;
+                monsterLocation = Location.RelicForest;
                 MonsterCollectionAll();
                 break;
         }

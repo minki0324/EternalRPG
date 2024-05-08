@@ -138,6 +138,7 @@ public class Battle : MonoBehaviour
         activeCanvas.versusPanel.SetActive(false);
     }
 
+    #region 스킵
     public void SkipBattle(bool isSkip)
     {
         if (battleCoroutine != null)
@@ -150,7 +151,7 @@ public class Battle : MonoBehaviour
         while (true)
         {
             battleCount++;
-            if(battleCount == 500)
+            if (battleCount == 500)
             {
                 DefeatBattle();
                 break;
@@ -203,7 +204,8 @@ public class Battle : MonoBehaviour
         effectAnimator.gameObject.SetActive(false);
         damageAnimator.gameObject.SetActive(false);
     }
-
+    #endregion
+    #region 배틀 로직
     private IEnumerator StartBattle_Co(bool isSkip)
     {
         Time.timeScale = GameManager.Instance.BattleSpeed;
@@ -276,7 +278,7 @@ public class Battle : MonoBehaviour
         effectAnimator.gameObject.SetActive(false);
         damageAnimator.gameObject.SetActive(false);
     }
-
+    #endregion
     #region 플레이어
     private void PlayerTurn(int comboCount, bool isSkip)
     {
@@ -370,7 +372,6 @@ public class Battle : MonoBehaviour
         }
     }
     #endregion
-
     #region 몬스터
     private void monsterTurn(int comboCount, bool isSkip)
     {
@@ -407,7 +408,7 @@ public class Battle : MonoBehaviour
         damage = isDefenceRune ? damage - 50 : damage;
 
         // 철갑의 룬 최종 데미지 4% 감소
-        damage = isHardSkinRune ? Mathf.RoundToInt(damage*0.96f) : damage;
+        damage = isHardSkinRune ? Mathf.RoundToInt(damage * 0.96f) : damage;
         if (!isSkip)
         {
             monsterDamageText.gameObject.SetActive(true);
@@ -445,11 +446,10 @@ public class Battle : MonoBehaviour
         }
     }
     #endregion
-
     #region 전투 변수 계산
     private void PoisonRune()
     {
-        if(isPoisonRune)
+        if (isPoisonRune)
         {
             int poisonDamage = Mathf.RoundToInt(mon.MonsterMaxHP * 0.05f);
             mon.MonsterCurHP -= poisonDamage;
@@ -534,7 +534,6 @@ public class Battle : MonoBehaviour
         }
     }
     #endregion
-
     #region 리워드 드랍
     private void ItemDropRate(Monster mon)
     {
@@ -564,6 +563,13 @@ public class Battle : MonoBehaviour
                 dropRate = (float)(addDropRate / (1 + ownCount) + cardBuff + masterBuff + runeDropRate + GameManager.Instance.BadgeData.BadgeItemDropRate); // 보유하지 않은 아이템 개수로 나누어 드랍 확률 계산
             }
             drop.DropRateText.text = $"{dropRate:F2}%";
+
+            // 툴팁 관련
+            Tooltip tooltip = item.GetComponent<Tooltip>();
+            tooltip.TooltipItemName.text = mon.monsterData.RewardItem[i].EquipmentName;
+            tooltip.TooltipItemCategory.text = $"종류 : {EquipmentManager.Instance.ChangeEquipmentCategory(mon.monsterData.RewardItem[i].EquipmentType)}";
+            tooltip.TooltipItemDes.text = mon.monsterData.RewardItem[i].EquipmentDes;
+            tooltip.TooltipItemImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardItem[i]);
         }
     }
 
@@ -590,8 +596,9 @@ public class Battle : MonoBehaviour
         }
     }
     #endregion
-
     #region 기타
+    
+
     private RuntimeAnimatorController GetAnimator()
     {
         RuntimeAnimatorController con;
@@ -657,7 +664,6 @@ public class Battle : MonoBehaviour
         }
     }
     #endregion
-
     #region 승률
     private void CalculrateWinRate(Monster mon)
     {
@@ -723,7 +729,7 @@ public class Battle : MonoBehaviour
                 return true;
             }
             FakeMonsterTurn(mon);
-            if(fakePlayerHP <= 0)
+            if (fakePlayerHP <= 0)
             { // 플레이어의 체력이 0보다 작을 경우 패배
                 return false;
             }
@@ -756,7 +762,7 @@ public class Battle : MonoBehaviour
                 }
 
                 drainAmount = Drain(GameManager.Instance.DrainPercent, mon.monsterData.DrainResist, damage, GameManager.Instance.DrainAmount);
-                if(drainAmount != 0)
+                if (drainAmount != 0)
                 {
                     fakePlayerHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, fakePlayerHP + drainAmount);
                 }
@@ -775,7 +781,7 @@ public class Battle : MonoBehaviour
 
         for (int i = 1; i < comboCount + 1; i++)
         {
-            if(Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.ComboPercent))
+            if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.ComboPercent))
             { // 플레이어가 회피 성공했을 때
 
             }
@@ -801,5 +807,5 @@ public class Battle : MonoBehaviour
             }
         }
     }
-#endregion
+    #endregion
 }
