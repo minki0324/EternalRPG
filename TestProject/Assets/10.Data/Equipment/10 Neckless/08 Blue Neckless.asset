@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uBB3C\uAE38\uC758 \uBAA9\uAC78\uC774"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 11
+  DropRate: 6
   EquipmentDes: "\uBB3C\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uBAA9\uAC78\uC774\uC774\uB2E4."
   NecklessHP: 3600
   NecklessHPPercent: 25

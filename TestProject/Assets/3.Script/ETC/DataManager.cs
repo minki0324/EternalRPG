@@ -272,7 +272,7 @@ public class DataManager : MonoBehaviour
         equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
         equipmentSet.EquipGlove = GameManager.Instance.GloveData != null ? GameManager.Instance.GloveData : null;
         equipmentSet.EquipShoes = GameManager.Instance.ShoesData != null ? GameManager.Instance.ShoesData : null;
-        equipmentSet.EquipCloak = GameManager.Instance.ClockData != null ? GameManager.Instance.ClockData : null;
+        equipmentSet.EquipCloak = GameManager.Instance.clockData != null ? GameManager.Instance.clockData : null;
         equipmentSet.EquipShoulder = GameManager.Instance.ShoulderArmorData != null ? GameManager.Instance.ShoulderArmorData : null;
         equipmentSet.EquipNeckless = GameManager.Instance.NecklessData != null ? GameManager.Instance.NecklessData : null;
         equipmentSet.EquipBelt = GameManager.Instance.BeltData != null ? GameManager.Instance.BeltData : null;
@@ -360,7 +360,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
             GameManager.Instance.GloveData = equipmentSet.EquipGlove != null ? equipmentSet.EquipGlove : null;
             GameManager.Instance.ShoesData = equipmentSet.EquipShoes != null ? equipmentSet.EquipShoes : null;
-            GameManager.Instance.ClockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
+            GameManager.Instance.clockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
             GameManager.Instance.ShoulderArmorData = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder : null;
             GameManager.Instance.NecklessData = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless : null;
             GameManager.Instance.BeltData = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt : null;
@@ -665,7 +665,7 @@ public class DataManager : MonoBehaviour
             equipmentSet.EquipPants = GameManager.Instance.PantsData != null ? GameManager.Instance.PantsData : null;
             equipmentSet.EquipGlove = GameManager.Instance.GloveData != null ? GameManager.Instance.GloveData : null;
             equipmentSet.EquipShoes = GameManager.Instance.ShoesData != null ? GameManager.Instance.ShoesData : null;
-            equipmentSet.EquipCloak = GameManager.Instance.ClockData != null ? GameManager.Instance.ClockData : null;
+            equipmentSet.EquipCloak = GameManager.Instance.clockData != null ? GameManager.Instance.clockData : null;
             equipmentSet.EquipShoulder = GameManager.Instance.ShoulderArmorData != null ? GameManager.Instance.ShoulderArmorData : null;
             equipmentSet.EquipNeckless = GameManager.Instance.NecklessData != null ? GameManager.Instance.NecklessData : null;
             equipmentSet.EquipBelt = GameManager.Instance.BeltData != null ? GameManager.Instance.BeltData : null;
@@ -699,7 +699,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.PantsData = equipmentSet.EquipPants != null ? equipmentSet.EquipPants : null;
             GameManager.Instance.GloveData = equipmentSet.EquipGlove != null ? equipmentSet.EquipGlove : null;
             GameManager.Instance.ShoesData = equipmentSet.EquipShoes != null ? equipmentSet.EquipShoes : null;
-            GameManager.Instance.ClockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
+            GameManager.Instance.clockData = equipmentSet.EquipCloak != null ? equipmentSet.EquipCloak : null;
             GameManager.Instance.ShoulderArmorData = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder : null;
             GameManager.Instance.NecklessData = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless : null;
             GameManager.Instance.BeltData = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt : null;
@@ -720,7 +720,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.PantsData = null;
             GameManager.Instance.GloveData = null;
             GameManager.Instance.ShoesData = null;
-            GameManager.Instance.ClockData = null;
+            GameManager.Instance.clockData = null;
             GameManager.Instance.ShoulderArmorData = null;
             GameManager.Instance.NecklessData = null;
             GameManager.Instance.BeltData = null;
@@ -876,6 +876,14 @@ public class DataManager : MonoBehaviour
 
         GameManager.Instance.QuickSlotIndex = 0;
         GameManager.Instance.QuickSlot = new string[5] { "Äü½½·Ô 1", "Äü½½·Ô 2", "Äü½½·Ô 3", "Äü½½·Ô 4", "Äü½½·Ô 5" };
+    }
+
+    public void EquipmentReset()
+    {
+        if(File.Exists(equipmentPath))
+        {
+            File.Delete(equipmentPath);
+        }
     }
 
     public int GetOwnCount()

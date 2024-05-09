@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 71 Low Dark
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD558\uAE09 \uB2E4\uD06C"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 71
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 5800
+  MonsterMaxHP: 108000
+  MonsterCurHP: 108000
+  MonsterDef: 9555
+  MonsterATK: 9100
+  MonsterSprite: {fileID: 21300000, guid: 55a2f4b99a071ba4e918989a1316a39b, type: 3}
+  ReturnPos: {x: -3.5, y: 0}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 102
+  CriticalResist: 87
+  CriticalDamage: 1.81
+  ComboPercent: 13
+  ComboResist: 1
+  AvoidPercent: 96
+  AvoidResist: 82
+  DrainPercent: 81
+  DrainResist: 69
+  DrainAmount: 1.405
+  RewordEXP: 6300000
+  RewordGold: 33600
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 4d0b2197f3e97de419de535e50d151ae, type: 2}
+  RewardRune: {fileID: 0}

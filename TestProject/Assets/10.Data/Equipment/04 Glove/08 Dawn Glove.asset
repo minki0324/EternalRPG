@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC5EC\uBA85\uC758 \uC7A5\uAC11"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 9
+  DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uC7A5\uAC11\uC774\uB2E4.\n\uD478\uB978
     \uBCF4\uC11D \uC7A5\uC2DD\uC5D0\uC11C \uC54C \uC218 \uC5C6\uB294 \uD798\uC774
     \uB290\uAEF4\uC9C4\uB2E4."

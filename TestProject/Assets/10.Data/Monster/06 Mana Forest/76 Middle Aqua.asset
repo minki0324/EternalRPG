@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 76 Middle Aqua
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC911\uAE09 \uC544\uCFE0\uC544"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 76
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 12800
+  MonsterMaxHP: 350000
+  MonsterCurHP: 350000
+  MonsterDef: 24675
+  MonsterATK: 23500
+  MonsterSprite: {fileID: 21300000, guid: c531285453fbd9b40a0cec23dc04390b, type: 3}
+  ReturnPos: {x: 3, y: 3}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 137
+  CriticalResist: 116
+  CriticalDamage: 1.88
+  ComboPercent: 138
+  ComboResist: 117
+  AvoidPercent: 130
+  AvoidResist: 111
+  DrainPercent: 119
+  DrainResist: 101
+  DrainAmount: 1.44
+  RewordEXP: 39000000
+  RewordGold: 108000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

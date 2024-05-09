@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uC7A5\uAC11"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 11
+  DropRate: 6
   EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uC7A5\uAC11\uC774\uB2E4."
   GloveATK: 1350
   GloveATKPercent: 35

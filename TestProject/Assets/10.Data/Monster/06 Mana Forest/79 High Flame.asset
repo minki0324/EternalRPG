@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 79 High Flame
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC0C1\uAE09 \uD50C\uB808\uC784"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 79
+  MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 18500
+  MonsterMaxHP: 660000
+  MonsterCurHP: 660000
+  MonsterDef: 39900
+  MonsterATK: 38000
+  MonsterSprite: {fileID: 21300000, guid: 8dabd5fddd7708b499f0a381fe470248, type: 3}
+  ReturnPos: {x: 5, y: 0}
+  RequireEnergy: 5
+  isElite: 1
+  EliteID: 23
+  CriticalPercant: 160
+  CriticalResist: 136
+  CriticalDamage: 1.98
+  ComboPercent: 158
+  ComboResist: 135
+  AvoidPercent: 150
+  AvoidResist: 128
+  DrainPercent: 135
+  DrainResist: 115
+  DrainAmount: 1.49
+  RewordEXP: 41000000
+  RewordGold: 85000
+  RewordEnergy: 5
+  RewardItem:
+  - {fileID: 11400000, guid: 5942ee9bbae822e40923973a1fef2af8, type: 2}
+  RewardRune: {fileID: 11400000, guid: f3b835a19e4aa5946889172d52237b0f, type: 2}

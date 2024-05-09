@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 06 Emperor Knight Cloak
   ItemID: 906006
   EquipmentName: "\uD669\uC2E4 \uAE30\uC0AC \uB9DD\uD1A0"
-  RequireCost: 22000000
+  RequireCost: 38000000
   isCanBuy: 1
   DropRate: 13
   EquipmentDes: "\uC81C\uAD6D\uC758 \uAE30\uC0AC\uB4E4\uC774 \uC0AC\uC6A9\uD558\uB294

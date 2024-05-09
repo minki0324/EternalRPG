@@ -20,10 +20,10 @@ MonoBehaviour:
   isCanBuy: 1
   DropRate: 38
   EquipmentDes: "\uAC00\uC8FD\uC73C\uB85C \uB41C \uD314\uCC0C\uC774\uB2E4."
-  GloveATK: 5
+  GloveATK: 9
   GloveATKPercent: 4
-  GloveHP: 10
-  GloveHPPercent: 5
+  GloveHP: 5
+  GloveHPPercent: 2
   GloveComboPercent: 10
   GloveCriticalPercent: 5
   GloveCriticalDamage: 0.2

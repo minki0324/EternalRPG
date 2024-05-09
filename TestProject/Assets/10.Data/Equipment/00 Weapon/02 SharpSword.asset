@@ -21,7 +21,7 @@ MonoBehaviour:
   DropRate: 43
   EquipmentDes: "\uAD49\uC7A5\uD788 \uC798 \uBCBC\uB824\uC9C4 \uAC80\uC774\uB2E4.\n"
   WeaponType: 1
-  WeaponATK: 12
+  WeaponATK: 26
   WeaponATKPercent: 8
   WeaponComboPercent: 2
   WeaponCriticalPercent: 2

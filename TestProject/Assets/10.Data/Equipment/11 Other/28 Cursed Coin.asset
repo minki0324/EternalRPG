@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 28 Cursed Coin
   ItemID: 911028
   EquipmentName: "\uC800\uC8FC\uBC1B\uC740 \uB3D9\uC804"
-  RequireCost: 12000000
+  RequireCost: 21000000
   isCanBuy: 1
   DropRate: 20
   EquipmentDes: "\uC800\uC8FC\uAC00 \uAC78\uB824\uC788\uB294 \uB3D9\uC804\uC774\uB2E4."

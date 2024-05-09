@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 82 Chaos
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD63C\uB3C8\uC758 \uC545\uB9C8"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 82
+  MonsterType: "\uC545\uB9C8 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 36000
+  MonsterMaxHP: 1650000
+  MonsterCurHP: 1650000
+  MonsterDef: 132300
+  MonsterATK: 126000
+  MonsterSprite: {fileID: 21300000, guid: 9af2f0dbd818ce54d9cab5159eea89d1, type: 3}
+  ReturnPos: {x: 0, y: -5}
+  RequireEnergy: 5
+  isElite: 1
+  EliteID: 24
+  CriticalPercant: 178
+  CriticalResist: 151
+  CriticalDamage: 2.18
+  ComboPercent: 175
+  ComboResist: 149
+  AvoidPercent: 171
+  AvoidResist: 145
+  DrainPercent: 167
+  DrainResist: 142
+  DrainAmount: 1.59
+  RewordEXP: 99000000
+  RewordGold: 240000
+  RewordEnergy: 5
+  RewardItem:
+  - {fileID: 11400000, guid: d00c629890888a244af30edc2d8a96e0, type: 2}
+  - {fileID: 11400000, guid: a7d503a80840cc94e980540fd1fb0a3e, type: 2}
+  RewardRune: {fileID: 11400000, guid: 1ab543afe8e2b07439d528c9d4e18245, type: 2}

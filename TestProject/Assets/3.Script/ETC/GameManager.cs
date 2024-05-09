@@ -29,6 +29,7 @@ public class MasterLevelEXP
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
+    public bool isTest = false;
 
     public CardBuffEnum CardBuff;
     public int BattleSpeed = 1;
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour
     public HelmetData HelmetData;
     public GloveData GloveData;
     public ShoesData ShoesData;
-    public CloakData ClockData;
+    public CloakData clockData;
     public BeltData BeltData;
     public ShoulderData ShoulderArmorData;
     public RingData[] RingDatas = new RingData[2];
@@ -236,6 +237,12 @@ public class GameManager : MonoBehaviour
             sumSTRPercent += Mathf.RoundToInt((float)(GloveData.GloveSTRPercent * (1 + GetOwnPercent(GloveData))));
             sumDEXPercent += Mathf.RoundToInt((float)(GloveData.GloveDEXPercent * (1 + GetOwnPercent(GloveData))));
         }
+        if(clockData != null)
+        {
+            sumLUCPercent += Mathf.RoundToInt((float)(clockData.CloakLUCPercent * (1 + GetOwnPercent(clockData))));
+            sumDEXPercent += Mathf.RoundToInt((float)(clockData.CloakDEXPercent * (1 + GetOwnPercent(clockData))));
+            sumVITPercent += Mathf.RoundToInt((float)(clockData.CloakVITPercent * (1 + GetOwnPercent(clockData))));
+        }
         if (ShoesData != null)
         {
             sumVITPercent += Mathf.RoundToInt((float)(ShoesData.ShoesVITPercent * (1 + GetOwnPercent(ShoesData))));
@@ -321,7 +328,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 7f)) * (1 + (sumPercent / 100.0)) + BadgeData.BadgeATKPercent));
+        PlayerATK = Mathf.RoundToInt((float)((baseATK + sumATK + (STR / 17f)) * (1 + (sumPercent / 100.0)) + BadgeData.BadgeATKPercent));
         PlayerATKPercent = sumPercent;
     }
     #endregion
@@ -342,10 +349,10 @@ public class GameManager : MonoBehaviour
             sumHP += Mathf.RoundToInt((float)(BeltData.BeltHP * (1 + GetOwnPercent(BeltData))));
             sumPercent += Mathf.RoundToInt((float)(BeltData.BeltHPPercent * (1 + GetOwnPercent(BeltData))));
         }
-        if (ClockData != null)
+        if (clockData != null)
         {
-            sumHP += Mathf.RoundToInt((float)(ClockData.CloakHP * (1 + GetOwnPercent(ClockData))));
-            sumPercent += Mathf.RoundToInt((float)(ClockData.CloakHPPercent * (1 + GetOwnPercent(ClockData))));
+            sumHP += Mathf.RoundToInt((float)(clockData.CloakHP * (1 + GetOwnPercent(clockData))));
+            sumPercent += Mathf.RoundToInt((float)(clockData.CloakHPPercent * (1 + GetOwnPercent(clockData))));
         }
         if (GloveData != null)
         {
@@ -380,7 +387,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherHPPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP + VIT/1.5f) * (1 + (sumPercent / 100.0))));
+        PlayerMaxHP = Mathf.RoundToInt((float)((baseHP + sumHP + VIT/3.8f) * (1 + (sumPercent / 100.0))));
         PlayerHPPercent = sumPercent;
     }
     #endregion
@@ -396,10 +403,10 @@ public class GameManager : MonoBehaviour
             sumDef += Mathf.RoundToInt((float)(ArmorData.ArmorDef * (1 + GetOwnPercent(ArmorData))));
             sumPercent += Mathf.RoundToInt((float)(ArmorData.ArmorDefPercent * (1 + GetOwnPercent(ArmorData))));
         }
-        if (ClockData != null)
+        if (clockData != null)
         {
-            sumDef += Mathf.RoundToInt((float)(ClockData.CloakDef * (1 + GetOwnPercent(ClockData))));
-            sumPercent += Mathf.RoundToInt((float)(ClockData.CloakDefPercent * (1 + GetOwnPercent(ClockData))));
+            sumDef += Mathf.RoundToInt((float)(clockData.CloakDef * (1 + GetOwnPercent(clockData))));
+            sumPercent += Mathf.RoundToInt((float)(clockData.CloakDefPercent * (1 + GetOwnPercent(clockData))));
         }
         if (HelmetData != null)
         {
@@ -437,7 +444,7 @@ public class GameManager : MonoBehaviour
                 sumPercent += Mathf.RoundToInt((float)(OtherDatas[i].OtherDefPercent * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef + VIT/9f) * (1 + (sumPercent / 100.0))));
+        PlayerDef = Mathf.RoundToInt((float)((baseDef + sumDef + VIT/19f) * (1 + (sumPercent / 100.0))));
         PlayerDefPercent = sumPercent;
     }
     #endregion
@@ -493,8 +500,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CriticalPercant = baseCri + sumCri + runeCriPercent;
-        CriticalResist = baseCriResist + sumCriResist;
+        CriticalPercant = Mathf.RoundToInt(baseCri + sumCri + runeCriPercent + DEX / 25000f);
+        CriticalResist = Mathf.RoundToInt(baseCriResist + sumCriResist + DEX / 25000f);
         CriticalDamage = baseCriDamage + sumCriDamage + runeCriDamage;
     }
     #endregion
@@ -516,9 +523,9 @@ public class GameManager : MonoBehaviour
         {
             sumComboResist += Mathf.RoundToInt((float)(ArmorData.ArmorComboResist * (1 + GetOwnPercent(ArmorData))));
         }
-        if (ClockData != null)
+        if (clockData != null)
         {
-            sumComboResist += Mathf.RoundToInt((float)(ClockData.CloakComboResist * (1 + GetOwnPercent(ClockData))));
+            sumComboResist += Mathf.RoundToInt((float)(clockData.CloakComboResist * (1 + GetOwnPercent(clockData))));
         }
         if (GloveData != null)
         {
@@ -540,8 +547,8 @@ public class GameManager : MonoBehaviour
                 sumComboResist += Mathf.RoundToInt((float)(OtherDatas[i].OtherComboResist * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + runeComboPercent + sumComboPercent + LUC / 3000.0));
-        ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 3000.0));
+        ComboPercent = Mathf.RoundToInt((float)(baseComboPercent + runeComboPercent + sumComboPercent + LUC / 20000f));
+        ComboResist = Mathf.RoundToInt((float)(baseComboResist + sumComboResist + LUC / 30000f));
     }
     #endregion
 
@@ -559,9 +566,9 @@ public class GameManager : MonoBehaviour
         {
             sumAvoidPercent += Mathf.RoundToInt((float)(BeltData.BeltAvoidPercent * (1 + GetOwnPercent(BeltData))));
         }
-        if (ClockData != null)
+        if (clockData != null)
         {
-            sumAvoidPercent += Mathf.RoundToInt((float)(ClockData.CloakAvoidPercent * (1 + GetOwnPercent(ClockData))));
+            sumAvoidPercent += Mathf.RoundToInt((float)(clockData.CloakAvoidPercent * (1 + GetOwnPercent(clockData))));
         }
         if (HelmetData != null)
         {
@@ -585,8 +592,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + runeAvoidPercent + DEX / 5000.0));
-        AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + runeAvoidResist + DEX / 3000.0 + BadgeData.BadgeAvoidResist));
+        AvoidPercent = Mathf.RoundToInt((float)(baseAvoidPercent + sumAvoidPercent + runeAvoidPercent + DEX / 25000f));
+        AvoidResist = Mathf.RoundToInt((float)(baseAvoidResist + sumAvoidResist + runeAvoidResist + DEX / 30000f + BadgeData.BadgeAvoidResist));
     }
     #endregion
 
@@ -680,9 +687,9 @@ public class GameManager : MonoBehaviour
                 sumDrop += Mathf.RoundToInt((float)(OtherDatas[i].OtherItemDropRate * (1 + GetOwnPercent(OtherDatas[i]))));
             }
         }
-        EXPPercent = Mathf.RoundToInt((float)(100 + LUC / 3000f + cardBuff + sumEXP + runeEXP + BadgeData.BadgeEXPPercent));
-        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 3000f + cardBuff + sumGold + runeGold+ BadgeData.BadgeGoldPercent));
-        ItemDropRate = sumDrop;
+        EXPPercent = Mathf.RoundToInt((float)(100 + cardBuff + sumEXP + runeEXP + BadgeData.BadgeEXPPercent));
+        GoldPercent = Mathf.RoundToInt((float)(100 + LUC / 15000f + cardBuff + sumGold + runeGold+ BadgeData.BadgeGoldPercent));
+        ItemDropRate = Mathf.RoundToInt(sumDrop + LUC / 15000f);
     }
     #endregion
 
@@ -844,5 +851,24 @@ public class GameManager : MonoBehaviour
         else if (totalOwnCount >= 300 && totalOwnCount < 450) BadgeData = DataManager.Instance.badgeDatas[2];
         else if (totalOwnCount >= 150 && totalOwnCount < 300) BadgeData = DataManager.Instance.badgeDatas[1];
         else if (totalOwnCount >= 0 && totalOwnCount < 150) BadgeData = DataManager.Instance.badgeDatas[0];
+    }
+
+    public void TestButton()
+    {
+        if (isTest) return;
+
+        isTest = true;
+        Gold += 15000000;
+
+        Dictionary<int, int> scrollDic1 = DataManager.Instance.GetOwnDictionary(EquipmentManager.Instance.OtherDatas[8]);
+        Dictionary<int, int> scrollDic2 = DataManager.Instance.GetOwnDictionary(EquipmentManager.Instance.OtherDatas[9]);
+        if (scrollDic1.ContainsKey(EquipmentManager.Instance.OtherDatas[8].ItemID))
+        {
+            scrollDic1[EquipmentManager.Instance.OtherDatas[8].ItemID]++;
+        }
+        if (scrollDic2.ContainsKey(EquipmentManager.Instance.OtherDatas[9].ItemID))
+        {
+            scrollDic2[EquipmentManager.Instance.OtherDatas[9].ItemID]++;
+        }
     }
 }

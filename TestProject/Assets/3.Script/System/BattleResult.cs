@@ -98,7 +98,7 @@ public class BattleResult : MonoBehaviour
         int totalAP = GameManager.Instance.BonusAP;
         while (GameManager.Instance.RequireEXP < GameManager.Instance.CurrentEXP)
         {
-            requireEXP = (long)GameManager.Instance.RequireEXP + Mathf.RoundToInt(GameManager.Instance.PlayerLevel / 1000f) + 1;
+            requireEXP = (long)GameManager.Instance.RequireEXP + Mathf.RoundToInt(GameManager.Instance.PlayerLevel / 2000f) + 1;
             GameManager.Instance.CurrentEXP -= GameManager.Instance.RequireEXP;
             GameManager.Instance.RequireEXP = (long)Mathf.Round((float)requireEXP);
             GameManager.Instance.PlayerLevel++;
@@ -240,7 +240,7 @@ public class BattleResult : MonoBehaviour
 
     private IEnumerator PrintRuneDrop(Monster mon)
     {
-        float randomValue = /*Random.Range(0f, 100f)*/0;
+        float randomValue = Random.Range(0f, 100f);
         
 
         if (!GameManager.Instance.RuneHashSet.Contains(mon.monsterData.RewardRune.EquipmentName))

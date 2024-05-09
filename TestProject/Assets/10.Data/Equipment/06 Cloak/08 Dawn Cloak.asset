@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC5EC\uBA85\uC758 \uB9DD\uD1A0"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 9
+  DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uB9DD\uD1A0\uC774\uB2E4."
   CloakHP: 13000
   CloakHPPercent: 31

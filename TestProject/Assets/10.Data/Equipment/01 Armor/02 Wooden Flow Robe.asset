@@ -23,7 +23,7 @@ MonoBehaviour:
     \uAC08\uC0C9 \uB85C\uBE0C\uC774\uB2E4."
   ArmorHP: 340
   ArmorHPPercent: 14
-  ArmorDef: 18
+  ArmorDef: 23
   ArmorDefPercent: 5
   ArmorComboResist: 6
   ArmorCriticalResist: 4

@@ -109,7 +109,7 @@ public class TitleCanvas : MonoBehaviour
         GameManager.Instance.PantsData = null;
         GameManager.Instance.ShoulderArmorData = null;
         GameManager.Instance.BeltData = null;
-        GameManager.Instance.ClockData = null;
+        GameManager.Instance.clockData = null;
         GameManager.Instance.NecklessData = null;
         for(int i = 0; i < GameManager.Instance.OtherDatas.Length; i++)
         {
@@ -125,6 +125,9 @@ public class TitleCanvas : MonoBehaviour
 
         // 장비 보유개수 초기화
         DataManager.Instance.OwnCountReset();
+
+        // 착용 장비 초기화
+        DataManager.Instance.EquipmentReset();
 
         // 퀵 슬롯 초기화
         DataManager.Instance.QuickSlotReset();

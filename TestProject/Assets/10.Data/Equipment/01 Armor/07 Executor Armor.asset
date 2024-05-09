@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uAC11\uC637"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 14
+  DropRate: 6
   EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uAC10\uB3C4\uB294 \uAC11\uC637\uC774\uB2E4."
   ArmorHP: 10500
   ArmorHPPercent: 39

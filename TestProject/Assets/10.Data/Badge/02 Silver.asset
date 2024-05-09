@@ -15,7 +15,6 @@ MonoBehaviour:
   BadgeSprite: 02 Silver
   BadgeName: "\uC2E4\uBC84"
   NextGrade: 450
-  BadgeGrade: 2
   BadgeATKPercent: 10
   BadgeMoveSpeed: 4
   BadgeBonusEnergy: 1
@@ -24,7 +23,7 @@ MonoBehaviour:
   BadgeDEXPercent: 6
   BadgeLUCPercent: 6
   BadgeVITPercent: 6
-  BadgeAvoidResist: 30
+  BadgeAvoidResist: 20
   BadgeEXPPercent: 50
   BadgeGoldPercent: 50
   BadgeItemDropRate: 0

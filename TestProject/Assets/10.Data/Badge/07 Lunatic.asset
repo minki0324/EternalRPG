@@ -23,7 +23,7 @@ MonoBehaviour:
   BadgeDEXPercent: 36
   BadgeLUCPercent: 36
   BadgeVITPercent: 36
-  BadgeAvoidResist: 170
+  BadgeAvoidResist: 110
   BadgeEXPPercent: 180
   BadgeGoldPercent: 180
   BadgeItemDropRate: 2

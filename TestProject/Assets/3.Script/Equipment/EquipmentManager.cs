@@ -226,7 +226,7 @@ public class EquipmentManager : MonoBehaviour
                 }
                 return false;
             case Category.Clock:
-                if (GameManager.Instance.ClockData != null && GameManager.Instance.ClockData.ItemID == _equipmentBaseData.ItemID)
+                if (GameManager.Instance.clockData != null && GameManager.Instance.clockData.ItemID == _equipmentBaseData.ItemID)
                 {
                     return true;
                 }

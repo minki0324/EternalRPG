@@ -17,9 +17,9 @@ MonoBehaviour:
   MonsterID: 32
   MonsterType: "\uB098\uBB34"
   MonsterLevel: 5500
-  MonsterMaxHP: 121000
-  MonsterCurHP: 121000
-  MonsterDef: 6640
+  MonsterMaxHP: 93000
+  MonsterCurHP: 93000
+  MonsterDef: 8400
   MonsterATK: 8000
   MonsterSprite: {fileID: 21300000, guid: e348c45242425e743ada85b816d38c2b, type: 3}
   ReturnPos: {x: 2.5, y: 0}

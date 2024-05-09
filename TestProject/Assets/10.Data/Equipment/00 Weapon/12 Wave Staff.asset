@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 12 Wave Staff
   ItemID: 900012
   EquipmentName: "\uD30C\uB3D9\uC758 \uC9C0\uD321\uC774"
-  RequireCost: 8900000
+  RequireCost: 7300000
   isCanBuy: 1
   DropRate: 15
   EquipmentDes: "\uB3D9\uADF8\uB780 \uAD6C\uBA4D\uC5D0\uC11C \uB9C8\uB825\uC744 \uC99D\uD3ED\uC2DC\uCF1C\uC8FC\uB294

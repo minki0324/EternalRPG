@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 32 Golden Earing
   ItemID: 911032
   EquipmentName: "\uAE08 \uADC0\uACE0\uB9AC"
-  RequireCost: 34500000
+  RequireCost: 68500000
   isCanBuy: 1
   DropRate: 16
   EquipmentDes: "\uD669\uAE08\uC73C\uB85C \uB41C \uADC0\uACE0\uB9AC\uC774\uB2E4.

@@ -21,9 +21,9 @@ MonoBehaviour:
   DropRate: 18
   EquipmentDes: "\uAC15\uCCA0\uB85C \uB36E\uC778 \uC7A5\uAC11\uC774\uB2E4. \uC6C0\uC9C1\uC784\uC774
     \uBD88\uD3B8\uD574\uBCF4\uC778\uB2E4."
-  GloveATK: 20
-  GloveATKPercent: 5
-  GloveHP: 110
+  GloveATK: 50
+  GloveATKPercent: 6
+  GloveHP: 20
   GloveHPPercent: 8
   GloveComboPercent: 12
   GloveCriticalPercent: 11

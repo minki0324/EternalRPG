@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 05 Red Flame Shoes
   ItemID: 905005
   EquipmentName: "\uC801\uC5FC\uC758 \uBD80\uCE20"
-  RequireCost: 5500000
+  RequireCost: 6500000
   isCanBuy: 1
   DropRate: 11
   EquipmentDes: "\uBD89\uC740 \uBCF4\uC11D\uC774 \uBC15\uD600\uC788\uB294 \uAC00\uC8FD

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 70 Little Fairy
+  m_EditorClassIdentifier: 
+  MonsterName: "\uAF2C\uB9C8 \uC815\uB839"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 70
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 4200
+  MonsterMaxHP: 44000
+  MonsterCurHP: 44000
+  MonsterDef: 4620
+  MonsterATK: 4400
+  MonsterSprite: {fileID: 21300000, guid: 173f0cf816a292548b60fe4ff75a2576, type: 3}
+  ReturnPos: {x: 3, y: 0}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 79
+  CriticalResist: 67
+  CriticalDamage: 1.75
+  ComboPercent: 77
+  ComboResist: 65
+  AvoidPercent: 78
+  AvoidResist: 66
+  DrainPercent: 59
+  DrainResist: 50
+  DrainAmount: 1.37
+  RewordEXP: 2400000
+  RewordGold: 15200
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: 7b59be4913dfac948804b6e7bc35a6de, type: 2}
+  RewardRune: {fileID: 0}

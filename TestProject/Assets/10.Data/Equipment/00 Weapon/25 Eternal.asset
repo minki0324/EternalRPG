@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC601\uC6D0"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 6
+  DropRate: 2
   EquipmentDes: "\uC2E0\uC131\uD55C \uAE30\uC6B4\uC73C\uB85C \uBAA8\uB4E0 \uC545\uC744
     \uBCA0\uC5B4\uB118\uACBC\uB2E4\uACE0 \uC804\uD574\uC9C0\uB294 \uAC80\uC774\uB2E4."
   WeaponType: 1

@@ -17,7 +17,8 @@ public enum Location
     RedForest,
     Mine,
     InTree,
-    DeepMine
+    DeepMine,
+    ManaForest
 }
 
 public class Collection : MonoBehaviour
@@ -119,6 +120,9 @@ public class Collection : MonoBehaviour
                 break;
             case "±¤»ê ³ª°¡´Â±æ":
                 monsterLocation= (Location)5;
+                break;
+            case "¸¶·ÂÀÌ °¡µæÂù ½£":
+                monsterLocation = (Location)6;
                 break;
         }
         MonsterColletionLocation();
@@ -278,6 +282,9 @@ public class Collection : MonoBehaviour
                 break;
             case Location.DeepMine:
                 location = "±¤»ê ³ª°¡´Â±æ";
+                break;
+            case Location.ManaForest:
+                location = "¸¶·ÂÀÌ °¡µæÂù ½£";
                 break;
         }
         

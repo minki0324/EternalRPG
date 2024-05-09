@@ -19,8 +19,8 @@ MonoBehaviour:
   MonsterLevel: 51500
   MonsterMaxHP: 2800000
   MonsterCurHP: 2800000
-  MonsterDef: 73870
-  MonsterATK: 89000
+  MonsterDef: 208950
+  MonsterATK: 199000
   MonsterSprite: {fileID: 21300000, guid: b59c3676bfdf0784ba0e8f3988fe9293, type: 3}
   ReturnPos: {x: 0, y: 3.5}
   RequireEnergy: 7
@@ -37,7 +37,7 @@ MonoBehaviour:
   DrainResist: 154
   DrainAmount: 1.64
   RewordEXP: 434000000
-  RewordGold: 644000
+  RewordGold: 990000
   RewordEnergy: 0
   RewardItem:
   - {fileID: 11400000, guid: 098bb867289be1f448b070150726dc2d, type: 2}

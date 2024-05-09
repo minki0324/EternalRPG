@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC5EC\uBA85\uC758 \uD22C\uAD6C"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 15
+  DropRate: 2
   EquipmentDes: "\uD478\uB978 \uD574\uACE8 \uD615\uC0C1\uC758 \uAC00\uBA74\uC774
     \uB2EC\uB9B0 \uD22C\uAD6C\uC774\uB2E4."
   HelmetHP: 14000

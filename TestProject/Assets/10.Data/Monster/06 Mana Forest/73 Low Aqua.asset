@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 73 Low Aqua
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD558\uAE09 \uC544\uCFE0\uC544"
+  MonsterLocation: "\uB9C8\uB825\uC774 \uAC00\uB4DD\uCC2C \uC232"
+  MonsterID: 73
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 8900
+  MonsterMaxHP: 205000
+  MonsterCurHP: 205000
+  MonsterDef: 15960
+  MonsterATK: 15200
+  MonsterSprite: {fileID: 21300000, guid: a6ef0ae378deb4c4b8ac39d440c5337c, type: 3}
+  ReturnPos: {x: -3, y: 0}
+  RequireEnergy: 3
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 119
+  CriticalResist: 101
+  CriticalDamage: 1.83
+  ComboPercent: 119
+  ComboResist: 101
+  AvoidPercent: 114
+  AvoidResist: 97
+  DrainPercent: 102
+  DrainResist: 87
+  DrainAmount: 1.41
+  RewordEXP: 16500000
+  RewordGold: 59000
+  RewordEnergy: 0
+  RewardItem:
+  - {fileID: 11400000, guid: a0af34a582891f14db83a8a33333f7e7, type: 2}
+  RewardRune: {fileID: 0}

@@ -17,9 +17,9 @@ MonoBehaviour:
   MonsterID: 26
   MonsterType: "\uB3D9\uBB3C"
   MonsterLevel: 7500
-  MonsterMaxHP: 142000
-  MonsterCurHP: 142000
-  MonsterDef: 10375
+  MonsterMaxHP: 176000
+  MonsterCurHP: 176000
+  MonsterDef: 13125
   MonsterATK: 12500
   MonsterSprite: {fileID: 21300000, guid: 7c7e47477fb5ca14f8a1ecb3c8575492, type: 3}
   ReturnPos: {x: 0, y: -1.5}
@@ -41,6 +41,5 @@ MonoBehaviour:
   RewordEnergy: 0
   RewardItem:
   - {fileID: 11400000, guid: 6cfa56bdb4e3901449cff2031dc2c18e, type: 2}
-  - {fileID: 11400000, guid: 35b43013b669671449f6bbd55ba9003e, type: 2}
   - {fileID: 11400000, guid: 44908e2b06d6d3f409d37f8416655cda, type: 2}
   RewardRune: {fileID: 0}

@@ -15,7 +15,6 @@ MonoBehaviour:
   BadgeSprite: 01 Cooper
   BadgeName: "\uAD6C\uB9AC"
   NextGrade: 300
-  BadgeGrade: 1
   BadgeATKPercent: 5
   BadgeMoveSpeed: 4
   BadgeBonusEnergy: 0
@@ -24,7 +23,7 @@ MonoBehaviour:
   BadgeDEXPercent: 3
   BadgeLUCPercent: 3
   BadgeVITPercent: 3
-  BadgeAvoidResist: 15
+  BadgeAvoidResist: 10
   BadgeEXPPercent: 30
   BadgeGoldPercent: 30
   BadgeItemDropRate: 0

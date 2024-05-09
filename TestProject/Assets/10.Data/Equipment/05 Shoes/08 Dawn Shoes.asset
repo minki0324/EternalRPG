@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC5EC\uBA85\uC758 \uBD80\uCE20"
   RequireCost: 3800
   isCanBuy: 0
-  DropRate: 15
+  DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uBD80\uCE20\uC774\uB2E4.\n\uAC00\uBCBC\uC6B0\uBA74\uC11C
     \uC54C \uC218 \uC5C6\uB294 \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4."
   ShoesHP: 15600

@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 03 Mace
   ItemID: 900003
   EquipmentName: "\uBA54\uC774\uC2A4"
-  RequireCost: 13800
+  RequireCost: 7900
   isCanBuy: 1
   DropRate: 35
   EquipmentDes: "\uB05D\uC5D0 \uAC00\uC2DC\uAC00 \uBC15\uD78C \uCD94\uB97C \uAC00\uC9C4

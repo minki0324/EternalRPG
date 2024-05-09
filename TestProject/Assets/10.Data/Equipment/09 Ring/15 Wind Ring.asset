@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uBC14\uB78C\uC758 \uBC18\uC9C0"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 12
+  DropRate: 6
   EquipmentDes: "\uC2E0\uC18D\uD55C \uBC14\uB78C\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294
     \uBC18\uC9C0\uC774\uB2E4."
   RingATK: 440

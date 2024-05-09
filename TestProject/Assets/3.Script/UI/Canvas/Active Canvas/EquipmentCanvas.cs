@@ -129,7 +129,7 @@ public class EquipmentCanvas : MonoBehaviour
         helmetIcon.sprite = GameManager.Instance.HelmetData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.HelmetData) : GameManager.Instance.NoneBackground;
         gloveIcon.sprite = GameManager.Instance.GloveData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.GloveData) : GameManager.Instance.NoneBackground;
         shoesIcon.sprite = GameManager.Instance.ShoesData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ShoesData) : GameManager.Instance.NoneBackground;
-        cloakIcon.sprite = GameManager.Instance.ClockData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ClockData) : GameManager.Instance.NoneBackground;
+        cloakIcon.sprite = GameManager.Instance.clockData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.clockData) : GameManager.Instance.NoneBackground;
         beltIcon.sprite = GameManager.Instance.BeltData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.BeltData) : GameManager.Instance.NoneBackground;
         shoulderArmorIcon.sprite = GameManager.Instance.ShoulderArmorData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.ShoulderArmorData) : GameManager.Instance.NoneBackground;
         necklessIcon.sprite = GameManager.Instance.NecklessData != null ? EquipmentManager.Instance.GetEquipmentSprite(GameManager.Instance.NecklessData) : GameManager.Instance.NoneBackground;
@@ -386,23 +386,23 @@ public class EquipmentCanvas : MonoBehaviour
                         for (int i = 0; i < itemListParent.childCount; i++)
                         {
                             ItemPanel itemPanel = itemListParent.GetChild(i).GetComponent<ItemPanel>();
-                            if (GameManager.Instance.ClockData != null && GameManager.Instance.ClockData.ItemID == itemPanel.EquipmentData.ItemID)
+                            if (GameManager.Instance.clockData != null && GameManager.Instance.clockData.ItemID == itemPanel.EquipmentData.ItemID)
                             {
                                 itemPanel.SelectIcon.SetActive(true);
                                 itemPanel.EquipCheckIcon.SetActive(false);
                                 break;
                             }
                         }
-                        GameManager.Instance.ClockData = cloakData;
+                        GameManager.Instance.clockData = cloakData;
                         cloakIcon.sprite = EquipmentManager.Instance.GetEquipmentSprite(CurrentItem.EquipmentData);
                         PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 장착");
                     }
                     else
                     {
-                        if(CurrentItem.ItemID == GameManager.Instance.ClockData.ItemID)
+                        if(CurrentItem.ItemID == GameManager.Instance.clockData.ItemID)
                         {
                             EquipMarkActive();
-                            GameManager.Instance.ClockData = null;
+                            GameManager.Instance.clockData = null;
                             cloakIcon.sprite = GameManager.Instance.NoneBackground;
                             PrintLog.Instance.StaticLog($"[{CurrentItem.EquipmentData.EquipmentName}] 해제");
                         }
@@ -1244,18 +1244,18 @@ public class EquipmentCanvas : MonoBehaviour
                 if (CurrentItem.EquipmentData is CloakData cloakData)
                 {
                     targetOwnCount = Mathf.Max(0, GetOwnCount(cloakData) - 1);
-                    if (GameManager.Instance.ClockData != null)
+                    if (GameManager.Instance.clockData != null)
                     {
-                        ownCount = GetOwnCount(GameManager.Instance.ClockData) - 1;
-                        CompareAttribute("체력", GameManager.Instance.ClockData.CloakHP, cloakData.CloakHP, ownCount, targetOwnCount);
-                        CompareAttribute("체력%", GameManager.Instance.ClockData.CloakHPPercent, cloakData.CloakHPPercent, ownCount, targetOwnCount);
-                        CompareAttribute("방어력", GameManager.Instance.ClockData.CloakDef, cloakData.CloakDef, ownCount, targetOwnCount);
-                        CompareAttribute("방어력%", GameManager.Instance.ClockData.CloakDefPercent, cloakData.CloakDefPercent, ownCount, targetOwnCount);
-                        CompareAttribute("회피 확률", GameManager.Instance.ClockData.CloakAvoidPercent, cloakData.CloakAvoidPercent, ownCount, targetOwnCount, false);
-                        CompareAttribute("연타 저항", GameManager.Instance.ClockData.CloakComboResist, cloakData.CloakComboResist, ownCount, targetOwnCount, false);
-                        CompareAddAttribute("추가 DEX%", GameManager.Instance.ClockData.CloakDEXPercent, cloakData.CloakDEXPercent, ownCount, targetOwnCount);
-                        CompareAddAttribute("추가 LUC%", GameManager.Instance.ClockData.CloakLUCPercent, cloakData.CloakLUCPercent, ownCount, targetOwnCount);
-                        CompareAddAttribute("추가 VIT%", GameManager.Instance.ClockData.CloakVITPercent, cloakData.CloakVITPercent, ownCount, targetOwnCount);
+                        ownCount = GetOwnCount(GameManager.Instance.clockData) - 1;
+                        CompareAttribute("체력", GameManager.Instance.clockData.CloakHP, cloakData.CloakHP, ownCount, targetOwnCount);
+                        CompareAttribute("체력%", GameManager.Instance.clockData.CloakHPPercent, cloakData.CloakHPPercent, ownCount, targetOwnCount);
+                        CompareAttribute("방어력", GameManager.Instance.clockData.CloakDef, cloakData.CloakDef, ownCount, targetOwnCount);
+                        CompareAttribute("방어력%", GameManager.Instance.clockData.CloakDefPercent, cloakData.CloakDefPercent, ownCount, targetOwnCount);
+                        CompareAttribute("회피 확률", GameManager.Instance.clockData.CloakAvoidPercent, cloakData.CloakAvoidPercent, ownCount, targetOwnCount, false);
+                        CompareAttribute("연타 저항", GameManager.Instance.clockData.CloakComboResist, cloakData.CloakComboResist, ownCount, targetOwnCount, false);
+                        CompareAddAttribute("추가 DEX%", GameManager.Instance.clockData.CloakDEXPercent, cloakData.CloakDEXPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 LUC%", GameManager.Instance.clockData.CloakLUCPercent, cloakData.CloakLUCPercent, ownCount, targetOwnCount);
+                        CompareAddAttribute("추가 VIT%", GameManager.Instance.clockData.CloakVITPercent, cloakData.CloakVITPercent, ownCount, targetOwnCount);
                     }
                     else
                     {

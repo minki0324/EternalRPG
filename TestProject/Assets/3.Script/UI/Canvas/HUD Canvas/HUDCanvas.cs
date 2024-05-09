@@ -48,6 +48,10 @@ public class HUDCanvas : MonoBehaviour
     [Header("게임 패드")]
     [SerializeField] private GameObject gamePad;
 
+    [Header("퀵슬롯 이미지")]
+    [SerializeField] private Image[] quickSlotImage;
+    [SerializeField] private Sprite[] quickSlotSprite;
+
     private void Start()
     {
         StartGame();
@@ -61,6 +65,17 @@ public class HUDCanvas : MonoBehaviour
         gemText.text = $"{GameManager.Instance.Gem:N0}";
         HPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
         HPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+        for(int i = 0; i < quickSlotImage.Length; i++)
+        {
+            if(i == GameManager.Instance.QuickSlotIndex)
+            {
+                quickSlotImage[i].sprite = quickSlotSprite[1];
+            }
+            else
+            {
+                quickSlotImage[i].sprite = quickSlotSprite[0];
+            }
+        }
     }
 
     private void StartGame()

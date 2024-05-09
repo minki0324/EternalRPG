@@ -101,15 +101,19 @@ public class EquipmentQuickSlot : MonoBehaviour
             PrintLog.Instance.StaticLog($"에너지가 없어 퀵 슬롯 변경이 불가능 합니다.");
             return;
         }
+        GameManager.Instance.QuickSlotIndex = _index;
         if(!activeCanvas.activeSelf)
         { // 메인부터 켰는지
-            isMain = true;
-            activeCanvas.SetActive(true);
+            DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
+            PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
+            GameManager.Instance.RenewAbility();
         }
-        QuickAskPanel.SetActive(true);
-        GameManager.Instance.QuickSlotIndex = _index;
-        QuickAskTitle.text = GameManager.Instance.QuickSlot[_index];
-        PrintEquipmentData(_index);
+        else
+        {
+            QuickAskPanel.SetActive(true);
+            QuickAskTitle.text = GameManager.Instance.QuickSlot[_index];
+            PrintEquipmentData(_index);
+        }
     }
 
     public void QuickBackButton()

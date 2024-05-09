@@ -18,7 +18,7 @@ MonoBehaviour:
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uBCA8\uD2B8"
   RequireCost: 0
   isCanBuy: 0
-  DropRate: 12
+  DropRate: 6
   EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uBCA8\uD2B8\uC774\uB2E4."
   BeltHP: 2700
   BeltHPPercent: 29

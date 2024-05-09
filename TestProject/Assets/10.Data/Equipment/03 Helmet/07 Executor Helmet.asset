@@ -16,9 +16,9 @@ MonoBehaviour:
   SpriteName: 07 Executor Helmet
   ItemID: 903007
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uD22C\uAD6C"
-  RequireCost: 54000000
+  RequireCost: 77000000
   isCanBuy: 1
-  DropRate: 11
+  DropRate: 6
   EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uAC10\uB3C4\uB294 \uD22C\uAD6C\uC774\uB2E4."
   HelmetHP: 9800
   HelmetHPPercent: 37
