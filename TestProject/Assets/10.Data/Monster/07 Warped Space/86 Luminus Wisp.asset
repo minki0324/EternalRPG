@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 86 Luminus Wisp
+  m_EditorClassIdentifier: 
+  MonsterName: "\uAD11\uD718\uC758 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 86
+  MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 137000
+  MonsterMaxHP: 18300000
+  MonsterCurHP: 18300000
+  MonsterDef: 526400
+  MonsterATK: 560000
+  MonsterSprite: {fileID: 21300000, guid: 89d8e5864dbdbb44db0a8edea3f83a21, type: 3}
+  ReturnPos: {x: 0, y: -4.5}
+  RequireEnergy: 10
+  isElite: 1
+  EliteID: 26
+  CriticalPercant: 283
+  CriticalResist: 241
+  CriticalDamage: 2.85
+  ComboPercent: 272
+  ComboResist: 231
+  AvoidPercent: 271
+  AvoidResist: 230
+  DrainPercent: 267
+  DrainResist: 227
+  DrainAmount: 1.92
+  RewordEXP: 1020000000
+  RewordGold: 1200000
+  RewordEnergy: 10
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: c363298e67e95074c9fbc100a0b347ef, type: 2}

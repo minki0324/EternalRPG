@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 85 Light Wisp
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBE5B\uC758 \uC704\uC2A4\uD504"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 85
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 130000
+  MonsterMaxHP: 16900000
+  MonsterCurHP: 16900000
+  MonsterDef: 4988200
+  MonsterATK: 530000
+  MonsterSprite: {fileID: 21300000, guid: 1249eb1fd61fc6a43a3159a7ab24f890, type: 3}
+  ReturnPos: {x: 2.5, y: 0}
+  RequireEnergy: 8
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 276
+  CriticalResist: 235
+  CriticalDamage: 2.81
+  ComboPercent: 269
+  ComboResist: 229
+  AvoidPercent: 265
+  AvoidResist: 225
+  DrainPercent: 255
+  DrainResist: 217
+  DrainAmount: 1.9
+  RewordEXP: 17700000000
+  RewordGold: 3040000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

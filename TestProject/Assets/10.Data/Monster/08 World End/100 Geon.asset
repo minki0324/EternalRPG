@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 100 Geon
+  m_EditorClassIdentifier: 
+  MonsterName: "\uAC8C\uC628"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 100
+  MonsterType: "\uC6A9"
+  MonsterLevel: 390000
+  MonsterMaxHP: 128000000
+  MonsterCurHP: 128000000
+  MonsterDef: 3196000
+  MonsterATK: 3400000
+  MonsterSprite: {fileID: 21300000, guid: 888c89edacdb0cc418cbec1fecb6638e, type: 3}
+  ReturnPos: {x: 6, y: 1.5}
+  RequireEnergy: 10
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 378
+  CriticalResist: 321
+  CriticalDamage: 3.6
+  ComboPercent: 375
+  ComboResist: 319
+  AvoidPercent: 373
+  AvoidResist: 317
+  DrainPercent: 358
+  DrainResist: 304
+  DrainAmount: 2.3
+  RewordEXP: 16700000000
+  RewordGold: 11500000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

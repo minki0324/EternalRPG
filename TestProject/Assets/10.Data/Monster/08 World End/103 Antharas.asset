@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 103 Antharas
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC548\uD0C0\uB77C\uC2A4"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 103
+  MonsterType: "\uC6A9 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 460000
+  MonsterMaxHP: 164000000
+  MonsterCurHP: 164000000
+  MonsterDef: 4042000
+  MonsterATK: 4300000
+  MonsterSprite: {fileID: 21300000, guid: b09f5cdaa16310f4fbe06214b4a3323a, type: 3}
+  ReturnPos: {x: 0, y: -3}
+  RequireEnergy: 15
+  isElite: 1
+  EliteID: 30
+  CriticalPercant: 405
+  CriticalResist: 344
+  CriticalDamage: 3.8
+  ComboPercent: 402
+  ComboResist: 342
+  AvoidPercent: 400
+  AvoidResist: 340
+  DrainPercent: 385
+  DrainResist: 327
+  DrainAmount: 2.4
+  RewordEXP: 11800000000
+  RewordGold: 7800000
+  RewordEnergy: 15
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: d10cb34e9b5b71a4f990009322c80e1b, type: 2}

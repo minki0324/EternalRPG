@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AniPlay : MonoBehaviour
 {
+    
     Animator ThisAnimator;
 
     // Use this for initialization

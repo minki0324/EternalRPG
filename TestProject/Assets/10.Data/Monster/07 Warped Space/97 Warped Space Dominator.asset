@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 97 Warped Space Dominator
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC2DC\uACF5\uC758 \uC9C0\uBC30\uC790"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 97
+  MonsterType: "\uC774\uACC4 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 300000
+  MonsterMaxHP: 81000000
+  MonsterCurHP: 81000000
+  MonsterDef: 2310000
+  MonsterATK: 2200000
+  MonsterSprite: {fileID: 21300000, guid: f00246266d8f2794e8353d9c17ca2509, type: 3}
+  ReturnPos: {x: 0, y: -6}
+  RequireEnergy: 15
+  isElite: 1
+  EliteID: 28
+  CriticalPercant: 342
+  CriticalResist: 291
+  CriticalDamage: 3.36
+  ComboPercent: 336
+  ComboResist: 286
+  AvoidPercent: 336
+  AvoidResist: 286
+  DrainPercent: 316
+  DrainResist: 269
+  DrainAmount: 2.18
+  RewordEXP: 5800000000
+  RewordGold: 3100000
+  RewordEnergy: 15
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: f76489eb350f6ef4782bffc5e8aa3e51, type: 2}

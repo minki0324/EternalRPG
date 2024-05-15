@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 98 TerraRex
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD14C\uB77C\uB809\uC2A4"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 98
+  MonsterType: "\uC774\uACC4 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 350000
+  MonsterMaxHP: 93000000
+  MonsterCurHP: 93000000
+  MonsterDef: 2814000
+  MonsterATK: 2680000
+  MonsterSprite: {fileID: 21300000, guid: 328db41f3315ada458aeda2552b8caa7, type: 3}
+  ReturnPos: {x: 5, y: 0}
+  RequireEnergy: 15
+  isElite: 1
+  EliteID: 29
+  CriticalPercant: 350
+  CriticalResist: 298
+  CriticalDamage: 3.4
+  ComboPercent: 340
+  ComboResist: 289
+  AvoidPercent: 340
+  AvoidResist: 289
+  DrainPercent: 320
+  DrainResist: 272
+  DrainAmount: 2.2
+  RewordEXP: 7000000000
+  RewordGold: 3800000
+  RewordEnergy: 15
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: a0264396aed1b704f9bc3a7d75e4eccb, type: 2}

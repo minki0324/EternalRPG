@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 111 Light Bad Boy
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBE5B\uC758 \uC545\uB3D9"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
+  MonsterID: 111
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 330000
+  MonsterMaxHP: 86000000
+  MonsterCurHP: 86000000
+  MonsterDef: 2256000
+  MonsterATK: 2400000
+  MonsterSprite: {fileID: 21300000, guid: a32187d05375ba54eb6a2ab44b5b9431, type: 3}
+  ReturnPos: {x: 0, y: -2.5}
+  RequireEnergy: 9
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 348
+  CriticalResist: 296
+  CriticalDamage: 3.38
+  ComboPercent: 338
+  ComboResist: 287
+  AvoidPercent: 338
+  AvoidResist: 287
+  DrainPercent: 318
+  DrainResist: 270
+  DrainAmount: 2.19
+  RewordEXP: 9900000000
+  RewordGold: 8400000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

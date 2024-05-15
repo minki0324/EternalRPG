@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 108 Malakis
+  m_EditorClassIdentifier: 
+  MonsterName: "\uB9D0\uB77C\uD0A4\uC2A4"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 108
+  MonsterType: "\uC6A9 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 600000
+  MonsterMaxHP: 275000000
+  MonsterCurHP: 275000000
+  MonsterDef: 5734000
+  MonsterATK: 6100000
+  MonsterSprite: {fileID: 21300000, guid: b33f6deff8c8d56459814b8175392921, type: 3}
+  ReturnPos: {x: 6, y: 2}
+  RequireEnergy: 18
+  isElite: 1
+  EliteID: 32
+  CriticalPercant: 460
+  CriticalResist: 391
+  CriticalDamage: 4.3
+  ComboPercent: 455
+  ComboResist: 387
+  AvoidPercent: 453
+  AvoidResist: 385
+  DrainPercent: 445
+  DrainResist: 378
+  DrainAmount: 2.65
+  RewordEXP: 24000000000
+  RewordGold: 11500000
+  RewordEnergy: 18
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: 3629218fe54feb648a72cf7525e0ca3a, type: 2}

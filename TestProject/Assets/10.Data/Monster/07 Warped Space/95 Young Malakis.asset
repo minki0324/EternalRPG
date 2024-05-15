@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 95 Young Malakis
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5B4\uB9B0 \uB9D0\uB77C\uD0A4\uC2A4"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 95
+  MonsterType: "\uC6A9"
+  MonsterLevel: 250000
+  MonsterMaxHP: 58000000
+  MonsterCurHP: 58000000
+  MonsterDef: 1848000
+  MonsterATK: 1760000
+  MonsterSprite: {fileID: 21300000, guid: e260e5da48678a04dbe008e25158ceba, type: 3}
+  ReturnPos: {x: 0, y: -3}
+  RequireEnergy: 8
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 329
+  CriticalResist: 280
+  CriticalDamage: 3.24
+  ComboPercent: 324
+  ComboResist: 275
+  AvoidPercent: 324
+  AvoidResist: 275
+  DrainPercent: 304
+  DrainResist: 258
+  DrainAmount: 2.12
+  RewordEXP: 6200000000
+  RewordGold: 6450000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

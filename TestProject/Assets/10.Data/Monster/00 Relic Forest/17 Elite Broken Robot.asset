@@ -17,27 +17,27 @@ MonoBehaviour:
   MonsterID: 17
   MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
   MonsterLevel: 280000
-  MonsterMaxHP: 119685000
-  MonsterCurHP: 119685000
-  MonsterDef: 721350
-  MonsterATK: 687000
+  MonsterMaxHP: 73000000
+  MonsterCurHP: 73000000
+  MonsterDef: 1861200
+  MonsterATK: 1980000
   MonsterSprite: {fileID: 21300000, guid: 37722882a5dc29b4f959787d2d7ef9a8, type: 3}
   ReturnPos: {x: 0, y: -1.5}
   RequireEnergy: 9
   isElite: 1
   EliteID: 4
-  CriticalPercant: 395
-  CriticalResist: 336
-  CriticalDamage: 2.6
-  ComboPercent: 420
-  ComboResist: 357
-  AvoidPercent: 385
-  AvoidResist: 327
-  DrainPercent: 390
-  DrainResist: 332
-  DrainAmount: 1.8
-  RewordEXP: 1700000000
-  RewordGold: 6000000
+  CriticalPercant: 332
+  CriticalResist: 282
+  CriticalDamage: 3.28
+  ComboPercent: 328
+  ComboResist: 278
+  AvoidPercent: 328
+  AvoidResist: 278
+  DrainPercent: 308
+  DrainResist: 262
+  DrainAmount: 2.14
+  RewordEXP: 4300000000
+  RewordGold: 2800000
   RewordEnergy: 9
   RewardItem: []
   RewardRune: {fileID: 11400000, guid: 81efb93b254862d4fa55340093a60eec, type: 2}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 99 Young Fafurion
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC5B4\uB9B0 \uD30C\uD478\uB9AC\uC628"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 99
+  MonsterType: "\uC6A9"
+  MonsterLevel: 360000
+  MonsterMaxHP: 115000000
+  MonsterCurHP: 115000000
+  MonsterDef: 2810600
+  MonsterATK: 2990000
+  MonsterSprite: {fileID: 21300000, guid: 71523ef6fa46f674a9153d65eaaeede1, type: 3}
+  ReturnPos: {x: 0, y: -4}
+  RequireEnergy: 10
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 365
+  CriticalResist: 310
+  CriticalDamage: 3.5
+  ComboPercent: 362
+  ComboResist: 308
+  AvoidPercent: 360
+  AvoidResist: 306
+  DrainPercent: 345
+  DrainResist: 293
+  DrainAmount: 2.25
+  RewordEXP: 13500000000
+  RewordGold: 10500000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 109 Aeglon
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC544\uC774\uAC94\uB860"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 109
+  MonsterType: "\uC6A9"
+  MonsterLevel: 620000
+  MonsterMaxHP: 300000000
+  MonsterCurHP: 300000000
+  MonsterDef: 5865600
+  MonsterATK: 6240000
+  MonsterSprite: {fileID: 21300000, guid: 1d5f54237e7ebe749b93b741d5db4708, type: 3}
+  ReturnPos: {x: 6, y: 2}
+  RequireEnergy: 10
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 480
+  CriticalResist: 408
+  CriticalDamage: 4.4
+  ComboPercent: 475
+  ComboResist: 404
+  AvoidPercent: 473
+  AvoidResist: 402
+  DrainPercent: 465
+  DrainResist: 395
+  DrainAmount: 2.7
+  RewordEXP: 68000000000
+  RewordGold: 24000000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 112 Lava Roid
+  m_EditorClassIdentifier: 
+  MonsterName: "\uC6A9\uC554 \uB85C\uC774\uB4DC"
+  MonsterLocation: "\uAE4A\uC740 \uC232"
+  MonsterID: 112
+  MonsterType: "\uB85C\uBD07 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 380000
+  MonsterMaxHP: 121000000
+  MonsterCurHP: 121000000
+  MonsterDef: 2961000
+  MonsterATK: 3150000
+  MonsterSprite: {fileID: 21300000, guid: 4bd05be9c9748e542a2e70d80a6a6d60, type: 3}
+  ReturnPos: {x: -5.5, y: 1.5}
+  RequireEnergy: 12
+  isElite: 1
+  EliteID: 34
+  CriticalPercant: 372
+  CriticalResist: 316
+  CriticalDamage: 3.55
+  ComboPercent: 369
+  ComboResist: 314
+  AvoidPercent: 366
+  AvoidResist: 311
+  DrainPercent: 351
+  DrainResist: 298
+  DrainAmount: 2.27
+  RewordEXP: 7600000000
+  RewordGold: 4600000
+  RewordEnergy: 12
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: 84b2a05792525c34c81003bd043cceeb, type: 2}

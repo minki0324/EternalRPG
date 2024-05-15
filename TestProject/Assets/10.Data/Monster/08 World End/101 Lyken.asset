@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 101 Lyken
+  m_EditorClassIdentifier: 
+  MonsterName: "\uB77C\uC774\uCF04"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 101
+  MonsterType: "\uC6A9"
+  MonsterLevel: 420000
+  MonsterMaxHP: 146000000
+  MonsterCurHP: 146000000
+  MonsterDef: 3478000
+  MonsterATK: 3700000
+  MonsterSprite: {fileID: 21300000, guid: b3281501fcc9bb84db494ccc346e4f48, type: 3}
+  ReturnPos: {x: -6, y: 1.5}
+  RequireEnergy: 10
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 390
+  CriticalResist: 332
+  CriticalDamage: 3.7
+  ComboPercent: 387
+  ComboResist: 329
+  AvoidPercent: 385
+  AvoidResist: 327
+  DrainPercent: 370
+  DrainResist: 315
+  DrainAmount: 2.35
+  RewordEXP: 19800000000
+  RewordGold: 12500000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

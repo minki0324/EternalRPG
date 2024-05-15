@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 83 Light Cube
+  m_EditorClassIdentifier: 
+  MonsterName: "\uBE5B\uC758 \uD050\uBE0C\uB9AD"
+  MonsterLocation: "\uB4A4\uD2C0\uB9B0 \uC2DC\uACF5\uAC04"
+  MonsterID: 83
+  MonsterType: "\uC815\uB839"
+  MonsterLevel: 120000
+  MonsterMaxHP: 13500000
+  MonsterCurHP: 13500000
+  MonsterDef: 451200
+  MonsterATK: 480000
+  MonsterSprite: {fileID: 21300000, guid: bd7edf01d08c571458c1874b169b14de, type: 3}
+  ReturnPos: {x: -2.5, y: 0}
+  RequireEnergy: 8
+  isElite: 0
+  EliteID: 0
+  CriticalPercant: 255
+  CriticalResist: 217
+  CriticalDamage: 2.73
+  ComboPercent: 262
+  ComboResist: 223
+  AvoidPercent: 255
+  AvoidResist: 217
+  DrainPercent: 247
+  DrainResist: 210
+  DrainAmount: 1.86
+  RewordEXP: 1360000000
+  RewordGold: 2400000
+  RewordEnergy: 0
+  RewardItem: []
+  RewardRune: {fileID: 0}

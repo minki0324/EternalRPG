@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
+  m_Name: 104 Fafurion
+  m_EditorClassIdentifier: 
+  MonsterName: "\uD30C\uD478\uB9AC\uC628"
+  MonsterLocation: "\uB05D\uACFC \uC2DC\uC791"
+  MonsterID: 104
+  MonsterType: "\uC6A9 - \uC5D8\uB9AC\uD2B8"
+  MonsterLevel: 480000
+  MonsterMaxHP: 175000000
+  MonsterCurHP: 175000000
+  MonsterDef: 4324000
+  MonsterATK: 4600000
+  MonsterSprite: {fileID: 21300000, guid: 2e39da474087d334088e69279d796b6d, type: 3}
+  ReturnPos: {x: 2.5, y: -2.5}
+  RequireEnergy: 15
+  isElite: 1
+  EliteID: 31
+  CriticalPercant: 415
+  CriticalResist: 353
+  CriticalDamage: 3.9
+  ComboPercent: 413
+  ComboResist: 351
+  AvoidPercent: 411
+  AvoidResist: 349
+  DrainPercent: 395
+  DrainResist: 336
+  DrainAmount: 2.45
+  RewordEXP: 13500000000
+  RewordGold: 8500000
+  RewordEnergy: 15
+  RewardItem: []
+  RewardRune: {fileID: 11400000, guid: 026b88d4ead049442a94055c6e375910, type: 2}
