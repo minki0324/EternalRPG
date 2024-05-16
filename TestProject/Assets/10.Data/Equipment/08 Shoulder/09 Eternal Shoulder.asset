@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933393279ba6a5b4196d73e7be7dbb9c, type: 3}
+  m_Name: 09 Eternal Shoulder
+  m_EditorClassIdentifier: 
+  EquipmentType: 7
+  SpriteName: 09 Eternal Shoulder
+  ItemID: 908009
+  EquipmentName: "\uC601\uC6D0\uC758 \uACAC\uC7A5"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 1
+  EquipmentDes: "\uC601\uC6D0\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uACAC\uC7A5\uC774\uB2E4."
+  ShoulderDef: 1200
+  ShoulderDefPercent: 15
+  ShoulderCriticalResist: 38
+  ShoulderDrainResist: 39
+  ShoulderDEXPercent: 33
+  ShoulderVITPercent: 32

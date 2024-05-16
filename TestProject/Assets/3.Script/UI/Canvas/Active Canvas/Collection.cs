@@ -18,7 +18,9 @@ public enum Location
     Mine,
     InTree,
     DeepMine,
-    ManaForest
+    ManaForest,
+    WarpedSpace,
+    WorldEnd
 }
 
 public class Collection : MonoBehaviour
@@ -123,6 +125,12 @@ public class Collection : MonoBehaviour
                 break;
             case "마력이 가득찬 숲":
                 monsterLocation = (Location)6;
+                break;
+            case "뒤틀린 시공간":
+                monsterLocation =(Location)7;
+                break;
+            case "끝과 시작":
+                monsterLocation = (Location)8;
                 break;
         }
         MonsterColletionLocation();
@@ -286,8 +294,14 @@ public class Collection : MonoBehaviour
             case Location.ManaForest:
                 location = "마력이 가득찬 숲";
                 break;
+            case Location.WarpedSpace:
+                location = "뒤틀린 시공간";
+                break;
+            case Location.WorldEnd:
+                location = "끝과 시작";
+                break;
         }
-        
+
         return location;
     }
 }

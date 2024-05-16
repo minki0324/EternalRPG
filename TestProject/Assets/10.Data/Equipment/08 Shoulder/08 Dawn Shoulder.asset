@@ -19,8 +19,8 @@ MonoBehaviour:
   RequireCost: 0
   isCanBuy: 0
   DropRate: 2
-  EquipmentDes: "\uD751\uC0C9 \uCCA0\uC5D0 \uD574\uACE8 \uB514\uD14C\uC77C\uC774
-    \uB3CB\uBCF4\uC774\uB294 \uAC15\uCCA0 \uACAC\uC7A5\uC774\uB2E4."
+  EquipmentDes: "\uC54C \uC218 \uC5C6\uB294 \uBCF4\uB77C\uC0C9 \uAE30\uC6B4\uC774
+    \uBD84\uCD9C\uB418\uB294 \uACAC\uC7A5\uC774\uB2E4."
   ShoulderDef: 750
   ShoulderDefPercent: 11
   ShoulderCriticalResist: 34

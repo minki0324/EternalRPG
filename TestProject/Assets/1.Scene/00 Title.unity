@@ -9390,6 +9390,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7033de5af52d6f342abfbf22b3a64539, type: 2}
   - {fileID: 11400000, guid: 7a9e7e3b51662ee4498aae0fbdf505b2, type: 2}
   - {fileID: 11400000, guid: 6a97352e8d9a320419ae177d35f11c1d, type: 2}
+  - {fileID: 11400000, guid: 89e4a3487113c2b42855263ccebafdc4, type: 2}
   PantsDatas:
   - {fileID: 11400000, guid: 5bb4926c75269f1458fa49ab6501b21a, type: 2}
   - {fileID: 11400000, guid: a5c85c93a0d44f541ac8b6d45b4fa1f9, type: 2}
@@ -9400,6 +9401,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 098bb867289be1f448b070150726dc2d, type: 2}
   - {fileID: 11400000, guid: 19e80ab8ce7030944a741b23b628ccb7, type: 2}
   - {fileID: 11400000, guid: 170c1d544d93a0e43b2da4bf5d85438b, type: 2}
+  - {fileID: 11400000, guid: e8c04a1f7546748438ee7085181560be, type: 2}
   HelmetDatas:
   - {fileID: 11400000, guid: 41d74ea00b6ed0b40978b9ca715d990c, type: 2}
   - {fileID: 11400000, guid: af92d8f6f1cfd4847bdb12ad91e32a1a, type: 2}
@@ -9410,6 +9412,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8547902431abff747bde77c67bb31ff8, type: 2}
   - {fileID: 11400000, guid: dedfcfc152fe3204e99d3f1e2e13d68c, type: 2}
   - {fileID: 11400000, guid: 04716d1eb52637840959596839a2b5c3, type: 2}
+  - {fileID: 11400000, guid: 05127641008064c4491bd52a4fdacaf6, type: 2}
   GloveDatas:
   - {fileID: 11400000, guid: 6403b12571545d74a9a02c2ab4fe4036, type: 2}
   - {fileID: 11400000, guid: cd0214332276f034281ce8e8e5e6caf3, type: 2}
@@ -9420,6 +9423,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c091ea70569eece4a9bce9bc5d222c4f, type: 2}
   - {fileID: 11400000, guid: 56d45bb138592a744a82b7e983cf84bf, type: 2}
   - {fileID: 11400000, guid: 204913c34f4b33843bb6bbb27e2dc1d2, type: 2}
+  - {fileID: 11400000, guid: d93a7d04bacc5f6468db783f118b9112, type: 2}
   ShoesDatas:
   - {fileID: 11400000, guid: f3282830efae7dd4abe2c4c826453b14, type: 2}
   - {fileID: 11400000, guid: f431763bea868d14aad0e6dfeb3186f7, type: 2}
@@ -9430,6 +9434,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55ce69396f464c742995f1e5ef19798e, type: 2}
   - {fileID: 11400000, guid: f8d999745bec6a14bbf64ece03d7b763, type: 2}
   - {fileID: 11400000, guid: 87c8cc84520ff364cb71cca7a4109e83, type: 2}
+  - {fileID: 11400000, guid: 050002a6957435d4db5825284194b36d, type: 2}
   ClockDatas:
   - {fileID: 11400000, guid: 5c2c9330f95eb79428f342347190384c, type: 2}
   - {fileID: 11400000, guid: 1d022cd0aa779d34a8173f39bb63a893, type: 2}
@@ -9440,6 +9445,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3de4a3b7ce09bed4eb83154cdeaf4481, type: 2}
   - {fileID: 11400000, guid: 68589bd193f387f418149dc8d0ea13d2, type: 2}
   - {fileID: 11400000, guid: 2a8fa9b32d28c4a4caca99038cb20752, type: 2}
+  - {fileID: 11400000, guid: 9caa346772ee61a4dba2c3a1dfc8c40a, type: 2}
   BeltDatas:
   - {fileID: 11400000, guid: fd2c1711fa7596c48bf4482288762762, type: 2}
   - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}
@@ -9450,6 +9456,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 966c5ca1081cfeb4da73def8ba6da16c, type: 2}
   - {fileID: 11400000, guid: 00303eff165ed6b4c979bea185870aac, type: 2}
   - {fileID: 11400000, guid: 2739ad5fb55bfa747bc170e569967256, type: 2}
+  - {fileID: 11400000, guid: 4db67be30ccfdd847963ea0fdd3f983d, type: 2}
   ShoulderArmorDatas:
   - {fileID: 11400000, guid: a25dce7ff48caf242ae06e94d776f9cf, type: 2}
   - {fileID: 11400000, guid: 435b47ea38bbe8440a279afa2c1eee11, type: 2}
@@ -9460,6 +9467,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e075b92e4cf26da4b801459a65c6bf3a, type: 2}
   - {fileID: 11400000, guid: a50550a7d639c5e4d80fbe08fc043ea5, type: 2}
   - {fileID: 11400000, guid: 7dcae8471fa669b4a885f85bc1a859b5, type: 2}
+  - {fileID: 11400000, guid: 29683a1072337e14d89afb135d11545c, type: 2}
   RingDatas:
   - {fileID: 11400000, guid: 385b90c1455ee5948a089d98299adea1, type: 2}
   - {fileID: 11400000, guid: f0c48849d90086747a2c0d8e68db00dc, type: 2}
@@ -9478,6 +9486,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba09d5d7866312548a63c1c64654a0b0, type: 2}
   - {fileID: 11400000, guid: fb1dddda009c87c4e9d240c330cec761, type: 2}
   - {fileID: 11400000, guid: 0cefb23cf12a6804091a11d9bd3db96f, type: 2}
+  - {fileID: 11400000, guid: 25a35b08942b78940960ce36548b57c3, type: 2}
   NecklessDatas:
   - {fileID: 11400000, guid: 8534a3fa68878b743be5ac20cff5d01d, type: 2}
   - {fileID: 11400000, guid: 1b14d789f710d93478156b783ab6d901, type: 2}
@@ -9489,6 +9498,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6b1fbbbab3c902d4d91f8309952bf010, type: 2}
   - {fileID: 11400000, guid: 4305816d0f3317d45941de1d5cad9851, type: 2}
   - {fileID: 11400000, guid: b275cada83ac631499249aa35d3d275f, type: 2}
+  - {fileID: 11400000, guid: 40f1b07aea7a83443ba927500f618f3e, type: 2}
   OtherDatas:
   - {fileID: 11400000, guid: 513c2d72c7211ad4d914db5605332373, type: 2}
   - {fileID: 11400000, guid: 9e79f95c6856b8744ad32125bef6274c, type: 2}

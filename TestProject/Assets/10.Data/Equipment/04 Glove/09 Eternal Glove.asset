@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643343ac5989ade408641921f3f8744a, type: 3}
+  m_Name: 09 Eternal Glove
+  m_EditorClassIdentifier: 
+  EquipmentType: 4
+  SpriteName: 09 Eternal Glove
+  ItemID: 904009
+  EquipmentName: "\uC601\uC6D0\uC758 \uC7A5\uAC11"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 1
+  EquipmentDes: "\uC601\uC6D0\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uC7A5\uAC11\uC774\uB2E4."
+  GloveATK: 3300
+  GloveATKPercent: 55
+  GloveHP: 2200
+  GloveHPPercent: 20
+  GloveComboPercent: 45
+  GloveCriticalPercent: 47
+  GloveCriticalDamage: 0.6
+  GloveSTRPercent: 32
+  GloveDEXPercent: 32

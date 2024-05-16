@@ -24,7 +24,7 @@ MonoBehaviour:
   NecklessHP: 6800
   NecklessHPPercent: 31
   NecklessComboPercent: 32
-  NecklessAvoidResist: 0
+  NecklessAvoidResist: 26
   NecklessEXPPercent: 30
   NecklessGoldPercent: 0
   NecklessDEXPercent: 24

@@ -16,8 +16,8 @@ MonoBehaviour:
   SpriteName: 08 Dawn Armor
   ItemID: 901008
   EquipmentName: "\uC5EC\uBA85\uC758 \uAC11\uC637"
-  RequireCost: 0
-  isCanBuy: 0
+  RequireCost: 340000000
+  isCanBuy: 1
   DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uAC11\uC637\uC774\uB2E4."
   ArmorHP: 18500

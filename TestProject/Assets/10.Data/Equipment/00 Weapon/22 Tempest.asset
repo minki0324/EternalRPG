@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 22 Tempest
   ItemID: 900022
   EquipmentName: "\uD15C\uD398\uC2A4\uD2B8"
-  RequireCost: 77777777
+  RequireCost: 125000000
   isCanBuy: 1
   DropRate: 9
   EquipmentDes: "\uD3ED\uD48D\uC758 \uD798\uC774 \uB2F4\uAE34 \uD65C\uC774\uB2E4."

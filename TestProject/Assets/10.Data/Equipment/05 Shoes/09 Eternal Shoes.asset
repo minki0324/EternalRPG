@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a848837bdff7be345a9b4ad86ce73c8b, type: 3}
+  m_Name: 09 Eternal Shoes
+  m_EditorClassIdentifier: 
+  EquipmentType: 5
+  SpriteName: 09 Eternal Shoes
+  ItemID: 905009
+  EquipmentName: "\uC601\uC6D0\uC758 \uBD80\uCE20"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 1
+  EquipmentDes: "\uC601\uC6D0\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uC2E0\uBC1C\uC774\uB2E4.\n\uAC00\uBCBC\uC6B0\uBA74\uC11C
+    \uC54C \uC218 \uC5C6\uB294 \uD798\uC774 \uB290\uAEF4\uC9C4\uB2E4."
+  ShoesHP: 23000
+  ShoesHPPercent: 38
+  ShoesDef: 550
+  ShoesDefPercent: 15
+  ShoesAvoidPercent: 47
+  ShoesAvoidResist: 48
+  ShoesDEXPercent: 32
+  ShoesVITPercent: 33
+  ShoesMoveSpeed: 15

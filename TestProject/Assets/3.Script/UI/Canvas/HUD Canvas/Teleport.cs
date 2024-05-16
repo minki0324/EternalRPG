@@ -7,8 +7,6 @@ using TMPro;
 public class Teleport : MonoBehaviour
 {
     public Location TeleportLocation;
-    [SerializeField] private TMP_Dropdown teleportLocationDropdown;
-    [SerializeField] private Image miniMapImage;
     [SerializeField] private Transform[] mapWayPoint;
     [SerializeField] private Vector3[] offSet;
 
@@ -19,36 +17,31 @@ public class Teleport : MonoBehaviour
     [SerializeField] private Image transitionImage;
     private Coroutine moveCoroutine;
 
+    [Header("Áö¿ª ¹öÆ°")]
+    [SerializeField] private Image miniMapImage;
+    [SerializeField] private Sprite[] minimapSprites;
+    [SerializeField] private Image[] buttonSprite;
+
     private float delay = 0.2f;
 
-    public void TeleportLocationType()
+    private void OnEnable()
     {
-        int selectDropDown = teleportLocationDropdown.value;
-        switch (teleportLocationDropdown.options[selectDropDown].text)
+        for (int i = 0; i < buttonSprite.Length; i++)
         {
-            case "±íÀº ½£":
-                TeleportLocation = (Location)0;
-                break;
-            case "Á¤·ÉÀÇ ½£":
-                TeleportLocation = (Location)1;
-                break;
-            case "ºÓÀº ±â¿îÀÇ ½£":
-                TeleportLocation = (Location)2;
-                break;
-            case "±¤»ê ÃÊÀÔºÎ":
-                TeleportLocation = (Location)3;
-                break;
-            case "Á×Àº ³ª¹« µ¿±¼":
-                TeleportLocation = (Location)4;
-                break;
-            case "±¤»ê ³ª°¡´Â±æ":
-                TeleportLocation = (Location)5;
-                break;
-            case "¸¶·ÂÀÌ °¡µæÂù ½£":
-                TeleportLocation = (Location)6;
-                break;
+            buttonSprite[i].color = Color.white;
         }
-        miniMapImage.sprite = teleportLocationDropdown.options[selectDropDown].image;
+        buttonSprite[(int)TeleportLocation].color = Color.green;
+    }
+
+    public void TeleportLocationType(int location)
+    {
+        for(int i = 0; i < buttonSprite.Length; i++)
+        {
+            buttonSprite[i].color = Color.white;
+        }
+        buttonSprite[location].color = Color.green;
+        TeleportLocation = (Location)location;
+        miniMapImage.sprite = minimapSprites[location];
     }
 
     public void TeleportButton()
