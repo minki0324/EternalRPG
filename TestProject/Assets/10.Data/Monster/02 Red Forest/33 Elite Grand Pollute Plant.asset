@@ -23,7 +23,7 @@ MonoBehaviour:
   MonsterATK: 28000
   MonsterSprite: {fileID: 21300000, guid: ddd7a092c08bcc146aae0fb39250ae57, type: 3}
   ReturnPos: {x: 0, y: -2}
-  RequireEnergy: 5
+  RequireEnergy: 7
   isElite: 1
   EliteID: 8
   CriticalPercant: 153
@@ -40,6 +40,5 @@ MonoBehaviour:
   RewordGold: 87000
   RewordEnergy: 5
   RewardItem:
-  - {fileID: 11400000, guid: 34d2dd69b868c4847ac1bbfbc8ed3407, type: 2}
-  - {fileID: 11400000, guid: 253cb20bced8c4c47b6f8c2e0ce1eba9, type: 2}
+  - {fileID: 11400000, guid: cae6db179a02c274f96aab882800f9d8, type: 2}
   RewardRune: {fileID: 11400000, guid: 5577cb9640bc05747abe4a536edb2cbb, type: 2}

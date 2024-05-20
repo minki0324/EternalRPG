@@ -31,6 +31,7 @@ public class QuickSlotItem : MonoBehaviour
 
     public void QuickSlotItemButton(int item)
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         quickItem = (QuickItem)item;
 
         activeCanvas.SetActive(true);

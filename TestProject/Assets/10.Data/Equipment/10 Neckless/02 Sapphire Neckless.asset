@@ -16,8 +16,8 @@ MonoBehaviour:
   SpriteName: 02 Sapphire Neckless
   ItemID: 910002
   EquipmentName: "\uC0AC\uD30C\uC774\uC5B4 \uBAA9\uAC78\uC774"
-  RequireCost: 0
-  isCanBuy: 0
+  RequireCost: 167000
+  isCanBuy: 1
   DropRate: 16
   EquipmentDes: "\uC0AC\uD30C\uC774\uC5B4 \uC7A5\uC2DD\uC774 \uB2EC\uB9B0 \uBAA9\uAC78\uC774\uC774\uB2E4."
   NecklessHP: 270

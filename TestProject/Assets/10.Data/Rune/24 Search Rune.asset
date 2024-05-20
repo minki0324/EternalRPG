@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6750d37ca271a4891bff464dc80d89, type: 3}
+  m_Name: 24 Search Rune
+  m_EditorClassIdentifier: 
+  EquipmentType: 12
+  SpriteName: 24 Search Rune
+  ItemID: 24
+  EquipmentName: "\uD0D0\uC0C9\uC758 \uB8EC"
+  RequireCost: 0
+  isCanBuy: 0
+  DropRate: 0
+  EquipmentDes: "\uC544\uC774\uD15C \uB4DC\uB78D\uC728\uC744 30% \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."

@@ -26,6 +26,8 @@ public class EquipmentQuickSlot : MonoBehaviour
     [Header("Ask")]
     [SerializeField] private GameObject QuickAskPanel;
     [SerializeField] private TMP_Text QuickAskTitle;
+    [SerializeField] private Transform itemListParent;
+    private int quickSlotIndex;
 
     [Header("장비칸 아이콘")]
     [SerializeField] private Image weaponIcon;
@@ -58,6 +60,7 @@ public class EquipmentQuickSlot : MonoBehaviour
     private bool isPanelOpen = true;
     private bool isMain = false;
     private Coroutine panelMoveCoroutine;
+    public string ListType = string.Empty;
 
     private void OnEnable()
     {
@@ -101,15 +104,16 @@ public class EquipmentQuickSlot : MonoBehaviour
             PrintLog.Instance.StaticLog($"에너지가 없어 퀵 슬롯 변경이 불가능 합니다.");
             return;
         }
-        GameManager.Instance.QuickSlotIndex = _index;
         if(!activeCanvas.activeSelf)
         { // 메인부터 켰는지
+            GameManager.Instance.QuickSlotIndex = _index;
             DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
             PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
             GameManager.Instance.RenewAbility();
         }
         else
         {
+            quickSlotIndex = _index;
             QuickAskPanel.SetActive(true);
             QuickAskTitle.text = GameManager.Instance.QuickSlot[_index];
             PrintEquipmentData(_index);
@@ -184,7 +188,9 @@ public class EquipmentQuickSlot : MonoBehaviour
     {
         if(GameManager.Instance.CurrentEnergy > 0)
         {
+            GameManager.Instance.QuickSlotIndex = quickSlotIndex;
             DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
+            EquipmentManager.Instance.ItemListSet(ListType, itemListParent);
             PrintLog.Instance.StaticLog($"{GameManager.Instance.QuickSlotIndex + 1}번째 슬롯 : [{GameManager.Instance.QuickSlot[GameManager.Instance.QuickSlotIndex]}] 장착");
             GameManager.Instance.RenewAbility();
         }

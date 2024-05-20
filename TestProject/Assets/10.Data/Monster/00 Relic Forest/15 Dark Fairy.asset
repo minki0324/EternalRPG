@@ -16,11 +16,11 @@ MonoBehaviour:
   MonsterLocation: "\uAE4A\uC740 \uC232"
   MonsterID: 15
   MonsterType: "\uC694\uC815"
-  MonsterLevel: 2430
+  MonsterLevel: 2150
   MonsterMaxHP: 16800
   MonsterCurHP: 16800
-  MonsterDef: 1692
-  MonsterATK: 1800
+  MonsterDef: 1457
+  MonsterATK: 1550
   MonsterSprite: {fileID: 21300000, guid: ff3a58c85e36974448861d1cc6f421ce, type: 3}
   ReturnPos: {x: 1.5, y: 0}
   RequireEnergy: 1
@@ -40,5 +40,6 @@ MonoBehaviour:
   RewordGold: 2500
   RewordEnergy: 0
   RewardItem:
-  - {fileID: 11400000, guid: e755128a73f411749b75d686bb0ff726, type: 2}
+  - {fileID: 11400000, guid: 435b47ea38bbe8440a279afa2c1eee11, type: 2}
+  - {fileID: 11400000, guid: a5c85c93a0d44f541ac8b6d45b4fa1f9, type: 2}
   RewardRune: {fileID: 0}

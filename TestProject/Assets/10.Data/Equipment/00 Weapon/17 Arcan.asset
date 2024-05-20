@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 17 Arcan
   ItemID: 900017
   EquipmentName: "\uC544\uB974\uCE78"
-  RequireCost: 26500000
+  RequireCost: 58000000
   isCanBuy: 1
   DropRate: 14
   EquipmentDes: "\uC0BC\uC9C0\uCC3D\uC758 \uC678\uD615\uC758 \uCC3D\uC774\uB2E4.\n\uC678\uB0A0\uC774

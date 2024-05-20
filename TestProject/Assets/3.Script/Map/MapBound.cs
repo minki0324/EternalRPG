@@ -28,6 +28,7 @@ public class MapBound : MonoBehaviour
         cameraMove.Boundary = Boundary;
         canvas.mapText.text = MapName;
         GameManager.Instance.CurrentMapName = MapName;
+        AudioManager.instance.PlayBGM(GameManager.Instance.CurrentMapName);
         PrintLog.Instance.StaticLog(MapName);
     }
 }

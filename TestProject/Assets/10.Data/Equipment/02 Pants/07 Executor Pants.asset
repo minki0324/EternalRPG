@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 07 Executor Pants
   ItemID: 902007
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uAC01\uBC18"
-  RequireCost: 68000000
+  RequireCost: 121000000
   isCanBuy: 1
   DropRate: 6
   EquipmentDes: "\uC74C\uC0B0\uD55C \uAE30\uC6B4\uC774 \uAC10\uB3C4\uB294 \uAC01\uBC18\uC774\uB2E4."

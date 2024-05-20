@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 08 Dawn Glove
   ItemID: 904008
   EquipmentName: "\uC5EC\uBA85\uC758 \uC7A5\uAC11"
-  RequireCost: 295000000
+  RequireCost: 596000000
   isCanBuy: 1
   DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB290\uAEF4\uC9C0\uB294 \uC7A5\uAC11\uC774\uB2E4."

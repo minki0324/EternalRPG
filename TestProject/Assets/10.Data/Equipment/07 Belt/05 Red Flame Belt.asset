@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 05 Red Flame Belt
   ItemID: 907005
   EquipmentName: "\uC801\uC5FC\uC758 \uBCA8\uD2B8"
-  RequireCost: 9200000
+  RequireCost: 16500000
   isCanBuy: 1
   DropRate: 15
   EquipmentDes: "\uCEE4\uB2E4\uB780 \uBC84\uD074\uC774 \uBC15\uD78C \uBCA8\uD2B8\uC774\uB2E4.

@@ -22,6 +22,7 @@ public class ItemPanel : MonoBehaviour
 
     public void itemButton()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         EquipmentCanvas canvas = FindObjectOfType<EquipmentCanvas>();
         canvas.CurrentItem = this;
         canvas.PrintItemInfomation();

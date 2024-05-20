@@ -290,9 +290,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7b0899128b15a88478360799b2372f2e, type: 3}
   - {fileID: 21300000, guid: b303ec122d6b1cf44be39011695822c0, type: 3}
   - {fileID: 21300000, guid: 9ab52b224de5c8d44909026f2287007d, type: 3}
+  - {fileID: 21300000, guid: 4d31bd22ea6178141915bb17cc1ddfa1, type: 3}
   - {fileID: 21300000, guid: 73d655427af963442aa322ca89123d54, type: 3}
   - {fileID: 21300000, guid: b7ceda42d8b627a478409c092112fc25, type: 3}
   - {fileID: 21300000, guid: e348c45242425e743ada85b816d38c2b, type: 3}
+  - {fileID: 21300000, guid: 167c7562a952fb74b8375c97894a147b, type: 3}
   - {fileID: 21300000, guid: 49d88e62fc08bad43b1de10b941863d1, type: 3}
   - {fileID: 21300000, guid: 37722882a5dc29b4f959787d2d7ef9a8, type: 3}
   - {fileID: 21300000, guid: dd295d8200ab6774c840bc56e766365b, type: 3}
@@ -588,6 +590,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 24583c370e6240049a15cae582371e78, type: 3}
   - {fileID: 21300000, guid: 59fe3c37eff296b4e933e4e8527cf064, type: 3}
   - {fileID: 21300000, guid: 9dabdd370a62611478ed9990adc39af4, type: 3}
+  - {fileID: 21300000, guid: 70297147cf243cf48aaeb5c4eeb0b56b, type: 3}
   - {fileID: 806257990, guid: 2261a547ea3cef245b04a5f64ac409a6, type: 3}
   - {fileID: 38730645, guid: 2261a547ea3cef245b04a5f64ac409a6, type: 3}
   - {fileID: 1108225420, guid: 2261a547ea3cef245b04a5f64ac409a6, type: 3}
@@ -774,7 +777,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 22b690aadc19e2a4788eea505559cd91, type: 3}
   - {fileID: 21300000, guid: 2f8264aa12d5a1b46b1136f9c06c3b78, type: 3}
   - {fileID: 21300000, guid: 2e8d94aab28ded54c98b293a4ef24615, type: 3}
-  - {fileID: 21300000, guid: ba5aa4aaf64af9144b41db5cb46018c4, type: 3}
   - {fileID: -1851247618, guid: 1e93d7aabd047b64fa3dc57b19fe965a, type: 3}
   - {fileID: 1323419386, guid: 1e93d7aabd047b64fa3dc57b19fe965a, type: 3}
   - {fileID: -1376399238, guid: 1e93d7aabd047b64fa3dc57b19fe965a, type: 3}
@@ -1183,8 +1185,8 @@ SpriteAtlas:
   - btn_rectangle_01_n_bluegray
   - 15 Lucky Rune ll
   - 57 Grow GreenPi
-  - 04 Unknown
-  - Enchantment_57_runecrystal 1
+  - 04 Strong Rune
+  - 26 All Rune
   - Slash_Curved_08_Purple_SpriteSheet 1_6
   - Slash_Curved_08_Purple_SpriteSheet 1_5
   - Slash_Curved_08_Purple_SpriteSheet 1_4
@@ -1193,7 +1195,7 @@ SpriteAtlas:
   - Slash_Curved_08_Purple_SpriteSheet 1_1
   - Slash_Curved_08_Purple_SpriteSheet 1_0
   - Skill_481 1
-  - Enchantment_15_naturesubstance 1
+  - 32 EXP Rune ll
   - 01 Iron Armor
   - 35 Elite Pollute Plant
   - 05 Red Flame Belt
@@ -1306,7 +1308,7 @@ SpriteAtlas:
   - 06 Red Elite Plant
   - 05 Red Flame Armor
   - 27 EXP Book7
-  - Enchantment_14_lifesubstance 1
+  - 28 Master Rune ll
   - Slash_Curved_08_Blue_SpriteSheet 1_1
   - Slash_Curved_08_Blue_SpriteSheet 1_0
   - Slash_Curved_08_Blue_SpriteSheet 1_3
@@ -1411,12 +1413,14 @@ SpriteAtlas:
   - 56 Dark Cube
   - 91 Young Geon
   - function_icon_bag_1
+  - 20240519_185727-removebg-preview
   - 24 Wisdom
   - 78 High Aqua
   - 32 Red Plant
+  - Logo
   - 04 Black Iron Shoulder
   - 17 Elite Broken Robot
-  - Cloth17_Head 1
+  - 08 Dawn Helmet
   - 33 Elite Grand Pollute Plant
   - 14 Scale Ring
   - 14 Levateinn
@@ -1471,12 +1475,12 @@ SpriteAtlas:
   - lazer_normal_SpriteSheet 1_14
   - 05 Deep Mine
   - 01 Faint Rune
-  - Enchantment_20_magicsubstance 1
+  - 35 Richness Rune
   - 53 Forest Guard
   - 24 Water Fox
-  - Cloth17_gloves 1
+  - 08 Dawn Glove
   - 00 Leather Cloak
-  - Cloth17_sloulder 1
+  - 08 Dawn Shoulder
   - icon_scroll
   - 00 Leather Pants
   - 10 Stone Plant
@@ -1533,9 +1537,9 @@ SpriteAtlas:
   - 06 Blank Scroll
   - 32 Golden Earing
   - 07 Executor Pants
-  - Enchantment_17_lightsubstance 1
+  - 36 Eternal Rune
   - 07 Executor Shoulder
-  - Enchantment_59_runecrystal 1
+  - 22 Acid Rune
   - 02 Speed Rune
   - 01 Iron Shoulder
   - 07 Earth Ring
@@ -1642,13 +1646,13 @@ SpriteAtlas:
   - 28 Cursed Coin
   - 04 Golden Ring
   - 00 Steel Shoulder
-  - 08 Dawn Shoes
-  - Cloth17_belt 1
+  - 09 Eternal Shoes
+  - 08 Dawn Belt
   - 00 Steel Armor
   - 09 Ancient Neckless
-  - 08 Dawn Shoulder
+  - 09 Eternal Shoulder
   - 03 Eco Leather Shoulder
-  - Cloth17_Chest 1
+  - 08 Dawn Armor
   - 04 Black Iron Shoes
   - 38 Fire Golem
   - slider_edgetype_00_frame_back
@@ -1668,7 +1672,7 @@ SpriteAtlas:
   - 03 DEX Cube
   - 16 Elite White Fox
   - 97 Warped Space Dominator
-  - cloak_31 1
+  - 08 Dawn Cloak
   - 05 Regen Rune
   - 01 Gold Ring
   - 01 BroadSword
@@ -1679,7 +1683,7 @@ SpriteAtlas:
   - 86 Luminus Wisp
   - 08 Red Cube
   - bg None Background
-  - Blacksmith_32_magic_horseshoe 1
+  - 25 Balance Rune
   - 03 Eco Leather Cloak
   - 00 Steel Armor
   - 07 Executor Shoes
@@ -1701,14 +1705,15 @@ SpriteAtlas:
   - 01 Gold Ring
   - 04 Ominous Neckless
   - 00 Normaly Rune
-  - Enchantment_16_firesubstance 1
+  - 34 Steal Rune
   - 05 Blue Crystal
   - 00 Leather Shoes
   - 13 Master Ability Rune
   - 09 Master Rune
-  - Blacksmith_37_goldenblade 1
+  - 21 Broken Armor Rune
   - 17 Arcan
   - 25 Eternal
+  - 20240519_185727-removebg-preview
   - Ground_Hit_1_purple_SpriteSheet 1_0
   - Ground_Hit_1_purple_SpriteSheet 1_1
   - Ground_Hit_1_purple_SpriteSheet 1_2
@@ -1718,7 +1723,7 @@ SpriteAtlas:
   - 26 CoCo
   - 07 Executor Glove
   - 104 Fafurion
-  - 08 Dawn Pants
+  - 09 Eternal Pants
   - 13 Horn Bow
   - 11 Rich Rune
   - 81 High Lumi
@@ -1787,7 +1792,7 @@ SpriteAtlas:
   - 03 Eco Leather Armor
   - 01 Simple Neckless
   - 20 WhitePi
-  - 08 Dawn Cloak
+  - 09 Eternal Cloak
   - 00 Blue Plant
   - 29 MultiColor Crystal
   - Quest_28_card
@@ -1811,12 +1816,12 @@ SpriteAtlas:
   - frame_itemframe_00_frame_yellow
   - 02 Wooden Flow Shoes
   - 08 Expert Ring
-  - Cloth17_Pants 1
+  - 08 Dawn Pants
   - 10 Shadow Scroll
-  - 08 Dawn Belt
+  - 09 Eternal Belt
   - 07 Lunatic
   - bg Battle Result
-  - 08 Dawn Glove
+  - 09 Eternal Glove
   - 00 Leather Belt
   - 06 Emperor Knight Cloak
   - 19 GreenPi
@@ -1825,7 +1830,7 @@ SpriteAtlas:
   - 00 Silver Ring
   - 05 Red Flame Pants
   - 14 Healthy Rune
-  - Enchantment_13_magicsubstance 1
+  - 29 Swift Rune
   - 15 Dark Fairy
   - 114 Young Agelon
   - 00 Silver Neckless
@@ -1868,12 +1873,12 @@ SpriteAtlas:
   - 18 Silver Glass
   - 04 Short Bow
   - 112 Lava Roid
-  - Enchantment_19_shadowsubstance 1
+  - 30 Mystery Rune
   - 73eb87b7865cc9c4d169d91f1ce157ae_0
   - btn_rectangle_01_n_green
   - 80 High Green
   - 03 Mine
-  - 08 Dawn Helmet
+  - 09 Eternal Helmet
   - 46 Elite Guard Robot
   - 47 DevilPi
   - 18 Etheric
@@ -1895,7 +1900,6 @@ SpriteAtlas:
   - 03 Defence Rune
   - 00 Relic Forest
   - 25 Elite Chaos Fox
-  - cloak_30 1
   - Slash_Angled_04_Green_SpriteSheet 1_4
   - Slash_Angled_04_Green_SpriteSheet 1_5
   - Slash_Angled_04_Green_SpriteSheet 1_6
@@ -2012,7 +2016,7 @@ SpriteAtlas:
   - 01 Iron Helmet
   - 92 Warped Space Guard Robot
   - 30 Golden Candle
-  - Enchantment_18_earthsubstance 1
+  - 33 Rich Rune ll
   - TX Flower
   - TX Tree T2 Lower
   - TX Tree T1 Lower
@@ -2094,7 +2098,7 @@ SpriteAtlas:
   - 05 Red Flame Shoulder
   - 09 Blood Scroll
   - 58 Grow DevilPi
-  - Relic_v2_04 1
+  - 10 Eternal Neckless
   - 00 Leather Belt
   - function_icon_helmet_2
   - run 1
@@ -2196,9 +2200,9 @@ SpriteAtlas:
   - 05 Skull Neckless
   - 06 Mana Forest
   - 77 Middle Flame
-  - Blacksmith_31_rune_horseshoe 1
+  - 27 Infinity Rune
   - 07 Warped Space
-  - Ring_55_black 1
+  - 17 Devil Ring
   - 22 Brilliant Bar
   - ground_explosion_blue_SpriteSheet 1_15
   - ground_explosion_blue_SpriteSheet 1_14
@@ -2274,9 +2278,9 @@ SpriteAtlas:
   - 01 Iron Pants
   - Engineerskill_15 1
   - 54 Choki
-  - Enchantment_56_runecrystal 1
+  - 24 Search Rune
   - 09 Rich Ring
-  - Enchantment_61_runeponeti 1
+  - 23 Ancient Rune
   - 00 Leather Glove
   - 98 TerraRex
   - 16 Raven
@@ -2285,11 +2289,11 @@ SpriteAtlas:
   - 07 Executor Cloak
   - toggle_checkbox_off 1
   - 02 Silver
-  - 08 Dawn Armor
+  - 09 Eternal Armor
   - 84 Luminus Cube
-  - Enchantment_12_magicsubstance 1
+  - 31 Master Ability Rune ll
   - 08 Ancient Rune Scroll
-  - Cloth17_Boots 1
+  - 08 Dawn Shoes
   - label_flag_03_Demo 1
   - 16 Dark Ring
   - 06 Lucky Rune

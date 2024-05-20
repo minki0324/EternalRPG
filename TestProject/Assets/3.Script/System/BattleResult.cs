@@ -43,6 +43,7 @@ public class BattleResult : MonoBehaviour
     [SerializeField] private TMP_Text runeDesTxt;
 
     private bool isMasterRune = false;
+    private bool isMasterRunell = false;
 
     [Header("젬 천장")]
     [SerializeField] private GameObject buyingGemButton;
@@ -63,12 +64,14 @@ public class BattleResult : MonoBehaviour
         AfterBattleMonster(mon, isWin);
         if (isWin)
         {
+            AudioManager.instance.PlaySFX("Win");
             resultPanelTitle.Result = true;
             AccountBattle_Co();
             GameManager.Instance.DeadMonsterList.Add(mon.monsterData.MonsterID);
         }
         else if (!isWin)
         {
+            AudioManager.instance.PlaySFX("Lose");
             resultPanelTitle.Result = false;
             expText.text = ": 0";
             levelText.text = ": 0";
@@ -206,6 +209,7 @@ public class BattleResult : MonoBehaviour
             int cardBuff = GameManager.Instance.CardBuff == CardBuffEnum.DropBuff ? 3 : 0;
             int runeDropRate = GameManager.Instance.RuneHashSet.Contains("행운의 룬") ? 2 : 0;
             runeDropRate += GameManager.Instance.RuneHashSet.Contains("행운의 룬ll") ? 2 : 0;
+            runeDropRate += GameManager.Instance.RuneHashSet.Contains("풍요의 룬") ? 1 : 0;
 
             // 드랍율 계산
             float quickSlotDrop = GameManager.Instance.isClover ? 70 : 0;
@@ -248,17 +252,29 @@ public class BattleResult : MonoBehaviour
             if (GameManager.Instance.RuneDropRate >= randomValue)
             {
                 runeDropEffectPanel.SetActive(true);
+                AudioManager.instance.PlaySFX("RuneEffect");
                 effectAnimator.SetTrigger("Impact");
 
                 // 애니메이션이 실행 중인 동안 대기
                 yield return new WaitForSeconds(1.5f);
 
                 runeUIPanel.SetActive(true);
+                AudioManager.instance.PlaySFX("RuneDrop");
 
                 GameManager.Instance.RuneHashSet.Add(mon.monsterData.RewardRune.EquipmentName);
                 runeNameTxt.text = mon.monsterData.RewardRune.EquipmentName;
                 runeImage.sprite = EquipmentManager.Instance.GetEquipmentSprite(mon.monsterData.RewardRune);
                 runeDesTxt.text = mon.monsterData.RewardRune.EquipmentDes;
+
+                switch(mon.monsterData.RewardRune.EquipmentName)
+                {
+                    case "능력의 룬":
+                        GameManager.Instance.MasterCurrentAP += 50;
+                        break;
+                    case "능력의 룬ll":
+                        GameManager.Instance.MasterCurrentAP += 100;
+                        break;
+                }
             }
         }
     }
@@ -378,11 +394,17 @@ public class BattleResult : MonoBehaviour
             int runeEXP = GameManager.Instance.MasterLevel * 20;
             GameManager.Instance.MasterCurrentEXP += runeEXP;
         }
+        if(isMasterRunell)
+        {
+            int runeEXP = GameManager.Instance.MasterLevel * 20;
+            GameManager.Instance.MasterCurrentEXP += runeEXP;
+        }
     }
 
     private void RuneCheck()
     {
         isMasterRune = GameManager.Instance.RuneHashSet.Contains("성장의 룬");
+        isMasterRunell = GameManager.Instance.RuneHashSet.Contains("성장의 룬ll");
     }
 
     private void MasterAP(int level)

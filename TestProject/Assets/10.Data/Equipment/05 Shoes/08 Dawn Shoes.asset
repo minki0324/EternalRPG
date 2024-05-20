@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 08 Dawn Shoes
   ItemID: 905008
   EquipmentName: "\uC5EC\uBA85\uC758 \uBD80\uCE20"
-  RequireCost: 3800
+  RequireCost: 0
   isCanBuy: 0
   DropRate: 2
   EquipmentDes: "\uC0C8\uBCBD\uC758 \uAE30\uC6B4\uC774 \uB2F4\uAE34 \uBD80\uCE20\uC774\uB2E4.\n\uBCF4\uB77C\uC0C9

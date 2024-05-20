@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 07 Executor Shoes
   ItemID: 905007
   EquipmentName: "\uC9D1\uD589\uC790\uC758 \uBD80\uCE20"
-  RequireCost: 115000000
+  RequireCost: 196000000
   isCanBuy: 1
   DropRate: 6
   EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC778 \uAC15\uCCA0 \uBD80\uCE20\uC774\uB2E4."

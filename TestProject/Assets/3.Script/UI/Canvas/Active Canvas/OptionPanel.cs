@@ -14,6 +14,9 @@ public class OptionPanel : MonoBehaviour
     [SerializeField] private Image directToggle;
     [SerializeField] private Sprite[] toggleSprite;
 
+    [Header("오디오")]
+    [SerializeField] private Slider BGMSlider, SFXSlider;
+
     private void OnEnable()
     {
         speedText.text = $"현재 적용 배속 : x{GameManager.Instance.BattleSpeed}";
@@ -22,6 +25,21 @@ public class OptionPanel : MonoBehaviour
             padToggle.sprite = GameManager.Instance.isMovePad ? toggleSprite[1] : toggleSprite[0];
             directToggle.sprite = GameManager.Instance.isMovePad ? toggleSprite[0] : toggleSprite[1];
         }
+        // 슬라이더 초기값 설정
+        float bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.4f);
+        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.6f);
+
+        BGMSlider.minValue = 0f;
+        BGMSlider.maxValue = 0.4f;
+        BGMSlider.value = bgmVolume;
+
+        SFXSlider.minValue = 0f;
+        SFXSlider.maxValue = 0.6f;
+        SFXSlider.value = sfxVolume;
+
+        // 이벤트 리스너 추가
+        BGMSlider.onValueChanged.AddListener(delegate { OnBGMSliderValueChanged(); });
+        SFXSlider.onValueChanged.AddListener(delegate { OnSFXSliderValueChanged(); });
     }
 
     public void QuitButton()
@@ -52,5 +70,21 @@ public class OptionPanel : MonoBehaviour
         }
         padToggle.sprite = GameManager.Instance.isMovePad ? toggleSprite[1] : toggleSprite[0];
         directToggle.sprite = GameManager.Instance.isMovePad ? toggleSprite[0] : toggleSprite[1];
+    }
+
+    public void OnBGMSliderValueChanged()
+    {
+        float value = BGMSlider.value;
+        PlayerPrefs.SetFloat("BGMVolume", value);
+        PlayerPrefs.Save(); // 값 저장
+        AudioManager.instance.SetBGMVolume(value);
+    }
+
+    public void OnSFXSliderValueChanged()
+    {
+        float value = SFXSlider.value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
+        PlayerPrefs.Save(); // 값 저장
+        AudioManager.instance.SetSFXVolume(value);
     }
 }

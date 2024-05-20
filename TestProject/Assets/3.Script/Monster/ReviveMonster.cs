@@ -62,6 +62,7 @@ public class ReviveMonster : MonoBehaviour
     {
         if (isNearPlayer)
         {
+            AudioManager.instance.PlaySFX("ButtonClick");
             GameManager.Instance.DeadMonsterList.Remove(mon.monsterData.MonsterID);
             mon.isDead = false; // 몬스터 부활
             mon.animator.enabled = true;

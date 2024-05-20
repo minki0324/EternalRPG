@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 13 Horn Ring
   ItemID: 909013
   EquipmentName: "\uBFD4 \uBC18\uC9C0"
-  RequireCost: 32800000
+  RequireCost: 58600000
   isCanBuy: 1
   DropRate: 13
   EquipmentDes: "\uBFD4 \uC7A5\uC2DD\uC774 \uB2EC\uB9B0 \uBC18\uC9C0\uC774\uB2E4."

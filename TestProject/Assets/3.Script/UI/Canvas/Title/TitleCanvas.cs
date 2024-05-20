@@ -15,6 +15,11 @@ public class TitleCanvas : MonoBehaviour
     [SerializeField] private GameObject cardBuffPanel;
     [SerializeField] private GameObject cardBuffWarningPanel;
 
+    private void Start()
+    {
+        AudioManager.instance.PlayBGM("타이틀");
+    }
+
     public void TitleStartButton()
     {
         infomationText.text = $"레벨 : {GameManager.Instance.PlayerLevel:N0}\n" +
@@ -88,7 +93,6 @@ public class TitleCanvas : MonoBehaviour
         {
             yield return null;
         }
-
         SceneManager.LoadScene(1);
     }
 
@@ -172,5 +176,9 @@ public class TitleCanvas : MonoBehaviour
         GameManager.Instance.RenewAbility();
         GameManager.Instance.PlayerCurHP = GameManager.Instance.PlayerMaxHP;
         TitleStartButton();
+    }
+    public void ButtonClickSFX()
+    {
+        AudioManager.instance.PlaySFX("ButtonClick");
     }
 }

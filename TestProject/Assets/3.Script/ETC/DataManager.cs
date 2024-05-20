@@ -7,6 +7,7 @@ using UnityEngine.Android;
 using Newtonsoft.Json;
 using System;
 
+#region Other Class
 [System.Serializable]
 public class QuickSlotData
 {
@@ -100,6 +101,7 @@ public class PlayerData
     public bool FirstStart;
     public int cardBuff;
     public bool isMovePad;
+    public bool isTest;
 
     public PlayerData()
     {
@@ -136,7 +138,7 @@ public class MasterLevelData
 
     }
 }
-
+#endregion
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
@@ -530,6 +532,7 @@ public class DataManager : MonoBehaviour
         playerData.cardBuff = (int)GameManager.Instance.CardBuff;
         playerData.GemCount = GameManager.Instance.GemCount;
         playerData.isMovePad = GameManager.Instance.isMovePad;
+        playerData.isTest = GameManager.Instance.isTest;
 
         try
         {
@@ -593,6 +596,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.CardBuff = (CardBuffEnum)playerData.cardBuff;
             GameManager.Instance.GemCount = playerData.GemCount;
             GameManager.Instance.isMovePad = playerData.isMovePad;
+            GameManager.Instance.isTest = playerData.isTest;
         }
     }
     #endregion
@@ -998,5 +1002,16 @@ public class DataManager : MonoBehaviour
         totalOwnCount += OtherOwnCount.Count * 10;
 
         return totalOwnCount;
+    }
+
+    public void ResetData()
+    {
+        if (File.Exists(equipmentPath)) File.Delete(equipmentPath);
+        if(File.Exists(ownCountPath)) File.Delete(ownCountPath);
+        if (File.Exists(quickSlotEquipmentPath)) File.Delete(quickSlotEquipmentPath);
+        if (File.Exists(quickSlotEquipmentNamePath)) File.Delete(quickSlotEquipmentNamePath);
+        if (File.Exists(playerDataPath)) File.Delete(playerDataPath);
+        if (File.Exists(eliteMonsterPath)) File.Delete(eliteMonsterPath);
+        if (File.Exists(masterLevelPath)) File.Delete(masterLevelPath);
     }
 }

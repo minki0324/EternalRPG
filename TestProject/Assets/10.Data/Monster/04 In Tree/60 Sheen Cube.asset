@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee22763c2fe9c9f45b66c60bf9c30aad, type: 3}
   m_Name: 60 Sheen Cube
   m_EditorClassIdentifier: 
-  MonsterName: "\uAD11\uD718\uC758 \uD050\uBE0C\uB9AD"
+  MonsterName: "\uC624\uC0C9\uC758 \uD050\uBE0C\uB9AD"
   MonsterLocation: "\uC8FD\uC740 \uB098\uBB34 \uB3D9\uAD74"
   MonsterID: 60
   MonsterType: "\uC815\uB839 - \uC5D8\uB9AC\uD2B8"
@@ -40,5 +40,6 @@ MonoBehaviour:
   RewordGold: 810000
   RewordEnergy: 8
   RewardItem:
-  - {fileID: 11400000, guid: ab4db9e492bb7704780900657878cff7, type: 2}
+  - {fileID: 11400000, guid: ff8d7834f29fba5408141717eb0aab7f, type: 2}
+  - {fileID: 11400000, guid: ad7507f8e52d6334586ac5955dd9d283, type: 2}
   RewardRune: {fileID: 11400000, guid: 178c3776401a4584380fdd5454f5a0a3, type: 2}

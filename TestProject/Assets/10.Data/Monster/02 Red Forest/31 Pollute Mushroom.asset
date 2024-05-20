@@ -39,7 +39,5 @@ MonoBehaviour:
   RewordEXP: 15000000
   RewordGold: 58000
   RewordEnergy: 0
-  RewardItem:
-  - {fileID: 11400000, guid: ed2d370a8c9b15e45a0917614ab6cc19, type: 2}
-  - {fileID: 11400000, guid: b8691dfea60847d4790eff41b36d1bd0, type: 2}
+  RewardItem: []
   RewardRune: {fileID: 0}

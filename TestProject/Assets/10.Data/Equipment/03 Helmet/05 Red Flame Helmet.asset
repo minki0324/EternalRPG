@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 05 Red Flame Helmet
   ItemID: 903005
   EquipmentName: "\uC801\uC5FC\uC758 \uD22C\uAD6C"
-  RequireCost: 9400000
+  RequireCost: 19500000
   isCanBuy: 1
   DropRate: 13
   EquipmentDes: "\uBD89\uC740 \uC545\uADC0\uC758 \uAC00\uBA74\uC774 \uB2EC\uB9B0

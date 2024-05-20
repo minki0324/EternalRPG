@@ -50,9 +50,12 @@ public class Battle : MonoBehaviour
     private Coroutine battleCoroutine;
     [Header("룬")]
     private bool isDefenceRune = false;
+    private bool isStrongRune = false;
     private bool isHardSkinRune = false;
     private int runeHPRegen;
     private bool isPoisonRune = false;
+    private bool isAcidRune = false;
+    private bool isBrokenRune = false;
 
     private void OnEnable()
     {
@@ -166,6 +169,30 @@ public class Battle : MonoBehaviour
                     break; // 몬스터의 체력이 0 이하이면 for 루프를 빠져나옴
                 }
             }
+
+            if (GameManager.Instance.RuneHashSet.Contains("재생의 룬"))
+            {
+                // 회복 후 체력
+                int newHP = GameManager.Instance.PlayerCurHP + runeHPRegen;
+
+                // 출력해 줄 리젠량
+                int regen = Mathf.Min(runeHPRegen, GameManager.Instance.PlayerMaxHP - GameManager.Instance.PlayerCurHP);
+
+                // 현재 체력 갱신
+                GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, newHP);
+
+                // 배틀로그 띄워주기
+                PrintLog.Instance.BattleLog($"재생의 룬 효과로 {regen:N0} HP를 회복했습니다.");
+            }
+
+            if (isAcidRune)
+            {
+                int acidDeal = Mathf.RoundToInt(mon.MonsterCurHP * 0.03f);
+                mon.MonsterCurHP -= acidDeal;
+
+                PrintLog.Instance.BattleLog($"맹독의 룬 효과로 [{mon.monsterData.MonsterName}]이(가) {acidDeal:N0} 만큼의 피해를 입었습니다.");
+            }
+
             if (mon.MonsterCurHP <= 0)
             {
                 break; // 몬스터의 체력이 0 이하이면 while 루프를 빠져나옴
@@ -237,6 +264,36 @@ public class Battle : MonoBehaviour
                 yield return battleDelay;
                 playerHPText.color = Color.white;
             }
+
+            if(GameManager.Instance.RuneHashSet.Contains("재생의 룬"))
+            {
+                // 회복 후 체력
+                int newHP = GameManager.Instance.PlayerCurHP + runeHPRegen;
+
+                // 출력해 줄 리젠량
+                int regen = Mathf.Min(runeHPRegen, GameManager.Instance.PlayerMaxHP - GameManager.Instance.PlayerCurHP);
+
+                // 현재 체력 갱신
+                GameManager.Instance.PlayerCurHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, newHP);
+
+                // 체력 텍스트 업데이트
+                playerHPText.text = $"{GameManager.Instance.PlayerCurHP:N0} / {GameManager.Instance.PlayerMaxHP:N0}";
+                playerHPSlider.value = (float)GameManager.Instance.PlayerCurHP / GameManager.Instance.PlayerMaxHP;
+
+                // 배틀로그 띄워주기
+                PrintLog.Instance.BattleLog($"재생의 룬 효과로 {regen:N0} HP를 회복했습니다.");
+            }
+
+            if (isAcidRune)
+            {
+                int acidDeal = Mathf.RoundToInt(mon.MonsterCurHP * 0.03f);
+                mon.MonsterCurHP -= acidDeal;
+
+                PrintLog.Instance.BattleLog($"맹독의 룬 효과로 [{mon.monsterData.MonsterName}]이(가) {acidDeal:N0} 만큼의 피해를 입었습니다.");
+                monsterHPText.text = $"{mon.MonsterCurHP:N0} / {mon.MonsterMaxHP:N0}";
+                monsterHPSlider.value = (float)mon.MonsterCurHP / mon.MonsterMaxHP;
+            }
+
             if (mon.MonsterCurHP <= 0)
             {
                 break; // 몬스터의 체력이 0 이하이면 while 루프를 빠져나옴
@@ -297,8 +354,9 @@ public class Battle : MonoBehaviour
             if (!isSkip)
             {
                 effectAnimator.SetTrigger(GetTrigger(comboCount));
+                AudioManager.instance.PlaySFX(GameManager.Instance.WeaponData.WeaponType.ToString());
             }
-            GameManager.Instance.PlayerCurHP += runeHPRegen;
+            
         }
 
         if (mon.MonsterCurHP <= 0)
@@ -316,7 +374,8 @@ public class Battle : MonoBehaviour
     }
     private void PlayerAttack(int _comboCount, bool isSkip)
     {
-        int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, mon.monsterData.MonsterDef);
+        int monsterDef = isBrokenRune ? Mathf.RoundToInt(mon.monsterData.MonsterDef*0.92f) : mon.monsterData.MonsterDef;
+        int damage = DamageCalculate(GameManager.Instance.PlayerATK, GameManager.Instance.CriticalPercant, GameManager.Instance.CriticalDamage, mon.monsterData.CriticalResist, monsterDef);
         int drainAmount = 0;
 
         // 크리티컬 확인
@@ -404,8 +463,9 @@ public class Battle : MonoBehaviour
     {
         int damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
 
-        // 방어의 룬 절대 방어 50
-        damage = isDefenceRune ? damage - 50 : damage;
+        // 절대 방어 
+        damage = Mathf.Max(isDefenceRune ? damage - 50 : damage, 0);
+        damage = Mathf.Max(isStrongRune ? damage - 20000 : damage, 0);
 
         // 철갑의 룬 최종 데미지 4% 감소
         damage = isHardSkinRune ? Mathf.RoundToInt(damage * 0.96f) : damage;
@@ -522,6 +582,7 @@ public class Battle : MonoBehaviour
     private bool Avoid(int _ObjAvoidChance, int _EnemyAvoidResist)
     {
         int adjustedAvoidPercent = _ObjAvoidChance - _EnemyAvoidResist;
+        if (adjustedAvoidPercent < 0) adjustedAvoidPercent = 5;
         float randomValue = Random.Range(0f, 100f);
 
         if (adjustedAvoidPercent > 100 || adjustedAvoidPercent >= randomValue)
@@ -633,8 +694,11 @@ public class Battle : MonoBehaviour
     private void RuneCheck()
     {
         isDefenceRune = GameManager.Instance.RuneHashSet.Contains("방어의 룬");
+        isStrongRune = GameManager.Instance.RuneHashSet.Contains("강인의 룬");
         isPoisonRune = GameManager.Instance.RuneHashSet.Contains("독성의 룬");
         isHardSkinRune = GameManager.Instance.RuneHashSet.Contains("철갑의 룬");
+        isBrokenRune = GameManager.Instance.RuneHashSet.Contains("파갑의 룬");
+        isAcidRune = GameManager.Instance.RuneHashSet.Contains("맹독의 룬");
     }
 
     private string GetTrigger(int comboCount)
@@ -724,6 +788,12 @@ public class Battle : MonoBehaviour
         for (int i = 0; i < 500; i++)
         {
             FakePlayerTurn(mon);
+            fakePlayerHP = Mathf.Min(fakePlayerHP+ runeHPRegen, GameManager.Instance.PlayerMaxHP);
+            if (isAcidRune)
+            {
+                int acid = Mathf.RoundToInt(fakeMonsterHP * 0.03f);
+                fakeMonsterHP -= acid;
+            }
             if (fakeMonsterHP <= 0)
             { // 몬스터의 체력이 0보다 작을 경우 승리
                 return true;
@@ -766,9 +836,6 @@ public class Battle : MonoBehaviour
                 {
                     fakePlayerHP = Mathf.Min(GameManager.Instance.PlayerMaxHP, fakePlayerHP + drainAmount);
                 }
-
-                // 리젠 룬
-                fakePlayerHP += runeHPRegen;
             }
         }
     }
@@ -781,7 +848,7 @@ public class Battle : MonoBehaviour
 
         for (int i = 1; i < comboCount + 1; i++)
         {
-            if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.ComboPercent))
+            if (Avoid(GameManager.Instance.AvoidPercent, mon.monsterData.AvoidResist))
             { // 플레이어가 회피 성공했을 때
 
             }
@@ -790,7 +857,10 @@ public class Battle : MonoBehaviour
                 damage = DamageCalculate(mon.MonsterATK, mon.monsterData.CriticalPercant, mon.monsterData.CriticalDamage, GameManager.Instance.CriticalResist, GameManager.Instance.PlayerDef);
 
                 // 방어의 룬 절대 방어 50
-                damage = isDefenceRune ? damage - 50 : damage;
+                damage = Mathf.Max(isDefenceRune ? damage - 50 : damage, 0);
+                damage = Mathf.Max(isStrongRune ? damage - 20000 : damage, 0);
+
+                damage = isHardSkinRune ? Mathf.RoundToInt(damage * 0.96f) : damage;
 
                 fakePlayerHP = Mathf.Max(0, fakePlayerHP - damage);
 

@@ -260,10 +260,12 @@ public class HUDCanvas : MonoBehaviour
     public IEnumerator BadgeEffect(int totalOwnCount)
     {
         badgeEffectPanel.SetActive(true);
+        AudioManager.instance.PlaySFX("BadgeEffect");
         yield return new WaitForSeconds(0.5f);
 
         badgeEffect.SetTrigger("Badge");
         yield return new WaitForSeconds(1.2f);
+        AudioManager.instance.PlaySFX("BadgeDrop");
         switch(totalOwnCount)
         {
             case 150: // ±¸¸®
@@ -315,5 +317,10 @@ public class HUDCanvas : MonoBehaviour
         bool active = target.activeSelf;
 
         target.SetActive(!active);
+    }
+
+    public void ButtonClickSFX()
+    {
+        AudioManager.instance.PlaySFX("ButtonClick");
     }
 }

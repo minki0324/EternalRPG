@@ -19,6 +19,7 @@ public class EquipmentCanvas : MonoBehaviour
     [SerializeField] private TMP_Text categoryName;
     [SerializeField] private Transform itemListParent;
     [SerializeField] private TMP_Text totalGoldText;
+    [SerializeField] private EquipmentQuickSlot quickSlot;
 
     List<string> basicDataList = new List<string>();
     List<string> percentDataList = new List<string>();
@@ -67,6 +68,7 @@ public class EquipmentCanvas : MonoBehaviour
     private void OnEnable()
     {
         EquipmentManager.Instance.ItemListSet("무기", itemListParent);
+        quickSlot.ListType = "무기";
         totalGoldText.text = $"{GameManager.Instance.Gold:N0}";
         InitImage();
     }
@@ -81,6 +83,7 @@ public class EquipmentCanvas : MonoBehaviour
     public void CategoryButton(string _type)
     {
         categoryName.text = _type;
+        quickSlot.ListType = _type;
         infomationPanel.SetActive(false);
         if (_type == "보조")
         {

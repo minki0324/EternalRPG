@@ -14,7 +14,7 @@ public class DropItem : MonoBehaviour
     public void ToolTipActive()
     {
         bool tooltipActive = TooltipPanel.activeSelf;
-
+        AudioManager.instance.PlaySFX("ButtonClick");
         TooltipPanel.SetActive(!tooltipActive);
     }
 }

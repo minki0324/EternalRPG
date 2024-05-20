@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 06 Emperor Knight Armor
   ItemID: 901006
   EquipmentName: "\uD669\uC2E4 \uAE30\uC0AC \uAC11\uC637"
-  RequireCost: 22800000
+  RequireCost: 68500000
   isCanBuy: 1
   DropRate: 21
   EquipmentDes: "\uC81C\uAD6D\uC758 \uAE30\uC0AC\uB4E4\uC774 \uC0AC\uC6A9\uD558\uB294
