@@ -19446,7 +19446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1301572695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27969,6 +27969,7 @@ MonoBehaviour:
   QuickSlotIndex: 0
   FirstConnect: 0
   isMovePad: 1
+  isPanelOpen: 1
   masterLevelTable: []
   MasterLevel: 1
   MasterCurrentEXP: 0

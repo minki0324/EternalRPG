@@ -57,10 +57,17 @@ public class EquipmentQuickSlot : MonoBehaviour
     [SerializeField] private TMP_Text[] ringTexts;
     [SerializeField] private TMP_Text[] otherTexts;
 
-    private bool isPanelOpen = true;
     private bool isMain = false;
     private Coroutine panelMoveCoroutine;
     public string ListType = string.Empty;
+
+    private void Start()
+    {
+        Vector3 qucikSlotStartPos = GameManager.Instance.isPanelOpen ? new Vector3(-410, -465, 0) : new Vector3(-640, -465, 0);
+        OCButtonImage.sprite = GameManager.Instance.isPanelOpen ? OCButtonSprite[0] : OCButtonSprite[1];
+        RectTransform rectTransform = HUDQuickSlotPanel.GetComponent<RectTransform>();
+        rectTransform.localPosition = qucikSlotStartPos;
+    }
 
     private void OnEnable()
     {
@@ -99,12 +106,12 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void AskQuickSlotPanel(int _index)
     {
-        if(GameManager.Instance.CurrentEnergy <= 0)
+        if (GameManager.Instance.CurrentEnergy <= 0)
         {
             PrintLog.Instance.StaticLog($"에너지가 없어 퀵 슬롯 변경이 불가능 합니다.");
             return;
         }
-        if(!activeCanvas.activeSelf)
+        if (!activeCanvas.activeSelf)
         { // 메인부터 켰는지
             GameManager.Instance.QuickSlotIndex = _index;
             DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
@@ -122,7 +129,7 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void QuickBackButton()
     {
-        if(isMain)
+        if (isMain)
         {
             activeCanvas.SetActive(false);
             isMain = false;
@@ -132,7 +139,7 @@ public class EquipmentQuickSlot : MonoBehaviour
     private void PrintEquipmentData(int _index)
     {
         EquipmentSet equipmentSet = DataManager.Instance.GetQuickSlotData(_index);
-        if(equipmentSet == null)
+        if (equipmentSet == null)
         {
             equipmentSet = new EquipmentSet();
         }
@@ -174,7 +181,7 @@ public class EquipmentQuickSlot : MonoBehaviour
         beltText.text = equipmentSet.EquipBelt != null ? equipmentSet.EquipBelt.EquipmentName : "미장착";
         shoulderArmorText.text = equipmentSet.EquipShoulder != null ? equipmentSet.EquipShoulder.EquipmentName : "미장착";
         necklessText.text = equipmentSet.EquipNeckless != null ? equipmentSet.EquipNeckless.EquipmentName : "미장착";
-        for(int i = 0; i < ringTexts.Length; i++)
+        for (int i = 0; i < ringTexts.Length; i++)
         {
             ringTexts[i].text = equipmentSet.EquipRings[i] != null ? equipmentSet.EquipRings[i].EquipmentName : "미장착";
         }
@@ -186,7 +193,7 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void ChangeEquipmentQuickSlot()
     {
-        if(GameManager.Instance.CurrentEnergy > 0)
+        if (GameManager.Instance.CurrentEnergy > 0)
         {
             GameManager.Instance.QuickSlotIndex = quickSlotIndex;
             DataManager.Instance.LoadQuickSlotEquipment(GameManager.Instance.QuickSlotIndex);
@@ -208,13 +215,13 @@ public class EquipmentQuickSlot : MonoBehaviour
 
     public void OCButton()
     {
-        if (!isPanelOpen)
+        if (!GameManager.Instance.isPanelOpen)
         {
             // 패널 열기 코루틴 시작
             if (panelMoveCoroutine != null)
                 StopCoroutine(panelMoveCoroutine);
             panelMoveCoroutine = StartCoroutine(PanelMove(false));
-            isPanelOpen = true;
+            GameManager.Instance.isPanelOpen = true;
         }
         else
         {
@@ -222,7 +229,7 @@ public class EquipmentQuickSlot : MonoBehaviour
             if (panelMoveCoroutine != null)
                 StopCoroutine(panelMoveCoroutine);
             panelMoveCoroutine = StartCoroutine(PanelMove(true));
-            isPanelOpen = false;
+            GameManager.Instance.isPanelOpen = false;
         }
     }
 
@@ -251,17 +258,17 @@ public class EquipmentQuickSlot : MonoBehaviour
         // 마지막 위치 설정
         rectTransform.localPosition = endPos;
 
-        for(int i = 0; i < HUDButton.Length; i++)
+        for (int i = 0; i < HUDButton.Length; i++)
         {
             HUDButton[i].interactable = true;
         }
-        if(!_isOpen)
+        if (!_isOpen)
         {
             OCButtonImage.sprite = OCButtonSprite[0];
         }
         else
         {
             OCButtonImage.sprite = OCButtonSprite[1];
-        }    
+        }
     }
 }

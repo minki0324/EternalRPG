@@ -15,7 +15,7 @@ MonoBehaviour:
   EquipmentType: 12
   SpriteName: 25 Balance Rune
   ItemID: 25
-  EquipmentName: "\uB9C8\uB825\uC758 \uB8EC"
+  EquipmentName: "\uADE0\uD615\uC758 \uB8EC"
   RequireCost: 0
   isCanBuy: 0
   DropRate: 0

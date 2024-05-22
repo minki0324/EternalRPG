@@ -102,6 +102,7 @@ public class PlayerData
     public int cardBuff;
     public bool isMovePad;
     public bool isTest;
+    public bool isQuickSlotPanelOpen;
 
     public PlayerData()
     {
@@ -191,6 +192,7 @@ public class DataManager : MonoBehaviour
             return;
         }
         ownCountPath = Application.persistentDataPath + "/EquipmentOwnCount.json";
+        Debug.Log(ownCountPath);
         quickSlotEquipmentPath = Application.persistentDataPath + "/EquipmentSet.json";
         equipmentPath = Application.persistentDataPath + "/Equipment.json";
         playerDataPath = Application.persistentDataPath + "/PlayerData.json";
@@ -533,6 +535,7 @@ public class DataManager : MonoBehaviour
         playerData.GemCount = GameManager.Instance.GemCount;
         playerData.isMovePad = GameManager.Instance.isMovePad;
         playerData.isTest = GameManager.Instance.isTest;
+        playerData.isQuickSlotPanelOpen = GameManager.Instance.isPanelOpen;
 
         try
         {
@@ -597,6 +600,7 @@ public class DataManager : MonoBehaviour
             GameManager.Instance.GemCount = playerData.GemCount;
             GameManager.Instance.isMovePad = playerData.isMovePad;
             GameManager.Instance.isTest = playerData.isTest;
+            GameManager.Instance.isPanelOpen = playerData.isQuickSlotPanelOpen;
         }
     }
     #endregion

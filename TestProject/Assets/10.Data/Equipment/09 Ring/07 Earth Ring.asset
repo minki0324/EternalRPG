@@ -28,8 +28,8 @@ MonoBehaviour:
   RingCriticalResist: 0
   RingDrainPercent: 17
   RingDrainResist: 19
-  RingEXPPercent: 17
-  RingGoldPercent: 0
+  RingEXPPercent: 0
+  RingGoldPercent: 15
   RingSTRPercent: 0
   RingLUCPercent: 0
   RingDEXPercent: 0

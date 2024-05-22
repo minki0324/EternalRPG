@@ -16,7 +16,7 @@ MonoBehaviour:
   SpriteName: 04 Black Iron Armor
   ItemID: 901004
   EquipmentName: "\uD751\uCCA0 \uAC11\uC637"
-  RequireCost: 1950000
+  RequireCost: 1750000
   isCanBuy: 1
   DropRate: 16
   EquipmentDes: "\uD751\uC0C9 \uCCA0\uB85C \uB4A4\uB36E\uC778 \uAC11\uC637\uC774\uB2E4."
